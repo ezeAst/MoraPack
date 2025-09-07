@@ -7,10 +7,10 @@ public class Pedido {
     private String clienteId;
     private int cantidad;
     private LocalDateTime fechaRegistro;
-    private String lugarDestino;
+    private Aeropuerto lugarDestino;
     private LocalDateTime fechaLimite;
 
-    public Pedido(String id, String clienteId, int cantidad, LocalDateTime fechaRegistro, String lugarDestino, LocalDateTime fechaLimite) {
+    public Pedido(String id, String clienteId, int cantidad, LocalDateTime fechaRegistro, Aeropuerto lugarDestino, LocalDateTime fechaLimite) {
         this.id = id;
         this.clienteId = clienteId;
         this.cantidad = cantidad;
@@ -51,11 +51,11 @@ public class Pedido {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public String getLugarDestino() {
+    public Aeropuerto getLugarDestino() {
         return lugarDestino;
     }
 
-    public void setLugarDestino(String lugarDestino) {
+    public void setLugarDestino(Aeropuerto lugarDestino) {
         this.lugarDestino = lugarDestino;
     }
 

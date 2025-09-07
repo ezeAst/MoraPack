@@ -1,5 +1,7 @@
 package com.morapack.models;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -46,12 +48,30 @@ public class SolucionLogistica
         this.cantidadRetraso = cantidadRetraso;
     }
 
-    public void asignarPedidoARuta(String pedidoId, List<Vuelo> vuelos) {
-        RutaPedido ruta = new RutaPedido(pedidoId, vuelos);
-        asignacionPedidos.put(pedidoId, ruta);
+    public void asignarPedidoARuta(Pedido pedido, List<Vuelo> vuelos) {
+        RutaPedido ruta = new RutaPedido(pedido, vuelos);
+        asignacionPedidos.put(pedido, ruta);
         //vuelosPorPedido.put(pedidoId, vuelos);
     }
 
+    // Agregar este método en SolucionLogistica para facilitar operaciones
+    public void agregarRutaPedido(String pedidoId, RutaPedido ruta) {
+        if (asignacionPedidos == null) {
+            asignacionPedidos = new HashMap<>();
+        }
+        asignacionPedidos.put(pedidoId, ruta);
+    }
+
+    // También agregar método para obtener pedidos en un vuelo específico
+    public List<String> getPedidosEnVuelo(String vueloId) {
+        if (asignacionPedidos == null) return new ArrayList<>();
+
+        return asignacionPedidos.values().stream()
+                .filter(ruta -> ruta.getSecuenciaVuelos().stream()
+                        .anyMatch(vuelo -> vuelo.getId().equals(vueloId)))
+                .map(RutaPedido::getPedido)
+                .collect(Collectors.toList());
+    }
 
 
 }
