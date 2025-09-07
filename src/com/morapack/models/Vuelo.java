@@ -5,16 +5,16 @@ import java.time.temporal.ChronoUnit;
 
 public class Vuelo {
     private String id;
-    private String origen;
-    private String destino;
+    private Aeropuerto origen;
+    private Aeropuerto destino;
     private LocalDateTime horaSalida;
     private LocalDateTime horaLlegada;
     private int capacidadMaxima;
     private double duracionHoras;
     private EstadoVuelo estadoVuelo;
+    private Boolean esInternacional;
 
-
-    public Vuelo(String id, String origen, String destino, LocalDateTime horaSalida, LocalDateTime horaLlegada, int capacidadMaxima, double duracionHoras) {
+    public Vuelo(String id, Aeropuerto origen, Aeropuerto destino, LocalDateTime horaSalida, LocalDateTime horaLlegada, int capacidadMaxima, double duracionHoras) {
         this.id = id;
         this.origen = origen;
         this.destino = destino;
@@ -23,6 +23,7 @@ public class Vuelo {
         this.capacidadMaxima = capacidadMaxima;
         this.duracionHoras = duracionHoras;
         this.estadoVuelo = EstadoVuelo.A_TIEMPO;
+        this.esInternacional = origen.getContinente().equals(destino.getContinente());
     }
 
     public String getId() {
@@ -33,19 +34,19 @@ public class Vuelo {
         this.id = id;
     }
 
-    public String getOrigen() {
+    public Aeropuerto getOrigen() {
         return origen;
     }
 
-    public void setOrigen(String origen) {
+    public void setOrigen(Aeropuerto origen) {
         this.origen = origen;
     }
 
-    public String getDestino() {
+    public Aeropuerto getDestino() {
         return destino;
     }
 
-    public void setDestino(String destino) {
+    public void setDestino(Aeropuerto destino) {
         this.destino = destino;
     }
 
@@ -90,4 +91,8 @@ public class Vuelo {
     }
 
     public void cancelar() { this.estadoVuelo = EstadoVuelo.CANCELADO; }
+
+    public Boolean getEsInternacional() {
+        return esInternacional;
+    }
 }

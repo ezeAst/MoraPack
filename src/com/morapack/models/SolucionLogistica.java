@@ -8,12 +8,12 @@ import java.util.stream.Collectors;
 
 public class SolucionLogistica
 {
-    private Map<String, RutaPedido> asignacionPedidos;
+    private Map<Pedido, RutaPedido> asignacionPedidos;
     //private Map<String, List<String>> vuelosPorPedido;  // Vista inversa
     private int cantidadAtiempo;
     private int cantidadRetraso;
 
-    public SolucionLogistica(Map<String, RutaPedido> asignacionPedidos, int cantidadAtiempo, int cantidadRetraso) {
+    public SolucionLogistica(Map<Pedido, RutaPedido> asignacionPedidos, int cantidadAtiempo, int cantidadRetraso) {
         this.asignacionPedidos = asignacionPedidos;
         this.cantidadAtiempo = cantidadAtiempo;
         this.cantidadRetraso = cantidadRetraso;
@@ -24,11 +24,11 @@ public class SolucionLogistica
     }
 
 
-    public Map<String, RutaPedido> getAsignacionPedidos() {
+    public Map<Pedido, RutaPedido> getAsignacionPedidos() {
         return asignacionPedidos;
     }
 
-    public void setAsignacionPedidos(Map<String, RutaPedido> asignacionPedidos) {
+    public void setAsignacionPedidos(Map<Pedido, RutaPedido> asignacionPedidos) {
         this.asignacionPedidos = asignacionPedidos;
     }
 
@@ -55,15 +55,15 @@ public class SolucionLogistica
     }
 
     // Agregar este método en SolucionLogistica para facilitar operaciones
-    public void agregarRutaPedido(String pedidoId, RutaPedido ruta) {
+    public void agregarRutaPedido(Pedido pedido, RutaPedido ruta) {
         if (asignacionPedidos == null) {
             asignacionPedidos = new HashMap<>();
         }
-        asignacionPedidos.put(pedidoId, ruta);
+        asignacionPedidos.put(pedido, ruta);
     }
 
     // También agregar método para obtener pedidos en un vuelo específico
-    public List<String> getPedidosEnVuelo(String vueloId) {
+    /*public List<String> getPedidosEnVuelo(String vueloId) {
         if (asignacionPedidos == null) return new ArrayList<>();
 
         return asignacionPedidos.values().stream()
@@ -72,6 +72,6 @@ public class SolucionLogistica
                 .map(RutaPedido::getPedido)
                 .collect(Collectors.toList());
     }
-
+    */
 
 }

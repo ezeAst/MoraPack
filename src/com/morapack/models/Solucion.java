@@ -50,7 +50,8 @@ public class Solucion {
 
         // Calcular cada componente
         double puntuacionEntregaTiempo = calcularEntregaATiempo();
-        double puntuacionMinimizarAtraso = calcularMinimizarAtraso();
+        //double puntuacionMinimizarAtraso = calcularMinimizarAtraso();
+        double puntuacionMinimizarAtraso = 0;
         double puntuacionCapacidades = calcularRespetarCapacidades();
         double puntuacionAprovechamiento = calcularAprovechamientoVuelos();
         double puntuacionRutas = calcularCalidadRutas();
@@ -70,7 +71,7 @@ public class Solucion {
 
     // PRIORIDAD #1: Entregar a tiempo (0-100 puntos)
     private double calcularEntregaATiempo() {
-        Map<String, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
+        Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
         int totalPedidos = asignaciones.size();
 
         if (totalPedidos == 0) return 0.0;
@@ -89,7 +90,7 @@ public class Solucion {
 
     // PRIORIDAD #2: Minimizar atraso (0-100 puntos, penaliza atrasos severos)
     private double calcularMinimizarAtraso() {
-        Map<String, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
+        Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
         int totalPedidos = asignaciones.size();
 
         if (totalPedidos == 0) return 0.0;
@@ -177,7 +178,7 @@ public class Solucion {
 
     // PRIORIDAD #5: Evitar rutas malas (0-100 puntos)
     private double calcularCalidadRutas() {
-        Map<String, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
+        Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
 
         if (asignaciones.isEmpty()) return 0.0;
 
@@ -234,7 +235,9 @@ public class Solucion {
         }
 
         long diasEntrega = ChronoUnit.DAYS.between(fechaSalida, fechaLlegada);
-        return diasEntrega <= 3; // Máximo 3 días para estar "a tiempo"
+        if(ruta.getEsInternacional()==true)
+            return diasEntrega<=3;// Máximo 3 días para estar "a tiempo"
+        else return diasEntrega<=2;
     }
 
     private double calcularDiasAtraso(RutaPedido ruta) {

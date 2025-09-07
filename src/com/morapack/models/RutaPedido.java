@@ -10,6 +10,7 @@ public class RutaPedido {
     private Aeropuerto almacenDestino;
     private LocalDateTime fechaSalida;
     private LocalDateTime fechaLlegada;
+    private Boolean esInternacional;
 
     public RutaPedido(Pedido pedido, List<Vuelo> secuenciaVuelos, Aeropuerto almacenOrigen, Aeropuerto almacenDestino, LocalDateTime fechaSalida, LocalDateTime fechaLlegada) {
         this.pedido = pedido;
@@ -18,14 +19,13 @@ public class RutaPedido {
         this.almacenDestino = pedido.getLugarDestino();
         this.fechaSalida = fechaSalida;
         this.fechaLlegada = fechaLlegada;
+        this.esInternacional = false;
     }
 
     public RutaPedido( Pedido pedido, List<Vuelo> vuelos) {
         this.pedido = pedido;
         this.secuenciaVuelos = vuelos;
     }
-
-
 
     public List<Vuelo> getSecuenciaVuelos() {
         return secuenciaVuelos;
@@ -73,5 +73,17 @@ public class RutaPedido {
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+
+    public Boolean getEsInternacional() { return esInternacional;}
+
+    public void setEsInternacional(Boolean esInternacional) { this.esInternacional = esInternacional;}
+
+    public void agregarVuelo(Vuelo vuelo) {
+        this.secuenciaVuelos.add(vuelo);
+        if (this.secuenciaVuelos.getLast().getEsInternacional()){
+            this.setEsInternacional(true);
+        }
+
     }
 }

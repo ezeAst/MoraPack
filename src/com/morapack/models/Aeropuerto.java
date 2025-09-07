@@ -7,14 +7,16 @@ public class Aeropuerto {
     private int capacidad;
     private int capacidadAct;
     private int husoHorario;
+    private String continente;
 
-    public Aeropuerto(String codigo, String nombre, String pais, int capacidad, int capacidadAct, int husoHorario) {
+    public Aeropuerto(String codigo, String nombre, String pais, int capacidad, int capacidadAct, int husoHorario, String continente) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.pais = pais;
         this.capacidad = capacidad;
         this.capacidadAct = capacidadAct;
         this.husoHorario = husoHorario;
+        this.continente = continente;
     }
 
     public String getCodigo() {
@@ -64,4 +66,6 @@ public class Aeropuerto {
     public void setHusoHorario(int husoHorario) {
         this.husoHorario = husoHorario;
     }
+
+    public String getContinente() { return continente; }
 }
