@@ -23,7 +23,7 @@ public class Vuelo {
         this.capacidadMaxima = capacidadMaxima;
         this.duracionHoras = duracionHoras;
         this.estadoVuelo = EstadoVuelo.A_TIEMPO;
-        this.esInternacional = origen.getContinente().equals(destino.getContinente());
+        this.esInternacional = !origen.getContinente().equals(destino.getContinente());
     }
 
     public String getId() {

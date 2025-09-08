@@ -22,9 +22,18 @@ public class RutaPedido {
         this.esInternacional = false;
     }
 
-    public RutaPedido( Pedido pedido, List<Vuelo> vuelos) {
+    public RutaPedido(Pedido pedido, List<Vuelo> vuelos) {
         this.pedido = pedido;
         this.secuenciaVuelos = vuelos;
+        this.fechaLlegada = vuelos.getLast().getHoraLlegada();
+        this.esInternacional = vuelos.stream().anyMatch(Vuelo::getEsInternacional);
+        if (this.esInternacional == false) {
+            this.pedido.setFechaLimite(this.pedido.getFechaRegistro().plusDays(2));
+        }
+        else{
+            this.pedido.setFechaLimite(this.pedido.getFechaRegistro().plusDays(3));
+        }
+
     }
 
     public List<Vuelo> getSecuenciaVuelos() {
