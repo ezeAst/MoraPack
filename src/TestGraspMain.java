@@ -64,7 +64,7 @@ public class TestGraspMain {
         // Aeropuertos destino
         aeropuertos.add(new Aeropuerto("JFK", "John F Kennedy", "USA", 900, 0, -5, "America"));
         aeropuertos.add(new Aeropuerto("LHR", "Heathrow", "Reino Unido", 1200, 0, 0, "Europa"));
-        aeropuertos.add(new Aeropuerto("NRT", "Narita", "Japon", 800, 0, 9, "Asia"));
+        aeropuertos.add(new Aeropuerto("NRT", "Narita", "Japan", 800, 0, 9, "Asia"));
         aeropuertos.add(new Aeropuerto("SYD", "Sydney", "Australia", 700, 0, 10, "Oceania"));
         aeropuertos.add(new Aeropuerto("DXB", "Dubai", "UAE", 1500, 0, 4, "Asia"));
         aeropuertos.add(new Aeropuerto("CDG", "Charles de Gaulle", "Francia", 1100, 0, 1, "Europa"));
@@ -120,7 +120,7 @@ public class TestGraspMain {
                 fechaBase.plusHours(18), 16, 310));
         //vuelos directos
         vuelos.add(crearVuelo("V" + (vueloId++), aeropuertoMap.get("LIM"), aeropuertoMap.get("SYD"),
-                fechaBase.plusHours(18), 2, 310));
+                fechaBase.plusHours(18), 19, 310));
 
         return vuelos;
     }

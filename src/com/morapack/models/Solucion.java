@@ -126,62 +126,53 @@ public class Solucion {
 
     // PRIORIDAD #3: No violar capacidades (0-100 puntos, penalización severa)
     private double calcularRespetarCapacidades() {
-        Map<String, Integer> ocupacionPorVuelo = contarPedidosPorVuelo();
-
-        if (ocupacionPorVuelo.isEmpty()) return 100.0;
+        Map<Vuelo, Integer> cargaPorVuelo = contarCargaPorVuelo();
+        if (cargaPorVuelo.isEmpty()) return 100.0;
 
         int violaciones = 0;
         double penalizacionTotal = 0.0;
 
-        for (Map.Entry<String, Integer> entry : ocupacionPorVuelo.entrySet()) {
-            String vueloId = entry.getKey();
-            int pedidosEnVuelo = entry.getValue();
-            int capacidadVuelo = obtenerCapacidadVuelo(vueloId);
-
-            if (pedidosEnVuelo > capacidadVuelo) {
+        for (Map.Entry<Vuelo,Integer> e : cargaPorVuelo.entrySet()) {
+            Vuelo v = e.getKey();
+            int usados = e.getValue();
+            int capacidad = v.getCapacidadMaxima(); // ¡directo del objeto!
+            if (usados > capacidad) {
                 violaciones++;
-                int exceso = pedidosEnVuelo - capacidadVuelo;
-                penalizacionTotal += PENALIZACION_SOBRECARGA * exceso;
+                int exceso = usados - capacidad;
+                penalizacionTotal += PENALIZACION_SOBRECARGA * exceso; // define tu constante
             }
         }
-
-        if (violaciones == 0) return 100.0; // Perfecto, sin violaciones
-
-        // Penalización severa proporcional a violaciones
-        return Math.max(-1000, 100 + penalizacionTotal);
+        if (violaciones == 0) return 100.0;
+        return Math.max(-1000, 100 - penalizacionTotal);
     }
 
     // PRIORIDAD #4: Aprovechar bien los vuelos (0-100 puntos)
     private double calcularAprovechamientoVuelos() {
-        Map<String, Integer> ocupacionPorVuelo = contarPedidosPorVuelo();
-
+        Map<Vuelo, Integer> ocupacionPorVuelo = contarCargaPorVuelo();
         if (ocupacionPorVuelo.isEmpty()) return 0.0;
 
         double sumaEficiencias = 0.0;
         int vuelosValidos = 0;
 
-        for (Map.Entry<String, Integer> entry : ocupacionPorVuelo.entrySet()) {
-            String vueloId = entry.getKey();
-            int pedidosEnVuelo = entry.getValue();
-            int capacidadVuelo = obtenerCapacidadVuelo(vueloId);
+        for (Map.Entry<Vuelo, Integer> e : ocupacionPorVuelo.entrySet()) {
+            Vuelo vuelo = e.getKey();
+            int unidadesEnVuelo = e.getValue();
+            int capacidad = vuelo.getCapacidadMaxima(); // o getCapacidadActual() si lo manejas
 
-            if (capacidadVuelo > 0 && pedidosEnVuelo <= capacidadVuelo) {
-                // Calcular eficiencia de ocupación
-                double eficiencia = (double) pedidosEnVuelo / capacidadVuelo * 100.0;
+            if (capacidad > 0 && unidadesEnVuelo <= capacidad) {
+                double eficiencia = (100.0 * unidadesEnVuelo) / capacidad;
 
-                // Bonus por ocupaciones altas (>80%)
-                if (eficiencia > 80) {
-                    eficiencia += 10; // Bonus de 10 puntos
-                }
+                // Bonus por alta ocupación
+                if (eficiencia > 80.0) eficiencia += 10.0;
 
-                sumaEficiencias += Math.min(100, eficiencia);
+                sumaEficiencias += Math.min(100.0, eficiencia);
                 vuelosValidos++;
             }
+            // si quisieras penalizar sobresaturación, puedes hacerlo aquí
         }
 
-        return vuelosValidos > 0 ? sumaEficiencias / vuelosValidos : 0.0;
+        return (vuelosValidos > 0) ? (sumaEficiencias / vuelosValidos) : 0.0;
     }
-
     // PRIORIDAD #5: Evitar rutas malas (0-100 puntos)
     private double calcularCalidadRutas() {
         Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
@@ -287,17 +278,16 @@ public class Solucion {
         return diasEntrega <= 3;
     }
 
-    private Map<String, Integer> contarPedidosPorVuelo() {
-        Map<String, Integer> conteo = new HashMap<>();
-
+    // Sumar CANTIDAD de pedidos por vuelo (no el número de pedidos)
+    private Map<Vuelo, Integer> contarCargaPorVuelo() {
+        Map<Vuelo, Integer> carga = new HashMap<>();
         for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
-            for (Vuelo vuelo : ruta.getSecuenciaVuelos()) {
-                String vueloId = vuelo.getId();
-                conteo.put(vueloId, conteo.getOrDefault(vueloId, 0) + 1);
+            int unidades = ruta.getPedido().getCantidad(); // paquetes del pedido
+            for (Vuelo v : ruta.getSecuenciaVuelos()) {
+                carga.put(v, carga.getOrDefault(v, 0) + unidades);
             }
         }
-
-        return conteo;
+        return carga;
     }
 
     private int obtenerCapacidadVuelo(String vueloId) {
@@ -371,7 +361,7 @@ public class Solucion {
                 pedidosPorFabrica.getOrDefault("BRU", 0),
                 pedidosPorFabrica.getOrDefault("BAK", 0),
                 pedidosInvalidos,
-                contarPedidosPorVuelo().size(),
+                contarCargaPorVuelo().size(),
                 esSolucionFactible() ? "SÍ" : "NO"
         );
     }
