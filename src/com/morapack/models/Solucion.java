@@ -2,6 +2,7 @@ package com.morapack.models;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,9 @@ public class Solucion {
     private static final double PESO_NO_VIOLAR_CAPACIDAD = 0.15; // 15% - Prioridad #3
     private static final double PESO_APROVECHAR_VUELOS = 0.10;   // 10% - Prioridad #4
     private static final double PESO_EVITAR_RUTAS_MALAS = 0.05;  // 5% - Prioridad #5
+
+    private static final double PENALIZACION_FABRICA_INVALIDA = -5000; // Penalización por no salir de fábrica válida
+    private static final List<String> FABRICAS_VALIDAS = Arrays.asList("LIM", "BRU", "BAK"); // Lima, Bruselas, Baku
 
     // Penalizaciones severas
     private static final double PENALIZACION_SOBRECARGA = -1000;
@@ -55,13 +59,15 @@ public class Solucion {
         double puntuacionCapacidades = calcularRespetarCapacidades();
         double puntuacionAprovechamiento = calcularAprovechamientoVuelos();
         double puntuacionRutas = calcularCalidadRutas();
+        double penalizacionFabricas = calcularPenalizacionFabricas();
 
         // Calcular fitness total
         double fitness = (PESO_ENTREGA_TIEMPO * puntuacionEntregaTiempo) +
                 (PESO_MINIMIZAR_ATRASO * puntuacionMinimizarAtraso) +
                 (PESO_NO_VIOLAR_CAPACIDAD * puntuacionCapacidades) +
                 (PESO_APROVECHAR_VUELOS * puntuacionAprovechamiento) +
-                (PESO_EVITAR_RUTAS_MALAS * puntuacionRutas);
+                (PESO_EVITAR_RUTAS_MALAS * puntuacionRutas) +
+                penalizacionFabricas;
 
         // Actualizar contadores en SolucionLogistica
         actualizarContadores();
@@ -234,10 +240,8 @@ public class Solucion {
             return calcularTiempoBasadoEnVuelos(ruta);
         }
 
-        long diasEntrega = ChronoUnit.DAYS.between(fechaSalida, fechaLlegada);
-        if(ruta.getEsInternacional()==true)
-            return diasEntrega<=3;// Máximo 3 días para estar "a tiempo"
-        else return diasEntrega<=2;
+        long diasEntrega = ChronoUnit.DAYS.between(fechaLlegada, ruta.getPedido().getFechaLimite());
+        return diasEntrega >=0;
     }
 
     private double calcularDiasAtraso(RutaPedido ruta) {
@@ -330,6 +334,11 @@ public class Solucion {
         double capacidades = calcularRespetarCapacidades();
         double aprovechamiento = calcularAprovechamientoVuelos();
         double calidadRutas = calcularCalidadRutas();
+        double penalizacionFabricas = calcularPenalizacionFabricas();
+
+        // Contar pedidos válidos e inválidos por fábrica
+        Map<String, Integer> pedidosPorFabrica = contarPedidosPorFabrica();
+        int pedidosInvalidos = contarPedidosInvalidos();
 
         return String.format(
                 "=== REPORTE DE FITNESS JERÁRQUICO ===\n" +
@@ -338,27 +347,106 @@ public class Solucion {
                         "PRIORIDAD #2 - Minimizar atraso (25%%): %.1f/100\n" +
                         "PRIORIDAD #3 - Respetar capacidades (15%%): %.1f/100\n" +
                         "PRIORIDAD #4 - Aprovechar vuelos (10%%): %.1f/100\n" +
-                        "PRIORIDAD #5 - Calidad de rutas (5%%): %.1f/100\n\n" +
+                        "PRIORIDAD #5 - Calidad de rutas (5%%): %.1f/100\n" +
+                        "PENALIZACIÓN - Fábricas inválidas: %.0f\n\n" +
                         "ESTADÍSTICAS:\n" +
                         "- Pedidos a tiempo: %d/%d (%.1f%%)\n" +
                         "- Pedidos con retraso: %d\n" +
+                        "- Pedidos desde fábricas válidas: %d/%d\n" +
+                        "- Pedidos desde Lima (LIM): %d\n" +
+                        "- Pedidos desde Bruselas (BRU): %d\n" +
+                        "- Pedidos desde Baku (BAK): %d\n" +
+                        "- Pedidos INVÁLIDOS: %d\n" +
                         "- Vuelos utilizados: %d\n" +
                         "- Factible: %s",
                 fitness,
-                entregaTiempo, minimizarAtraso, capacidades, aprovechamiento, calidadRutas,
+                entregaTiempo, minimizarAtraso, capacidades, aprovechamiento, calidadRutas, penalizacionFabricas,
                 solucionLogistica.getCantidadAtiempo(),
                 solucionLogistica.getAsignacionPedidos().size(),
                 entregaTiempo,
                 solucionLogistica.getCantidadRetraso(),
+                (solucionLogistica.getAsignacionPedidos().size() - pedidosInvalidos),
+                solucionLogistica.getAsignacionPedidos().size(),
+                pedidosPorFabrica.getOrDefault("LIM", 0),
+                pedidosPorFabrica.getOrDefault("BRU", 0),
+                pedidosPorFabrica.getOrDefault("BAK", 0),
+                pedidosInvalidos,
                 contarPedidosPorVuelo().size(),
                 esSolucionFactible() ? "SÍ" : "NO"
         );
+    }
+
+    private double calcularPenalizacionFabricas() {
+        Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
+        double penalizacion = 0.0;
+        int pedidosInvalidos = 0;
+
+        for (Map.Entry<Pedido, RutaPedido> entry : asignaciones.entrySet()) {
+            Pedido pedido = entry.getKey();
+            RutaPedido ruta = entry.getValue();
+
+            if (!pedidoSaleDeFabricaValida(ruta)) {
+                penalizacion += PENALIZACION_FABRICA_INVALIDA;
+                pedidosInvalidos++;
+            }
+        }
+
+        // Log para debugging (opcional)
+        if (pedidosInvalidos > 0) {
+            System.out.printf("⚠️ Penalización fábricas: %d pedidos inválidos (%.0f puntos)%n",
+                    pedidosInvalidos, penalizacion);
+        }
+
+        return penalizacion;
+    }
+
+    private boolean pedidoSaleDeFabricaValida(RutaPedido ruta) {
+        if (ruta == null || ruta.getSecuenciaVuelos().isEmpty()) {
+            return false; // Sin vuelos = inválido
+        }
+
+        // Obtener el aeropuerto de origen del primer vuelo
+        Vuelo primerVuelo = ruta.getSecuenciaVuelos().get(0);
+        String codigoOrigenPrimerVuelo = primerVuelo.getOrigen().getCodigo();
+
+        // Verificar si el origen está en la lista de fábricas válidas
+        return FABRICAS_VALIDAS.contains(codigoOrigenPrimerVuelo);
     }
 
     public boolean esSolucionFactible() {
         return calcularRespetarCapacidades() >= 0; // Sin violaciones de capacidad
     }
 
+    private Map<String, Integer> contarPedidosPorFabrica() {
+        Map<String, Integer> contador = new HashMap<>();
+
+        // Inicializar contadores
+        for (String fabrica : FABRICAS_VALIDAS) {
+            contador.put(fabrica, 0);
+        }
+
+        // Contar pedidos por fábrica
+        for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
+            if (ruta.getSecuenciaVuelos().isEmpty()) continue;
+
+            String origenCodigo = ruta.getSecuenciaVuelos().get(0).getOrigen().getCodigo();
+            if (FABRICAS_VALIDAS.contains(origenCodigo)) {
+                contador.put(origenCodigo, contador.get(origenCodigo) + 1);
+            }
+        }
+
+        return contador;
+    }
+
+    private int contarPedidosInvalidos() {
+        int contador = 0;
+        for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
+            if (!pedidoSaleDeFabricaValida(ruta)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
 
 
 
