@@ -18,7 +18,6 @@ public class GraspMoraPack {
     private double alfa = 0.3;
 
     // Fábricas válidas del sistema
-    private static final List<String> FABRICAS = Arrays.asList("LIM", "BRU", "BAK");
 
     public GraspMoraPack(List<Pedido> pedidos, List<Vuelo> vuelos) {
         this.pedidos = new ArrayList<>(pedidos);
@@ -52,7 +51,8 @@ public class GraspMoraPack {
             }
         }
 
-        return new Solucion(solucionLogistica);
+        // CAMBIO PRINCIPAL: Pasar el total de pedidos al constructor
+        return new Solucion(solucionLogistica, pedidos.size());
     }
 
     /**
@@ -63,7 +63,7 @@ public class GraspMoraPack {
         List<CandidatoRuta> candidatos = new ArrayList<>();
 
         // Buscar rutas desde cada fábrica
-        for (String codigoFabrica : FABRICAS) {
+        for (String codigoFabrica : Solucion.FABRICAS) {
             // Rutas directas
             List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigen(codigoFabrica, destinoCodigo);
             if (!rutaDirecta.isEmpty()) {
@@ -232,7 +232,7 @@ public class GraspMoraPack {
         }
 
         System.out.println("Vuelos indexados por origen:");
-        for (String fabrica : FABRICAS) {
+        for (String fabrica : Solucion.FABRICAS) {
             int cantidadVuelos = vuelosPorOrigen.getOrDefault(fabrica, new ArrayList<>()).size();
             System.out.println("- " + fabrica + ": " + cantidadVuelos + " vuelos");
         }

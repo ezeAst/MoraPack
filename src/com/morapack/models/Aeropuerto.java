@@ -1,5 +1,7 @@
 package com.morapack.models;
 
+import java.time.LocalDateTime;
+
 public class Aeropuerto {
     private String codigo;
     private String nombre;
@@ -68,4 +70,19 @@ public class Aeropuerto {
     }
 
     public String getContinente() { return continente; }
+
+    public boolean esFabrica() {
+        return Solucion.FABRICAS.contains(this.codigo);
+    }
+
+    // Agregar simulación de tiempo:
+    public boolean puedeRecibirPaquetes(int cantidad) {
+        return (capacidadAct + cantidad) <= capacidad;
+    }
+
+    public void recibirPaquetes(int cantidad, LocalDateTime tiempoLlegada) {
+        // Simular que los paquetes se van después de 2 horas
+        this.capacidadAct += cantidad;
+        // TODO: Implementar liberación automática después de 2 horas
+    }
 }
