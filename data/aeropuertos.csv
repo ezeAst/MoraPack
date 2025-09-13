@@ -1,0 +1,100 @@
+codigo,nombre,pais,capacidad,capacidadAct,husoHorario,continente
+LIM,Jorge Chavez International,Peru,1200,0,-5,America
+BRU,Brussels Airport,Belgium,1500,0,1,Europa
+BAK,Heydar Aliyev International,Azerbaijan,800,0,4,Asia
+JFK,John F Kennedy International,USA,2000,0,-5,America
+LAX,Los Angeles International,USA,1800,0,-8,America
+MIA,Miami International,USA,1600,0,-5,America
+ORD,Chicago O'Hare International,USA,1900,0,-6,America
+DFW,Dallas Fort Worth International,USA,1700,0,-6,America
+ATL,Hartsfield Jackson Atlanta International,USA,2100,0,-5,America
+SEA,Seattle Tacoma International,USA,1400,0,-8,America
+DEN,Denver International,USA,1500,0,-7,America
+LAS,McCarran International,USA,1300,0,-8,America
+PHX,Phoenix Sky Harbor International,USA,1200,0,-7,America
+IAH,George Bush Intercontinental,USA,1600,0,-6,America
+BOS,Logan International,USA,1400,0,-5,America
+SFO,San Francisco International,USA,1700,0,-8,America
+YYZ,Toronto Pearson International,Canada,1600,0,-5,America
+YVR,Vancouver International,Canada,1300,0,-8,America
+MEX,Mexico City International,Mexico,1500,0,-6,America
+CUN,Cancun International,Mexico,1000,0,-5,America
+GDL,Guadalajara International,Mexico,900,0,-6,America
+BOG,El Dorado International,Colombia,1200,0,-5,America
+LIM,Jorge Newbery Airfield,Argentina,800,0,-3,America
+GRU,Sao Paulo Guarulhos International,Brazil,1800,0,-3,America
+GIG,Rio de Janeiro Galeao International,Brazil,1400,0,-3,America
+BSB,Brasilia International,Brazil,1200,0,-3,America
+SCL,Santiago International,Chile,1300,0,-4,America
+EZE,Ezeiza International,Argentina,1500,0,-3,America
+UIO,Mariscal Sucre International,Ecuador,1000,0,-5,America
+LPB,El Alto International,Bolivia,800,0,-4,America
+LHR,Heathrow,United Kingdom,2500,0,0,Europa
+CDG,Charles de Gaulle,France,2200,0,1,Europa
+FRA,Frankfurt am Main,Germany,2000,0,1,Europa
+AMS,Amsterdam Schiphol,Netherlands,1900,0,1,Europa
+MAD,Madrid Barajas,Spain,1800,0,1,Europa
+FCO,Leonardo da Vinci Rome Fiumicino,Italy,1700,0,1,Europa
+MUC,Munich,Germany,1600,0,1,Europa
+ZUR,Zurich,Switzerland,1400,0,1,Europa
+VIE,Vienna International,Austria,1300,0,1,Europa
+ARN,Stockholm Arlanda,Sweden,1200,0,1,Europa
+CPH,Copenhagen,Denmark,1300,0,1,Europa
+OSL,Oslo Gardermoen,Norway,1100,0,1,Europa
+HEL,Helsinki Vantaa,Finland,1000,0,2,Europa
+WAW,Warsaw Chopin,Poland,1200,0,1,Europa
+PRG,Prague Vaclav Havel,Czech Republic,1000,0,1,Europa
+BUD,Budapest Ferenc Liszt International,Hungary,900,0,1,Europa
+ATH,Athens International,Greece,1300,0,2,Europa
+IST,Istanbul,Turkey,2000,0,3,Europa
+LIS,Lisbon Portela,Portugal,1400,0,0,Europa
+OPO,Porto,Portugal,800,0,0,Europa
+DUB,Dublin,Ireland,1200,0,0,Europa
+EDI,Edinburgh,Scotland,900,0,0,Europa
+MAN,Manchester,England,1100,0,0,Europa
+BCN,Barcelona El Prat,Spain,1500,0,1,Europa
+PMI,Palma de Mallorca,Spain,1000,0,1,Europa
+NRT,Narita International,Japan,2000,0,9,Asia
+HND,Haneda,Japan,1800,0,9,Asia
+ICN,Incheon International,South Korea,2200,0,9,Asia
+PVG,Shanghai Pudong International,China,2500,0,8,Asia
+PEK,Beijing Capital International,China,2300,0,8,Asia
+CAN,Guangzhou Baiyun International,China,2000,0,8,Asia
+HKG,Hong Kong International,Hong Kong,2400,0,8,Asia
+TPE,Taiwan Taoyuan International,Taiwan,1900,0,8,Asia
+SIN,Singapore Changi,Singapore,2600,0,8,Asia
+KUL,Kuala Lumpur International,Malaysia,1800,0,8,Asia
+BKK,Suvarnabhumi,Thailand,2200,0,7,Asia
+CGK,Soekarno Hatta International,Indonesia,1900,0,7,Asia
+MNL,Ninoy Aquino International,Philippines,1600,0,8,Asia
+DEL,Indira Gandhi International,India,2100,0,5,Asia
+BOM,Chhatrapati Shivaji International,India,2000,0,5,Asia
+BLR,Kempegowda International,India,1500,0,5,Asia
+MAA,Chennai International,India,1200,0,5,Asia
+CCU,Netaji Subhas Chandra Bose International,India,1100,0,5,Asia
+DXB,Dubai International,UAE,3000,0,4,Asia
+DOH,Hamad International,Qatar,2500,0,3,Asia
+AUH,Abu Dhabi International,UAE,2000,0,4,Asia
+KWI,Kuwait International,Kuwait,1200,0,3,Asia
+RUH,King Khalid International,Saudi Arabia,1500,0,3,Asia
+JED,King Abdulaziz International,Saudi Arabia,1400,0,3,Asia
+CAI,Cairo International,Egypt,1600,0,2,Africa
+JNB,OR Tambo International,South Africa,1800,0,2,Africa
+CPT,Cape Town International,South Africa,1200,0,2,Africa
+NBO,Jomo Kenyatta International,Kenya,1000,0,3,Africa
+ADD,Addis Ababa Bole International,Ethiopia,1100,0,3,Africa
+LOS,Murtala Muhammed International,Nigeria,1300,0,1,Africa
+ACC,Kotoka International,Ghana,800,0,0,Africa
+DKR,Blaise Diagne International,Senegal,700,0,0,Africa
+CAS,Mohammed V International,Morocco,1200,0,1,Africa
+TUN,Tunis Carthage International,Tunisia,800,0,1,Africa
+SYD,Kingsford Smith,Australia,2000,0,10,Oceania
+MEL,Melbourne Tullamarine,Australia,1800,0,10,Oceania
+BNE,Brisbane,Australia,1500,0,10,Oceania
+PER,Perth,Australia,1200,0,8,Oceania
+ADL,Adelaide,Australia,1000,0,9,Oceania
+AKL,Auckland,New Zealand,1400,0,12,Oceania
+CHC,Christchurch,New Zealand,900,0,12,Oceania
+WLG,Wellington,New Zealand,800,0,12,Oceania
+NOU,Noumea La Tontouta International,New Caledonia,600,0,11,Oceania
+PPT,Tahiti Faa'a International,French Polynesia,700,0,-10,Oceania
