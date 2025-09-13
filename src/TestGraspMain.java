@@ -329,7 +329,7 @@ public class TestGraspMain {
 
         System.out.println("\n📍 AEROPUERTOS (" + aeropuertos.size() + "):");
         for (Aeropuerto a : aeropuertos) {
-            String tipo = (a.getCapacidadAct() > 0) ? "[FÁBRICA]" : "[DESTINO]";
+            String tipo = Solucion.FABRICAS.contains(a.getCodigo()) ? "[FÁBRICA]" : "[DESTINO]";
             System.out.printf("  %s %s - %s, %s (Cap: %d, Actual: %d)%n",
                     tipo, a.getCodigo(), a.getNombre(), a.getPais(), a.getCapacidad(), a.getCapacidadAct());
         }

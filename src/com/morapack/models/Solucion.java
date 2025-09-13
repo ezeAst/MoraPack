@@ -10,25 +10,41 @@ import java.util.Map;
 public class Solucion {
     private SolucionLogistica solucionLogistica;
     private double fitness;
+    private int totalPedidosProblema; // NUEVO: Total de pedidos que deberían atenderse
 
-    private static final double PESO_ENTREGA_TIEMPO = 0.45;    // 45% - Prioridad #1
-    private static final double PESO_MINIMIZAR_ATRASO = 0.25;  // 25% - Prioridad #2
-    private static final double PESO_NO_VIOLAR_CAPACIDAD = 0.15; // 15% - Prioridad #3
-    private static final double PESO_APROVECHAR_VUELOS = 0.10;   // 10% - Prioridad #4
-    private static final double PESO_EVITAR_RUTAS_MALAS = 0.05;  // 5% - Prioridad #5
+    // CONSTANTE PARA IDENTIFICAR FÁBRICAS
+    public static final List<String> FABRICAS = Arrays.asList("LIM", "BRU", "BAK");
+
+    // PESOS AJUSTADOS - PRIORIDAD MÁXIMA A ATENDER TODOS LOS PEDIDOS
+    private static final double PESO_ENTREGA_TIEMPO = 0.50;    // 50% - PRIORIDAD #1 (incluye cobertura)
+    private static final double PESO_MINIMIZAR_ATRASO = 0.20;  // 20% - PRIORIDAD #2
+    private static final double PESO_NO_VIOLAR_CAPACIDAD = 0.15; // 15% - PRIORIDAD #3
+    private static final double PESO_APROVECHAR_VUELOS = 0.10;   // 10% - PRIORIDAD #4
+    private static final double PESO_EVITAR_RUTAS_MALAS = 0.05;  // 5% - PRIORIDAD #5
 
     private static final double PENALIZACION_FABRICA_INVALIDA = -5000; // Penalización por no salir de fábrica válida
-    private static final List<String> FABRICAS_VALIDAS = Arrays.asList("LIM", "BRU", "BAK"); // Lima, Bruselas, Baku
 
     // Penalizaciones severas
     private static final double PENALIZACION_SOBRECARGA = -1000;
     private static final double PENALIZACION_ATRASO_SEVERO = -500;
 
+    // CONSTRUCTORES
     public Solucion(SolucionLogistica solucionLogistica) {
         this.solucionLogistica = solucionLogistica;
+        this.totalPedidosProblema = 0; // Se establecerá después
         this.fitness = calcularFitness();
     }
 
+    /**
+     * Constructor NUEVO que recibe el total de pedidos del problema
+     */
+    public Solucion(SolucionLogistica solucionLogistica, int totalPedidosProblema) {
+        this.solucionLogistica = solucionLogistica;
+        this.totalPedidosProblema = totalPedidosProblema;
+        this.fitness = calcularFitness();
+    }
+
+    // Getters y Setters
     public SolucionLogistica getSolucionLogistica() {
         return solucionLogistica;
     }
@@ -44,18 +60,29 @@ public class Solucion {
     public void setFitness(double fitness) {
         this.fitness = fitness;
     }
+
+    public int getTotalPedidosProblema() {
+        return totalPedidosProblema;
+    }
+
+    public void setTotalPedidosProblema(int totalPedidosProblema) {
+        this.totalPedidosProblema = totalPedidosProblema;
+        this.fitness = calcularFitness(); // Recalcular fitness con el nuevo total
+    }
+
     //------------------------------------------------------------------------------------------------------------------
 
-
+    /**
+     * Calcula el fitness con PRIORIDAD ABSOLUTA en atender todos los pedidos
+     */
     private double calcularFitness() {
         if (solucionLogistica == null || solucionLogistica.getAsignacionPedidos().isEmpty()) {
             return -10000; // Solución vacía es la peor posible
         }
 
         // Calcular cada componente
-        double puntuacionEntregaTiempo = calcularEntregaATiempo();
-        //double puntuacionMinimizarAtraso = calcularMinimizarAtraso();
-        double puntuacionMinimizarAtraso = 0;
+        double puntuacionEntregaTiempo = calcularEntregaATiempoCorregido();
+        double puntuacionMinimizarAtraso = calcularMinimizarAtraso();
         double puntuacionCapacidades = calcularRespetarCapacidades();
         double puntuacionAprovechamiento = calcularAprovechamientoVuelos();
         double puntuacionRutas = calcularCalidadRutas();
@@ -75,8 +102,37 @@ public class Solucion {
         return fitness;
     }
 
-    // PRIORIDAD #1: Entregar a tiempo (0-100 puntos)
-    private double calcularEntregaATiempo() {
+    /**
+     * PRIORIDAD #1 CORREGIDA: Entregar a tiempo considerando TODOS los pedidos del problema
+     * Un pedido no asignado = Un pedido NO entregado a tiempo
+     */
+    private double calcularEntregaATiempoCorregido() {
+        Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
+
+        // Si no conocemos el total, usar el método anterior como fallback
+        if (totalPedidosProblema == 0) {
+            return calcularEntregaATiempoLegacy();
+        }
+
+        int pedidosATiempo = 0;
+
+        // Contar solo los pedidos asignados que están a tiempo
+        for (RutaPedido ruta : asignaciones.values()) {
+            if (esPedidoATiempo(ruta)) {
+                pedidosATiempo++;
+            }
+        }
+
+        // CLAVE: El porcentaje se calcula sobre TODOS los pedidos del problema
+        double porcentajeCobertura = (double) pedidosATiempo / totalPedidosProblema * 100.0;
+
+        return porcentajeCobertura;
+    }
+
+    /**
+     * Método legacy para compatibilidad hacia atrás
+     */
+    private double calcularEntregaATiempoLegacy() {
         Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
         int totalPedidos = asignaciones.size();
 
@@ -90,7 +146,7 @@ public class Solucion {
             }
         }
 
-        // Porcentaje de pedidos a tiempo (0-100)
+        // Porcentaje de pedidos a tiempo solo sobre los asignados
         return (double) pedidosATiempo / totalPedidos * 100.0;
     }
 
@@ -135,11 +191,11 @@ public class Solucion {
         for (Map.Entry<Vuelo,Integer> e : cargaPorVuelo.entrySet()) {
             Vuelo v = e.getKey();
             int usados = e.getValue();
-            int capacidad = v.getCapacidadMaxima(); // ¡directo del objeto!
+            int capacidad = v.getCapacidadMaxima();
             if (usados > capacidad) {
                 violaciones++;
                 int exceso = usados - capacidad;
-                penalizacionTotal += PENALIZACION_SOBRECARGA * exceso; // define tu constante
+                penalizacionTotal += PENALIZACION_SOBRECARGA * exceso;
             }
         }
         if (violaciones == 0) return 100.0;
@@ -157,7 +213,7 @@ public class Solucion {
         for (Map.Entry<Vuelo, Integer> e : ocupacionPorVuelo.entrySet()) {
             Vuelo vuelo = e.getKey();
             int unidadesEnVuelo = e.getValue();
-            int capacidad = vuelo.getCapacidadMaxima(); // o getCapacidadActual() si lo manejas
+            int capacidad = vuelo.getCapacidadMaxima();
 
             if (capacidad > 0 && unidadesEnVuelo <= capacidad) {
                 double eficiencia = (100.0 * unidadesEnVuelo) / capacidad;
@@ -168,11 +224,11 @@ public class Solucion {
                 sumaEficiencias += Math.min(100.0, eficiencia);
                 vuelosValidos++;
             }
-            // si quisieras penalizar sobresaturación, puedes hacerlo aquí
         }
 
         return (vuelosValidos > 0) ? (sumaEficiencias / vuelosValidos) : 0.0;
     }
+
     // PRIORIDAD #5: Evitar rutas malas (0-100 puntos)
     private double calcularCalidadRutas() {
         Map<Pedido, RutaPedido> asignaciones = solucionLogistica.getAsignacionPedidos();
@@ -290,17 +346,6 @@ public class Solucion {
         return carga;
     }
 
-    private int obtenerCapacidadVuelo(String vueloId) {
-        for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
-            for (Vuelo vuelo : ruta.getSecuenciaVuelos()) {
-                if (vuelo.getId().equals(vueloId)) {
-                    return vuelo.getCapacidadMaxima();
-                }
-            }
-        }
-        return 300; // Valor por defecto
-    }
-
     private void actualizarContadores() {
         int aTiempo = 0;
         int conRetraso = 0;
@@ -315,55 +360,6 @@ public class Solucion {
 
         solucionLogistica.setCantidadAtiempo(aTiempo);
         solucionLogistica.setCantidadRetraso(conRetraso);
-    }
-
-    // Reporte detallado
-    public String obtenerReporteFitness() {
-        double entregaTiempo = calcularEntregaATiempo();
-        double minimizarAtraso = calcularMinimizarAtraso();
-        double capacidades = calcularRespetarCapacidades();
-        double aprovechamiento = calcularAprovechamientoVuelos();
-        double calidadRutas = calcularCalidadRutas();
-        double penalizacionFabricas = calcularPenalizacionFabricas();
-
-        // Contar pedidos válidos e inválidos por fábrica
-        Map<String, Integer> pedidosPorFabrica = contarPedidosPorFabrica();
-        int pedidosInvalidos = contarPedidosInvalidos();
-
-        return String.format(
-                "=== REPORTE DE FITNESS JERÁRQUICO ===\n" +
-                        "FITNESS TOTAL: %.2f\n\n" +
-                        "PRIORIDAD #1 - Entregar a tiempo (45%%): %.1f/100\n" +
-                        "PRIORIDAD #2 - Minimizar atraso (25%%): %.1f/100\n" +
-                        "PRIORIDAD #3 - Respetar capacidades (15%%): %.1f/100\n" +
-                        "PRIORIDAD #4 - Aprovechar vuelos (10%%): %.1f/100\n" +
-                        "PRIORIDAD #5 - Calidad de rutas (5%%): %.1f/100\n" +
-                        "PENALIZACIÓN - Fábricas inválidas: %.0f\n\n" +
-                        "ESTADÍSTICAS:\n" +
-                        "- Pedidos a tiempo: %d/%d (%.1f%%)\n" +
-                        "- Pedidos con retraso: %d\n" +
-                        "- Pedidos desde fábricas válidas: %d/%d\n" +
-                        "- Pedidos desde Lima (LIM): %d\n" +
-                        "- Pedidos desde Bruselas (BRU): %d\n" +
-                        "- Pedidos desde Baku (BAK): %d\n" +
-                        "- Pedidos INVÁLIDOS: %d\n" +
-                        "- Vuelos utilizados: %d\n" +
-                        "- Factible: %s",
-                fitness,
-                entregaTiempo, minimizarAtraso, capacidades, aprovechamiento, calidadRutas, penalizacionFabricas,
-                solucionLogistica.getCantidadAtiempo(),
-                solucionLogistica.getAsignacionPedidos().size(),
-                entregaTiempo,
-                solucionLogistica.getCantidadRetraso(),
-                (solucionLogistica.getAsignacionPedidos().size() - pedidosInvalidos),
-                solucionLogistica.getAsignacionPedidos().size(),
-                pedidosPorFabrica.getOrDefault("LIM", 0),
-                pedidosPorFabrica.getOrDefault("BRU", 0),
-                pedidosPorFabrica.getOrDefault("BAK", 0),
-                pedidosInvalidos,
-                contarCargaPorVuelo().size(),
-                esSolucionFactible() ? "SÍ" : "NO"
-        );
     }
 
     private double calcularPenalizacionFabricas() {
@@ -400,7 +396,7 @@ public class Solucion {
         String codigoOrigenPrimerVuelo = primerVuelo.getOrigen().getCodigo();
 
         // Verificar si el origen está en la lista de fábricas válidas
-        return FABRICAS_VALIDAS.contains(codigoOrigenPrimerVuelo);
+        return FABRICAS.contains(codigoOrigenPrimerVuelo);
     }
 
     public boolean esSolucionFactible() {
@@ -411,7 +407,7 @@ public class Solucion {
         Map<String, Integer> contador = new HashMap<>();
 
         // Inicializar contadores
-        for (String fabrica : FABRICAS_VALIDAS) {
+        for (String fabrica : FABRICAS) {
             contador.put(fabrica, 0);
         }
 
@@ -420,7 +416,7 @@ public class Solucion {
             if (ruta.getSecuenciaVuelos().isEmpty()) continue;
 
             String origenCodigo = ruta.getSecuenciaVuelos().get(0).getOrigen().getCodigo();
-            if (FABRICAS_VALIDAS.contains(origenCodigo)) {
+            if (FABRICAS.contains(origenCodigo)) {
                 contador.put(origenCodigo, contador.get(origenCodigo) + 1);
             }
         }
@@ -438,6 +434,63 @@ public class Solucion {
         return contador;
     }
 
+    // Reporte detallado ACTUALIZADO
+    public String obtenerReporteFitness() {
+        double entregaTiempo = calcularEntregaATiempoCorregido();
+        double minimizarAtraso = calcularMinimizarAtraso();
+        double capacidades = calcularRespetarCapacidades();
+        double aprovechamiento = calcularAprovechamientoVuelos();
+        double calidadRutas = calcularCalidadRutas();
+        double penalizacionFabricas = calcularPenalizacionFabricas();
 
+        // Contar pedidos válidos e inválidos por fábrica
+        Map<String, Integer> pedidosPorFabrica = contarPedidosPorFabrica();
+        int pedidosInvalidos = contarPedidosInvalidos();
+        int pedidosAsignados = solucionLogistica.getAsignacionPedidos().size();
 
+        // Información de cobertura
+        String infoCobertura = "";
+        if (totalPedidosProblema > 0) {
+            double porcentajeCobertura = (double) pedidosAsignados / totalPedidosProblema * 100.0;
+            infoCobertura = String.format("- Cobertura total: %d/%d pedidos (%.1f%%)\n",
+                    pedidosAsignados, totalPedidosProblema, porcentajeCobertura);
+        }
+
+        return String.format(
+                "=== REPORTE DE FITNESS JERÁRQUICO ===\n" +
+                        "FITNESS TOTAL: %.2f\n\n" +
+                        "PRIORIDAD #1 - Entregar a tiempo (50%%) [INCLUYE COBERTURA]: %.1f/100\n" +
+                        "PRIORIDAD #2 - Minimizar atraso (20%%): %.1f/100\n" +
+                        "PRIORIDAD #3 - Respetar capacidades (15%%): %.1f/100\n" +
+                        "PRIORIDAD #4 - Aprovechar vuelos (10%%): %.1f/100\n" +
+                        "PRIORIDAD #5 - Calidad de rutas (5%%): %.1f/100\n" +
+                        "PENALIZACIÓN - Fábricas inválidas: %.0f\n\n" +
+                        "ESTADÍSTICAS:\n" +
+                        "%s" + // infoCobertura
+                        "- Pedidos a tiempo: %d/%d (%.1f%%)\n" +
+                        "- Pedidos con retraso: %d\n" +
+                        "- Pedidos desde fábricas válidas: %d/%d\n" +
+                        "- Pedidos desde Lima (LIM): %d\n" +
+                        "- Pedidos desde Bruselas (BRU): %d\n" +
+                        "- Pedidos desde Baku (BAK): %d\n" +
+                        "- Pedidos INVÁLIDOS: %d\n" +
+                        "- Vuelos utilizados: %d\n" +
+                        "- Factible: %s",
+                fitness,
+                entregaTiempo, minimizarAtraso, capacidades, aprovechamiento, calidadRutas, penalizacionFabricas,
+                infoCobertura,
+                solucionLogistica.getCantidadAtiempo(),
+                pedidosAsignados,
+                entregaTiempo,
+                solucionLogistica.getCantidadRetraso(),
+                (pedidosAsignados - pedidosInvalidos),
+                pedidosAsignados,
+                pedidosPorFabrica.getOrDefault("LIM", 0),
+                pedidosPorFabrica.getOrDefault("BRU", 0),
+                pedidosPorFabrica.getOrDefault("BAK", 0),
+                pedidosInvalidos,
+                contarCargaPorVuelo().size(),
+                esSolucionFactible() ? "SÍ" : "NO"
+        );
+    }
 }
