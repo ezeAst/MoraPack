@@ -16,7 +16,7 @@ public class TestMassiveData {
 
         // Rutas de archivos
         String rutaAeropuertos = "data/aeropuertos.csv";
-        String rutaVuelos = "data/vuelos.csv";
+        String rutaVuelos = "data/vuelos.txt";
         String rutaPedidos = "data/pedidos.csv";
 
         try {
@@ -119,20 +119,10 @@ public class TestMassiveData {
     /**
      * Ejecuta GRASP sin logs
      */
-    private static Solucion ejecutarGraspSilencioso(DatosMoraPack datos) {
-        // Silenciar output
-        java.io.PrintStream originalOut = System.out;
-        System.setOut(new java.io.PrintStream(new java.io.OutputStream() {
-            public void write(int b) {}
-        }));
-
-        try {
-            GraspMoraPack grasp = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
-
-            // Ejecutar múltiples iteraciones para encontrar la mejor
-            Solucion mejorSolucion = null;
-            double mejorFitness = Double.NEGATIVE_INFINITY;
-            double[] alphas = {0.0, 0.3, 0.5, 0.7, 1.0};
+    private static Solucion ejecutarGraspMasivo(GraspMoraPack grasp, int iteraciones) {
+        double[] alphas = {0.1, 0.2, 0.3, 0.4}; // Menos valores para optimizar tiempo
+        Solucion mejorSolucion = null;
+        double mejorFitness = Double.NEGATIVE_INFINITY;
 
             for (int i = 0; i < 10; i++) {
                 double alfa = alphas[i % alphas.length];
