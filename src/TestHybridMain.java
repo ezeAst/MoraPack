@@ -448,7 +448,7 @@ public class TestHybridMain {
         for (Aeropuerto a : aeropuertos) {
             map.put(a.getCodigo(), a);
         }
-
+/*
         pedidos.add(new Pedido("P001", "CLI001", 50, base, map.get("JFK"), base.plusDays(2)));
         pedidos.add(new Pedido("P002", "CLI002", 30, base, map.get("LHR"), base.plusDays(3)));
         pedidos.add(new Pedido("P003", "CLI003", 75, base, map.get("NRT"), base.plusDays(4)));
@@ -457,7 +457,7 @@ public class TestHybridMain {
         pedidos.add(new Pedido("P006", "CLI006", 60, base, map.get("CDG"), base.plusDays(2)));
         pedidos.add(new Pedido("P007", "CLI007", 35, base, map.get("GRU"), base.plusDays(4)));
         pedidos.add(new Pedido("P008", "CLI008", 55, base, map.get("JFK"), base.plusDays(6)));
-
+*/
         return pedidos;
     }
 }

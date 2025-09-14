@@ -8,15 +8,15 @@ public class Pedido {
     private int cantidad;
     private LocalDateTime fechaRegistro;
     private Aeropuerto lugarDestino;
-    private LocalDateTime fechaLimite;
 
-    public Pedido(String id, String clienteId, int cantidad, LocalDateTime fechaRegistro, Aeropuerto lugarDestino, LocalDateTime fechaLimite) {
+
+    public Pedido(String id, String clienteId, int cantidad, LocalDateTime fechaRegistro, Aeropuerto lugarDestino) {
         this.id = id;
         this.clienteId = clienteId;
         this.cantidad = cantidad;
         this.fechaRegistro = fechaRegistro;
         this.lugarDestino = lugarDestino;
-        this.fechaLimite = fechaLimite;
+
     }
 
     public String getId() {
@@ -59,11 +59,5 @@ public class Pedido {
         this.lugarDestino = lugarDestino;
     }
 
-    public LocalDateTime getFechaLimite() {
-        return fechaLimite;
-    }
 
-    public void setFechaLimite(LocalDateTime fechaLimite) {
-        this.fechaLimite = fechaLimite;
-    }
 }

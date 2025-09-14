@@ -285,7 +285,7 @@ public class TestGraspMain {
         for (Aeropuerto a : aeropuertos) {
             aeropuertoMap.put(a.getCodigo(), a);
         }
-
+/*
         // Pedidos con diferentes destinos y urgencias
         pedidos.add(new Pedido("P001", "CLI001", 50, fechaBase,
                 aeropuertoMap.get("JFK"), fechaBase.plusDays(2)));
@@ -316,7 +316,7 @@ public class TestGraspMain {
 
         pedidos.add(new Pedido("P010", "CLI010", 70, fechaBase,
                 aeropuertoMap.get("SYD"), fechaBase.plusDays(7)));
-
+    */
         return pedidos;
     }
 
@@ -345,7 +345,7 @@ public class TestGraspMain {
         for (Pedido p : pedidos) {
             System.out.printf("  %s: %d paquetes → %s (Límite: %s)%n",
                     p.getId(), p.getCantidad(), p.getLugarDestino().getCodigo(),
-                    p.getFechaLimite().toLocalDate());
+                    p.getFechaRegistro().toLocalDate());
         }
     }
 

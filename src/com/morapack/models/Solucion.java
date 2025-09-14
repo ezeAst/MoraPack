@@ -280,15 +280,21 @@ public class Solucion {
 
     // Métodos auxiliares
     private boolean esPedidoATiempo(RutaPedido ruta) {
-        LocalDateTime fechaSalida = ruta.getFechaSalida();
+        LocalDateTime fechaSalida  = ruta.getFechaSalida();
         LocalDateTime fechaLlegada = ruta.getFechaLlegada();
 
         if (fechaSalida == null || fechaLlegada == null) {
+            // Reutiliza tu cálculo alterno
             return calcularTiempoBasadoEnVuelos(ruta);
         }
 
-        long diasEntrega = ChronoUnit.DAYS.between(fechaLlegada, ruta.getPedido().getFechaLimite());
-        return diasEntrega >=0;
+        // Si esInternacional es null, lo tratamos como false (no internacional)
+        boolean internacional = Boolean.TRUE.equals(ruta.getEsInternacional());
+        int slaHoras = internacional ? 72 : 48;
+
+        LocalDateTime limiteVirtual = fechaSalida.plusHours(slaHoras);
+        // A tiempo si no llega después del límite
+        return !fechaLlegada.isAfter(limiteVirtual);
     }
 
     private double calcularDiasAtraso(RutaPedido ruta) {

@@ -36,10 +36,10 @@ public class GraspMoraPack {
         solucionLogistica.setAsignacionPedidos(new HashMap<>());
 
         // Ordenar pedidos por fecha límite (más urgentes primero)
-        List<Pedido> pedidosOrdenados = pedidos.stream()
+        List<Pedido> pedidosOrdenados= new ArrayList<>(); /*= pedidos.stream()
                 .sorted(Comparator.comparing(Pedido::getFechaLimite))
                 .collect(Collectors.toList());
-
+*/
         // Asignar ruta a cada pedido
         for (Pedido pedido : pedidosOrdenados) {
             List<Vuelo> rutaAsignada = buscarMejorRutaParaPedido(pedido);

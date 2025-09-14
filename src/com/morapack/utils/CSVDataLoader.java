@@ -62,7 +62,7 @@ public class CSVDataLoader {
     }
 
     /**
-     * Carga vuelos desde archivo CSV
+     * Carga vuelos desde archivo TXT
      */
     public static List<Vuelo> cargarVuelos(String rutaTxt, Map<String, Aeropuerto> aeropuertos) {
         List<Vuelo> vuelos = new ArrayList<>();
@@ -151,6 +151,7 @@ public class CSVDataLoader {
      */
     public static List<Pedido> cargarPedidos(String rutaArchivo, Map<String, Aeropuerto> aeropuertoMap) {
         List<Pedido> pedidos = new ArrayList<>();
+        int autoinc = 1; // ID autoincremental por archivo leído
 
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
@@ -161,24 +162,30 @@ public class CSVDataLoader {
                     primeraLinea = false; // Saltar header
                     continue;
                 }
+                if (linea.isBlank()) continue;
 
-                String[] campos = linea.split(",");
-                if (campos.length >= 6) {
-                    String id = campos[0].trim();
-                    String clienteId = campos[1].trim();
-                    int cantidad = Integer.parseInt(campos[2].trim());
-                    LocalDateTime fechaRegistro = LocalDateTime.parse(campos[3].trim(), FORMATTER);
-                    String codigoDestino = campos[4].trim();
-                    LocalDateTime fechaLimite = LocalDateTime.parse(campos[5].trim(), FORMATTER);
+                // Usar split con límite para no perder vacíos al final
+                String[] campos = linea.split(",", -1);
+                if (campos.length >= 3) {
+                    // CSV: cliente, destino, cantidad
+                    String clienteId = campos[0].trim().replaceAll("^\"|\"$", "");
+                    String codigoDestino = campos[1].trim().replaceAll("^\"|\"$", "");
+                    String cantidadStr  = campos[2].trim().replaceAll("^\"|\"$", "");
 
-                    Aeropuerto destino = aeropuertoMap.get(codigoDestino);
+                    try {
+                        int cantidad = Integer.parseInt(cantidadStr);
+                        Aeropuerto destino = aeropuertoMap.get(codigoDestino);
 
-                    if (destino != null) {
-                        pedidos.add(new Pedido(id, clienteId, cantidad, fechaRegistro,
-                                destino, fechaLimite));
-                    } else {
-                        System.err.printf("⚠️ Pedido %s: Destino no encontrado (%s)%n",
-                                id, codigoDestino);
+                        if (destino != null) {
+                            String id = String.format("P%05d", autoinc++); // ej. P00001, P00002...
+                            LocalDateTime fechaRegistro = LocalDateTime.now();
+                            pedidos.add(new Pedido(id, clienteId, cantidad, fechaRegistro, destino));
+                        } else {
+                            System.err.printf("⚠️ Pedido #%d: Destino no encontrado (%s)%n",
+                                    autoinc, codigoDestino);
+                        }
+                    } catch (NumberFormatException nfe) {
+                        System.err.printf("❌ Cantidad inválida: '%s' en línea: %s%n", cantidadStr, linea);
                     }
                 }
             }
@@ -297,12 +304,12 @@ public class CSVDataLoader {
                 minFecha.toLocalDate(), maxFecha.toLocalDate());
 
         // Validar que fechas límite sean alcanzables
-        long pedidosAlcanzables = pedidos.stream()
+        /*long pedidosAlcanzables = pedidos.stream()
                 .filter(p -> p.getFechaLimite().isAfter(minFecha))
                 .count();
-
-        System.out.printf("   ⏰ Pedidos con fechas límite alcanzables: %d/%d%n",
-                pedidosAlcanzables, pedidos.size());
+*/
+       /* System.out.printf("   ⏰ Pedidos con fechas límite alcanzables: %d/%d%n",
+                pedidosAlcanzables, pedidos.size());*/
     }
 
     /**
