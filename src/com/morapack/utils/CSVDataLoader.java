@@ -2,10 +2,14 @@ package com.morapack.utils;
 
 import com.morapack.models.*;
 import java.io.*;
-import java.time.LocalDateTime;
+import java.nio.charset.StandardCharsets;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
 
 /**
  * Cargador de datos masivos desde archivos CSV
@@ -60,52 +64,87 @@ public class CSVDataLoader {
     /**
      * Carga vuelos desde archivo CSV
      */
-    public static List<Vuelo> cargarVuelos(String rutaArchivo, Map<String, Aeropuerto> aeropuertoMap) {
+    public static List<Vuelo> cargarVuelos(String rutaTxt, Map<String, Aeropuerto> aeropuertos) {
         List<Vuelo> vuelos = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
-            String linea;
-            boolean primeraLinea = true;
+        // Fecha base para armar LocalDateTime (si llegada < salida, se suma 1 día)
+        final LocalDate fechaBase = LocalDate.now();
 
-            while ((linea = br.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false; // Saltar header
+        // Formato: AAAA-BBBB-HH:MM-HH:MM-CCCC
+        Pattern pat = Pattern.compile(
+                "^([A-Z]{4})-([A-Z]{4})-(\\d{2}):(\\d{2})-(\\d{2}):(\\d{2})-(\\d{3,4})$"
+        );
+        final LocalDate FECHA_ANCLA = LocalDate.of(2000, 1, 1);
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(new FileInputStream(rutaTxt), StandardCharsets.UTF_8))) {
+
+            String ln;
+            while ((ln = br.readLine()) != null) {
+                ln = ln.trim();
+                if (ln.isEmpty() || ln.startsWith("#")) continue;
+
+                Matcher m = pat.matcher(ln);
+                if (!m.matches()) {
+                    // Línea con formato no válido: se omite
                     continue;
                 }
 
-                String[] campos = linea.split(",");
-                if (campos.length >= 7) {
-                    String id = campos[0].trim();
-                    String codigoOrigen = campos[1].trim();
-                    String codigoDestino = campos[2].trim();
-                    LocalDateTime horaSalida = LocalDateTime.parse(campos[3].trim(), FORMATTER);
-                    LocalDateTime horaLlegada = LocalDateTime.parse(campos[4].trim(), FORMATTER);
-                    int capacidadMaxima = Integer.parseInt(campos[5].trim());
-                    double duracionHoras = Double.parseDouble(campos[6].trim());
+                String origIcao = m.group(1);
+                String destIcao = m.group(2);
+                int sh = Integer.parseInt(m.group(3));//hora salida
+                int sm = Integer.parseInt(m.group(4));//minuto salida
+                int lh = Integer.parseInt(m.group(5));//hora llegada
+                int lm = Integer.parseInt(m.group(6));//minuto llegada
+                int capacidad = Integer.parseInt(m.group(7)); // "0300" -> 300
 
-                    Aeropuerto origen = aeropuertoMap.get(codigoOrigen);
-                    Aeropuerto destino = aeropuertoMap.get(codigoDestino);
-
-                    if (origen != null && destino != null) {
-                        vuelos.add(new Vuelo(id, origen, destino, horaSalida, horaLlegada,
-                                capacidadMaxima, duracionHoras));
-                    } else {
-                        System.err.printf("⚠️ Vuelo %s: Aeropuerto no encontrado (%s→%s)%n",
-                                id, codigoOrigen, codigoDestino);
-                    }
+                Aeropuerto origen  = aeropuertos.get(origIcao);
+                Aeropuerto destino = aeropuertos.get(destIcao);
+                if (origen == null || destino == null) {
+                    // Alguno de los aeropuertos no está cargado -> omitir vuelo
+                    continue;
                 }
+
+                // 1) Horas locales ancladas a una fecha fija (solo para construir LDT)
+                LocalDateTime salidaLocal  = LocalDateTime.of(FECHA_ANCLA, LocalTime.of(sh, sm));
+                LocalDateTime llegadaLocal = LocalDateTime.of(FECHA_ANCLA, LocalTime.of(lh, lm));
+
+                // 2) Misma hora, pero con su GMT real (huso del aeropuerto) -> línea de tiempo común
+                OffsetDateTime salidaOffset = OffsetDateTime.of(
+                        salidaLocal, ZoneOffset.ofHours(origen.getHusoHorario()));
+                OffsetDateTime llegadaOffset = OffsetDateTime.of(
+                        llegadaLocal, ZoneOffset.ofHours(destino.getHusoHorario()));
+
+                // 3) Si en la línea de tiempo real la llegada ocurre antes/igual, es del día siguiente
+                if (!llegadaOffset.toInstant().isAfter(salidaOffset.toInstant())) {
+                    llegadaLocal  = llegadaLocal.plusDays(1);
+                    llegadaOffset = llegadaOffset.plusDays(1);
+                }
+
+                // 4) Duración REAL entre instantes (tiene en cuenta GMT de cada aeropuerto)
+                double duracionHoras = Duration.between(
+                        salidaOffset.toInstant(), llegadaOffset.toInstant()
+                ).toMinutes() / 60.0;
+                String idVuelo = origIcao + "-" + destIcao + "-" + String.format("%02d%02d", sh, sm);
+
+                // 6) Construye Vuelo con tus tipos (sin esInternacional, tu constructor ya lo resuelve)
+                Vuelo v = new Vuelo(
+                        idVuelo,
+                        origen,
+                        destino,
+                        salidaLocal,          // hora local anclada
+                        llegadaLocal,         // hora local anclada (día +1 si correspondía)
+                        capacidad,
+                        duracionHoras
+                );
+
+                vuelos.add(v);
             }
-
-            System.out.printf("✅ Cargados %d vuelos desde %s%n", vuelos.size(), rutaArchivo);
-
         } catch (IOException e) {
-            System.err.printf("❌ Error al cargar vuelos: %s%n", e.getMessage());
-        } catch (Exception e) {
-            System.err.printf("❌ Error de formato en vuelos: %s%n", e.getMessage());
+            throw new RuntimeException(e);
+        }
+            return vuelos;
         }
 
-        return vuelos;
-    }
 
     /**
      * Carga pedidos desde archivo CSV
