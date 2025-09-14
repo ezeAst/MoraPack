@@ -2,223 +2,370 @@ import com.morapack.models.*;
 import com.morapack.utils.CSVDataLoader;
 import com.morapack.utils.CSVDataLoader.DatosMoraPack;
 
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Objects;
+import java.util.Map;
 
 /**
- * Prueba del sistema con datos masivos cargados desde CSV
- * Maneja 100+ aeropuertos, 150+ vuelos, 150+ pedidos
+ * Prueba limpia con datos masivos - Solo información esencial
  */
 public class TestMassiveData {
 
     public static void main(String[] args) {
-        System.out.println("🚀 SISTEMA MORAPACK - PRUEBA CON DATOS MASIVOS");
+        System.out.println("🚀 MORAPACK - ANÁLISIS LIMPIO CON DATOS MASIVOS");
         System.out.println("=".repeat(60));
 
-        // Rutas de los archivos CSV (ajusta según tu ubicación)
+        // Rutas de archivos
         String rutaAeropuertos = "data/aeropuertos.csv";
         String rutaVuelos = "data/vuelos.csv";
         String rutaPedidos = "data/pedidos.csv";
 
         try {
-            // Cargar datos masivos
-            DatosMoraPack datos = CSVDataLoader.cargarDatosCompletos(
-                    rutaAeropuertos, rutaVuelos, rutaPedidos
-            );
+            // ==========================================
+            // 1. CARGAR DATOS (SILENCIOSO)
+            // ==========================================
+            DatosMoraPack datos = cargarDatosSilencioso(rutaAeropuertos, rutaVuelos, rutaPedidos);
 
-            // Mostrar resumen
-            System.out.println("\n" + datos.getResumenEstadisticas());
+            // ==========================================
+            // 2. VERIFICACIÓN COMPACTA DE DATOS
+            // ==========================================
+            mostrarVerificacionCompacta(datos);
 
-            // Mostrar estadísticas detalladas
-            CSVDataLoader.mostrarEstadisticas(datos);
-
-            // Ejecutar algoritmos con datos masivos
-            ejecutarAlgoritmosConDatosMasivos(datos);
+            // ==========================================
+            // 3. EJECUTAR SOLO GRASP vs HÍBRIDO
+            // ==========================================
+            ejecutarComparacionLimpia(datos);
 
         } catch (Exception e) {
-            System.err.printf("❌ Error en la ejecución: %s%n", e.getMessage());
-            System.out.println("\n📝 INSTRUCCIONES:");
-            System.out.println("1. Crea una carpeta 'data' en tu proyecto");
-            System.out.println("2. Guarda los 3 archivos CSV en esa carpeta:");
-            System.out.println("   - aeropuertos.csv");
-            System.out.println("   - vuelos.csv");
-            System.out.println("   - pedidos.csv");
-            System.out.println("3. Ajusta las rutas en el código si es necesario");
+            System.err.printf("❌ Error: %s%n", e.getMessage());
+            mostrarInstrucciones();
         }
     }
 
     /**
-     * Ejecuta los algoritmos con el dataset masivo
+     * Carga datos sin imprimir logs innecesarios
      */
-    private static void ejecutarAlgoritmosConDatosMasivos(DatosMoraPack datos) {
-        System.out.println("\n" + "=".repeat(60));
-        System.out.println("EJECUTANDO ALGORITMOS CON DATOS MASIVOS");
-        System.out.println("=".repeat(60));
+    private static DatosMoraPack cargarDatosSilencioso(String aeropuertos, String vuelos, String pedidos) {
+        // Redirigir System.out temporalmente para silenciar logs
+        java.io.PrintStream originalOut = System.out;
+        System.setOut(new java.io.PrintStream(new java.io.OutputStream() {
+            public void write(int b) {} // No hacer nada - silenciar
+        }));
 
-        // Configurar algoritmos para datos masivos
-        long inicioTotal = System.currentTimeMillis();
-
-        // GRASP con datos masivos
-        System.out.println("\n🔵 GRASP - DATOS MASIVOS:");
-        long inicioGrasp = System.currentTimeMillis();
-
-        GraspMoraPack graspMasivo = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
-        Solucion solucionGraspMasiva = ejecutarGraspMasivo(graspMasivo, 5); // Menos iteraciones por tiempo
-
-        long tiempoGrasp = System.currentTimeMillis() - inicioGrasp;
-
-        // GA con datos masivos
-        System.out.println("\n🟢 ALGORITMO GENÉTICO - DATOS MASIVOS:");
-        long inicioGA = System.currentTimeMillis();
-
-        GeneticAlgorithmMoraPack gaMasivo = new GeneticAlgorithmMoraPack(datos.getPedidos(), datos.getVuelos());
-        gaMasivo.setTamañoPoblacion(20); // Población menor para datos masivos
-        gaMasivo.setNumeroGeneraciones(30); // Menos generaciones
-        gaMasivo.setTasaMutacion(0.20); // Mayor mutación para explorar
-        gaMasivo.setTasaCruzamiento(0.80);
-
-        Solucion solucionGAMasiva = gaMasivo.ejecutar();
-
-        long tiempoGA = System.currentTimeMillis() - inicioGA;
-
-        // Híbrido con datos masivos
-        System.out.println("\n🟡 HÍBRIDO - DATOS MASIVOS:");
-        long inicioHibrido = System.currentTimeMillis();
-
-        GraspGeneticHybrid hibridoMasivo = new GraspGeneticHybrid(datos.getPedidos(), datos.getVuelos());
-        hibridoMasivo.setIteracionesGrasp(5);
-        hibridoMasivo.setPorcentajePoblacionGrasp(0.3);
-        hibridoMasivo.configurarParametrosGA(20, 30, 0.20, 0.80);
-
-        Solucion solucionHibridaMasiva = hibridoMasivo.ejecutarHibrido();
-
-        long tiempoHibrido = System.currentTimeMillis() - inicioHibrido;
-        long tiempoTotal = System.currentTimeMillis() - inicioTotal;
-
-        // Comparación de resultados masivos
-        System.out.println("\n" + "=".repeat(60));
-        System.out.println("RESULTADOS CON DATOS MASIVOS");
-        System.out.println("=".repeat(60));
-
-        mostrarComparacionMasiva(solucionGraspMasiva, solucionGAMasiva, solucionHibridaMasiva,
-                tiempoGrasp, tiempoGA, tiempoHibrido, datos.getTotalPedidos());
-
-        System.out.printf("\n⏱️ TIEMPO TOTAL DE EXPERIMENTACIÓN: %.2f segundos%n", tiempoTotal / 1000.0);
-
-        // Análisis de escalabilidad
-        analizarEscalabilidad(datos, tiempoTotal);
+        try {
+            DatosMoraPack datos = CSVDataLoader.cargarDatosCompletos(aeropuertos, vuelos, pedidos);
+            return datos;
+        } finally {
+            // Restaurar System.out
+            System.setOut(originalOut);
+        }
     }
 
     /**
-     * Ejecuta GRASP optimizado para datos masivos
+     * Muestra verificación muy compacta de los datos cargados
      */
-    private static Solucion ejecutarGraspMasivo(GraspMoraPack grasp, int iteraciones) {
-        double[] alphas = {0.0, 0.3, 0.7, 1.0}; // Menos valores para optimizar tiempo
-        Solucion mejorSolucion = null;
-        double mejorFitness = Double.NEGATIVE_INFINITY;
+    private static void mostrarVerificacionCompacta(DatosMoraPack datos) {
+        System.out.println("\n📋 VERIFICACIÓN DE DATOS CARGADOS:");
+        System.out.println("-".repeat(40));
 
-        for (int i = 0; i < iteraciones; i++) {
-            double alfa = alphas[i % alphas.length];
-            grasp.setAlfa(alfa);
+        // Resumen básico
+        System.out.printf("✅ Aeropuertos: %d | Vuelos: %d | Pedidos: %d%n",
+                datos.getTotalAeropuertos(), datos.getTotalVuelos(), datos.getTotalPedidos());
 
-            Solucion solucion = grasp.generarSolucion();
+        // Verificar fábricas
+        long fabricasValidas = datos.getAeropuertos().stream()
+                .filter(a -> Solucion.FABRICAS.contains(a.getCodigo()))
+                .count();
+        System.out.printf("✅ Fábricas válidas: %d/3 (%s)%n",
+                fabricasValidas, Solucion.FABRICAS.toString());
 
-            if (solucion != null && solucion.getFitness() > mejorFitness) {
-                mejorFitness = solucion.getFitness();
-                mejorSolucion = solucion;
-                System.out.printf("  ⚡ Iteración %d (α=%.1f): %.2f%n", i+1, alfa, mejorFitness);
+        // Capacidad vs demanda
+        int capacidadTotal = datos.getVuelos().stream().mapToInt(Vuelo::getCapacidadMaxima).sum();
+        int demandaTotal = datos.getPedidos().stream().mapToInt(Pedido::getCantidad).sum();
+        double ratio = (double) capacidadTotal / demandaTotal;
+        System.out.printf("✅ Capacidad: %d | Demanda: %d | Ratio: %.2f %s%n",
+                capacidadTotal, demandaTotal, ratio,
+                ratio >= 1.0 ? "(Factible)" : "(Sobrecarga)");
+
+        System.out.println("-".repeat(40));
+    }
+
+    /**
+     * Ejecuta comparación limpia entre GRASP y HÍBRIDO
+     */
+    private static void ejecutarComparacionLimpia(DatosMoraPack datos) {
+        System.out.println("\n🔄 EJECUTANDO COMPARACIÓN: GRASP vs HÍBRIDO");
+        System.out.println("=".repeat(60));
+
+        // ==========================================
+        // EJECUTAR GRASP (SILENCIOSO)
+        // ==========================================
+        System.out.print("🔵 Ejecutando GRASP... ");
+        Solucion solucionGrasp = ejecutarGraspSilencioso(datos);
+        System.out.println("✅ Completado");
+
+        // ==========================================
+        // EJECUTAR HÍBRIDO (SILENCIOSO)
+        // ==========================================
+        System.out.print("🟡 Ejecutando HÍBRIDO... ");
+        Solucion solucionHibrida = ejecutarHibridoSilencioso(datos);
+        System.out.println("✅ Completado");
+
+        // ==========================================
+        // COMPARACIÓN DETALLADA
+        // ==========================================
+        mostrarComparacionDetallada(solucionGrasp, solucionHibrida, datos.getTotalPedidos());
+    }
+
+    /**
+     * Ejecuta GRASP sin logs
+     */
+    private static Solucion ejecutarGraspSilencioso(DatosMoraPack datos) {
+        // Silenciar output
+        java.io.PrintStream originalOut = System.out;
+        System.setOut(new java.io.PrintStream(new java.io.OutputStream() {
+            public void write(int b) {}
+        }));
+
+        try {
+            GraspMoraPack grasp = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
+
+            // Ejecutar múltiples iteraciones para encontrar la mejor
+            Solucion mejorSolucion = null;
+            double mejorFitness = Double.NEGATIVE_INFINITY;
+            double[] alphas = {0.0, 0.3, 0.5, 0.7, 1.0};
+
+            for (int i = 0; i < 10; i++) {
+                double alfa = alphas[i % alphas.length];
+                grasp.setAlfa(alfa);
+                Solucion solucion = grasp.generarSolucion();
+
+                if (solucion != null && solucion.getFitness() > mejorFitness) {
+                    mejorFitness = solucion.getFitness();
+                    mejorSolucion = solucion;
+                }
             }
-        }
 
-        System.out.printf("GRASP masivo completado: %.2f%n", mejorFitness);
-        return mejorSolucion;
+            return mejorSolucion;
+        } finally {
+            System.setOut(originalOut);
+        }
     }
 
     /**
-     * Muestra comparación optimizada para datos masivos
+     * Ejecuta HÍBRIDO sin logs
      */
-    private static void mostrarComparacionMasiva(Solucion grasp, Solucion ga, Solucion hibrido,
-                                                 long tiempoGrasp, long tiempoGA, long tiempoHibrido,
-                                                 int totalPedidos) {
+    private static Solucion ejecutarHibridoSilencioso(DatosMoraPack datos) {
+        // Silenciar output
+        java.io.PrintStream originalOut = System.out;
+        System.setOut(new java.io.PrintStream(new java.io.OutputStream() {
+            public void write(int b) {}
+        }));
 
-        System.out.printf("%-15s | %-12s | %-12s | %-12s | %-12s%n",
-                "ALGORITMO", "FITNESS", "PEDIDOS", "COBERTURA", "TIEMPO (s)");
-        System.out.println("-".repeat(75));
+        try {
+            GraspGeneticHybrid hibrido = new GraspGeneticHybrid(datos.getPedidos(), datos.getVuelos());
+            hibrido.setIteracionesGrasp(5);
+            hibrido.setPorcentajePoblacionGrasp(0.3);
+            hibrido.configurarParametrosGA(20, 50, 0.15, 0.8);
+
+            return hibrido.ejecutarHibrido();
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
+
+    /**
+     * Muestra comparación detallada y limpia
+     */
+    private static void mostrarComparacionDetallada(Solucion grasp, Solucion hibrido, int totalPedidos) {
+        System.out.println("\n🏆 RESULTADOS DE LA COMPARACIÓN");
+        System.out.println("=".repeat(60));
+
+        // ==========================================
+        // TABLA COMPARATIVA
+        // ==========================================
+        System.out.printf("%-15s | %-10s | %-12s | %-12s%n", "ALGORITMO", "FITNESS", "PEDIDOS", "COBERTURA");
+        System.out.println("-".repeat(55));
 
         if (grasp != null) {
             int pedidosGrasp = grasp.getSolucionLogistica().getAsignacionPedidos().size();
             double coberturaGrasp = (double) pedidosGrasp / totalPedidos * 100;
-            System.out.printf("%-15s | %-12.2f | %-12d | %-12.1f%% | %-12.2f%n",
-                    "GRASP", grasp.getFitness(), pedidosGrasp, coberturaGrasp, tiempoGrasp/1000.0);
-        }
-
-        if (ga != null) {
-            int pedidosGA = ga.getSolucionLogistica().getAsignacionPedidos().size();
-            double coberturaGA = (double) pedidosGA / totalPedidos * 100;
-            System.out.printf("%-15s | %-12.2f | %-12d | %-12.1f%% | %-12.2f%n",
-                    "GA", ga.getFitness(), pedidosGA, coberturaGA, tiempoGA/1000.0);
+            System.out.printf("%-15s | %-10.2f | %-12d | %-12.1f%%%n",
+                    "GRASP", grasp.getFitness(), pedidosGrasp, coberturaGrasp);
         }
 
         if (hibrido != null) {
             int pedidosHibrido = hibrido.getSolucionLogistica().getAsignacionPedidos().size();
             double coberturaHibrido = (double) pedidosHibrido / totalPedidos * 100;
-            System.out.printf("%-15s | %-12.2f | %-12d | %-12.1f%% | %-12.2f%n",
-                    "HÍBRIDO", hibrido.getFitness(), pedidosHibrido, coberturaHibrido, tiempoHibrido/1000.0);
+            System.out.printf("%-15s | %-10.2f | %-12d | %-12.1f%%%n",
+                    "HÍBRIDO", hibrido.getFitness(), pedidosHibrido, coberturaHibrido);
         }
 
-        // Determinar ganador en datos masivos
-        Solucion mejor = determinarMejor(grasp, ga, hibrido);
-        if (mejor != null) {
-            String nombreMejor = (mejor == grasp) ? "GRASP" :
-                    (mejor == ga) ? "GA" : "HÍBRIDO";
-            System.out.printf("\n🏆 GANADOR EN DATOS MASIVOS: %s (%.2f fitness)%n",
-                    nombreMejor, mejor.getFitness());
+        // ==========================================
+        // GANADOR
+        // ==========================================
+        determinarGanador(grasp, hibrido);
+
+        // ==========================================
+        // ANÁLISIS DE COMPONENTES DE FITNESS
+        // ==========================================
+        mostrarAnalisisComponentes(grasp, hibrido);
+
+        // ==========================================
+        // MUESTRA DE RUTAS
+        // ==========================================
+        mostrarMuestraRutas(grasp, hibrido);
+    }
+
+    /**
+     * Determina y muestra el ganador
+     */
+    private static void determinarGanador(Solucion grasp, Solucion hibrido) {
+        System.out.println("-".repeat(55));
+
+        if (grasp != null && hibrido != null) {
+            if (hibrido.getFitness() > grasp.getFitness()) {
+                double mejora = hibrido.getFitness() - grasp.getFitness();
+                System.out.printf("🏆 GANADOR: HÍBRIDO (+%.2f puntos de mejora)%n", mejora);
+            } else if (grasp.getFitness() > hibrido.getFitness()) {
+                double mejora = grasp.getFitness() - hibrido.getFitness();
+                System.out.printf("🏆 GANADOR: GRASP (+%.2f puntos de mejora)%n", mejora);
+            } else {
+                System.out.println("🤝 EMPATE");
+            }
         }
     }
 
     /**
-     * Analiza la escalabilidad del sistema
+     * Muestra análisis detallado de componentes de fitness
      */
-    private static void analizarEscalabilidad(DatosMoraPack datos, long tiempoTotal) {
-        System.out.println("\n📊 ANÁLISIS DE ESCALABILIDAD:");
-        System.out.println("-".repeat(40));
+    private static void mostrarAnalisisComponentes(Solucion grasp, Solucion hibrido) {
+        System.out.println("\n🔬 ANÁLISIS DE COMPONENTES DE FITNESS:");
+        System.out.println("-".repeat(60));
 
-        int totalElementos = datos.getTotalAeropuertos() + datos.getTotalVuelos() + datos.getTotalPedidos();
-        double tiempoPorElemento = (tiempoTotal / 1000.0) / totalElementos;
-
-        System.out.printf("• Total elementos procesados: %d%n", totalElementos);
-        System.out.printf("• Tiempo por elemento: %.4f segundos%n", tiempoPorElemento);
-        System.out.printf("• Throughput: %.0f elementos/segundo%n", 1.0 / tiempoPorElemento);
-
-        // Proyecciones
-        System.out.println("\n🔮 PROYECCIONES PARA DATASETS MAYORES:");
-        int[] tamaños = {500, 1000, 2000, 5000};
-        for (int tamaño : tamaños) {
-            double tiempoEstimado = tamaño * tiempoPorElemento;
-            System.out.printf("• %d pedidos: ~%.1f segundos (%.1f minutos)%n",
-                    tamaño, tiempoEstimado, tiempoEstimado / 60);
+        if (grasp != null) {
+            System.out.println("\n📊 GRASP - COMPONENTES:");
+            mostrarComponentesIndividuales(grasp, "GRASP");
         }
 
-        // Recomendaciones de optimización
-        System.out.println("\n💡 RECOMENDACIONES:");
-        if (tiempoPorElemento > 0.1) {
-            System.out.println("• Considerar paralelización para datasets >1000 elementos");
-            System.out.println("• Implementar índices para búsquedas más rápidas");
-        }
-        if (datos.getTotalPedidos() > 100) {
-            System.out.println("• Usar menos iteraciones GRASP para datasets masivos");
-            System.out.println("• Reducir población GA para mantener tiempos razonables");
+        if (hibrido != null) {
+            System.out.println("\n📊 HÍBRIDO - COMPONENTES:");
+            mostrarComponentesIndividuales(hibrido, "HÍBRIDO");
         }
     }
 
     /**
-     * Determina la mejor solución entre las tres
+     * Muestra componentes individuales de una solución
      */
-    private static Solucion determinarMejor(Solucion grasp, Solucion ga, Solucion hibrido) {
-        return Arrays.asList(grasp, ga, hibrido).stream()
-                .filter(Objects::nonNull)
-                .max(Comparator.comparingDouble(Solucion::getFitness))
-                .orElse(null);
+    private static void mostrarComponentesIndividuales(Solucion solucion, String nombre) {
+        String reporte = solucion.obtenerReporteFitness();
+        String[] lineas = reporte.split("\n");
+
+        System.out.printf("   FITNESS TOTAL: %.2f%n", solucion.getFitness());
+
+        for (String linea : lineas) {
+            if (linea.contains("PRIORIDAD #") || linea.contains("PENALIZACIÓN")) {
+                System.out.println("   " + linea.trim());
+            } else if (linea.contains("Cobertura total:") ||
+                    linea.contains("Pedidos a tiempo:") ||
+                    linea.contains("Vuelos utilizados:")) {
+                System.out.println("   " + linea.trim());
+            }
+        }
+    }
+
+    /**
+     * Muestra muestra representativa de rutas
+     */
+    private static void mostrarMuestraRutas(Solucion grasp, Solucion hibrido) {
+        System.out.println("\n🗺️ MUESTRA DE RUTAS GENERADAS:");
+        System.out.println("=".repeat(60));
+
+        if (grasp != null) {
+            System.out.println("\n🔵 RUTAS DE GRASP (Primeras 10):");
+            mostrarRutasLimitadas(grasp, 10);
+        }
+
+        if (hibrido != null) {
+            System.out.println("\n🟡 RUTAS DE HÍBRIDO (Primeras 10):");
+            mostrarRutasLimitadas(hibrido, 10);
+        }
+    }
+
+    /**
+     * Muestra un número limitado de rutas
+     */
+    private static void mostrarRutasLimitadas(Solucion solucion, int limite) {
+        Map<Pedido, RutaPedido> rutas = solucion.getSolucionLogistica().getAsignacionPedidos();
+
+        if (rutas.isEmpty()) {
+            System.out.println("   Sin rutas asignadas");
+            return;
+        }
+
+        System.out.printf("%-8s | %-25s | %-8s | %-15s%n", "PEDIDO", "RUTA", "VUELOS", "DESTINO");
+        System.out.println("-".repeat(65));
+
+        rutas.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey(Comparator.comparing(Pedido::getId)))
+                .limit(limite)
+                .forEach(entry -> {
+                    Pedido pedido = entry.getKey();
+                    RutaPedido ruta = entry.getValue();
+
+                    String rutaStr = construirStringRuta(ruta);
+                    String destino = pedido.getLugarDestino().getCodigo();
+                    int numVuelos = ruta.getSecuenciaVuelos().size();
+
+                    System.out.printf("%-8s | %-25s | %-8d | %-15s%n",
+                            pedido.getId(),
+                            truncar(rutaStr, 25),
+                            numVuelos,
+                            destino);
+                });
+
+        if (rutas.size() > limite) {
+            System.out.printf("   ... y %d rutas más%n", rutas.size() - limite);
+        }
+    }
+
+    /**
+     * Construye string de ruta
+     */
+    private static String construirStringRuta(RutaPedido ruta) {
+        if (ruta.getSecuenciaVuelos().isEmpty()) {
+            return "Sin vuelos";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < ruta.getSecuenciaVuelos().size(); i++) {
+            if (i > 0) sb.append("→");
+            sb.append(ruta.getSecuenciaVuelos().get(i).getOrigen().getCodigo());
+        }
+        sb.append("→").append(ruta.getSecuenciaVuelos().get(ruta.getSecuenciaVuelos().size() - 1)
+                .getDestino().getCodigo());
+
+        return sb.toString();
+    }
+
+    /**
+     * Trunca texto para mostrar en tabla
+     */
+    private static String truncar(String texto, int maxLongitud) {
+        if (texto.length() <= maxLongitud) {
+            return texto;
+        }
+        return texto.substring(0, maxLongitud - 3) + "...";
+    }
+
+    /**
+     * Muestra instrucciones si hay error
+     */
+    private static void mostrarInstrucciones() {
+        System.out.println("\n📝 INSTRUCCIONES:");
+        System.out.println("1. Verifica que existe la carpeta 'data' en tu proyecto");
+        System.out.println("2. Asegúrate de tener los archivos:");
+        System.out.println("   - data/aeropuertos.csv");
+        System.out.println("   - data/vuelos.csv");
+        System.out.println("   - data/pedidos.csv");
     }
 }
