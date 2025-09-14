@@ -67,7 +67,7 @@ public class CSVDataLoader {
     public static List<Vuelo> cargarVuelos(String rutaTxt, Map<String, Aeropuerto> aeropuertos) {
         List<Vuelo> vuelos = new ArrayList<>();
 
-        // Fecha base para armar LocalDateTime (si llegada < salida, se suma 1 día)
+    
         final LocalDate fechaBase = LocalDate.now();
 
         // Formato: AAAA-BBBB-HH:MM-HH:MM-CCCC
