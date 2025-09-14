@@ -15,7 +15,7 @@ public class GraspMoraPack {
     private List<Vuelo> vuelos;
     private Map<String, List<Vuelo>> vuelosPorOrigen;
     private Random random;
-    private double alfa = 0.3;
+    private double alfa;
 
     // Fábricas válidas del sistema
 

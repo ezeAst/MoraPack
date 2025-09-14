@@ -18,7 +18,7 @@ public class TestMassiveData {
 
         // Rutas de los archivos CSV (ajusta según tu ubicación)
         String rutaAeropuertos = "data/aeropuertos.csv";
-        String rutaVuelos = "data/vuelos.csv";
+        String rutaVuelos = "data/vuelos.txt";
         String rutaPedidos = "data/pedidos.csv";
 
         try {
@@ -114,7 +114,7 @@ public class TestMassiveData {
      * Ejecuta GRASP optimizado para datos masivos
      */
     private static Solucion ejecutarGraspMasivo(GraspMoraPack grasp, int iteraciones) {
-        double[] alphas = {0.0, 0.3, 0.7, 1.0}; // Menos valores para optimizar tiempo
+        double[] alphas = {0.1, 0.2, 0.3, 0.4}; // Menos valores para optimizar tiempo
         Solucion mejorSolucion = null;
         double mejorFitness = Double.NEGATIVE_INFINITY;
 

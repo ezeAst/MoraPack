@@ -28,6 +28,8 @@ public class TestGraspMain {
         // Probar con diferentes valores de alfa
         double[] alphas = {0.0, 0.3, 0.7, 1.0};
 
+        List<Solucion> semillasGrasp = new ArrayList<>();
+
         for (double alfa : alphas) {
             System.out.println("\n--- Probando con alfa = " + alfa + " ---");
             grasp.setAlfa(alfa);
@@ -45,10 +47,147 @@ public class TestGraspMain {
             } else {
                 System.out.println("✗ No se pudo generar solución");
             }
+            semillasGrasp.add(solucion);
         }
 
-        System.out.println("\n=== PRUEBA COMPLETADA ===");
+        System.out.println("\n=== PRUEBA GRASP COMPLETADA ===");
+
+        //Ejecuta ACS usando exactamente esas semillas (sin volver a correr GRASP):
+        if (semillasGrasp.isEmpty()) {
+            System.out.println("No hay semillas GRASP factibles; ACS no se ejecutará.");
+            return;
+        }
+
+        int kPorPedido = 5;                       // 3..7 suele ir bien
+        ACSMoraPack acs = new ACSMoraPack(semillasGrasp, kPorPedido);
+
+        SolucionLogistica mejorPlanACS = acs.ejecutar(
+                pedidos,
+                plan -> getFitnessSeguro(new Solucion(plan))  // tu evaluador
+        );
+
+        if (mejorPlanACS == null) {
+            System.out.println("ACS no encontró plan factible.");
+            return;
+        }
+
+        double fitGrasp = getFitnessSeguro(
+                semillasGrasp.stream()
+                        .min(Comparator.comparing(TestGraspMain::getFitnessSeguro))
+                        .orElse(semillasGrasp.get(0))
+        );
+        double fitAcs = getFitnessSeguro(new Solucion(mejorPlanACS));
+
+        System.out.println("\n=== Comparativa ===");
+        System.out.println("Mejor fitness GRASP: " + fitGrasp);
+        System.out.println("Mejor fitness ACS  : " + fitAcs);
+
+        imprimirPlan("Plan mejorado por ACS", mejorPlanACS, fitAcs, pedidos.size(), 10);
+        imprimirOcupacion(mejorPlanACS);
+
+
     }
+
+    // ===== Resumen estilo GRASP (simple y legible) =====
+    static void imprimirPlan(String titulo,
+                                      SolucionLogistica plan,
+                                      double fitness,
+                                      int totalPedidos,
+                                      int maxRutasMostrar) {
+        int asignados = plan.getAsignacionPedidos().size();
+
+        System.out.println("✓ " + titulo);
+        System.out.printf("Fitness: %.2f%n", fitness);
+        System.out.printf("Pedidos asignados: %d/%d%n", asignados, totalPedidos);
+        System.out.println("Ejemplos de rutas generadas:");
+
+        // armar líneas "P008: LIM → JFK (1 vuelos, Nacional)" etc.
+        List<String> lineas = new ArrayList<>();
+        plan.getAsignacionPedidos().forEach((p, ruta) -> {
+            String id = idPedido(p);
+            String cadena = cadenaAeropuertos(ruta);            // LIM → JFK → NRT
+            int hops = ruta.getSecuenciaVuelos().size();
+            String vuelosTxt = hops + " vuelos";
+            String tipo = esInternacional(ruta) ? "Internacional" : "Nacional";
+            lineas.add(String.format("  %s: %s (%s, %s)", id, cadena, vuelosTxt, tipo));
+        });
+
+        // pequeño orden: menos hops primero
+        lineas.sort(Comparator.comparingInt(TestGraspMain::extraerHopsDeLinea));
+
+        // imprimir top N
+        int n = Math.min(maxRutasMostrar, lineas.size());
+        for (int i = 0; i < n; i++) System.out.println(lineas.get(i));
+        if (lineas.size() > n) {
+            System.out.printf("  ... y %d rutas más%n", (lineas.size() - n));
+        }
+    }
+
+    // ---- Helpers mínimos ----
+    static String idPedido(Pedido p) {
+        try { return String.valueOf(p.getId()); } catch (Throwable t) { return p.toString(); }
+    }
+
+    static String cadenaAeropuertos(RutaPedido r) {
+        List<Vuelo> vs = r.getSecuenciaVuelos();
+        List<String> cods = new ArrayList<>();
+        cods.add(vs.get(0).getOrigen().getCodigo());
+        for (Vuelo v : vs) cods.add(v.getDestino().getCodigo());
+        return String.join(" → ", cods);
+    }
+
+    static boolean esInternacional(RutaPedido r) {
+        // 1) si tus vuelos tienen flag, úsalo
+        try {
+            if (r.getSecuenciaVuelos().stream().anyMatch(Vuelo::getEsInternacional)) return true;
+        } catch (Throwable ignored) {}
+        // 2) si no, deduce por continentes del origen/destino finales
+        try {
+            String c1 = r.getSecuenciaVuelos().get(0).getOrigen().getContinente();
+            String c2 = r.getSecuenciaVuelos().get(r.getSecuenciaVuelos().size()-1).getDestino().getContinente();
+            return c1 != null && c2 != null && !c1.equalsIgnoreCase(c2);
+        } catch (Throwable t) {
+            return false;
+        }
+    }
+
+    // Extrae el número de “X vuelos” de la línea (para ordenar)
+    static int extraerHopsDeLinea(String linea) {
+        int i = linea.indexOf('(');
+        int j = linea.indexOf(" vuelos", i);
+        if (i >= 0 && j > i) {
+            try { return Integer.parseInt(linea.substring(i+1, j).trim()); } catch (Exception ignored) {}
+        }
+        return 999;
+    }
+
+
+
+    private static Vuelo ultimo(RutaPedido r) {
+        var vs = r.getSecuenciaVuelos();
+        return vs.get(vs.size() - 1);
+    }
+
+    private static void imprimirOcupacion(SolucionLogistica plan) {
+        Map<Vuelo, Integer> carga = new HashMap<>();
+        plan.getAsignacionPedidos().forEach((p, ruta) -> {
+            for (Vuelo v : ruta.getSecuenciaVuelos()) {
+                carga.put(v, carga.getOrDefault(v, 0) + p.getCantidad());
+            }
+        });
+        carga.forEach((v, usados) ->
+                System.out.printf("%s : %d / %d%n", v.getId(), usados, v.getCapacidadMaxima())
+        );
+    }
+
+
+    private static double getFitnessSeguro(Solucion s) {
+        try { return s.getFitness(); } catch (Throwable t) { return Double.POSITIVE_INFINITY; }
+    }
+
+
+
+
 
     /**
      * Crea aeropuertos sintéticos
