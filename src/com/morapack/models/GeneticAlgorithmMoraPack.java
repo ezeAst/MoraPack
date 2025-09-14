@@ -189,21 +189,21 @@ public class GeneticAlgorithmMoraPack {
      */
     private List<Vuelo> generarRutaAleatoria(Pedido pedido) {
         String destino = pedido.getLugarDestino().getCodigo();
-        List<String> fabricas = Solucion.FABRICAS; // CAMBIO: Usar la constante centralizada
+        List<String> fabricas = Solucion.FABRICAS;
 
         // Seleccionar fábrica aleatoria
         String fabricaOrigen = fabricas.get(random.nextInt(fabricas.size()));
 
         // Intentar ruta directa primero (50% probabilidad)
         if (random.nextDouble() < 0.5) {
-            List<Vuelo> rutaDirecta = buscarVueloDirecto(fabricaOrigen, destino);
+            List<Vuelo> rutaDirecta = buscarVueloDirecto(fabricaOrigen, destino, pedido);
             if (!rutaDirecta.isEmpty()) {
                 return rutaDirecta;
             }
         }
 
         // Si no hay ruta directa, buscar con escala
-        return buscarRutaConEscalaAleatoria(fabricaOrigen, destino);
+        return buscarRutaConEscalaAleatoria(fabricaOrigen, destino, pedido);
     }
 
     /**
@@ -297,14 +297,14 @@ public class GeneticAlgorithmMoraPack {
      * Mutación: cambiar fábrica de origen
      */
     private void mutarCambiarFabrica(Pedido pedido, Map<Pedido, RutaPedido> rutas) {
-        List<String> fabricas = Solucion.FABRICAS; // CAMBIO: Usar constante centralizada
+        List<String> fabricas = Solucion.FABRICAS;
         String nuevaFabrica = fabricas.get(random.nextInt(fabricas.size()));
         String destino = pedido.getLugarDestino().getCodigo();
 
-        // Intentar ruta directa primero
-        List<Vuelo> nuevaRuta = buscarVueloDirecto(nuevaFabrica, destino);
+        // Intentar ruta directa primero - CON VALIDACIÓN DE FECHA
+        List<Vuelo> nuevaRuta = buscarVueloDirecto(nuevaFabrica, destino, pedido);
         if (nuevaRuta.isEmpty()) {
-            nuevaRuta = buscarRutaConEscalaAleatoria(nuevaFabrica, destino);
+            nuevaRuta = buscarRutaConEscalaAleatoria(nuevaFabrica, destino, pedido);
         }
 
         if (!nuevaRuta.isEmpty()) {
@@ -326,11 +326,11 @@ public class GeneticAlgorithmMoraPack {
 
         List<Vuelo> nuevaRuta;
         if (rutaActual.getSecuenciaVuelos().size() == 1) {
-            // Actual es directa, cambiar a con escala
-            nuevaRuta = buscarRutaConEscalaAleatoria(fabricaActual, destino);
+            // Actual es directa, cambiar a con escala - CON VALIDACIÓN DE FECHA
+            nuevaRuta = buscarRutaConEscalaAleatoria(fabricaActual, destino, pedido);
         } else {
-            // Actual tiene escalas, cambiar a directa
-            nuevaRuta = buscarVueloDirecto(fabricaActual, destino);
+            // Actual tiene escalas, cambiar a directa - CON VALIDACIÓN DE FECHA
+            nuevaRuta = buscarVueloDirecto(fabricaActual, destino, pedido);
         }
 
         if (!nuevaRuta.isEmpty()) {
@@ -344,6 +344,7 @@ public class GeneticAlgorithmMoraPack {
      * Mutación: regenerar ruta completamente
      */
     private void mutarRegenerarRuta(Pedido pedido, Map<Pedido, RutaPedido> rutas) {
+        // YA CORREGIDO: generarRutaAleatoria ahora valida fechas
         List<Vuelo> nuevaRuta = generarRutaAleatoria(pedido);
         if (!nuevaRuta.isEmpty()) {
             RutaPedido nuevaRutaPedido = new RutaPedido(pedido, nuevaRuta);
@@ -404,20 +405,22 @@ public class GeneticAlgorithmMoraPack {
         }
     }
 
-    private List<Vuelo> buscarVueloDirecto(String origen, String destino) {
+    private List<Vuelo> buscarVueloDirecto(String origen, String destino, Pedido pedido) {
         return vuelosPorOrigen.getOrDefault(origen, new ArrayList<>())
                 .stream()
                 .filter(v -> v.getDestino().getCodigo().equals(destino))
-                .filter(v -> v.getHoraSalida().isAfter(LocalDateTime.now()))
+                // ✅ CRÍTICO: Vuelo debe salir después del registro del pedido
+                .filter(v -> v.getHoraSalida().isAfter(pedido.getFechaRegistro()))
                 .limit(1)
                 .collect(Collectors.toList());
     }
 
-    private List<Vuelo> buscarRutaConEscalaAleatoria(String origen, String destino) {
+    private List<Vuelo> buscarRutaConEscalaAleatoria(String origen, String destino, Pedido pedido) {
         List<Vuelo> vuelosDesdeOrigen = vuelosPorOrigen.getOrDefault(origen, new ArrayList<>())
                 .stream()
                 .filter(v -> !v.getDestino().getCodigo().equals(destino))
-                .filter(v -> v.getHoraSalida().isAfter(LocalDateTime.now()))
+                // ✅ CRÍTICO: Primer vuelo debe salir después del registro del pedido
+                .filter(v -> v.getHoraSalida().isAfter(pedido.getFechaRegistro()))
                 .collect(Collectors.toList());
 
         Collections.shuffle(vuelosDesdeOrigen, random);

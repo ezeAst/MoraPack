@@ -65,14 +65,14 @@ public class GraspMoraPack {
         // Buscar rutas desde cada fábrica
         for (String codigoFabrica : Solucion.FABRICAS) {
             // Rutas directas
-            List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigen(codigoFabrica, destinoCodigo);
+            List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigen(codigoFabrica, destinoCodigo, pedido);
             if (!rutaDirecta.isEmpty()) {
                 double puntuacion = calcularPuntuacionRuta(rutaDirecta);
                 candidatos.add(new CandidatoRuta(rutaDirecta, puntuacion));
             }
 
             // Rutas con 1 escala
-            List<List<Vuelo>> rutasConEscala = buscarRutasConEscalaDesdeOrigen(codigoFabrica, destinoCodigo);
+            List<List<Vuelo>> rutasConEscala = buscarRutasConEscalaDesdeOrigen(codigoFabrica, destinoCodigo, pedido);
             for (List<Vuelo> ruta : rutasConEscala) {
                 double puntuacion = calcularPuntuacionRuta(ruta);
                 candidatos.add(new CandidatoRuta(ruta, puntuacion));
@@ -90,11 +90,11 @@ public class GraspMoraPack {
     /**
      * Busca ruta directa desde una fábrica específica
      */
-    private List<Vuelo> buscarRutaDirectaDesdeOrigen(String origen, String destino) {
+    private List<Vuelo> buscarRutaDirectaDesdeOrigen(String origen, String destino, Pedido pedido) {
         List<Vuelo> vuelosDirectos = vuelosPorOrigen.getOrDefault(origen, new ArrayList<>())
                 .stream()
                 .filter(v -> v.getDestino().getCodigo().equals(destino))
-                .filter(v -> v.getHoraSalida().isAfter(LocalDateTime.now()))
+                .filter(v -> v.getHoraSalida().isAfter(pedido.getFechaRegistro()))
                 .sorted(Comparator.comparing(Vuelo::getHoraSalida))
                 .collect(Collectors.toList());
 
@@ -109,13 +109,14 @@ public class GraspMoraPack {
     /**
      * Busca rutas con una escala desde una fábrica específica
      */
-    private List<List<Vuelo>> buscarRutasConEscalaDesdeOrigen(String origen, String destino) {
+    private List<List<Vuelo>> buscarRutasConEscalaDesdeOrigen(String origen, String destino, Pedido pedido) {
         List<List<Vuelo>> rutasEncontradas = new ArrayList<>();
 
         // Buscar vuelos desde la fábrica
         List<Vuelo> vuelosDesdeOrigen = vuelosPorOrigen.getOrDefault(origen, new ArrayList<>())
                 .stream()
-                .filter(v -> v.getHoraSalida().isAfter(LocalDateTime.now()))
+                // ✅ CRÍTICO: Primer vuelo debe salir DESPUÉS del registro del pedido
+                .filter(v -> v.getHoraSalida().isAfter(pedido.getFechaRegistro()))
                 .filter(v -> !v.getDestino().getCodigo().equals(destino)) // No directo
                 .sorted(Comparator.comparing(Vuelo::getHoraSalida))
                 .limit(5) // Limitar para eficiencia
@@ -124,7 +125,7 @@ public class GraspMoraPack {
         for (Vuelo primerVuelo : vuelosDesdeOrigen) {
             String aeropuertoEscala = primerVuelo.getDestino().getCodigo();
 
-            // Buscar vuelos desde la escala al destino
+            // REVISION
             List<Vuelo> vuelosDesdeEscala = vuelosPorOrigen.getOrDefault(aeropuertoEscala, new ArrayList<>())
                     .stream()
                     .filter(v -> v.getDestino().getCodigo().equals(destino))
