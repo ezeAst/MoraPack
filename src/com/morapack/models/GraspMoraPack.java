@@ -6,8 +6,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Implementación mejorada del algoritmo GRASP para MoraPack
- * Enfoque directo: construye rutas desde fábricas hacia destinos
+ * ✅ VERSIÓN CORREGIDA: GRASP con validación de capacidad de vuelos
+ * Previene violaciones de capacidad durante la construcción de rutas
  */
 public class GraspMoraPack {
 
@@ -17,62 +17,81 @@ public class GraspMoraPack {
     private Random random;
     private double alfa;
 
-    // Fábricas válidas del sistema
+    // ✅ NUEVO: Tracker de capacidad ocupada por vuelo durante construcción
+    private Map<Vuelo, Integer> ocupacionActual;
 
     public GraspMoraPack(List<Pedido> pedidos, List<Vuelo> vuelos) {
         this.pedidos = new ArrayList<>(pedidos);
         this.vuelos = new ArrayList<>(vuelos);
         this.random = new Random();
         this.vuelosPorOrigen = new HashMap<>();
+        this.ocupacionActual = new HashMap<>(); // ✅ NUEVO
 
         inicializarVuelos();
     }
 
     /**
-     * Genera una solución usando GRASP mejorado
+     * ✅ CORREGIDO: Genera una solución validando capacidades
      */
     public Solucion generarSolucion() {
         SolucionLogistica solucionLogistica = new SolucionLogistica();
         solucionLogistica.setAsignacionPedidos(new HashMap<>());
 
+        // ✅ NUEVO: Resetear ocupación al inicio de cada construcción
+        ocupacionActual.clear();
+
         // Ordenar pedidos por fecha límite (más urgentes primero)
-        List<Pedido> pedidosOrdenados= new ArrayList<>(); /*= pedidos.stream()
+        List<Pedido> pedidosOrdenados = pedidos;/*.stream()
                 .sorted(Comparator.comparing(Pedido::getFechaLimite))
-                .collect(Collectors.toList());
-*/
-        // Asignar ruta a cada pedido
+                .collect(Collectors.toList());*/
+
+        int pedidosAsignados = 0;
+        int pedidosRechazados = 0;
+
+        // Asignar ruta a cada pedido CON VALIDACIÓN DE CAPACIDAD
         for (Pedido pedido : pedidosOrdenados) {
-            List<Vuelo> rutaAsignada = buscarMejorRutaParaPedido(pedido);
+            List<Vuelo> rutaAsignada = buscarMejorRutaParaPedidoConCapacidad(pedido);
 
             if (!rutaAsignada.isEmpty()) {
                 RutaPedido ruta = new RutaPedido(pedido, rutaAsignada);
                 configurarRuta(ruta, rutaAsignada);
                 solucionLogistica.agregarRutaPedido(pedido, ruta);
+
+                // ✅ NUEVO: Actualizar ocupación después de asignar
+                actualizarOcupacion(rutaAsignada, pedido.getCantidad());
+                pedidosAsignados++;
+            } else {
+                pedidosRechazados++;
             }
         }
 
-        // CAMBIO PRINCIPAL: Pasar el total de pedidos al constructor
+        // Log de estadísticas
+        System.out.printf("✅ GRASP: %d asignados, %d rechazados por capacidad%n",
+                pedidosAsignados, pedidosRechazados);
+
         return new Solucion(solucionLogistica, pedidos.size());
     }
 
     /**
-     * Busca la mejor ruta para un pedido desde todas las fábricas
+     * ✅ NUEVO: Busca ruta validando capacidad disponible
      */
-    private List<Vuelo> buscarMejorRutaParaPedido(Pedido pedido) {
+    private List<Vuelo> buscarMejorRutaParaPedidoConCapacidad(Pedido pedido) {
         String destinoCodigo = pedido.getLugarDestino().getCodigo();
         List<CandidatoRuta> candidatos = new ArrayList<>();
 
         // Buscar rutas desde cada fábrica
         for (String codigoFabrica : Solucion.FABRICAS) {
-            // Rutas directas
-            List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigen(codigoFabrica, destinoCodigo, pedido);
+            // Rutas directas CON VALIDACIÓN
+            List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigenConCapacidad(
+                    codigoFabrica, destinoCodigo, pedido);
             if (!rutaDirecta.isEmpty()) {
                 double puntuacion = calcularPuntuacionRuta(rutaDirecta);
                 candidatos.add(new CandidatoRuta(rutaDirecta, puntuacion));
             }
 
-            // Rutas con 1 escala
-            List<List<Vuelo>> rutasConEscala = buscarRutasConEscalaDesdeOrigen(codigoFabrica, destinoCodigo, pedido);
+            // Rutas con 1 escala CON VALIDACIÓN
+            List<List<Vuelo>> rutasConEscala = buscarRutasConEscalaDesdeOrigenConCapacidad(
+                    codigoFabrica, destinoCodigo, pedido);
             for (List<Vuelo> ruta : rutasConEscala) {
                 double puntuacion = calcularPuntuacionRuta(ruta);
                 candidatos.add(new CandidatoRuta(ruta, puntuacion));
@@ -88,18 +107,18 @@ public class GraspMoraPack {
     }
 
     /**
-     * Busca ruta directa desde una fábrica específica
+     * ✅ NUEVO: Busca ruta directa validando capacidad
      */
-    private List<Vuelo> buscarRutaDirectaDesdeOrigen(String origen, String destino, Pedido pedido) {
+    private List<Vuelo> buscarRutaDirectaDesdeOrigenConCapacidad(String origen, String destino, Pedido pedido) {
         List<Vuelo> vuelosDirectos = vuelosPorOrigen.getOrDefault(origen, new ArrayList<>())
                 .stream()
                 .filter(v -> v.getDestino().getCodigo().equals(destino))
                 .filter(v -> v.getHoraSalida().isAfter(pedido.getFechaRegistro()))
+                .filter(v -> tieneCapacidadDisponible(v, pedido.getCantidad())) // ✅ NUEVO
                 .sorted(Comparator.comparing(Vuelo::getHoraSalida))
                 .collect(Collectors.toList());
 
         if (!vuelosDirectos.isEmpty()) {
-            // Tomar el primer vuelo disponible (más temprano)
             return Arrays.asList(vuelosDirectos.get(0));
         }
 
@@ -107,40 +126,135 @@ public class GraspMoraPack {
     }
 
     /**
-     * Busca rutas con una escala desde una fábrica específica
+     * ✅ NUEVO: Busca rutas con escala validando capacidad
      */
-    private List<List<Vuelo>> buscarRutasConEscalaDesdeOrigen(String origen, String destino, Pedido pedido) {
+    private List<List<Vuelo>> buscarRutasConEscalaDesdeOrigenConCapacidad(String origen, String destino, Pedido pedido) {
         List<List<Vuelo>> rutasEncontradas = new ArrayList<>();
 
         // Buscar vuelos desde la fábrica
         List<Vuelo> vuelosDesdeOrigen = vuelosPorOrigen.getOrDefault(origen, new ArrayList<>())
                 .stream()
-                // ✅ CRÍTICO: Primer vuelo debe salir DESPUÉS del registro del pedido
                 .filter(v -> v.getHoraSalida().isAfter(pedido.getFechaRegistro()))
                 .filter(v -> !v.getDestino().getCodigo().equals(destino)) // No directo
+                .filter(v -> tieneCapacidadDisponible(v, pedido.getCantidad())) // ✅ NUEVO
                 .sorted(Comparator.comparing(Vuelo::getHoraSalida))
-                .limit(5) // Limitar para eficiencia
+                .limit(5)
                 .collect(Collectors.toList());
 
         for (Vuelo primerVuelo : vuelosDesdeOrigen) {
             String aeropuertoEscala = primerVuelo.getDestino().getCodigo();
 
-            // REVISION
             List<Vuelo> vuelosDesdeEscala = vuelosPorOrigen.getOrDefault(aeropuertoEscala, new ArrayList<>())
                     .stream()
                     .filter(v -> v.getDestino().getCodigo().equals(destino))
                     .filter(v -> v.getHoraSalida().isAfter(primerVuelo.getHoraLlegada().plusHours(1)))
+                    .filter(v -> tieneCapacidadDisponible(v, pedido.getCantidad())) // ✅ NUEVO
                     .sorted(Comparator.comparing(Vuelo::getHoraSalida))
-                    .limit(3) // Máximo 3 opciones de conexión
+                    .limit(3)
                     .collect(Collectors.toList());
 
             for (Vuelo segundoVuelo : vuelosDesdeEscala) {
-                rutasEncontradas.add(Arrays.asList(primerVuelo, segundoVuelo));
+                // ✅ VERIFICAR QUE AMBOS VUELOS TENGAN CAPACIDAD
+                if (rutaTieneCapacidadCompleta(Arrays.asList(primerVuelo, segundoVuelo), pedido.getCantidad())) {
+                    rutasEncontradas.add(Arrays.asList(primerVuelo, segundoVuelo));
+                }
             }
         }
 
         return rutasEncontradas;
     }
+
+    /**
+     * ✅ NUEVO: Verifica si un vuelo tiene capacidad disponible
+     */
+    private boolean tieneCapacidadDisponible(Vuelo vuelo, int cantidadRequerida) {
+        int ocupacionActualVuelo = ocupacionActual.getOrDefault(vuelo, 0);
+        int capacidadDisponible = vuelo.getCapacidadMaxima() - ocupacionActualVuelo;
+
+        boolean tienCapacidad = capacidadDisponible >= cantidadRequerida;
+
+        // Log para debugging (opcional, quitar en producción)
+        if (!tienCapacidad) {
+            System.out.printf("⚠ Vuelo %s sin capacidad: %d/%d usado, necesita %d%n",
+                    vuelo.getId(), ocupacionActualVuelo, vuelo.getCapacidadMaxima(), cantidadRequerida);
+        }
+
+        return tienCapacidad;
+    }
+
+    /**
+     * ✅ NUEVO: Verifica que toda una ruta tenga capacidad
+     */
+    private boolean rutaTieneCapacidadCompleta(List<Vuelo> ruta, int cantidadRequerida) {
+        for (Vuelo vuelo : ruta) {
+            if (!tieneCapacidadDisponible(vuelo, cantidadRequerida)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * ✅ NUEVO: Actualiza la ocupación después de asignar una ruta
+     */
+    private void actualizarOcupacion(List<Vuelo> ruta, int cantidadPaquetes) {
+        for (Vuelo vuelo : ruta) {
+            int ocupacionAnterior = ocupacionActual.getOrDefault(vuelo, 0);
+            ocupacionActual.put(vuelo, ocupacionAnterior + cantidadPaquetes);
+        }
+    }
+
+    /**
+     * ✅ NUEVO: Método para debug - mostrar estado de ocupación
+     */
+    public void mostrarEstadoOcupacion() {
+        System.out.println("📊 ESTADO DE OCUPACIÓN DE VUELOS:");
+        ocupacionActual.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey((v1, v2) -> v1.getId().compareTo(v2.getId())))
+                .forEach(entry -> {
+                    Vuelo vuelo = entry.getKey();
+                    int usado = entry.getValue();
+                    double porcentaje = (double) usado / vuelo.getCapacidadMaxima() * 100;
+
+                    System.out.printf("   %s: %d/%d (%.1f%%) %s%n",
+                            vuelo.getId(), usado, vuelo.getCapacidadMaxima(), porcentaje,
+                            porcentaje > 100 ? "❌ SOBRECARGA" :
+                                    porcentaje > 80 ? "⚠ ALTO" : "✅");
+                });
+    }
+
+    /**
+     * ✅ NUEVO: Obtener estadísticas de ocupación
+     */
+    public Map<String, Integer> obtenerEstadisticasOcupacion() {
+        Map<String, Integer> stats = new HashMap<>();
+        int vuelosUsados = ocupacionActual.size();
+        int vuelosSobrecargados = 0;
+        int ocupacionTotal = 0;
+        int capacidadTotal = 0;
+
+        for (Map.Entry<Vuelo, Integer> entry : ocupacionActual.entrySet()) {
+            Vuelo vuelo = entry.getKey();
+            int usado = entry.getValue();
+
+            if (usado > vuelo.getCapacidadMaxima()) {
+                vuelosSobrecargados++;
+            }
+
+            ocupacionTotal += usado;
+            capacidadTotal += vuelo.getCapacidadMaxima();
+        }
+
+        stats.put("vuelosUsados", vuelosUsados);
+        stats.put("vuelosSobrecargados", vuelosSobrecargados);
+        stats.put("ocupacionTotal", ocupacionTotal);
+        stats.put("capacidadTotal", capacidadTotal);
+        stats.put("eficienciaPromedio", capacidadTotal > 0 ? (ocupacionTotal * 100 / capacidadTotal) : 0);
+
+        return stats;
+    }
+
+    // ===== MÉTODOS EXISTENTES SIN CAMBIOS =====
 
     /**
      * Calcula puntuación mejorada para una ruta
@@ -183,7 +297,18 @@ public class GraspMoraPack {
             puntuacion += 15; // Horarios matutinos
         }
 
-        return Math.max(10, puntuacion); // Mínimo 10 puntos
+        // ✅ NUEVO: Factor 5: Premiar vuelos con buena capacidad disponible
+        double capacidadDisponiblePromedio = ruta.stream()
+                .mapToDouble(vuelo -> {
+                    int ocupado = ocupacionActual.getOrDefault(vuelo, 0);
+                    return (double)(vuelo.getCapacidadMaxima() - ocupado) / vuelo.getCapacidadMaxima();
+                })
+                .average()
+                .orElse(0.5);
+
+        puntuacion += capacidadDisponiblePromedio * 10; // Hasta 10 puntos por capacidad libre
+
+        return Math.max(10, puntuacion);
     }
 
     /**

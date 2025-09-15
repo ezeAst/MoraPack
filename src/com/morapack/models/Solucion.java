@@ -13,7 +13,7 @@ public class Solucion {
     private int totalPedidosProblema; // NUEVO: Total de pedidos que deberían atenderse
 
     // CONSTANTE PARA IDENTIFICAR FÁBRICAS
-    public static final List<String> FABRICAS = Arrays.asList("LIM", "BRU", "BAK");
+    public static final List<String> FABRICAS = Arrays.asList("SPIM", "EBCI", "UBBB");
 
     // PESOS AJUSTADOS - PRIORIDAD MÁXIMA A ATENDER TODOS LOS PEDIDOS
     private static final double PESO_ENTREGA_TIEMPO = 0.50;    // 50% - PRIORIDAD #1 (incluye cobertura)
@@ -199,7 +199,7 @@ public class Solucion {
             }
         }
         if (violaciones == 0) return 100.0;
-        return Math.max(-1000, 100 - penalizacionTotal);
+        return Math.max(-1000, 100 + penalizacionTotal);
     }
 
     // PRIORIDAD #4: Aprovechar bien los vuelos (0-100 puntos)

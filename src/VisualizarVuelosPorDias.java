@@ -169,7 +169,7 @@ public class VisualizarVuelosPorDias {
 
         // Analizar rutas desde fábricas
         System.out.println("\n🏭 RUTAS DESDE FÁBRICAS:");
-        List<String> fabricas = Arrays.asList("LIM", "BRU", "BAK");
+        List<String> fabricas = Arrays.asList("SPIM","EBCI","UBBB");
 
         for (String fabrica : fabricas) {
             long vuelosDesdefabrica = vuelos.stream()

@@ -20,7 +20,7 @@ public class CSVDataLoader {
     private static final int MAX_DIAS_ADELANTE = 2; // Máximo 4 días como dijo tu profesor
 
     /**
-     * ✅ MÉTODO PRINCIPAL MEJORADO: Carga datos y genera vuelos dinámicos
+     * MÉTODO PRINCIPAL MEJORADO: Carga datos y genera vuelos dinámicos
      */
     public static DatosMoraPack cargarDatosCompletos(String rutaAeropuertos,
                                                      String rutaVuelos,
@@ -599,17 +599,20 @@ public class CSVDataLoader {
         }
 
         public String getResumenEstadisticas() {
+            StringBuilder resumen = new StringBuilder();
             int capacidadTotal = vuelos.stream().mapToInt(Vuelo::getCapacidadMaxima).sum();
             int demandaTotal = pedidos.stream().mapToInt(Pedido::getCantidad).sum();
             double ratio = (double) capacidadTotal / demandaTotal;
 
-        System.out.printf("   📊 Capacidad total: %d paquetes%n", capacidadTotal);
-        System.out.printf("   📊 Demanda total: %d paquetes%n", demandaTotal);
-        System.out.printf("   📊 Ratio capacidad/demanda: %.2f %s%n", ratio,
-                ratio >= 1.0 ? "(✅ Factible)" : "(⚠️ Sobrecarga)");
+            resumen.append(String.format("📊 Capacidad total: %d paquetes%n", capacidadTotal));
+            resumen.append(String.format("📊 Demanda total: %d paquetes%n", demandaTotal));
+            resumen.append(String.format("📊 Ratio capacidad/demanda: %.2f %s%n", ratio,
+                    ratio >= 1.0 ? "(✅ Factible)" : "(⚠ Sobrecarga)"));
 
-        // Validar horarios
-        validarHorarios(vuelos, pedidos);
+            validarHorarios(vuelos, pedidos);
+            return resumen.toString();
+        }
+
     }
 
     /**
