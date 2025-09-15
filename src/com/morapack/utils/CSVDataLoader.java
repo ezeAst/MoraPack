@@ -20,7 +20,7 @@ public class CSVDataLoader {
     private static final int MAX_DIAS_ADELANTE = 2; // Máximo 4 días como dijo tu profesor
 
     /**
-     * ✅ MÉTODO PRINCIPAL MEJORADO: Carga datos y genera vuelos dinámicos
+     * MÉTODO PRINCIPAL MEJORADO: Carga datos y genera vuelos dinámicos
      */
     public static DatosMoraPack cargarDatosCompletos(String rutaAeropuertos,
                                                      String rutaVuelos,
@@ -416,9 +416,98 @@ public class CSVDataLoader {
         return aeropuertos;
     }
 
+    /**
+     * Carga vuelos desde archivo TXT
+     */
+    public static List<Vuelo> cargarVuelos(String rutaTxt, Map<String, Aeropuerto> aeropuertos) {
+        List<Vuelo> vuelos = new ArrayList<>();
+
+    
+        final LocalDate fechaBase = LocalDate.now();
+
+        // Formato: AAAA-BBBB-HH:MM-HH:MM-CCCC
+        Pattern pat = Pattern.compile(
+                "^([A-Z]{4})-([A-Z]{4})-(\\d{2}):(\\d{2})-(\\d{2}):(\\d{2})-(\\d{3,4})$"
+        );
+        final LocalDate FECHA_ANCLA = LocalDate.of(2000, 1, 1);
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(new FileInputStream(rutaTxt), StandardCharsets.UTF_8))) {
+
+            String ln;
+            while ((ln = br.readLine()) != null) {
+                ln = ln.trim();
+                if (ln.isEmpty() || ln.startsWith("#")) continue;
+
+                Matcher m = pat.matcher(ln);
+                if (!m.matches()) {
+                    // Línea con formato no válido: se omite
+                    continue;
+                }
+
+                String origIcao = m.group(1);
+                String destIcao = m.group(2);
+                int sh = Integer.parseInt(m.group(3));//hora salida
+                int sm = Integer.parseInt(m.group(4));//minuto salida
+                int lh = Integer.parseInt(m.group(5));//hora llegada
+                int lm = Integer.parseInt(m.group(6));//minuto llegada
+                int capacidad = Integer.parseInt(m.group(7)); // "0300" -> 300
+
+                Aeropuerto origen  = aeropuertos.get(origIcao);
+                Aeropuerto destino = aeropuertos.get(destIcao);
+                if (origen == null || destino == null) {
+                    // Alguno de los aeropuertos no está cargado -> omitir vuelo
+                    continue;
+                }
+
+                // 1) Horas locales ancladas a una fecha fija (solo para construir LDT)
+                LocalDateTime salidaLocal  = LocalDateTime.of(FECHA_ANCLA, LocalTime.of(sh, sm));
+                LocalDateTime llegadaLocal = LocalDateTime.of(FECHA_ANCLA, LocalTime.of(lh, lm));
+
+                // 2) Misma hora, pero con su GMT real (huso del aeropuerto) -> línea de tiempo común
+                OffsetDateTime salidaOffset = OffsetDateTime.of(
+                        salidaLocal, ZoneOffset.ofHours(origen.getHusoHorario()));
+                OffsetDateTime llegadaOffset = OffsetDateTime.of(
+                        llegadaLocal, ZoneOffset.ofHours(destino.getHusoHorario()));
+
+                // 3) Si en la línea de tiempo real la llegada ocurre antes/igual, es del día siguiente
+                if (!llegadaOffset.toInstant().isAfter(salidaOffset.toInstant())) {
+                    llegadaLocal  = llegadaLocal.plusDays(1);
+                    llegadaOffset = llegadaOffset.plusDays(1);
+                }
+
+                // 4) Duración REAL entre instantes (tiene en cuenta GMT de cada aeropuerto)
+                double duracionHoras = Duration.between(
+                        salidaOffset.toInstant(), llegadaOffset.toInstant()
+                ).toMinutes() / 60.0;
+                String idVuelo = origIcao + "-" + destIcao + "-" + String.format("%02d%02d", sh, sm);
+
+                // 6) Construye Vuelo con tus tipos (sin esInternacional, tu constructor ya lo resuelve)
+                Vuelo v = new Vuelo(
+                        idVuelo,
+                        origen,
+                        destino,
+                        salidaLocal,          // hora local anclada
+                        llegadaLocal,         // hora local anclada (día +1 si correspondía)
+                        capacidad,
+                        duracionHoras
+                );
+
+                vuelos.add(v);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+            return vuelos;
+        }
+
+
+    /**
+     * Carga pedidos desde archivo CSV
+     */
     public static List<Pedido> cargarPedidos(String rutaArchivo, Map<String, Aeropuerto> aeropuertoMap) {
         // ... código existente sin cambios ...
         List<Pedido> pedidos = new ArrayList<>();
+        int autoinc = 1; // ID autoincremental por archivo leído
 
         try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
@@ -429,21 +518,30 @@ public class CSVDataLoader {
                     primeraLinea = false;
                     continue;
                 }
+                if (linea.isBlank()) continue;
 
-                String[] campos = linea.split(",");
-                if (campos.length >= 6) {
-                    String id = campos[0].trim();
-                    String clienteId = campos[1].trim();
-                    int cantidad = Integer.parseInt(campos[2].trim());
-                    LocalDateTime fechaRegistro = LocalDateTime.parse(campos[3].trim(), FORMATTER);
-                    String codigoDestino = campos[4].trim();
-                    LocalDateTime fechaLimite = LocalDateTime.parse(campos[5].trim(), FORMATTER);
+                // Usar split con límite para no perder vacíos al final
+                String[] campos = linea.split(",", -1);
+                if (campos.length >= 3) {
+                    // CSV: cliente, destino, cantidad
+                    String clienteId = campos[0].trim().replaceAll("^\"|\"$", "");
+                    String codigoDestino = campos[1].trim().replaceAll("^\"|\"$", "");
+                    String cantidadStr  = campos[2].trim().replaceAll("^\"|\"$", "");
 
-                    Aeropuerto destino = aeropuertoMap.get(codigoDestino);
+                    try {
+                        int cantidad = Integer.parseInt(cantidadStr);
+                        Aeropuerto destino = aeropuertoMap.get(codigoDestino);
 
-                    if (destino != null) {
-                        pedidos.add(new Pedido(id, clienteId, cantidad, fechaRegistro,
-                                destino, fechaLimite));
+                        if (destino != null) {
+                            String id = String.format("P%05d", autoinc++); // ej. P00001, P00002...
+                            LocalDateTime fechaRegistro = LocalDateTime.now();
+                            pedidos.add(new Pedido(id, clienteId, cantidad, fechaRegistro, destino));
+                        } else {
+                            System.err.printf("⚠️ Pedido #%d: Destino no encontrado (%s)%n",
+                                    autoinc, codigoDestino);
+                        }
+                    } catch (NumberFormatException nfe) {
+                        System.err.printf("❌ Cantidad inválida: '%s' en línea: %s%n", cantidadStr, linea);
                     }
                 }
             }
@@ -501,19 +599,52 @@ public class CSVDataLoader {
         }
 
         public String getResumenEstadisticas() {
+            StringBuilder resumen = new StringBuilder();
             int capacidadTotal = vuelos.stream().mapToInt(Vuelo::getCapacidadMaxima).sum();
             int demandaTotal = pedidos.stream().mapToInt(Pedido::getCantidad).sum();
             double ratio = (double) capacidadTotal / demandaTotal;
 
-            return String.format(
-                    "📋 RESUMEN: %d aeropuertos, %d vuelos, %d pedidos | " +
-                            "Capacidad: %d | Demanda: %d | Ratio: %.2f",
-                    aeropuertos.size(), vuelos.size(), pedidos.size(),
-                    capacidadTotal, demandaTotal, ratio
-            );
+            resumen.append(String.format("📊 Capacidad total: %d paquetes%n", capacidadTotal));
+            resumen.append(String.format("📊 Demanda total: %d paquetes%n", demandaTotal));
+            resumen.append(String.format("📊 Ratio capacidad/demanda: %.2f %s%n", ratio,
+                    ratio >= 1.0 ? "(✅ Factible)" : "(⚠ Sobrecarga)"));
+
+            validarHorarios(vuelos, pedidos);
+            return resumen.toString();
         }
+
     }
 
+    /**
+     * Valida que los horarios sean lógicos y permitan conexiones
+     */
+    private static void validarHorarios(List<Vuelo> vuelos, List<Pedido> pedidos) {
+        // Encontrar rango de fechas
+        LocalDateTime minFecha = vuelos.stream()
+                .map(Vuelo::getHoraSalida)
+                .min(LocalDateTime::compareTo)
+                .orElse(LocalDateTime.now());
+
+        LocalDateTime maxFecha = vuelos.stream()
+                .map(Vuelo::getHoraLlegada)
+                .max(LocalDateTime::compareTo)
+                .orElse(LocalDateTime.now());
+
+        System.out.printf("   🕐 Rango de vuelos: %s a %s%n",
+                minFecha.toLocalDate(), maxFecha.toLocalDate());
+
+        // Validar que fechas límite sean alcanzables
+        /*long pedidosAlcanzables = pedidos.stream()
+                .filter(p -> p.getFechaLimite().isAfter(minFecha))
+                .count();
+*/
+       /* System.out.printf("   ⏰ Pedidos con fechas límite alcanzables: %d/%d%n",
+                pedidosAlcanzables, pedidos.size());*/
+    }
+
+    /**
+     * Genera estadísticas detalladas de los datos cargados
+     */
     public static void mostrarEstadisticas(DatosMoraPack datos) {
         System.out.println("\n📈 ESTADÍSTICAS DETALLADAS:");
         System.out.println("=".repeat(50));

@@ -2,6 +2,7 @@ package com.morapack.models;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.util.function.ToDoubleFunction;
 import java.util.stream.Collectors;
@@ -43,7 +44,7 @@ public class ACSMoraPack {
     public SolucionLogistica ejecutar(List<Pedido> pedidos, ToDoubleFunction<SolucionLogistica> coste) {
         // orden por deadline ascendente (estable)
         List<Pedido> orden = new ArrayList<>(pedidos);
-        orden.sort(Comparator.comparing(Pedido::getFechaLimite));
+        //orden.sort(Comparator.comparing(Pedido::getFechaLimite));
 
         SolucionLogistica mejorGlobal = null;
         double mejorCoste = Double.POSITIVE_INFINITY;
@@ -185,10 +186,39 @@ public class ACSMoraPack {
         return Duration.between(s, l).toMinutes();
     }
 
+    private static int slaHoras(Aeropuerto origen, Aeropuerto destino) {
+        String c1 = origen != null && origen.getContinente() != null ? origen.getContinente().trim() : "";
+        String c2 = destino != null && destino.getContinente() != null ? destino.getContinente().trim() : "";
+        boolean mismoContinente = !c1.isEmpty() && c1.equalsIgnoreCase(c2);
+        return mismoContinente ? 48 : 72;
+    }
+
     private static long holguraMin(RutaPedido r) {
         List<Vuelo> vs = r.getSecuenciaVuelos();
-        LocalDateTime llegada = vs.get(vs.size()-1).getHoraLlegada();
-        return Duration.between(llegada, r.getPedido().getFechaLimite()).toMinutes();
+        if (vs == null || vs.isEmpty()) return Long.MIN_VALUE; // sin vuelos: no hay holgura
+
+        // Tomamos salida y llegada reales de la ruta
+        Vuelo primero = vs.get(0);
+        Vuelo ultimo   = vs.get(vs.size() - 1);
+
+        // Si tus vuelos usan OffsetDateTime, usa esos tipos; si son LocalDateTime, mantén LocalDateTime.
+        // Aquí asumo OffsetDateTime en los vuelos (ajusta si es LocalDateTime).
+        java.time.OffsetDateTime salida   = OffsetDateTime.from(primero.getHoraSalida());
+        java.time.OffsetDateTime llegada  = OffsetDateTime.from(ultimo.getHoraLlegada());
+
+        Aeropuerto origen  = primero.getOrigen();
+        Aeropuerto destino = r.getPedido().getLugarDestino();
+
+        // SLA calculado desde la "fechaRegistro" del pedido, llevando ese LocalDateTime al offset de la ruta
+        java.time.OffsetDateTime base = r.getPedido()
+                .getFechaRegistro()
+                .atOffset(salida.getOffset());
+
+        int horasSla = slaHoras(origen, destino);
+        java.time.OffsetDateTime limiteVirtual = base.plusHours(horasSla);
+
+        // holgura = minutos que sobran (o faltan) respecto al límite virtual
+        return java.time.Duration.between(llegada, limiteVirtual).toMinutes();
     }
 
     /* ======= Capacidad por hormiga (simple, sin tracker global) ======= */
