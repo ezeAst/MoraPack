@@ -59,12 +59,12 @@ public class TestGraspMain {
         }
 
         int kPorPedido = 5;                       // 3..7 suele ir bien
-        ACSMoraPack acs = new ACSMoraPack(semillasGrasp, kPorPedido);
-
-        SolucionLogistica mejorPlanACS = acs.ejecutar(
+        //ACSMoraPack acs = new ACSMoraPack(semillasGrasp, kPorPedido);
+        SolucionLogistica mejorPlanACS= new SolucionLogistica();
+        /*SolucionLogistica mejorPlanACS = acs.ejecutar(
                 pedidos,
                 plan -> getFitnessSeguro(new Solucion(plan))  // tu evaluador
-        );
+        );*/
 
         if (mejorPlanACS == null) {
             System.out.println("ACS no encontró plan factible.");
