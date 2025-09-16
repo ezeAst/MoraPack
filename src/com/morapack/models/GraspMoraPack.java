@@ -31,7 +31,7 @@ public class GraspMoraPack {
     }
 
     /**
-     * ✅ CORREGIDO: Genera una solución validando capacidades
+     *  CORREGIDO: Genera una solución validando capacidades
      */
     public Solucion generarSolucion() {
         SolucionLogistica solucionLogistica = new SolucionLogistica();
@@ -57,7 +57,7 @@ public class GraspMoraPack {
                 configurarRuta(ruta, rutaAsignada);
                 solucionLogistica.agregarRutaPedido(pedido, ruta);
 
-                // ✅ NUEVO: Actualizar ocupación después de asignar
+                //  NUEVO: Actualizar ocupación después de asignar
                 actualizarOcupacion(rutaAsignada, pedido.getCantidad());
                 pedidosAsignados++;
             } else {
@@ -66,14 +66,14 @@ public class GraspMoraPack {
         }
 
         // Log de estadísticas
-        System.out.printf("✅ GRASP: %d asignados, %d rechazados por capacidad%n",
+        /*System.out.printf("✅ GRASP: %d asignados, %d rechazados por capacidad%n",
                 pedidosAsignados, pedidosRechazados);
-
+        */
         return new Solucion(solucionLogistica, pedidos.size());
     }
 
     /**
-     * ✅ NUEVO: Busca ruta validando capacidad disponible
+     *  NUEVO: Busca ruta validando capacidad disponible
      */
     private List<Vuelo> buscarMejorRutaParaPedidoConCapacidad(Pedido pedido) {
         String destinoCodigo = pedido.getLugarDestino().getCodigo();
@@ -154,7 +154,7 @@ public class GraspMoraPack {
                     .collect(Collectors.toList());
 
             for (Vuelo segundoVuelo : vuelosDesdeEscala) {
-                // ✅ VERIFICAR QUE AMBOS VUELOS TENGAN CAPACIDAD
+                //  VERIFICAR QUE AMBOS VUELOS TENGAN CAPACIDAD
                 if (rutaTieneCapacidadCompleta(Arrays.asList(primerVuelo, segundoVuelo), pedido.getCantidad())) {
                     rutasEncontradas.add(Arrays.asList(primerVuelo, segundoVuelo));
                 }
@@ -174,10 +174,10 @@ public class GraspMoraPack {
         boolean tienCapacidad = capacidadDisponible >= cantidadRequerida;
 
         // Log para debugging (opcional, quitar en producción)
-        if (!tienCapacidad) {
+        /*if (!tienCapacidad) {
             System.out.printf("⚠ Vuelo %s sin capacidad: %d/%d usado, necesita %d%n",
                     vuelo.getId(), ocupacionActualVuelo, vuelo.getCapacidadMaxima(), cantidadRequerida);
-        }
+        }*/
 
         return tienCapacidad;
     }
