@@ -398,7 +398,7 @@ public class ACSMoraPack {
         return rutaDe(null, seq.toArray(new Vuelo[0]));
     }
 
-    /* ==================== Auxiliares ==================== */
+    /* =================== Auxiliares ==================== */
     private Set<String> extraerArcos(Solucion s) {
         Set<String> arcos = new HashSet<>();
         if (s == null || s.getSolucionLogistica() == null) return arcos;
