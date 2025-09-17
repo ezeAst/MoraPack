@@ -50,14 +50,14 @@ public class TestMassiveData {
         long inicioTotal = System.currentTimeMillis();
 
         // 1. GRASP PURO
-        System.out.println("\n🔵 EJECUTANDO GRASP...");
+        //System.out.println("\n🔵 EJECUTANDO GRASP...");
         long inicioGrasp = System.currentTimeMillis();
         GraspMoraPack grasp = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
         Solucion solucionGrasp = ejecutarGraspOptimizado(grasp);
         long tiempoGrasp = System.currentTimeMillis() - inicioGrasp;
 
         // 2. ALGORITMO GENÉTICO PURO
-        System.out.println("\n🟢 EJECUTANDO ALGORITMO GENÉTICO...");
+        //System.out.println("\n🟢 EJECUTANDO ALGORITMO GENÉTICO...");
         long inicioGA = System.currentTimeMillis();
         GeneticAlgorithmMoraPack ga = new GeneticAlgorithmMoraPack(datos.getPedidos(), datos.getVuelos());
         configurarGAParaDatosMasivos(ga);
@@ -65,7 +65,7 @@ public class TestMassiveData {
         long tiempoGA = System.currentTimeMillis() - inicioGA;
 
         // 3. HÍBRIDO GRASP + GA
-        System.out.println("\n🟡 EJECUTANDO HÍBRIDO GRASP+GA...");
+        System.out.println("\n🟡 EJECUTANDO ALGORITMO GENÉTICO...");
         long inicioHibrido = System.currentTimeMillis();
         GraspGeneticHybrid hibrido = new GraspGeneticHybrid(datos.getPedidos(), datos.getVuelos());
         configurarHibridoParaDatosMasivos(hibrido);
@@ -73,7 +73,7 @@ public class TestMassiveData {
         long tiempoHibrido = System.currentTimeMillis() - inicioHibrido;
 
         //4. GRASP + ACS
-        System.out.println("\n🟣 EJECUTANDO ACS (con semillas GRASP)...");
+        System.out.println("\n🟣 EJECUTANDO ACS ...");
         long inicioACS = System.currentTimeMillis();
         Solucion solucionACS = ejecutarACSGrasp(datos, 10); // k=12 (ajusta si quieres)
         long tiempoACS = System.currentTimeMillis() - inicioACS;
@@ -91,7 +91,7 @@ public class TestMassiveData {
      * Ejecuta GRASP con configuración optimizada
      */
     private static Solucion ejecutarGraspOptimizado(GraspMoraPack grasp) {
-        double[] alphas = {0.0, 0.2, 0.5, 0.8, 1.0};
+        double[] alphas = {0.1, 0.2, 0.5, 0.8, 0.9};
         Solucion mejorSolucion = null;
         double mejorFitness = Double.NEGATIVE_INFINITY;
 
@@ -106,7 +106,7 @@ public class TestMassiveData {
             }
         }
 
-        System.out.printf("   ✅ GRASP completado: Fitness = %.2f%n", mejorFitness);
+        System.out.printf("  GRASP completado: Fitness = %.2f%n", mejorFitness);
         return mejorSolucion;
     }
 
@@ -155,14 +155,13 @@ public class TestMassiveData {
             intentos++;
         }
 
-        System.out.printf("✅ Semillas GRASP: %d/%d generadas%n", semillas.size(), kSemillas);
+        System.out.printf("Semillas: %d/%d generadas%n", semillas.size(), kSemillas);
 
         // 2) Configurar y ejecutar ACS con esas semillas
         ACSMoraPack acs = new ACSMoraPack(datos.getPedidos(), datos.getVuelos());
         try {
             acs.establecerSemillas(semillas);
-            acs.setSoloSemillas(true);// seeding
-            acs.configurarParametrosACS(40, 80, 1.0, 3.0, 0.10, 0.10); // (hormigas, iters, α, β, ρ, ξ)
+            acs.configurarParametrosACS(40, 100, 1.0, 3.0, 0.10, 0.10); // (hormigas, iters, α, β, ρ, ξ)
         } catch (Throwable ignored) { /* por si la firma difiere en tu versión */ }
 
         return acs.ejecutar();
@@ -204,13 +203,13 @@ public class TestMassiveData {
         mostrarAnalisisDetalladoFitness(grasp, ga, hibrido,acs);
 
         // Comparación de rutas generadas
-        mostrarComparacionRutas(grasp, ga, hibrido, totalPedidos);
+        mostrarComparacionRutas(grasp, ga, hibrido,acs, totalPedidos);
 
         // Determinación del ganador
-        determinarGanador(grasp, ga, hibrido);
+        determinarGanador(grasp, ga, hibrido,acs);
 
         // Conclusiones
-        mostrarConclusiones(tiempoTotal);
+        //mostrarConclusiones(tiempoTotal);
     }
 
     /**
@@ -225,26 +224,26 @@ public class TestMassiveData {
         System.out.printf("%-12s | %-10s | %-10s | %-12s | %-10s%n",
                 "ALGORITMO", "FITNESS", "PEDIDOS", "COBERTURA", "TIEMPO(s)");
         System.out.println("-".repeat(70));
-
+    /*
         if (grasp != null) {
             int pedidosGrasp = grasp.getSolucionLogistica().getAsignacionPedidos().size();
             double coberturaGrasp = (double) pedidosGrasp / totalPedidos * 100;
             System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
                     "GRASP", grasp.getFitness(), pedidosGrasp, coberturaGrasp, tiempoGrasp/1000.0);
-        }
-
+        }*/
+/*
         if (ga != null) {
             int pedidosGA = ga.getSolucionLogistica().getAsignacionPedidos().size();
             double coberturaGA = (double) pedidosGA / totalPedidos * 100;
             System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
                     "GENÉTICO", ga.getFitness(), pedidosGA, coberturaGA, tiempoGA/1000.0);
-        }
+        }*/
 
         if (hibrido != null) {
             int pedidosHibrido = hibrido.getSolucionLogistica().getAsignacionPedidos().size();
             double coberturaHibrido = (double) pedidosHibrido / totalPedidos * 100;
             System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
-                    "HÍBRIDO", hibrido.getFitness(), pedidosHibrido, coberturaHibrido, tiempoHibrido/1000.0);
+                    "GENÉTICO", hibrido.getFitness(), pedidosHibrido, coberturaHibrido, tiempoHibrido/1000.0);
         }
         if (acs != null) {
             int pedidosACS = (acs.getSolucionLogistica() != null)
@@ -266,18 +265,18 @@ public class TestMassiveData {
         System.out.println("\n🔬 ANÁLISIS DETALLADO DE COMPONENTES DE FITNESS:");
         System.out.println("=".repeat(70));
 
-        if (grasp != null) {
+       /* if (grasp != null) {
             System.out.println("\n🔵 GRASP - COMPONENTES DE FITNESS:");
             System.out.println(extraerComponentesFitness(grasp.obtenerReporteFitness()));
-        }
+        }*/
 
-        if (ga != null) {
+        /*if (ga != null) {
             System.out.println("\n🟢 GENÉTICO - COMPONENTES DE FITNESS:");
             System.out.println(extraerComponentesFitness(ga.obtenerReporteFitness()));
-        }
+        }*/
 
         if (hibrido != null) {
-            System.out.println("\n🟡 HÍBRIDO - COMPONENTES DE FITNESS:");
+            System.out.println("\n🟡 GENÉTICO - COMPONENTES DE FITNESS:");
             System.out.println(extraerComponentesFitness(hibrido.obtenerReporteFitness()));
         }
 
@@ -311,28 +310,32 @@ public class TestMassiveData {
     /**
      * Comparación de rutas generadas entre los algoritmos
      */
-    private static void mostrarComparacionRutas(Solucion grasp, Solucion ga, Solucion hibrido, int totalPedidos) {
+    private static void mostrarComparacionRutas(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs, int totalPedidos) {
         System.out.println("\n🗺 COMPARACIÓN DE RUTAS GENERADAS:");
         System.out.println("=".repeat(70));
 
         // Contar tipos de rutas para cada algoritmo
-        if (grasp != null) {
+       /* if (grasp != null) {
             System.out.println("\n🔵 GRASP - ANÁLISIS DE RUTAS:");
             analizarRutasSolucion(grasp, "GRASP");
-        }
+        }*/
 
-        if (ga != null) {
+        /*if (ga != null) {
             System.out.println("\n🟢 GENÉTICO - ANÁLISIS DE RUTAS:");
             analizarRutasSolucion(ga, "GENÉTICO");
-        }
+        }*/
 
         if (hibrido != null) {
-            System.out.println("\n🟡 HÍBRIDO - ANÁLISIS DE RUTAS:");
-            analizarRutasSolucion(hibrido, "HÍBRIDO");
+            System.out.println("\n🟡 GENÉTICO - ANÁLISIS DE RUTAS:");
+            analizarRutasSolucion(hibrido, "GENÉTICO");
+        }
+        if (acs != null) {
+            System.out.println("\n🟡 ACS - ANÁLISIS DE RUTAS:");
+            analizarRutasSolucion(acs, "ACS");
         }
 
         // Mostrar ejemplos de rutas side-by-side
-        mostrarEjemplosRutasComparacion(grasp, ga, hibrido);
+        mostrarEjemplosRutasComparacion(grasp, ga, hibrido,acs);
     }
 
     /**
@@ -382,17 +385,17 @@ public class TestMassiveData {
     /**
      * Muestra ejemplos de rutas lado a lado
      */
-    private static void mostrarEjemplosRutasComparacion(Solucion grasp, Solucion ga, Solucion hibrido) {
+    private static void mostrarEjemplosRutasComparacion(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs) {
         System.out.println("\n📋 EJEMPLOS DE RUTAS (PRIMEROS 8 PEDIDOS):");
-        System.out.println("-".repeat(70));
-        System.out.printf("%-8s | %-18s | %-18s | %-18s%n",
-                "PEDIDO", "GRASP", "GENÉTICO", "HÍBRIDO");
-        System.out.println("-".repeat(70));
+        System.out.println("-".repeat(50));
+        System.out.printf("%-13s %-20s %-18s%n", "PEDIDO", "GENÉTICO" , "ACS" );
+        System.out.println("-".repeat(50));
 
         // Obtener rutas de cada algoritmo
         var rutasGrasp = grasp != null ? grasp.getSolucionLogistica().getAsignacionPedidos() : null;
         var rutasGA = ga != null ? ga.getSolucionLogistica().getAsignacionPedidos() : null;
         var rutasHibrido = hibrido != null ? hibrido.getSolucionLogistica().getAsignacionPedidos() : null;
+        var rutasAcs= acs != null ? acs.getSolucionLogistica().getAsignacionPedidos() : null;
 
         // Obtener primeros 8 pedidos para comparar
         int contador = 0;
@@ -405,12 +408,12 @@ public class TestMassiveData {
                         obtenerRutaString(rutasGA.get(pedido)) : "NO ASIGNADO";
                 String rutaHibridoStr = rutasHibrido != null && rutasHibrido.containsKey(pedido) ?
                         obtenerRutaString(rutasHibrido.get(pedido)) : "NO ASIGNADO";
-
-                System.out.printf("%-8s | %-18s | %-18s | %-18s%n",
+                String rutaAcsStr = rutasAcs != null && rutasAcs.containsKey(pedido) ?
+                        obtenerRutaString(rutasAcs.get(pedido)) : "NO ASIGNADO";
+                System.out.printf("%-8s |   %-13s |   %-18s%n",
                         pedido.getId(),
-                        truncar(rutaGraspStr, 18),
-                        truncar(rutaGAStr, 18),
-                        truncar(rutaHibridoStr, 18));
+                        truncar(rutaHibridoStr, 18),
+                        truncar(rutaAcsStr, 18));
                 contador++;
             }
         }
@@ -451,20 +454,20 @@ public class TestMassiveData {
     /**
      * Determina y anuncia el ganador
      */
-    private static void determinarGanador(Solucion grasp, Solucion ga, Solucion hibrido) {
+    private static void determinarGanador(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs) {
         System.out.println("\n🏆 DETERMINACIÓN DEL GANADOR:");
         System.out.println("=".repeat(50));
 
-        Solucion ganador = Arrays.asList(grasp, ga, hibrido).stream()
+        Solucion ganador = Arrays.asList(hibrido,acs).stream()
                 .filter(Objects::nonNull)
                 .max(Comparator.comparingDouble(Solucion::getFitness))
                 .orElse(null);
 
         if (ganador != null) {
             String nombreGanador = "DESCONOCIDO";
-            if (ganador == grasp) nombreGanador = "GRASP";
-            else if (ganador == ga) nombreGanador = "GENÉTICO";
-            else if (ganador == hibrido) nombreGanador = "HÍBRIDO";
+            if (ganador == hibrido) nombreGanador = "GENÉTICO";
+            else if (ganador == acs) nombreGanador = "ACS";
+
 
             System.out.printf("🥇 GANADOR: %s con fitness %.2f%n", nombreGanador, ganador.getFitness());
 
@@ -473,16 +476,17 @@ public class TestMassiveData {
                 double difHibridoVsGrasp = hibrido.getFitness() - grasp.getFitness();
                 double difHibridoVsGA = hibrido.getFitness() - ga.getFitness();
                 double difGAVsGrasp = ga.getFitness() - grasp.getFitness();
+                double difGAVsAcs = ga.getFitness() - acs.getFitness();
 
                 System.out.println("\n📊 DIFERENCIAS DE RENDIMIENTO:");
-                System.out.printf("   • Híbrido vs GRASP: %+.2f puntos%n", difHibridoVsGrasp);
+                /*System.out.printf("   • Híbrido vs GRASP: %+.2f puntos%n", difHibridoVsGrasp);
                 System.out.printf("   • Híbrido vs Genético: %+.2f puntos%n", difHibridoVsGA);
-                System.out.printf("   • Genético vs GRASP: %+.2f puntos%n", difGAVsGrasp);
-
+                System.out.printf("   • Genético vs GRASP: %+.2f puntos%n", difGAVsGrasp);*/
+                System.out.printf("   • Genético vs ACS: %+.2f puntos%n", difGAVsAcs);
                 // Porcentajes de mejora
                 if (grasp.getFitness() > 0) {
-                    double mejoraPorcentualHibrido = (difHibridoVsGrasp / Math.abs(grasp.getFitness())) * 100;
-                    System.out.printf("   • Mejora porcentual Híbrido sobre GRASP: %+.2f%%%n", mejoraPorcentualHibrido);
+                    double mejoraPorcentualHibrido = (difGAVsAcs / Math.abs(grasp.getFitness())) * 100;
+                    System.out.printf("   • Mejora porcentual GENÉTICO sobre ACS: %+.2f%%%n", mejoraPorcentualHibrido);
                 }
             }
         }

@@ -356,12 +356,12 @@ public class GraspMoraPack {
         for (Vuelo vuelo : vuelos) {
             vuelosPorOrigen.computeIfAbsent(vuelo.getOrigen().getCodigo(), k -> new ArrayList<>()).add(vuelo);
         }
-
+/*
         System.out.println("Vuelos indexados por origen:");
         for (String fabrica : Solucion.FABRICAS) {
             int cantidadVuelos = vuelosPorOrigen.getOrDefault(fabrica, new ArrayList<>()).size();
             System.out.println("- " + fabrica + ": " + cantidadVuelos + " vuelos");
-        }
+        }*/
     }
 
     // Setters para configuración
