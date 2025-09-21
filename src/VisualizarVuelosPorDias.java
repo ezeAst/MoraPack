@@ -20,7 +20,7 @@ public class VisualizarVuelosPorDias {
         // Rutas de archivos
         String rutaAeropuertos = "data/aeropuertos.csv";
         String rutaVuelos = "data/vuelos.txt";
-        String rutaPedidos = "data/pedidos.csv";
+        String rutaPedidos = "data/pedidos.txt";
 
         try {
             // Cargar datos con duplicación dinámica

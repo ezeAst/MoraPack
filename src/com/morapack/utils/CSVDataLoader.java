@@ -505,45 +505,57 @@ public class CSVDataLoader {
      * Carga pedidos desde archivo CSV
      */
     public static List<Pedido> cargarPedidos(String rutaArchivo, Map<String, Aeropuerto> aeropuertoMap) {
-        // ... código existente sin cambios ...
+        // Nuevo parser para formato: dd-hh-mm-dest-###-IdClien
+        final Pattern PATRON = Pattern.compile(
+                "^(\\d{2})-(\\d{2})-(\\d{2})-([A-Z0-9]{3,4})-(\\d{3})-(\\d{7})$"
+        );
+
         List<Pedido> pedidos = new ArrayList<>();
         int autoinc = 1; // ID autoincremental por archivo leído
 
-        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))) {
-            String linea;
-            boolean primeraLinea = true;
+        // Año/mes de ancla: mes actual (archivo mensual)
+        YearMonth ym = YearMonth.from(LocalDate.now());
 
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaArchivo, StandardCharsets.UTF_8))) {
+            String linea;
             while ((linea = br.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
+                if (linea.isBlank() || linea.startsWith("#")) continue;
+
+                linea = linea.trim();
+                Matcher m = PATRON.matcher(linea);
+                if (!m.matches()) {
+                    System.err.printf("⚠️ Línea inválida (se omite): %s%n", linea);
                     continue;
                 }
-                if (linea.isBlank()) continue;
 
-                // Usar split con límite para no perder vacíos al final
-                String[] campos = linea.split(",", -1);
-                if (campos.length >= 3) {
-                    // CSV: cliente, destino, cantidad
-                    String clienteId = campos[0].trim().replaceAll("^\"|\"$", "");
-                    String codigoDestino = campos[1].trim().replaceAll("^\"|\"$", "");
-                    String cantidadStr  = campos[2].trim().replaceAll("^\"|\"$", "");
+                int dd = Integer.parseInt(m.group(1));
+                int hh = Integer.parseInt(m.group(2)); // 00–23 permitido
+                int mm = Integer.parseInt(m.group(3)); // 00–59 permitido
+                String codDestino = m.group(4);
+                int cantidad = Integer.parseInt(m.group(5)); // 001–999
+                String clienteId = m.group(6);               // 7 dígitos
 
-                    try {
-                        int cantidad = Integer.parseInt(cantidadStr);
-                        Aeropuerto destino = aeropuertoMap.get(codigoDestino);
-
-                        if (destino != null) {
-                            String id = String.format("P%05d", autoinc++); // ej. P00001, P00002...
-                            LocalDateTime fechaRegistro = LocalDateTime.now();
-                            pedidos.add(new Pedido(id, clienteId, cantidad, fechaRegistro, destino));
-                        } else {
-                            System.err.printf("⚠️ Pedido #%d: Destino no encontrado (%s)%n",
-                                    autoinc, codigoDestino);
-                        }
-                    } catch (NumberFormatException nfe) {
-                        System.err.printf("❌ Cantidad inválida: '%s' en línea: %s%n", cantidadStr, linea);
-                    }
+                // Validaciones de rango básicas
+                if (dd < 1 || dd > ym.lengthOfMonth()) {
+                    System.err.printf("⚠️ Día fuera de rango para %s: %02d (línea: %s)%n", ym, dd, linea);
+                    continue;
                 }
+                if (cantidad < 1 || cantidad > 999) {
+                    System.err.printf("⚠️ Cantidad fuera de rango (1–999): %d (línea: %s)%n", cantidad, linea);
+                    continue;
+                }
+
+                Aeropuerto destino = aeropuertoMap.get(codDestino);
+                if (destino == null) {
+                    System.err.printf("⚠️ Destino no encontrado en aeropuertos: %s (línea: %s)%n", codDestino, linea);
+                    continue;
+                }
+
+                // Fecha/hora de registro anclada al mes actual (sin zonas/husos aquí)
+                LocalDateTime fechaRegistro = LocalDateTime.of(ym.getYear(), ym.getMonth(), dd, hh, mm);
+
+                String id = String.format("P%05d", autoinc++); // P00001, P00002, ...
+                pedidos.add(new Pedido(id, clienteId, cantidad, fechaRegistro, destino));
             }
 
             System.out.printf("✅ Cargados %d pedidos desde %s%n", pedidos.size(), rutaArchivo);
@@ -554,6 +566,7 @@ public class CSVDataLoader {
 
         return pedidos;
     }
+
 
     private static Map<String, Aeropuerto> crearMapaAeropuertos(List<Aeropuerto> aeropuertos) {
         Map<String, Aeropuerto> mapa = new HashMap<>();

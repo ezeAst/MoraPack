@@ -19,7 +19,7 @@ public class TestMassiveData {
         // Rutas de archivos CSV
         String rutaAeropuertos = "data/aeropuertos.csv";
         String rutaVuelos = "data/vuelos.txt";
-        String rutaPedidos = "data/pedidos.csv";
+        String rutaPedidos = "data/pedidos.txt";
 
         try {
             // Cargar datos masivos
