@@ -17,17 +17,35 @@ public class GraspMoraPack {
     private Random random;
     private double alfa;
 
-    // ✅ NUEVO: Tracker de capacidad ocupada por vuelo durante construcción
+
     private Map<Vuelo, Integer> ocupacionActual;
+    private Map<String, Integer> ocupacionAlmacenes; // ✅ NUEVO
+    private Map<String, Aeropuerto> aeropuertoMap;   // ✅ NUEVO
 
     public GraspMoraPack(List<Pedido> pedidos, List<Vuelo> vuelos) {
         this.pedidos = new ArrayList<>(pedidos);
         this.vuelos = new ArrayList<>(vuelos);
         this.random = new Random();
         this.vuelosPorOrigen = new HashMap<>();
-        this.ocupacionActual = new HashMap<>(); // ✅ NUEVO
+        this.ocupacionActual = new HashMap<>();
+        this.ocupacionAlmacenes = new HashMap<>(); // ✅ NUEVO
+        this.aeropuertoMap = new HashMap<>();      // ✅ NUEVO
 
         inicializarVuelos();
+        inicializarMapaAeropuertos(); // ✅ NUEVO
+    }
+    // ✅ NUEVO: Inicializar mapa de aeropuertos
+    private void inicializarMapaAeropuertos() {
+        for (Vuelo vuelo : vuelos) {
+            aeropuertoMap.put(vuelo.getOrigen().getCodigo(), vuelo.getOrigen());
+            aeropuertoMap.put(vuelo.getDestino().getCodigo(), vuelo.getDestino());
+        }
+        System.out.printf("✅ Mapa de aeropuertos inicializado: %d aeropuertos%n", aeropuertoMap.size());
+    }
+
+    // ✅ NUEVO: Buscar aeropuerto por código
+    private Aeropuerto buscarAeropuertoPorCodigo(String codigo) {
+        return aeropuertoMap.get(codigo);
     }
 
     /**
@@ -39,39 +57,84 @@ public class GraspMoraPack {
 
         // ✅ NUEVO: Resetear ocupación al inicio de cada construcción
         ocupacionActual.clear();
+        ocupacionAlmacenes.clear();
 
         // Ordenar pedidos por fecha límite (más urgentes primero)
-        List<Pedido> pedidosOrdenados = pedidos;/*.stream()
-                .sorted(Comparator.comparing(Pedido::getFechaLimite))
-                .collect(Collectors.toList());*/
-
+        List<Pedido> pedidosOrdenados = pedidos;
         int pedidosAsignados = 0;
-        int pedidosRechazados = 0;
+        int pedidosRechazadosVuelos = 0;
+        int pedidosRechazadosAlmacenes = 0;
 
         // Asignar ruta a cada pedido CON VALIDACIÓN DE CAPACIDAD
         for (Pedido pedido : pedidosOrdenados) {
-            List<Vuelo> rutaAsignada = buscarMejorRutaParaPedidoConCapacidad(pedido);
+            List<Vuelo> rutaAsignada = buscarMejorRutaParaPedidoConCapacidadCompleta(pedido);
 
             if (!rutaAsignada.isEmpty()) {
                 RutaPedido ruta = new RutaPedido(pedido, rutaAsignada);
                 configurarRuta(ruta, rutaAsignada);
                 solucionLogistica.agregarRutaPedido(pedido, ruta);
 
-                //  NUEVO: Actualizar ocupación después de asignar
+                // ✅ NUEVO: Actualizar ocupación de vuelos Y almacenes
                 actualizarOcupacion(rutaAsignada, pedido.getCantidad());
+                actualizarOcupacionAlmacenes(rutaAsignada, pedido.getCantidad());
                 pedidosAsignados++;
             } else {
-                pedidosRechazados++;
+                // Determinar por qué fue rechazado
+                List<Vuelo> rutaSoloVuelos = buscarMejorRutaParaPedidoConCapacidad(pedido);
+                if (rutaSoloVuelos.isEmpty()) {
+                    pedidosRechazadosVuelos++;
+                } else {
+                    pedidosRechazadosAlmacenes++;
+                }
             }
         }
 
-        // Log de estadísticas
-        /*System.out.printf("✅ GRASP: %d asignados, %d rechazados por capacidad%n",
-                pedidosAsignados, pedidosRechazados);
-        */
         return new Solucion(solucionLogistica, pedidos.size());
     }
+    // ✅ NUEVO: Busca ruta validando VUELOS Y ALMACENES
+    private List<Vuelo> buscarMejorRutaParaPedidoConCapacidadCompleta(Pedido pedido) {
+        String destinoCodigo = pedido.getLugarDestino().getCodigo();
+        List<CandidatoRuta> candidatos = new ArrayList<>();
 
+        for (String codigoFabrica : Solucion.FABRICAS) {
+            // Rutas directas CON VALIDACIÓN COMPLETA
+            List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigenConCapacidad(
+                    codigoFabrica, destinoCodigo, pedido);
+            if (!rutaDirecta.isEmpty() &&
+                    rutaTieneCapacidadCompleta(rutaDirecta, pedido.getCantidad())) {
+                double puntuacion = calcularPuntuacionRuta(rutaDirecta);
+                candidatos.add(new CandidatoRuta(rutaDirecta, puntuacion));
+            }
+
+            // Rutas con escala CON VALIDACIÓN COMPLETA
+            List<List<Vuelo>> rutasConEscala = buscarRutasConEscalaDesdeOrigenConCapacidad(
+                    codigoFabrica, destinoCodigo, pedido);
+            for (List<Vuelo> ruta : rutasConEscala) {
+                if (rutaTieneCapacidadCompleta(ruta, pedido.getCantidad())) {
+                    double puntuacion = calcularPuntuacionRuta(ruta);
+                    candidatos.add(new CandidatoRuta(ruta, puntuacion));
+                }
+            }
+        }
+
+        if (candidatos.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        return seleccionarCandidatoGRASP(candidatos);
+    }
+
+    private boolean almacenTieneCapacidad(Aeropuerto almacen, int cantidadRequerida) {
+        if (almacen == null) return false;
+
+        int ocupacionActual = ocupacionAlmacenes.getOrDefault(almacen.getCodigo(), 0);
+        int capacidadDisponible = almacen.getCapacidad() - almacen.getCapacidadAct() - ocupacionActual;
+
+        boolean tieneCapacidad = capacidadDisponible >= cantidadRequerida;
+
+
+        return tieneCapacidad;
+    }
     /**
      *  NUEVO: Busca ruta validando capacidad disponible
      */
@@ -185,13 +248,46 @@ public class GraspMoraPack {
     /**
      * ✅ NUEVO: Verifica que toda una ruta tenga capacidad
      */
+    // ✅ MODIFICADO: Verifica capacidad de toda una ruta (vuelos + almacenes)
     private boolean rutaTieneCapacidadCompleta(List<Vuelo> ruta, int cantidadRequerida) {
+        // 1. Verificar capacidad de vuelos (ya existe)
         for (Vuelo vuelo : ruta) {
             if (!tieneCapacidadDisponible(vuelo, cantidadRequerida)) {
                 return false;
             }
         }
+
+        // 2. ✅ NUEVO: Verificar capacidad de almacenes intermedios (escalas)
+        for (int i = 0; i < ruta.size() - 1; i++) {
+            Aeropuerto almacenIntermedio = ruta.get(i).getDestino();
+            if (!almacenTieneCapacidad(almacenIntermedio, cantidadRequerida)) {
+                return false;
+            }
+        }
+
+        // 3. ✅ NUEVO: Verificar capacidad del almacén de destino final
+        if (!ruta.isEmpty()) {
+            Aeropuerto almacenFinal = ruta.get(ruta.size() - 1).getDestino();
+            if (!almacenTieneCapacidad(almacenFinal, cantidadRequerida)) {
+                return false;
+            }
+        }
+
         return true;
+    }
+
+    private void actualizarOcupacionAlmacenes(List<Vuelo> ruta, int cantidadPaquetes) {
+        // Actualizar almacenes intermedios (escalas)
+        for (int i = 0; i < ruta.size() - 1; i++) {
+            String codigoAlmacen = ruta.get(i).getDestino().getCodigo();
+            ocupacionAlmacenes.merge(codigoAlmacen, cantidadPaquetes, Integer::sum);
+        }
+
+        // Actualizar almacén de destino final
+        if (!ruta.isEmpty()) {
+            String codigoDestino = ruta.get(ruta.size() - 1).getDestino().getCodigo();
+            ocupacionAlmacenes.merge(codigoDestino, cantidadPaquetes, Integer::sum);
+        }
     }
 
     /**

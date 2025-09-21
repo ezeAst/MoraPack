@@ -77,29 +77,97 @@ public class Solucion {
      */
     private double calcularFitness() {
         if (solucionLogistica == null || solucionLogistica.getAsignacionPedidos().isEmpty()) {
-            return -10000; // Solución vacía es la peor posible
+            return -10000;
         }
 
-        // Calcular cada componente
         double puntuacionEntregaTiempo = calcularEntregaATiempoCorregido();
         double puntuacionMinimizarAtraso = calcularMinimizarAtraso();
-        double puntuacionCapacidades = calcularRespetarCapacidades();
+        double puntuacionCapacidades = calcularRespetarCapacidades(); // Vuelos
+        double puntuacionAlmacenes = calcularRespetarCapacidadAlmacenes(); // ✅ NUEVO
         double puntuacionAprovechamiento = calcularAprovechamientoVuelos();
         double puntuacionRutas = calcularCalidadRutas();
         double penalizacionFabricas = calcularPenalizacionFabricas();
 
-        // Calcular fitness total
+        // ✅ MODIFICADO: Reajustar pesos para incluir almacenes
         double fitness = (PESO_ENTREGA_TIEMPO * puntuacionEntregaTiempo) +
                 (PESO_MINIMIZAR_ATRASO * puntuacionMinimizarAtraso) +
-                (PESO_NO_VIOLAR_CAPACIDAD * puntuacionCapacidades) +
+                (0.10 * puntuacionCapacidades) +        // Reducido de 15% a 10%
+                (0.05 * puntuacionAlmacenes) +         // ✅ NUEVO: 5% para almacenes
                 (PESO_APROVECHAR_VUELOS * puntuacionAprovechamiento) +
                 (PESO_EVITAR_RUTAS_MALAS * puntuacionRutas) +
                 penalizacionFabricas;
 
-        // Actualizar contadores en SolucionLogistica
         actualizarContadores();
-
         return fitness;
+    }
+
+    // ✅ NUEVO: Validar capacidad de almacenes
+    private double calcularRespetarCapacidadAlmacenes() {
+        Map<String, Integer> cargaPorAlmacen = contarCargaPorAlmacen();
+        if (cargaPorAlmacen.isEmpty()) return 100.0;
+
+        int violaciones = 0;
+        double penalizacionTotal = 0.0;
+
+        for (Map.Entry<String, Integer> entry : cargaPorAlmacen.entrySet()) {
+            String codigoAlmacen = entry.getKey();
+            int unidadesEnAlmacen = entry.getValue();
+
+            Aeropuerto almacen = buscarAeropuertoPorCodigo(codigoAlmacen);
+            if (almacen != null) {
+                int capacidadTotal = almacen.getCapacidad();
+                int capacidadUsada = almacen.getCapacidadAct() + unidadesEnAlmacen;
+
+                if (capacidadUsada > capacidadTotal) {
+                    violaciones++;
+                    int exceso = capacidadUsada - capacidadTotal;
+                    penalizacionTotal += PENALIZACION_SOBRECARGA * exceso;
+                }
+            }
+        }
+
+        if (violaciones == 0) return 100.0;
+        return Math.max(-1000, 100 + penalizacionTotal);
+    }
+
+    // ✅ NUEVO: Contar carga por almacén
+    private Map<String, Integer> contarCargaPorAlmacen() {
+        Map<String, Integer> carga = new HashMap<>();
+
+        for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
+            int unidades = ruta.getPedido().getCantidad();
+
+            // Contar en almacenes intermedios (escalas)
+            for (int i = 0; i < ruta.getSecuenciaVuelos().size() - 1; i++) {
+                String codigoAlmacen = ruta.getSecuenciaVuelos().get(i).getDestino().getCodigo();
+                carga.merge(codigoAlmacen, unidades, Integer::sum);
+            }
+
+            // Contar en almacén de destino final
+            List<Vuelo> vuelos = ruta.getSecuenciaVuelos();
+            if (!vuelos.isEmpty()) {
+                String codigoDestino = vuelos.get(vuelos.size() - 1).getDestino().getCodigo();
+                carga.merge(codigoDestino, unidades, Integer::sum);
+            }
+        }
+
+        return carga;
+    }
+
+    // ✅ NUEVO: Buscar aeropuerto por código
+    private Aeropuerto buscarAeropuertoPorCodigo(String codigo) {
+        // Buscar en todos los vuelos de las rutas asignadas
+        for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
+            for (Vuelo vuelo : ruta.getSecuenciaVuelos()) {
+                if (vuelo.getOrigen().getCodigo().equals(codigo)) {
+                    return vuelo.getOrigen();
+                }
+                if (vuelo.getDestino().getCodigo().equals(codigo)) {
+                    return vuelo.getDestino();
+                }
+            }
+        }
+        return null;
     }
 
     /**
@@ -406,7 +474,7 @@ public class Solucion {
     }
 
     public boolean esSolucionFactible() {
-        return calcularRespetarCapacidades() >= 0; // Sin violaciones de capacidad
+        return calcularRespetarCapacidades() >= 0 && calcularRespetarCapacidadAlmacenes() >= 0;
     }
 
     private Map<String, Integer> contarPedidosPorFabrica() {
@@ -445,20 +513,33 @@ public class Solucion {
         double entregaTiempo = calcularEntregaATiempoCorregido();
         double minimizarAtraso = calcularMinimizarAtraso();
         double capacidades = calcularRespetarCapacidades();
+        double capacidadAlmacenes = calcularRespetarCapacidadAlmacenes(); // ✅ NUEVO
         double aprovechamiento = calcularAprovechamientoVuelos();
         double calidadRutas = calcularCalidadRutas();
         double penalizacionFabricas = calcularPenalizacionFabricas();
 
-        // Contar pedidos válidos e inválidos por fábrica
+        // Contar violaciones de almacenes
+        Map<String, Integer> cargaAlmacenes = contarCargaPorAlmacen();
+        int violacionesAlmacenes = 0;
+        for (Map.Entry<String, Integer> entry : cargaAlmacenes.entrySet()) {
+            Aeropuerto almacen = buscarAeropuertoPorCodigo(entry.getKey());
+            if (almacen != null) {
+                int capacidadUsada = almacen.getCapacidadAct() + entry.getValue();
+                if (capacidadUsada > almacen.getCapacidad()) {
+                    violacionesAlmacenes++;
+                }
+            }
+        }
+
+        // Resto del código existente + nuevas líneas
         Map<String, Integer> pedidosPorFabrica = contarPedidosPorFabrica();
         int pedidosInvalidos = contarPedidosInvalidos();
         int pedidosAsignados = solucionLogistica.getAsignacionPedidos().size();
 
-        // Información de cobertura
         String infoCobertura = "";
         if (totalPedidosProblema > 0) {
             double porcentajeCobertura = (double) pedidosAsignados / totalPedidosProblema * 100.0;
-            infoCobertura = String.format("- Cobertura total: %d/%d pedidos (%.1f%%)\n",
+            infoCobertura = String.format("- Cobertura total: %d/%d pedidos (%.1f%%)%n",
                     pedidosAsignados, totalPedidosProblema, porcentajeCobertura);
         }
 
@@ -467,36 +548,36 @@ public class Solucion {
                         "FITNESS TOTAL: %.2f\n\n" +
                         "PRIORIDAD #1 - Entregar a tiempo (50%%) [INCLUYE COBERTURA]: %.1f/100\n" +
                         "PRIORIDAD #2 - Minimizar atraso (20%%): %.1f/100\n" +
-                        "PRIORIDAD #3 - Respetar capacidades (15%%): %.1f/100\n" +
+                        "PRIORIDAD #3 - Respetar capacidades vuelos (10%%): %.1f/100\n" +
+                        "PRIORIDAD #3b - Respetar capacidades almacenes (5%%): %.1f/100\n" + // ✅ NUEVO
                         "PRIORIDAD #4 - Aprovechar vuelos (10%%): %.1f/100\n" +
                         "PRIORIDAD #5 - Calidad de rutas (5%%): %.1f/100\n" +
                         "PENALIZACIÓN - Fábricas inválidas: %.0f\n\n" +
                         "ESTADÍSTICAS:\n" +
-                        "%s" + // infoCobertura
+                        "%s" +
                         "- Pedidos a tiempo: %d/%d (%.1f%%)\n" +
                         "- Pedidos con retraso: %d\n" +
+                        "- Violaciones capacidad vuelos: %s\n" +
+                        "- Violaciones capacidad almacenes: %d\n" + // ✅ NUEVO
                         "- Pedidos desde fábricas válidas: %d/%d\n" +
-                        "- Pedidos desde Lima (LIM): %d\n" +
-                        "- Pedidos desde Bruselas (BRU): %d\n" +
-                        "- Pedidos desde Baku (BAK): %d\n" +
-                        "- Pedidos INVÁLIDOS: %d\n" +
                         "- Vuelos utilizados: %d\n" +
+                        "- Almacenes utilizados: %d\n" + // ✅ NUEVO
                         "- Factible: %s",
                 fitness,
-                entregaTiempo, minimizarAtraso, capacidades, aprovechamiento, calidadRutas, penalizacionFabricas,
+                entregaTiempo, minimizarAtraso, capacidades, capacidadAlmacenes, // ✅ NUEVO
+                aprovechamiento, calidadRutas, penalizacionFabricas,
                 infoCobertura,
                 solucionLogistica.getCantidadAtiempo(),
                 pedidosAsignados,
                 entregaTiempo,
                 solucionLogistica.getCantidadRetraso(),
+                calcularRespetarCapacidades() < 0 ? "SÍ" : "NO",
+                violacionesAlmacenes, // ✅ NUEVO
                 (pedidosAsignados - pedidosInvalidos),
                 pedidosAsignados,
-                pedidosPorFabrica.getOrDefault("LIM", 0),
-                pedidosPorFabrica.getOrDefault("BRU", 0),
-                pedidosPorFabrica.getOrDefault("BAK", 0),
-                pedidosInvalidos,
                 contarCargaPorVuelo().size(),
-                esSolucionFactible() ? "SÍ" : "NO"
+                cargaAlmacenes.size(), // ✅ NUEVO
+                esSolucionFactible() && capacidadAlmacenes >= 0 ? "SÍ" : "NO" // ✅ MODIFICADO
         );
     }
 }
