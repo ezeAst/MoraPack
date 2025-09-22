@@ -214,11 +214,6 @@ public class GraspMoraPack {
         boolean tieneCapacidad = capacidadDisponible >= cantidadRequerida;
 
         // Debug opcional (quitar en producción)
-        if (!tieneCapacidad && eventos.size() > 0) {
-            System.out.printf("⚠️ Almacén %s lleno en %s: %d/%d usado, necesita %d (eventos activos: %d)%n",
-                    almacen.getCodigo(), momentoLlegada, ocupacionEnMomento, almacen.getCapacidad(),
-                    cantidadRequerida, eventos.stream().mapToInt(e -> e.estaOcupado(momentoLlegada) ? 1 : 0).sum());
-        }
 
         return tieneCapacidad;
     }
