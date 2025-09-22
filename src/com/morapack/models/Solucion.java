@@ -2,10 +2,7 @@ package com.morapack.models;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Solucion {
     private SolucionLogistica solucionLogistica;
@@ -21,6 +18,9 @@ public class Solucion {
     private static final double PESO_NO_VIOLAR_CAPACIDAD = 0.15; // 15% - PRIORIDAD #3
     private static final double PESO_APROVECHAR_VUELOS = 0.10;   // 10% - PRIORIDAD #4
     private static final double PESO_EVITAR_RUTAS_MALAS = 0.05;  // 5% - PRIORIDAD #5
+
+    // ✅ NUEVO: Constante para liberación temporal
+    private static final int HORAS_LIBERACION = 2;
 
     private static final double PENALIZACION_FABRICA_INVALIDA = -5000; // Penalización por no salir de fábrica válida
 
@@ -42,6 +42,24 @@ public class Solucion {
         this.solucionLogistica = solucionLogistica;
         this.totalPedidosProblema = totalPedidosProblema;
         this.fitness = calcularFitness();
+    }
+
+    private static class EventoAlmacenTemporal {
+        final LocalDateTime fechaLlegada;
+        final LocalDateTime fechaLiberacion;
+        final int cantidadPaquetes;
+        final String pedidoId;
+
+        EventoAlmacenTemporal(LocalDateTime fechaLlegada, int cantidadPaquetes, String pedidoId) {
+            this.fechaLlegada = fechaLlegada;
+            this.fechaLiberacion = fechaLlegada.plusHours(HORAS_LIBERACION);
+            this.cantidadPaquetes = cantidadPaquetes;
+            this.pedidoId = pedidoId;
+        }
+
+        boolean estaOcupado(LocalDateTime momento) {
+            return !momento.isBefore(fechaLlegada) && momento.isBefore(fechaLiberacion);
+        }
     }
 
     // Getters y Setters
@@ -82,17 +100,16 @@ public class Solucion {
 
         double puntuacionEntregaTiempo = calcularEntregaATiempoCorregido();
         double puntuacionMinimizarAtraso = calcularMinimizarAtraso();
-        double puntuacionCapacidades = calcularRespetarCapacidades(); // Vuelos
-        double puntuacionAlmacenes = calcularRespetarCapacidadAlmacenes(); // ✅ NUEVO
+        double puntuacionCapacidades = calcularRespetarCapacidades();
+        double puntuacionAlmacenes = calcularRespetarCapacidadAlmacenesTemporal(); // ✅ MODIFICADO
         double puntuacionAprovechamiento = calcularAprovechamientoVuelos();
         double puntuacionRutas = calcularCalidadRutas();
         double penalizacionFabricas = calcularPenalizacionFabricas();
 
-        // ✅ MODIFICADO: Reajustar pesos para incluir almacenes
         double fitness = (PESO_ENTREGA_TIEMPO * puntuacionEntregaTiempo) +
                 (PESO_MINIMIZAR_ATRASO * puntuacionMinimizarAtraso) +
-                (0.10 * puntuacionCapacidades) +        // Reducido de 15% a 10%
-                (0.05 * puntuacionAlmacenes) +         // ✅ NUEVO: 5% para almacenes
+                (0.10 * puntuacionCapacidades) +
+                (0.05 * puntuacionAlmacenes) +
                 (PESO_APROVECHAR_VUELOS * puntuacionAprovechamiento) +
                 (PESO_EVITAR_RUTAS_MALAS * puntuacionRutas) +
                 penalizacionFabricas;
@@ -102,32 +119,95 @@ public class Solucion {
     }
 
     // ✅ NUEVO: Validar capacidad de almacenes
-    private double calcularRespetarCapacidadAlmacenes() {
-        Map<String, Integer> cargaPorAlmacen = contarCargaPorAlmacen();
-        if (cargaPorAlmacen.isEmpty()) return 100.0;
+    private double calcularRespetarCapacidadAlmacenesTemporal() {
+        // 1. Construir historial temporal de eventos en cada almacén
+        Map<String, List<EventoAlmacenTemporal>> historialPorAlmacen = construirHistorialTemporal();
+
+        if (historialPorAlmacen.isEmpty()) return 100.0;
 
         int violaciones = 0;
         double penalizacionTotal = 0.0;
+        int almacenesEvaluados = 0;
 
-        for (Map.Entry<String, Integer> entry : cargaPorAlmacen.entrySet()) {
+        // 2. Evaluar cada almacén en todos los momentos críticos
+        for (Map.Entry<String, List<EventoAlmacenTemporal>> entry : historialPorAlmacen.entrySet()) {
             String codigoAlmacen = entry.getKey();
-            int unidadesEnAlmacen = entry.getValue();
+            List<EventoAlmacenTemporal> eventos = entry.getValue();
 
             Aeropuerto almacen = buscarAeropuertoPorCodigo(codigoAlmacen);
-            if (almacen != null) {
-                int capacidadTotal = almacen.getCapacidad();
-                int capacidadUsada = almacen.getCapacidadAct() + unidadesEnAlmacen;
+            if (almacen == null) continue;
 
-                if (capacidadUsada > capacidadTotal) {
+            almacenesEvaluados++;
+
+            // 3. Evaluar en cada momento de llegada
+            for (EventoAlmacenTemporal eventoActual : eventos) {
+                int ocupacionEnMomento = almacen.getCapacidadAct();
+
+                // Sumar todos los eventos que están ocupando el almacén en este momento
+                for (EventoAlmacenTemporal evento : eventos) {
+                    if (evento.estaOcupado(eventoActual.fechaLlegada)) {
+                        ocupacionEnMomento += evento.cantidadPaquetes;
+                    }
+                }
+
+                // Verificar si hay violación de capacidad
+                if (ocupacionEnMomento > almacen.getCapacidad()) {
                     violaciones++;
-                    int exceso = capacidadUsada - capacidadTotal;
-                    penalizacionTotal += PENALIZACION_SOBRECARGA * exceso;
+                    int exceso = ocupacionEnMomento - almacen.getCapacidad();
+                    penalizacionTotal += PENALIZACION_SOBRECARGA * exceso * 0.1; // Penalización reducida vs vuelos
                 }
             }
         }
 
+
         if (violaciones == 0) return 100.0;
-        return Math.max(-1000, 100 + penalizacionTotal);
+
+        // Normalizar la penalización por número de almacenes evaluados
+        double penalizacionPromedio = almacenesEvaluados > 0 ? penalizacionTotal / almacenesEvaluados : penalizacionTotal;
+
+        return Math.max(-500, 100 + penalizacionPromedio); // Penalización máxima menor que vuelos
+    }
+
+    private Map<String, List<EventoAlmacenTemporal>> construirHistorialTemporal() {
+        Map<String, List<EventoAlmacenTemporal>> historial = new HashMap<>();
+
+        for (Map.Entry<Pedido, RutaPedido> entry : solucionLogistica.getAsignacionPedidos().entrySet()) {
+            Pedido pedido = entry.getKey();
+            RutaPedido ruta = entry.getValue();
+
+            if (ruta == null || ruta.getSecuenciaVuelos().isEmpty()) continue;
+
+            // Registrar eventos en almacenes intermedios (escalas)
+            for (int i = 0; i < ruta.getSecuenciaVuelos().size() - 1; i++) {
+                Vuelo vuelo = ruta.getSecuenciaVuelos().get(i);
+                String codigoAlmacen = vuelo.getDestino().getCodigo();
+                LocalDateTime momentoLlegada = vuelo.getHoraLlegada();
+
+                if (momentoLlegada != null) {
+                    EventoAlmacenTemporal evento = new EventoAlmacenTemporal(
+                            momentoLlegada, pedido.getCantidad(), pedido.getId());
+                    historial.computeIfAbsent(codigoAlmacen, k -> new ArrayList<>()).add(evento);
+                }
+            }
+
+            // Registrar evento en almacén de destino final
+            Vuelo ultimoVuelo = ruta.getSecuenciaVuelos().get(ruta.getSecuenciaVuelos().size() - 1);
+            String codigoDestino = ultimoVuelo.getDestino().getCodigo();
+            LocalDateTime momentoLlegada = ultimoVuelo.getHoraLlegada();
+
+            if (momentoLlegada != null) {
+                EventoAlmacenTemporal evento = new EventoAlmacenTemporal(
+                        momentoLlegada, pedido.getCantidad(), pedido.getId());
+                historial.computeIfAbsent(codigoDestino, k -> new ArrayList<>()).add(evento);
+            }
+        }
+
+        // Ordenar eventos por fecha de llegada en cada almacén
+        for (List<EventoAlmacenTemporal> eventos : historial.values()) {
+            eventos.sort(Comparator.comparing(e -> e.fechaLlegada));
+        }
+
+        return historial;
     }
 
     // ✅ NUEVO: Contar carga por almacén
@@ -156,7 +236,6 @@ public class Solucion {
 
     // ✅ NUEVO: Buscar aeropuerto por código
     private Aeropuerto buscarAeropuertoPorCodigo(String codigo) {
-        // Buscar en todos los vuelos de las rutas asignadas
         for (RutaPedido ruta : solucionLogistica.getAsignacionPedidos().values()) {
             for (Vuelo vuelo : ruta.getSecuenciaVuelos()) {
                 if (vuelo.getOrigen().getCodigo().equals(codigo)) {
@@ -474,8 +553,10 @@ public class Solucion {
     }
 
     public boolean esSolucionFactible() {
-        return calcularRespetarCapacidades() >= 0 && calcularRespetarCapacidadAlmacenes() >= 0;
+        return calcularRespetarCapacidades() >= 0 && calcularRespetarCapacidadAlmacenesTemporal() >= 0;
     }
+
+
 
     private Map<String, Integer> contarPedidosPorFabrica() {
         Map<String, Integer> contador = new HashMap<>();
@@ -513,25 +594,41 @@ public class Solucion {
         double entregaTiempo = calcularEntregaATiempoCorregido();
         double minimizarAtraso = calcularMinimizarAtraso();
         double capacidades = calcularRespetarCapacidades();
-        double capacidadAlmacenes = calcularRespetarCapacidadAlmacenes(); // ✅ NUEVO
+        double capacidadAlmacenes = calcularRespetarCapacidadAlmacenesTemporal(); // ✅ MODIFICADO
         double aprovechamiento = calcularAprovechamientoVuelos();
         double calidadRutas = calcularCalidadRutas();
         double penalizacionFabricas = calcularPenalizacionFabricas();
 
-        // Contar violaciones de almacenes
-        Map<String, Integer> cargaAlmacenes = contarCargaPorAlmacen();
-        int violacionesAlmacenes = 0;
-        for (Map.Entry<String, Integer> entry : cargaAlmacenes.entrySet()) {
-            Aeropuerto almacen = buscarAeropuertoPorCodigo(entry.getKey());
+        // ✅ NUEVO: Estadísticas temporales de almacenes
+        Map<String, List<EventoAlmacenTemporal>> historial = construirHistorialTemporal();
+        int violacionesTemporales = 0;
+        int almacenesConViolaciones = 0;
+
+        for (Map.Entry<String, List<EventoAlmacenTemporal>> entry : historial.entrySet()) {
+            String codigoAlmacen = entry.getKey();
+            List<EventoAlmacenTemporal> eventos = entry.getValue();
+            Aeropuerto almacen = buscarAeropuertoPorCodigo(codigoAlmacen);
+
             if (almacen != null) {
-                int capacidadUsada = almacen.getCapacidadAct() + entry.getValue();
-                if (capacidadUsada > almacen.getCapacidad()) {
-                    violacionesAlmacenes++;
+                boolean tieneViolaciones = false;
+                for (EventoAlmacenTemporal eventoActual : eventos) {
+                    int ocupacion = almacen.getCapacidadAct();
+                    for (EventoAlmacenTemporal evento : eventos) {
+                        if (evento.estaOcupado(eventoActual.fechaLlegada)) {
+                            ocupacion += evento.cantidadPaquetes;
+                        }
+                    }
+                    if (ocupacion > almacen.getCapacidad()) {
+                        violacionesTemporales++;
+                        tieneViolaciones = true;
+                    }
+                }
+                if (tieneViolaciones) {
+                    almacenesConViolaciones++;
                 }
             }
         }
 
-        // Resto del código existente + nuevas líneas
         Map<String, Integer> pedidosPorFabrica = contarPedidosPorFabrica();
         int pedidosInvalidos = contarPedidosInvalidos();
         int pedidosAsignados = solucionLogistica.getAsignacionPedidos().size();
@@ -549,7 +646,7 @@ public class Solucion {
                         "PRIORIDAD #1 - Entregar a tiempo (50%%) [INCLUYE COBERTURA]: %.1f/100\n" +
                         "PRIORIDAD #2 - Minimizar atraso (20%%): %.1f/100\n" +
                         "PRIORIDAD #3 - Respetar capacidades vuelos (10%%): %.1f/100\n" +
-                        "PRIORIDAD #3b - Respetar capacidades almacenes (5%%): %.1f/100\n" + // ✅ NUEVO
+                        "PRIORIDAD #3b - Respetar capacidades almacenes temporales (5%%): %.1f/100\n" +
                         "PRIORIDAD #4 - Aprovechar vuelos (10%%): %.1f/100\n" +
                         "PRIORIDAD #5 - Calidad de rutas (5%%): %.1f/100\n" +
                         "PENALIZACIÓN - Fábricas inválidas: %.0f\n\n" +
@@ -558,13 +655,15 @@ public class Solucion {
                         "- Pedidos a tiempo: %d/%d (%.1f%%)\n" +
                         "- Pedidos con retraso: %d\n" +
                         "- Violaciones capacidad vuelos: %s\n" +
-                        "- Violaciones capacidad almacenes: %d\n" + // ✅ NUEVO
+                        "- Violaciones capacidad almacenes temporales: %d en %d almacenes\n" +
+                        "- Eventos temporales registrados: %d en %d almacenes\n" +
+                        "- Liberación automática después de: %d horas\n" +
                         "- Pedidos desde fábricas válidas: %d/%d\n" +
                         "- Vuelos utilizados: %d\n" +
-                        "- Almacenes utilizados: %d\n" + // ✅ NUEVO
+                        "- Almacenes utilizados: %d\n" +
                         "- Factible: %s",
                 fitness,
-                entregaTiempo, minimizarAtraso, capacidades, capacidadAlmacenes, // ✅ NUEVO
+                entregaTiempo, minimizarAtraso, capacidades, capacidadAlmacenes,
                 aprovechamiento, calidadRutas, penalizacionFabricas,
                 infoCobertura,
                 solucionLogistica.getCantidadAtiempo(),
@@ -572,12 +671,14 @@ public class Solucion {
                 entregaTiempo,
                 solucionLogistica.getCantidadRetraso(),
                 calcularRespetarCapacidades() < 0 ? "SÍ" : "NO",
-                violacionesAlmacenes, // ✅ NUEVO
+                violacionesTemporales, almacenesConViolaciones,
+                historial.values().stream().mapToInt(List::size).sum(), historial.size(),
+                HORAS_LIBERACION,
                 (pedidosAsignados - pedidosInvalidos),
                 pedidosAsignados,
                 contarCargaPorVuelo().size(),
-                cargaAlmacenes.size(), // ✅ NUEVO
-                esSolucionFactible() && capacidadAlmacenes >= 0 ? "SÍ" : "NO" // ✅ MODIFICADO
+                historial.size(),
+                esSolucionFactible() ? "SÍ" : "NO"
         );
     }
 }
