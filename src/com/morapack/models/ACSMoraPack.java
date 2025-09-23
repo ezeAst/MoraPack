@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 
 /**
  * ACSMoraPack – Mejorador (ACS) SOLO sobre semillas GRASP.
- * - No construye desde cero: parte de una semilla y prueba reemplazos de rutas
- *   usando únicamente alternativas presentes en las semillas (por id de pedido
- *   o por destino como respaldo).
- * - Respeta capacidades, conexiones y SLA (con husos).
- * - Fitness: SIEMPRE se recalcula creando Solucion con (sl, pedidos.size()).
+ * Respeta:
+ *   - Escalas >= 60 min entre vuelos consecutivos
+ *   - Capacidad temporal de aeropuertos: ventana [llegada, llegada+2h)
+ *   - Capacidad de vuelos
+ *   - SLA con husos
  */
 public class ACSMoraPack {
 
@@ -88,7 +88,7 @@ public class ACSMoraPack {
         dedupIndice(rutasSemillaPorPedidoId);
         dedupIndice(rutasSemillaPorDestino);
 
-        // Refuerzo inicial (feromonas) en arcos que aparecen en semillas
+        // Refuerzo inicial en arcos que aparecen en semillas
         if (!this.semillas.isEmpty()) {
             double mejorFit = this.semillas.stream().mapToDouble(Solucion::getFitness).max().orElse(1.0);
             double refuerzoBase = 0.05;
@@ -112,16 +112,14 @@ public class ACSMoraPack {
 
     /* ========= Ejecución (refinamiento) ========= */
     public Solucion ejecutar() {
-        // Arranca desde la mejor semilla (nunca peor que GRASP)
         if (mejorHastaAhora == null && semillas != null && !semillas.isEmpty()) {
             mejorHastaAhora = semillas.stream()
                     .filter(Objects::nonNull)
                     .max(Comparator.comparingDouble(Solucion::getFitness))
-                    .map(this::clonarComoNuevaSolucion) // normaliza y fija totalPedidos
+                    .map(this::clonarComoNuevaSolucion)
                     .orElse(null);
         }
         if (mejorHastaAhora == null) {
-            // Sin semillas válidas: devolver vacía (con fitness calculado)
             SolucionLogistica sl = new SolucionLogistica();
             sl.setAsignacionPedidos(new LinkedHashMap<>());
             return new Solucion(sl, pedidos.size());
@@ -142,7 +140,6 @@ public class ACSMoraPack {
                 mejorHastaAhora = mejorIteracion;
             }
 
-            // Evitar aprender soluciones hundidas (muy negativo)
             if (mejorHastaAhora != null && mejorHastaAhora.getFitness() > -900) {
                 actualizarFeromonaGlobal(mejorHastaAhora);
             }
@@ -156,7 +153,6 @@ public class ACSMoraPack {
         Solucion sem = elegirSemilla();
         if (sem == null) return mejorHastaAhora;
 
-        // Copia profunda (y reconstruye ocupación)
         Map<String, Integer> ocupacion = new HashMap<>();
         Solucion actual = copiarSolucion(sem, ocupacion);
 
@@ -165,32 +161,37 @@ public class ACSMoraPack {
             asignacion = new LinkedHashMap<>();
             actual.getSolucionLogistica().setAsignacionPedidos(asignacion);
         }
+        // referencia efectivamente final para lambdas
+        final Map<Pedido, RutaPedido> asignacionRef = asignacion;
 
-        // Intentar mejorar ~30% de pedidos
         List<Pedido> orden = new ArrayList<>(pedidos);
         Collections.shuffle(orden, aleatorio);
-        int intentos = Math.max(1, (int)Math.round(orden.size() * 0.30));
+        int intentos = Math.max(1, (int) Math.round(orden.size() * 0.30));
 
         for (int i = 0; i < intentos; i++) {
             Pedido p = orden.get(i);
+            final Pedido pRef = p;
 
-            List<RutaPedido> cand = generarCandidatosParaPedido(p);
+            List<RutaPedido> cand = generarCandidatosParaPedido(pRef);
             if (cand.isEmpty()) continue;
 
-            RutaPedido rActual = asignacion.get(p);
+            RutaPedido rActual = asignacionRef.get(pRef);
+            final RutaPedido rActualRef = rActual;
 
             List<RutaPedido> fact = cand.stream()
-                    .filter(r -> respetaCapacidadesSwap(r, rActual, p, ocupacion))
+                    .filter(this::conexionesValidas) // >= 60 min entre vuelos
+                    .filter(r -> respetaCapacidadesSwap(r, rActualRef, pRef, ocupacion))
+                    .filter(r -> respetaCapacidadAlmacenesTemporalesSwap(r, rActualRef, pRef, asignacionRef))
                     .filter(this::llegaDentroDeSLA)
                     .collect(Collectors.toList());
             if (fact.isEmpty()) continue;
 
             RutaPedido elegida = seleccionarPorProbabilidad(fact, ocupacion);
 
-            if (rActual == null || !claveDeRuta(rActual).equals(claveDeRuta(elegida))) {
-                if (rActual != null) aplicarOcupacion(rActual, ocupacion, -p.getCantidad());
-                aplicarOcupacion(elegida, ocupacion, +p.getCantidad());
-                asignacion.put(p, elegida);
+            if (rActualRef == null || !claveDeRuta(rActualRef).equals(claveDeRuta(elegida))) {
+                if (rActualRef != null) aplicarOcupacion(rActualRef, ocupacion, -pRef.getCantidad());
+                aplicarOcupacion(elegida, ocupacion, +pRef.getCantidad());
+                asignacionRef.put(pRef, elegida);
 
                 // actualización local ACS
                 for (Vuelo v : elegida.getSecuenciaVuelos()) {
@@ -200,10 +201,144 @@ public class ACSMoraPack {
                 }
             }
         }
-
-        // *** Recalcular fitness creando una NUEVA Solucion (calculaFitness interno) ***
+        repararViolacionesAlmacenes(asignacionRef);
         return new Solucion(actual.getSolucionLogistica(), pedidos.size());
     }
+
+    // ===== Reparación post-proceso de almacenes (misma semántica que Solucion.java) =====
+    private void repararViolacionesAlmacenes(final Map<Pedido, RutaPedido> asignacion) {
+        if (asignacion == null || asignacion.isEmpty()) return;
+
+        // Construye el historial: por aeropuerto, lista de (llegada, libera, q, pedido)
+        class Ev { String code; LocalDateTime t0,t1; int q; Pedido p; RutaPedido r;
+            Ev(String c, LocalDateTime t0, int q, Pedido p, RutaPedido r){ this.code=c; this.t0=t0; this.t1=t0.plusHours(2); this.q=q; this.p=p; this.r=r; }
+            boolean ocupa(LocalDateTime t){ return !t.isBefore(t0) && t.isBefore(t1); }
+        }
+        Map<String,List<Ev>> hist = new HashMap<>();
+        for (Map.Entry<Pedido,RutaPedido> e : asignacion.entrySet()){
+            Pedido p = e.getKey(); RutaPedido r = e.getValue();
+            if (p==null || r==null) continue;
+            List<Vuelo> vs = r.getSecuenciaVuelos();
+            for (int i=0;i<vs.size()-1;i++){
+                Vuelo v = vs.get(i);
+                if (v.getDestino()!=null && v.getHoraLlegada()!=null)
+                    hist.computeIfAbsent(v.getDestino().getCodigo(),k->new ArrayList<>()).add(new Ev(v.getDestino().getCodigo(), v.getHoraLlegada(), p.getCantidad(), p, r));
+            }
+            if (!vs.isEmpty()){
+                Vuelo last = vs.get(vs.size()-1);
+                if (last.getDestino()!=null && last.getHoraLlegada()!=null)
+                    hist.computeIfAbsent(last.getDestino().getCodigo(),k->new ArrayList<>()).add(new Ev(last.getDestino().getCodigo(), last.getHoraLlegada(), p.getCantidad(), p, r));
+            }
+        }
+
+        // util: buscar objeto Aeropuerto por código
+        java.util.function.Function<String, Aeropuerto> findA = code -> {
+            for (RutaPedido r : asignacion.values()){
+                if (r==null) continue;
+                for (Vuelo v : r.getSecuenciaVuelos()){
+                    if (v.getDestino()!=null && code.equals(v.getDestino().getCodigo())) return v.getDestino();
+                    if (v.getOrigen()!=null  && code.equals(v.getOrigen().getCodigo()))  return v.getOrigen();
+                }
+            }
+            return null;
+        };
+
+        boolean cambio; int passes=0;
+        do {
+            cambio = false;
+            for (Map.Entry<String,List<Ev>> ent : new ArrayList<>(hist.entrySet())) {
+                String code = ent.getKey(); List<Ev> evs = ent.getValue();
+                if (evs.isEmpty()) continue;
+
+                Aeropuerto A = findA.apply(code);
+                if (A==null) continue;
+                int cap = A.getCapacidad(), base = A.getCapacidadAct();
+
+                // momentos críticos = TODAS las llegadas de este aeropuerto
+                TreeSet<LocalDateTime> momentos = new TreeSet<>();
+                for (Ev ev: evs) momentos.add(ev.t0);
+
+                for (LocalDateTime t : momentos) {
+                    int ocup = base;
+                    List<Ev> contrib = new ArrayList<>();
+                    for (Ev ev: evs) if (ev.ocupa(t)) { ocup += ev.q; contrib.add(ev); }
+
+                    if (ocup <= cap) continue; // sin violación en t
+
+                    // intentar mover pedidos contribuyentes (de mayor a menor q)
+                    contrib.sort((a,b)->Integer.compare(b.q,a.q));
+
+                    for (Ev ev : contrib) {
+                        Pedido p = ev.p;
+                        RutaPedido rActual = asignacion.get(p);
+                        if (rActual == null) continue;
+
+                        // generar candidatos desde semillas y filtrar con EXACTA semántica del fitness
+                        List<RutaPedido> cand = generarCandidatosParaPedido(p);
+                        // reconstruir ocupación de vuelos real para este estado (para respetaCapacidadesSwap)
+                        Map<String,Integer> occVuelos = new HashMap<>();
+                        for (Map.Entry<Pedido,RutaPedido> e2 : asignacion.entrySet()){
+                            Pedido pp = e2.getKey(); RutaPedido rr = e2.getValue();
+                            if (pp==null || rr==null) continue;
+                            int qpp = pp.getCantidad();
+                            for (Vuelo vv : rr.getSecuenciaVuelos()) occVuelos.merge(vv.getId(), qpp, Integer::sum);
+                        }
+
+                        cand = cand.stream()
+                                .filter(this::conexionesValidas)
+                                .filter(r -> respetaCapacidadesSwap(r, rActual, p, occVuelos))
+                                .filter(r -> respetaCapacidadAlmacenesTemporalesSwap(r, rActual, p, asignacion))
+                                .filter(this::llegaDentroDeSLA)
+                                .collect(Collectors.toList());
+
+                        boolean reemplazo = false;
+                        for (RutaPedido rNew : cand) {
+                            // comprobar que en el mismo instante t baja bajo el límite
+                            int ocup2 = base;
+                            // todos menos el actual contribuyente
+                            for (Ev e3 : evs) if (e3 != ev && e3.ocupa(t)) ocup2 += e3.q;
+                            // sumar aportes de rNew en ese aeropuerto en t
+                            for (Vuelo v2 : rNew.getSecuenciaVuelos()){
+                                if (v2.getDestino()!=null && code.equals(v2.getDestino().getCodigo()) && v2.getHoraLlegada()!=null) {
+                                    LocalDateTime ta = v2.getHoraLlegada();
+                                    if (!t.isBefore(ta) && t.isBefore(ta.plusHours(2))) ocup2 += p.getCantidad();
+                                }
+                            }
+                            if (ocup2 <= cap) {
+                                // aplicar swap: actualizar asignación y el historial de eventos
+                                asignacion.put(p, rNew);
+                                evs.removeIf(z -> z.p == p);
+                                List<Vuelo> vsN = rNew.getSecuenciaVuelos();
+                                for (int i=0;i<vsN.size()-1;i++){
+                                    Vuelo v2 = vsN.get(i);
+                                    if (v2.getDestino()!=null && v2.getHoraLlegada()!=null && code.equals(v2.getDestino().getCodigo()))
+                                        evs.add(new Ev(code, v2.getHoraLlegada(), p.getCantidad(), p, rNew));
+                                }
+                                Vuelo lastN = vsN.get(vsN.size()-1);
+                                if (lastN.getDestino()!=null && lastN.getHoraLlegada()!=null && code.equals(lastN.getDestino().getCodigo()))
+                                    evs.add(new Ev(code, lastN.getHoraLlegada(), p.getCantidad(), p, rNew));
+                                cambio = true; reemplazo = true;
+                                break;
+                            }
+                        }
+
+                        if (!reemplazo) {
+                            // último recurso: desasignar pedido para sacar la violación
+                            asignacion.remove(p);
+                            evs.removeIf(z -> z.p == p);
+                            cambio = true;
+                        }
+
+                        // si ya quedó bajo capacidad en t, pasa al siguiente momento
+                        int check = base;
+                        for (Ev e4 : evs) if (e4.ocupa(t)) check += e4.q;
+                        if (check <= cap) break;
+                    }
+                }
+            }
+        } while (cambio && ++passes < 5);
+    }
+
 
     private Solucion elegirSemilla() {
         if (semillas == null || semillas.isEmpty()) return null;
@@ -212,7 +347,7 @@ public class ACSMoraPack {
         for (int i = 0; i < semillas.size(); i++) {
             Solucion s = semillas.get(i);
             double fit = Math.max(1e-6, s.getFitness());
-            // pequeña señal de feromona media de la semilla
+
             double tauAvg = 0.0; int cnt = 0;
             if (s.getSolucionLogistica() != null && s.getSolucionLogistica().getAsignacionPedidos() != null) {
                 for (RutaPedido r : s.getSolucionLogistica().getAsignacionPedidos().values()) {
@@ -240,7 +375,7 @@ public class ACSMoraPack {
                 Pedido p = e.getKey();
                 RutaPedido r = e.getValue();
                 if (p == null || r == null) continue;
-                asigNueva.put(p, clonarParaPedido(p, r)); // normaliza fechas a UTC
+                asigNueva.put(p, clonarParaPedido(p, r));
             }
         }
         SolucionLogistica sl = new SolucionLogistica();
@@ -387,6 +522,69 @@ public class ACSMoraPack {
         return ok;
     }
 
+    // ========= NUEVO: Validación temporal de almacenes (2h) para swaps/candidatos =========
+    // Sustituir COMPLETO el método por este:
+    private boolean respetaCapacidadAlmacenesTemporalesSwap(
+            RutaPedido nueva, RutaPedido actual, Pedido p,
+            Map<Pedido, RutaPedido> asignacionActual) {
+
+        class Ev {
+            final String code; final LocalDateTime llegada; final LocalDateTime libera; final int q;
+            Ev(String c, LocalDateTime t0, int q){ this.code=c; this.llegada=t0; this.libera=t0.plusHours(2); this.q=q; }
+            boolean ocupa(LocalDateTime t){ return !t.isBefore(llegada) && t.isBefore(libera); }
+        }
+
+        // 1) recolectar eventos existentes (escalas + destino), excluyendo la ruta actual si es swap
+        List<Ev> evs = new ArrayList<>();
+        if (asignacionActual != null) {
+            for (Map.Entry<Pedido, RutaPedido> e : asignacionActual.entrySet()) {
+                RutaPedido r = e.getValue();
+                if (r == null) continue;
+                if (actual != null && r == actual) continue; // liberar aportes de la ruta a reemplazar
+
+                int q = (e.getKey() != null) ? e.getKey().getCantidad() : 0;
+                List<Vuelo> vs = r.getSecuenciaVuelos();
+
+                for (int i = 0; i < vs.size() - 1; i++) {
+                    Vuelo v = vs.get(i);
+                    if (v.getDestino()!=null && v.getHoraLlegada()!=null) {
+                        evs.add(new Ev(v.getDestino().getCodigo(), v.getHoraLlegada(), q));
+                    }
+                }
+                if (!vs.isEmpty()) {
+                    Vuelo last = vs.get(vs.size()-1);
+                    if (last.getDestino()!=null && last.getHoraLlegada()!=null) {
+                        evs.add(new Ev(last.getDestino().getCodigo(), last.getHoraLlegada(), q));
+                    }
+                }
+            }
+        }
+
+        // 2) chequear cada llegada de la NUEVA ruta (escalas + destino) en su momento de llegada
+        int qNueva = p.getCantidad();
+        for (Vuelo v : nueva.getSecuenciaVuelos()) {
+            Aeropuerto a = v.getDestino();
+            LocalDateTime tArr = v.getHoraLlegada();
+            if (a == null || tArr == null) return false;
+
+            int ocup = a.getCapacidadAct();      // base, igual que usa Solucion.java
+            int cap  = a.getCapacidad();
+
+            // sumar todos los eventos existentes “vivos” en el instante tArr
+            for (Ev ev : evs) {
+                if (a.getCodigo().equals(ev.code) && ev.ocupa(tArr)) {
+                    ocup += ev.q;
+                }
+            }
+            // sumar la propia llegada del candidato
+            ocup += qNueva;
+
+            if (ocup > cap) return false;
+        }
+        return true;
+    }
+
+
     private int capacidadVuelo(Vuelo v) {
         try { return v.getCapacidadMaxima(); }
         catch (Throwable t) {
@@ -419,11 +617,20 @@ public class ACSMoraPack {
         return ldt.atZone(zonaDe(v.getDestino())).toOffsetDateTime();
     }
 
+    // ======== 60 minutos mínimo entre conexiones (antes 45) ========
     private boolean conecta(Vuelo a, Vuelo b) {
         OffsetDateTime llegadaA = llegadaODT(a);
         OffsetDateTime salidaB  = salidaODT(b);
         long min = Duration.between(llegadaA, salidaB).toMinutes();
-        return min >= 45;
+        return min >= 60;
+    }
+
+    private boolean conexionesValidas(RutaPedido r) {
+        List<Vuelo> vs = r.getSecuenciaVuelos();
+        for (int i = 0; i < vs.size() - 1; i++) {
+            if (!conecta(vs.get(i), vs.get(i + 1))) return false;
+        }
+        return true;
     }
 
     private double duracionEnHoras(RutaPedido r) {
