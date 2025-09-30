@@ -2,6 +2,9 @@ import com.morapack.models.*;
 import com.morapack.utils.CSVDataLoader;
 import com.morapack.utils.CSVDataLoader.DatosMoraPack;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
@@ -71,6 +74,7 @@ public class TestMassiveData {
         configurarHibridoParaDatosMasivos(hibrido);
         Solucion solucionHibrida = hibrido.ejecutarHibrido();
         long tiempoHibrido = System.currentTimeMillis() - inicioHibrido;
+        escribirSolucionTXT("GENÉTICO", solucionHibrida, "SolucionesGenetico.txt");
 
         //4. GRASP + ACS
         System.out.println("\n🟣 EJECUTANDO ACS ...");
@@ -129,6 +133,82 @@ public class TestMassiveData {
         hibrido.configurarParametrosGA(25, 40, 0.18, 0.82);
     }
 
+    private static void escribirSolucionTXT(String nombreAlgoritmo, Solucion solucion, String rutaArchivo) {
+        if (solucion == null || solucion.getSolucionLogistica() == null) {
+            System.out.println("[AVISO] No hay solución para exportar: " + nombreAlgoritmo);
+            return;
+        }
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaArchivo))) {
+            pw.println("MORAPACK - REPORTE SIMPLE");
+            pw.println("Algoritmo: " + nombreAlgoritmo);
+            pw.println("Fitness: " + solucion.getFitness());
+
+            // Datos básicos
+            int asignados = 0;
+            if (solucion.getSolucionLogistica().getAsignacionPedidos() != null) {
+                asignados = solucion.getSolucionLogistica().getAsignacionPedidos().size();
+            }
+            int total = solucion.getTotalPedidosProblema() > 0 ? solucion.getTotalPedidosProblema() : asignados;
+            pw.println("Pedidos asignados: " + asignados + "/" + total);
+
+            // Intentar imprimir métricas de tiempo si existen
+            try {
+                pw.println("Pedidos a tiempo: " + solucion.getSolucionLogistica().getCantidadAtiempo());
+                pw.println("Pedidos en retraso: " + solucion.getSolucionLogistica().getCantidadRetraso());
+            } catch (Throwable t) {
+                // si tu clase no tiene estos métodos, simplemente se ignora
+            }
+
+            pw.println();
+            pw.println("RUTAS (por pedido)");
+            pw.println("----------------------------------------");
+
+            // Recorrer las asignaciones
+            var asignaciones = solucion.getSolucionLogistica().getAsignacionPedidos();
+            if (asignaciones != null) {
+                for (java.util.Map.Entry<Pedido, RutaPedido> e : asignaciones.entrySet()) {
+                    Pedido p = e.getKey();
+                    RutaPedido r = e.getValue();
+
+                    pw.print("Pedido ");
+                    pw.print(p != null ? p.getId() : "-");
+                    pw.print(" | Cant: ");
+                    pw.print(p != null ? p.getCantidad() : "-");
+                    pw.print(" | Dest: ");
+                    String destCode = "-";
+                    try { destCode = p.getLugarDestino().getCodigo(); } catch (Throwable t) {}
+                    pw.println(destCode);
+
+                    pw.println("  Ruta: " + getRutaSimple(r));
+                    pw.println();
+                }
+            } else {
+                pw.println("(sin asignaciones)");
+            }
+
+            System.out.println("✔ TXT simple creado en: " + rutaArchivo);
+        } catch (IOException e) {
+            System.out.println("[ERROR] No se pudo escribir el TXT: " + e.getMessage());
+        }
+    }
+
+    private static String getRutaSimple(RutaPedido r) {
+        if (r == null || r.getSecuenciaVuelos() == null || r.getSecuenciaVuelos().isEmpty())
+            return "(sin vuelos)";
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < r.getSecuenciaVuelos().size(); i++) {
+            Vuelo v = r.getSecuenciaVuelos().get(i);
+            try {
+                if (i == 0) s.append(v.getOrigen().getCodigo());
+                s.append("→").append(v.getDestino().getCodigo());
+            } catch (Throwable t) {
+                if (i > 0) s.append("→");
+                s.append("?");
+            }
+        }
+        return s.toString();
+    }
 
     // Genera k soluciones con GRASP, configura ACS con esas semillas y ejecuta ACS.
     private static Solucion ejecutarACSGrasp(CSVDataLoader.DatosMoraPack datos, int kSemillas) {
