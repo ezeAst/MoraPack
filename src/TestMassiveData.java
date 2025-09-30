@@ -5,9 +5,7 @@ import com.morapack.utils.CSVDataLoader.DatosMoraPack;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Prueba del sistema con datos masivos - REPORTE LIMPIO
@@ -75,7 +73,7 @@ public class TestMassiveData {
         Solucion solucionHibrida = hibrido.ejecutarHibrido();
         long tiempoHibrido = System.currentTimeMillis() - inicioHibrido;
         escribirSolucionTXT("GENÉTICO", solucionHibrida, "SolucionesGenetico.txt");
-
+        exportarNoEnviadosTXT("GENÉTICO", datos.getPedidos(), solucionGA, "No_Enviados.txt");
         //4. GRASP + ACS
         System.out.println("\n🟣 EJECUTANDO ACS ...");
         long inicioACS = System.currentTimeMillis();
@@ -190,6 +188,75 @@ public class TestMassiveData {
             System.out.println("✔ TXT simple creado en: " + rutaArchivo);
         } catch (IOException e) {
             System.out.println("[ERROR] No se pudo escribir el TXT: " + e.getMessage());
+        }
+    }
+
+    private static void exportarNoEnviadosTXT(String nombreAlgoritmo,
+                                              List<Pedido> todosLosPedidos,
+                                              Solucion solucion,
+                                              String rutaArchivo) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaArchivo))) {
+            pw.println("MORAPACK - PEDIDOS NO ENVIADOS");
+            pw.println("Algoritmo: " + nombreAlgoritmo);
+            pw.println();
+
+            Map<Pedido, RutaPedido> asignaciones = null;
+            if (solucion != null && solucion.getSolucionLogistica() != null) {
+                asignaciones = solucion.getSolucionLogistica().getAsignacionPedidos();
+            }
+            if (asignaciones == null) asignaciones = Collections.emptyMap();
+
+            // Construimos un set de IDs de pedidos asignados CON ruta no vacía
+            Set<String> idsAsignadosConRuta = new HashSet<>();
+            for (Map.Entry<Pedido, RutaPedido> e : asignaciones.entrySet()) {
+                Pedido p = e.getKey();
+                RutaPedido r = e.getValue();
+                if (p != null && r != null && r.getSecuenciaVuelos() != null && !r.getSecuenciaVuelos().isEmpty()) {
+                    idsAsignadosConRuta.add(String.valueOf(p.getId()));
+                }
+            }
+
+            int total = (todosLosPedidos != null) ? todosLosPedidos.size() : 0;
+            int noEnviados = 0;
+
+            pw.println("ID_Pedido | Cantidad | Destino | Motivo");
+            pw.println("-----------------------------------------------");
+
+            if (todosLosPedidos != null) {
+                for (Pedido p : todosLosPedidos) {
+                    String id = String.valueOf(p.getId());
+                    boolean enviado = idsAsignadosConRuta.contains(id);
+
+                    if (!enviado) {
+                        String cant = String.valueOf(p.getCantidad());
+                        String dest = (p.getLugarDestino() != null) ? p.getLugarDestino().getCodigo() : "-";
+
+                        // Motivo orientativo:
+                        // - si aparece en asignaciones pero con ruta vacía => "ruta vacía"
+                        // - si no aparece => "no asignado"
+                        String motivo = "no asignado";
+                        RutaPedido r = asignaciones.get(p);
+                        if (r == null) {
+                            // Puede ser otra instancia de Pedido en el Map: buscamos por id
+                            for (Map.Entry<Pedido, RutaPedido> e : asignaciones.entrySet()) {
+                                if (String.valueOf(e.getKey().getId()).equals(id)) { r = e.getValue(); break; }
+                            }
+                        }
+                        if (r != null && (r.getSecuenciaVuelos() == null || r.getSecuenciaVuelos().isEmpty())) {
+                            motivo = "ruta vacía";
+                        }
+
+                        pw.println(id + " | " + cant + " | " + dest + " | " + motivo);
+                        noEnviados++;
+                    }
+                }
+            }
+
+            pw.println();
+            pw.println("Resumen: " + noEnviados + " no enviados de " + total + " pedidos");
+            System.out.println("✔ TXT de no enviados creado en: " + rutaArchivo);
+        } catch (IOException e) {
+            System.out.println("[ERROR] No se pudo escribir el TXT de no enviados: " + e.getMessage());
         }
     }
 

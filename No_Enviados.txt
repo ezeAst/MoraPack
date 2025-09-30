@@ -1,0 +1,77 @@
+MORAPACK - PEDIDOS NO ENVIADOS
+Algoritmo: GENÉTICO
+
+ID_Pedido | Cantidad | Destino | Motivo
+-----------------------------------------------
+P00781 | 71 | SLLP | no asignado
+P00872 | 88 | SLLP | no asignado
+P00894 | 63 | SLLP | no asignado
+P00924 | 69 | SKBO | no asignado
+P00939 | 58 | SKBO | no asignado
+P00964 | 70 | SLLP | no asignado
+P00971 | 73 | SKBO | no asignado
+P00998 | 87 | SKBO | no asignado
+P01004 | 24 | UMMS | no asignado
+P01045 | 60 | SEQM | no asignado
+P01046 | 14 | SLLP | no asignado
+P01061 | 87 | SEQM | no asignado
+P01071 | 23 | UMMS | no asignado
+P01085 | 74 | SKBO | no asignado
+P01098 | 4 | SEQM | no asignado
+P01110 | 85 | UMMS | no asignado
+P01118 | 12 | SEQM | no asignado
+P01128 | 52 | SEQM | no asignado
+P01140 | 64 | SLLP | no asignado
+P01144 | 78 | SEQM | no asignado
+P01151 | 13 | SLLP | no asignado
+P01161 | 53 | SLLP | no asignado
+P01162 | 58 | SKBO | no asignado
+P01178 | 79 | SEQM | no asignado
+P01182 | 27 | SKBO | no asignado
+P01187 | 57 | SEQM | no asignado
+P01206 | 32 | SLLP | no asignado
+P01210 | 15 | SLLP | no asignado
+P01215 | 72 | SKBO | no asignado
+P01218 | 55 | UMMS | no asignado
+P01224 | 60 | SEQM | no asignado
+P01245 | 11 | SLLP | no asignado
+P01249 | 79 | SEQM | no asignado
+P01263 | 20 | SEQM | no asignado
+P01269 | 44 | UMMS | no asignado
+P01287 | 74 | SLLP | no asignado
+P01288 | 90 | UMMS | no asignado
+P01290 | 63 | SKBO | no asignado
+P01297 | 94 | SLLP | no asignado
+P01307 | 72 | SKBO | no asignado
+P01311 | 64 | SEQM | no asignado
+P01350 | 55 | SEQM | no asignado
+P01368 | 42 | SLLP | no asignado
+P01387 | 59 | SKBO | no asignado
+P01390 | 69 | SKBO | no asignado
+P01400 | 51 | SKBO | no asignado
+P01404 | 55 | SLLP | no asignado
+P01411 | 16 | SEQM | no asignado
+P01416 | 3 | SEQM | no asignado
+P01419 | 88 | SEQM | no asignado
+P01426 | 19 | UMMS | no asignado
+P01439 | 48 | SKBO | no asignado
+P01444 | 60 | UMMS | no asignado
+P01446 | 94 | SKBO | no asignado
+P01470 | 76 | UMMS | no asignado
+P01472 | 72 | SKBO | no asignado
+P01475 | 100 | UMMS | no asignado
+P01479 | 91 | SLLP | no asignado
+P01483 | 93 | SLLP | no asignado
+P01487 | 81 | SKBO | no asignado
+P01492 | 26 | SKBO | no asignado
+P01511 | 67 | SEQM | no asignado
+P01512 | 70 | UMMS | no asignado
+P01516 | 39 | SKBO | no asignado
+P01525 | 23 | SLLP | no asignado
+P01539 | 74 | SEQM | no asignado
+P01545 | 57 | SLLP | no asignado
+P01570 | 76 | SKBO | no asignado
+P01581 | 88 | SKBO | no asignado
+P01582 | 98 | SLLP | no asignado
+
+Resumen: 70 no enviados de 1600 pedidos
