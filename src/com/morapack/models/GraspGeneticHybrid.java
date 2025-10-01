@@ -42,22 +42,22 @@ public class GraspGeneticHybrid {
      * Ejecuta el algoritmo híbrido completo
      */
     public Solucion ejecutarHibrido() {
-        System.out.println("=== INICIANDO ALGORITMO HÍBRIDO GRASP + GA ===");
+        // System.out.println("=== INICIANDO ALGORITMO HÍBRIDO GRASP + GA ===");
 
         // Fase 1: Ejecutar múltiples iteraciones de GRASP
-        System.out.println("\n--- FASE 1: MÚLTIPLES EJECUCIONES DE GRASP ---");
+        // System.out.println("\n--- FASE 1: MÚLTIPLES EJECUCIONES DE GRASP ---");
         ejecutarFaseGrasp();
 
         // Fase 2: Preparar población inicial enriquecida
-        System.out.println("\n--- FASE 2: PREPARANDO POBLACIÓN INICIAL ENRIQUECIDA ---");
+        // System.out.println("\n--- FASE 2: PREPARANDO POBLACIÓN INICIAL ENRIQUECIDA ---");
         configurarGeneticoConGrasp();
 
         // Fase 3: Ejecutar algoritmo genético
-        System.out.println("\n--- FASE 3: ALGORITMO GENÉTICO ---");
+        // System.out.println("\n--- FASE 3: ALGORITMO GENÉTICO ---");
         Solucion mejorGA = geneticAlgorithm.ejecutar();
 
         // Fase 4: Análisis comparativo
-        System.out.println("\n--- FASE 4: ANÁLISIS COMPARATIVO ---");
+        // System.out.println("\n--- FASE 4: ANÁLISIS COMPARATIVO ---");
         analizarResultados(mejorGA);
 
         return mejorSolucionHibrida;
@@ -71,7 +71,7 @@ public class GraspGeneticHybrid {
         Solucion mejorGrasp = null;
         double mejorFitnessGrasp = Double.NEGATIVE_INFINITY;
 
-        System.out.printf("Ejecutando %d iteraciones de GRASP...%n", iteracionesGrasp);
+        // System.out.printf("Ejecutando %d iteraciones de GRASP...%n", iteracionesGrasp);
 
         for (int iteracion = 0; iteracion < iteracionesGrasp; iteracion++) {
             // Alternar entre diferentes valores de alfa
@@ -95,19 +95,19 @@ public class GraspGeneticHybrid {
                     mejorGrasp = solucion;
                 }
 
-                if ((iteracion + 1) % 5 == 0) {
-                    System.out.printf("Iteración %d/%d - Alfa: %.2f - Fitness: %.2f - Mejor hasta ahora: %.2f%n",
-                            iteracion + 1, iteracionesGrasp, alfa, solucion.getFitness(), mejorFitnessGrasp);
-                }
+                // if ((iteracion + 1) % 5 == 0) {
+                //     System.out.printf("Iteración %d/%d - Alfa: %.2f - Fitness: %.2f - Mejor hasta ahora: %.2f%n",
+                //             iteracion + 1, iteracionesGrasp, alfa, solucion.getFitness(), mejorFitnessGrasp);
+                // }
             }
         }
 
-        System.out.printf("GRASP completado. Mejor fitness: %.2f%n", mejorFitnessGrasp);
-        System.out.printf("Soluciones válidas generadas: %d/%d%n", mejoresSolucionesGrasp.size(), iteracionesGrasp);
+        // System.out.printf("GRASP completado. Mejor fitness: %.2f%n", mejorFitnessGrasp);
+        // System.out.printf("Soluciones válidas generadas: %d/%d%n", mejoresSolucionesGrasp.size(), iteracionesGrasp);
 
-        if (mejorGrasp != null) {
-            System.out.println("\n" + mejorGrasp.obtenerReporteFitness());
-        }
+        // if (mejorGrasp != null) {
+        //     System.out.println("\n" + mejorGrasp.obtenerReporteFitness());
+        // }
     }
 
     /**
@@ -127,8 +127,8 @@ public class GraspGeneticHybrid {
             int numSemillas = Math.min(mejoresSolucionesGrasp.size(),
                     (int)(geneticAlgorithm.getTamañoPoblacion() * porcentajePoblacionGrasp));
 
-            System.out.printf("Usando %d mejores soluciones de GRASP como semillas (%.1f%% de la población)%n",
-                    numSemillas, porcentajePoblacionGrasp * 100);
+            // System.out.printf("Usando %d mejores soluciones de GRASP como semillas (%.1f%% de la población)%n",
+            //         numSemillas, porcentajePoblacionGrasp * 100);
 
             // Configurar el GA para usar estas semillas
             geneticAlgorithm.setSemillasIniciales(mejoresSolucionesGrasp.subList(0, numSemillas));
@@ -148,15 +148,15 @@ public class GraspGeneticHybrid {
                 .max(Comparator.comparingDouble(Solucion::getFitness))
                 .orElse(null);
 
-        System.out.println("=== ANÁLISIS COMPARATIVO DE RESULTADOS ===");
+        // System.out.println("=== ANÁLISIS COMPARATIVO DE RESULTADOS ===");
 
-        if (mejorGrasp != null) {
-            System.out.printf("Mejor solución GRASP: %.2f%n", mejorGrasp.getFitness());
-        }
+        // if (mejorGrasp != null) {
+        //     System.out.printf("Mejor solución GRASP: %.2f%n", mejorGrasp.getFitness());
+        // }
 
-        if (mejorGA != null) {
-            System.out.printf("Mejor solución GA: %.2f%n", mejorGA.getFitness());
-        }
+        // if (mejorGA != null) {
+        //     System.out.printf("Mejor solución GA: %.2f%n", mejorGA.getFitness());
+        // }
 
         // Determinar la mejor solución híbrida
         if (mejorGrasp == null) {
@@ -170,23 +170,23 @@ public class GraspGeneticHybrid {
         if (mejorSolucionHibrida != null) {
             double mejora = calcularMejora(mejorGrasp, mejorGA);
 
-            System.out.printf("Mejor solución HÍBRIDA: %.2f%n", mejorSolucionHibrida.getFitness());
+            // System.out.printf("Mejor solución HÍBRIDA: %.2f%n", mejorSolucionHibrida.getFitness());
 
-            if (mejora > 0) {
-                System.out.printf("✓ GA mejoró GRASP en %.2f puntos (%.2f%% de mejora)%n",
-                        mejora, (mejora / mejorGrasp.getFitness()) * 100);
-            } else if (mejora < 0) {
-                System.out.printf("- GA no superó a GRASP (diferencia: %.2f)%n", mejora);
-            } else {
-                System.out.println("= GA alcanzó el mismo resultado que GRASP");
-            }
+            // if (mejora > 0) {
+            //     System.out.printf("✓ GA mejoró GRASP en %.2f puntos (%.2f%% de mejora)%n",
+            //             mejora, (mejora / mejorGrasp.getFitness()) * 100);
+            // } else if (mejora < 0) {
+            //     System.out.printf("- GA no superó a GRASP (diferencia: %.2f)%n", mejora);
+            // } else {
+            //     System.out.println("= GA alcanzó el mismo resultado que GRASP");
+            // }
 
             // Mostrar estadísticas detalladas
             mostrarEstadisticasDetalladas();
 
             // Reporte final de la mejor solución
-            System.out.println("\n=== REPORTE DE LA MEJOR SOLUCIÓN ===");
-            System.out.println(mejorSolucionHibrida.obtenerReporteFitness());
+            // System.out.println("\n=== REPORTE DE LA MEJOR SOLUCIÓN ===");
+            // System.out.println(mejorSolucionHibrida.obtenerReporteFitness());
         }
     }
 
@@ -202,7 +202,7 @@ public class GraspGeneticHybrid {
      * Muestra estadísticas detalladas del proceso híbrido
      */
     private void mostrarEstadisticasDetalladas() {
-        System.out.println("\n=== ESTADÍSTICAS DETALLADAS ===");
+        // System.out.println("\n=== ESTADÍSTICAS DETALLADAS ===");
 
         // Estadísticas de GRASP
         if (!mejoresSolucionesGrasp.isEmpty()) {
@@ -216,7 +216,7 @@ public class GraspGeneticHybrid {
                             .toArray()
             );
 
-            System.out.printf("GRASP - Promedio: %.2f, Desviación: %.2f%n", promedioGrasp, desviacionGrasp);
+            // System.out.printf("GRASP - Promedio: %.2f, Desviación: %.2f%n", promedioGrasp, desviacionGrasp);
         }
 
         // Estadísticas de GA
@@ -226,12 +226,12 @@ public class GraspGeneticHybrid {
             double mejorFinalGA = historialGA.get(historialGA.size() - 1);
             double mejoraGA = mejorFinalGA - mejorInicialGA;
 
-            System.out.printf("GA - Inicial: %.2f, Final: %.2f, Mejora interna: %.2f%n",
-                    mejorInicialGA, mejorFinalGA, mejoraGA);
+            // System.out.printf("GA - Inicial: %.2f, Final: %.2f, Mejora interna: %.2f%n",
+            //         mejorInicialGA, mejorFinalGA, mejoraGA);
 
             // Analizar convergencia
             int generacionConvergencia = analizarConvergencia(historialGA);
-            System.out.printf("GA - Convergencia aproximada en generación: %d%n", generacionConvergencia);
+            // System.out.printf("GA - Convergencia aproximada en generación: %d%n", generacionConvergencia);
         }
 
         // Estadísticas de factibilidad
@@ -254,13 +254,13 @@ public class GraspGeneticHybrid {
         double porcentajeFactibilidadGrasp = (solucionesTotalesGrasp > 0) ?
                 (double) solucionesFactiblesGrasp / solucionesTotalesGrasp * 100 : 0;
 
-        System.out.printf("Factibilidad GRASP: %d/%d (%.1f%%)%n",
-                solucionesFactiblesGrasp, solucionesTotalesGrasp, porcentajeFactibilidadGrasp);
+        // System.out.printf("Factibilidad GRASP: %d/%d (%.1f%%)%n",
+        //         solucionesFactiblesGrasp, solucionesTotalesGrasp, porcentajeFactibilidadGrasp);
 
-        if (mejorSolucionHibrida != null) {
-            System.out.printf("Mejor solución híbrida es factible: %s%n",
-                    mejorSolucionHibrida.esSolucionFactible() ? "SÍ" : "NO");
-        }
+        // if (mejorSolucionHibrida != null) {
+        //     System.out.printf("Mejor solución híbrida es factible: %s%n",
+        //             mejorSolucionHibrida.esSolucionFactible() ? "SÍ" : "NO");
+        // }
     }
 
     /**
@@ -299,7 +299,7 @@ public class GraspGeneticHybrid {
      * Ejecuta solo la fase GRASP (útil para comparaciones)
      */
     public Solucion ejecutarSoloGrasp() {
-        System.out.println("=== EJECUTANDO SOLO GRASP ===");
+        // System.out.println("=== EJECUTANDO SOLO GRASP ===");
         ejecutarFaseGrasp();
 
         return mejoresSolucionesGrasp.stream()
@@ -311,7 +311,7 @@ public class GraspGeneticHybrid {
      * Ejecuta solo el algoritmo genético (útil para comparaciones)
      */
     public Solucion ejecutarSoloGA() {
-        System.out.println("=== EJECUTANDO SOLO GA ===");
+        // System.out.println("=== EJECUTANDO SOLO GA ===");
         return geneticAlgorithm.ejecutar();
     }
 

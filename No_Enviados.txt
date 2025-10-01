@@ -12,15 +12,13 @@ P00964 | 70 | SLLP | no asignado
 P00971 | 73 | SKBO | no asignado
 P00998 | 87 | SKBO | no asignado
 P01004 | 24 | UMMS | no asignado
+P01005 | 88 | SEQM | no asignado
 P01045 | 60 | SEQM | no asignado
 P01046 | 14 | SLLP | no asignado
 P01061 | 87 | SEQM | no asignado
 P01071 | 23 | UMMS | no asignado
 P01085 | 74 | SKBO | no asignado
-P01098 | 4 | SEQM | no asignado
 P01110 | 85 | UMMS | no asignado
-P01118 | 12 | SEQM | no asignado
-P01128 | 52 | SEQM | no asignado
 P01140 | 64 | SLLP | no asignado
 P01144 | 78 | SEQM | no asignado
 P01151 | 13 | SLLP | no asignado
@@ -51,7 +49,6 @@ P01390 | 69 | SKBO | no asignado
 P01400 | 51 | SKBO | no asignado
 P01404 | 55 | SLLP | no asignado
 P01411 | 16 | SEQM | no asignado
-P01416 | 3 | SEQM | no asignado
 P01419 | 88 | SEQM | no asignado
 P01426 | 19 | UMMS | no asignado
 P01439 | 48 | SKBO | no asignado
@@ -74,4 +71,4 @@ P01570 | 76 | SKBO | no asignado
 P01581 | 88 | SKBO | no asignado
 P01582 | 98 | SLLP | no asignado
 
-Resumen: 70 no enviados de 1600 pedidos
+Resumen: 67 no enviados de 1600 pedidos

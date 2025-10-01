@@ -46,7 +46,6 @@ public class GraspMoraPack {
             aeropuertoMap.put(vuelo.getOrigen().getCodigo(), vuelo.getOrigen());
             aeropuertoMap.put(vuelo.getDestino().getCodigo(), vuelo.getDestino());
         }
-        System.out.printf("✅ Mapa de aeropuertos inicializado: %d aeropuertos%n", aeropuertoMap.size());
     }
 
     /**
@@ -126,9 +125,6 @@ public class GraspMoraPack {
                 }
             }
         }
-
-        System.out.printf("📊 Resumen GRASP: %d asignados, %d rechazados por vuelos, %d por almacenes%n",
-                pedidosAsignados, pedidosRechazadosVuelos, pedidosRechazadosAlmacenes);
 
         return new Solucion(solucionLogistica, pedidos.size());
     }
@@ -213,8 +209,6 @@ public class GraspMoraPack {
         int capacidadDisponible = almacen.getCapacidad() - ocupacionEnMomento;
         boolean tieneCapacidad = capacidadDisponible >= cantidadRequerida;
 
-        // Debug opcional (quitar en producción)
-
         return tieneCapacidad;
     }
 
@@ -246,10 +240,7 @@ public class GraspMoraPack {
      * ✅ NUEVO: Método para debug - mostrar estado temporal de almacenes
      */
     public void mostrarEstadoTemporalAlmacenes() {
-        System.out.println("\n🏬 ESTADO TEMPORAL DE ALMACENES:");
-
         if (historialAlmacenes.isEmpty()) {
-            System.out.println("   No hay eventos registrados.");
             return;
         }
 
@@ -260,18 +251,14 @@ public class GraspMoraPack {
             Aeropuerto almacen = aeropuertoMap.get(codigoAlmacen);
             if (almacen == null) continue;
 
-            System.out.printf("\n📦 Almacén %s (Cap: %d):%n", codigoAlmacen, almacen.getCapacidad());
-
             // Ordenar eventos por fecha de llegada
             eventos.stream()
                     .sorted(Comparator.comparing(e -> e.fechaLlegada))
                     .forEach(evento -> {
-                        System.out.printf("   • %s%n", evento);
                     });
 
             // Simular ocupación a lo largo del tiempo
             if (eventos.size() > 1) {
-                System.out.printf("   📊 Picos de ocupación simulados:%n");
                 simularOcupacionTemporal(almacen, eventos);
             }
         }
@@ -306,20 +293,7 @@ public class GraspMoraPack {
                 maxOcupacion = ocupacion;
                 momentoMaximo = momento;
             }
-
-            // Mostrar solo puntos de interés
-            if (ocupacion > almacen.getCapacidad() * 0.8) { // Más del 80%
-                double porcentaje = (double) ocupacion / almacen.getCapacidad() * 100;
-                String estado = ocupacion > almacen.getCapacidad() ? "❌ SOBRECARGA" :
-                        ocupacion > almacen.getCapacidad() * 0.9 ? "⚠️ CRÍTICO" : "🟡 ALTO";
-
-                System.out.printf("     %s: %d/%d (%.1f%%) %s%n",
-                        momento, ocupacion, almacen.getCapacidad(), porcentaje, estado);
-            }
         }
-
-        System.out.printf("   🔴 Pico máximo: %d/%d en %s%n",
-                maxOcupacion, almacen.getCapacidad(), momentoMaximo);
     }
 
     // ✅ NUEVO: Busca ruta validando VUELOS Y ALMACENES
@@ -467,12 +441,6 @@ public class GraspMoraPack {
 
         boolean tienCapacidad = capacidadDisponible >= cantidadRequerida;
 
-        // Log para debugging (opcional, quitar en producción)
-        /*if (!tienCapacidad) {
-            System.out.printf("⚠ Vuelo %s sin capacidad: %d/%d usado, necesita %d%n",
-                    vuelo.getId(), ocupacionActualVuelo, vuelo.getCapacidadMaxima(), cantidadRequerida);
-        }*/
-
         return tienCapacidad;
     }
 
@@ -535,18 +503,12 @@ public class GraspMoraPack {
      * ✅ NUEVO: Método para debug - mostrar estado de ocupación
      */
     public void mostrarEstadoOcupacion() {
-        System.out.println("📊 ESTADO DE OCUPACIÓN DE VUELOS:");
         ocupacionActual.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey((v1, v2) -> v1.getId().compareTo(v2.getId())))
                 .forEach(entry -> {
                     Vuelo vuelo = entry.getKey();
                     int usado = entry.getValue();
                     double porcentaje = (double) usado / vuelo.getCapacidadMaxima() * 100;
-
-                    System.out.printf("   %s: %d/%d (%.1f%%) %s%n",
-                            vuelo.getId(), usado, vuelo.getCapacidadMaxima(), porcentaje,
-                            porcentaje > 100 ? "❌ SOBRECARGA" :
-                                    porcentaje > 80 ? "⚠ ALTO" : "✅");
                 });
     }
 
@@ -736,12 +698,6 @@ public class GraspMoraPack {
         for (Vuelo vuelo : vuelos) {
             vuelosPorOrigen.computeIfAbsent(vuelo.getOrigen().getCodigo(), k -> new ArrayList<>()).add(vuelo);
         }
-/*
-        System.out.println("Vuelos indexados por origen:");
-        for (String fabrica : Solucion.FABRICAS) {
-            int cantidadVuelos = vuelosPorOrigen.getOrDefault(fabrica, new ArrayList<>()).size();
-            System.out.println("- " + fabrica + ": " + cantidadVuelos + " vuelos");
-        }*/
     }
 
     // Setters para configuración

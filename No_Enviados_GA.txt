@@ -1,0 +1,6 @@
+MORAPACK - PEDIDOS NO ENVIADOS (GA)
+
+ID | Cantidad | Destino
+----------------------------------------
+
+Total no enviados: 0/1600

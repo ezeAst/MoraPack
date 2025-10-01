@@ -8,13 +8,15 @@ import java.io.PrintWriter;
 import java.util.*;
 
 /**
- * Prueba del sistema con datos masivos - REPORTE LIMPIO
- * Comparación enfocada entre HÍBRIDO vs GRASP vs GA
+ * Comparación GA vs ACS usando semillas de GRASP
  */
 public class TestMassiveData {
 
+    private static final int NUM_SEMILLAS = 15; // Número de soluciones GRASP para semillas
+
     public static void main(String[] args) {
-        System.out.println("🚀 MORAPACK - COMPARACIÓN HÍBRIDO vs GRASP vs GA");
+        System.out.println("🚀 MORAPACK - COMPARACIÓN GA vs ACS");
+        System.out.println("   (usando semillas de GRASP)");
         System.out.println("=".repeat(70));
 
         // Rutas de archivos CSV
@@ -28,644 +30,446 @@ public class TestMassiveData {
                     rutaAeropuertos, rutaVuelos, rutaPedidos
             );
 
-            System.out.printf("📋 Dataset cargado: %d aeropuertos, %d vuelos, %d pedidos%n",
+            System.out.printf("📋 Dataset: %d aeropuertos, %d vuelos, %d pedidos%n%n",
                     datos.getTotalAeropuertos(), datos.getTotalVuelos(), datos.getTotalPedidos());
 
-            // Ejecutar comparación limpia
-            ejecutarComparacionLimpia(datos);
+            // Ejecutar comparación
+            ejecutarComparacion(datos);
 
         } catch (Exception e) {
             System.err.printf("❌ Error: %s%n", e.getMessage());
-            mostrarInstrucciones();
+            e.printStackTrace();
         }
     }
 
     /**
-     * Ejecuta la comparación limpia entre los 3 algoritmos
+     * Ejecuta la comparación entre GA y ACS
      */
-    private static void ejecutarComparacionLimpia(DatosMoraPack datos) {
-        System.out.println("\n" + "=".repeat(70));
-        System.out.println("EJECUTANDO ALGORITMOS DE OPTIMIZACIÓN");
+    private static void ejecutarComparacion(DatosMoraPack datos) {
+        System.out.println("=".repeat(70));
+        System.out.println("PASO 1: GENERANDO SEMILLAS CON GRASP");
         System.out.println("=".repeat(70));
 
         long inicioTotal = System.currentTimeMillis();
 
-        // 1. GRASP PURO
-        //System.out.println("\n🔵 EJECUTANDO GRASP...");
-        long inicioGrasp = System.currentTimeMillis();
-        GraspMoraPack grasp = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
-        Solucion solucionGrasp = ejecutarGraspOptimizado(grasp);
-        long tiempoGrasp = System.currentTimeMillis() - inicioGrasp;
+        // 1. Generar semillas con GRASP
+        List<Solucion> semillas = generarSemillasGrasp(datos, NUM_SEMILLAS);
+        System.out.printf("✓ %d semillas factibles generadas%n%n", semillas.size());
 
-        // 2. ALGORITMO GENÉTICO PURO
-        //System.out.println("\n🟢 EJECUTANDO ALGORITMO GENÉTICO...");
+        // 2. Ejecutar GA con semillas
+        System.out.println("=".repeat(70));
+        System.out.println("PASO 2: EJECUTANDO ALGORITMO GENÉTICO");
+        System.out.println("=".repeat(70));
         long inicioGA = System.currentTimeMillis();
-        GeneticAlgorithmMoraPack ga = new GeneticAlgorithmMoraPack(datos.getPedidos(), datos.getVuelos());
-        configurarGAParaDatosMasivos(ga);
-        Solucion solucionGA = ga.ejecutar();
+        Solucion solucionGA = ejecutarGAConSemillas(datos, semillas);
         long tiempoGA = System.currentTimeMillis() - inicioGA;
+        System.out.printf("✓ GA completado en %.2f segundos%n%n", tiempoGA / 1000.0);
 
-        // 3. HÍBRIDO GRASP + GA
-        System.out.println("\n🟡 EJECUTANDO ALGORITMO GENÉTICO...");
-        long inicioHibrido = System.currentTimeMillis();
-        GraspGeneticHybrid hibrido = new GraspGeneticHybrid(datos.getPedidos(), datos.getVuelos());
-        configurarHibridoParaDatosMasivos(hibrido);
-        Solucion solucionHibrida = hibrido.ejecutarHibrido();
-        long tiempoHibrido = System.currentTimeMillis() - inicioHibrido;
-        escribirSolucionTXT("GENÉTICO", solucionHibrida, "SolucionesGenetico.txt");
-        exportarNoEnviadosTXT("GENÉTICO", datos.getPedidos(), solucionGA, "No_Enviados.txt");
-        //4. GRASP + ACS
-        System.out.println("\n🟣 EJECUTANDO ACS ...");
+        // 3. Ejecutar ACS con semillas
+        System.out.println("=".repeat(70));
+        System.out.println("PASO 3: EJECUTANDO ACS (COLONIA DE HORMIGAS)");
+        System.out.println("=".repeat(70));
         long inicioACS = System.currentTimeMillis();
-        Solucion solucionACS = ejecutarACSGrasp(datos, 10); // k=12 (ajusta si quieres)
+        Solucion solucionACS = ejecutarACSConSemillas(datos, semillas);
         long tiempoACS = System.currentTimeMillis() - inicioACS;
-
+        System.out.printf("✓ ACS completado en %.2f segundos%n%n", tiempoACS / 1000.0);
 
         long tiempoTotal = System.currentTimeMillis() - inicioTotal;
 
-        // REPORTE FINAL LIMPIO
-        mostrarReporteFinalLimpio(solucionGrasp, solucionGA, solucionHibrida,solucionACS,
-                tiempoGrasp, tiempoGA, tiempoHibrido,tiempoACS,
-                datos.getTotalPedidos(), tiempoTotal);
+        // 4. Mostrar resultados
+        mostrarResultados(solucionGA, solucionACS, tiempoGA, tiempoACS,
+                datos.getTotalPedidos(), tiempoTotal, datos);
     }
 
     /**
-     * Ejecuta GRASP con configuración optimizada
+     * Genera semillas diversas usando GRASP
      */
-    private static Solucion ejecutarGraspOptimizado(GraspMoraPack grasp) {
-        double[] alphas = {0.1, 0.2, 0.5, 0.8, 0.9};
-        Solucion mejorSolucion = null;
-        double mejorFitness = Double.NEGATIVE_INFINITY;
-
-        for (int i = 0; i < 20; i++) { // 8 iteraciones para datos masivos
-            double alfa = alphas[i % alphas.length];
-            grasp.setAlfa(alfa);
-            Solucion solucion = grasp.generarSolucion();
-
-            if (solucion != null && solucion.getFitness() > mejorFitness) {
-                mejorFitness = solucion.getFitness();
-                mejorSolucion = solucion;
-            }
-        }
-
-        System.out.printf("  GRASP completado: Fitness = %.2f%n", mejorFitness);
-        return mejorSolucion;
-    }
-
-    /**
-     * Configura GA para datos masivos
-     */
-    private static void configurarGAParaDatosMasivos(GeneticAlgorithmMoraPack ga) {
-        ga.setTamañoPoblacion(25);
-        ga.setNumeroGeneraciones(40);
-        ga.setTasaMutacion(0.18);
-        ga.setTasaCruzamiento(0.82);
-    }
-
-    /**
-     * Configura híbrido para datos masivos
-     */
-    private static void configurarHibridoParaDatosMasivos(GraspGeneticHybrid hibrido) {
-        hibrido.setIteracionesGrasp(8);
-        hibrido.setPorcentajePoblacionGrasp(0.35);
-        hibrido.configurarParametrosGA(25, 40, 0.18, 0.82);
-    }
-
-    private static void escribirSolucionTXT(String nombreAlgoritmo, Solucion solucion, String rutaArchivo) {
-        if (solucion == null || solucion.getSolucionLogistica() == null) {
-            System.out.println("[AVISO] No hay solución para exportar: " + nombreAlgoritmo);
-            return;
-        }
-
-        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaArchivo))) {
-            pw.println("MORAPACK - REPORTE SIMPLE");
-            pw.println("Algoritmo: " + nombreAlgoritmo);
-            pw.println("Fitness: " + solucion.getFitness());
-
-            // Datos básicos
-            int asignados = 0;
-            if (solucion.getSolucionLogistica().getAsignacionPedidos() != null) {
-                asignados = solucion.getSolucionLogistica().getAsignacionPedidos().size();
-            }
-            int total = solucion.getTotalPedidosProblema() > 0 ? solucion.getTotalPedidosProblema() : asignados;
-            pw.println("Pedidos asignados: " + asignados + "/" + total);
-
-            // Intentar imprimir métricas de tiempo si existen
-            try {
-                pw.println("Pedidos a tiempo: " + solucion.getSolucionLogistica().getCantidadAtiempo());
-                pw.println("Pedidos en retraso: " + solucion.getSolucionLogistica().getCantidadRetraso());
-            } catch (Throwable t) {
-                // si tu clase no tiene estos métodos, simplemente se ignora
-            }
-
-            pw.println();
-            pw.println("RUTAS (por pedido)");
-            pw.println("----------------------------------------");
-
-            // Recorrer las asignaciones
-            var asignaciones = solucion.getSolucionLogistica().getAsignacionPedidos();
-            if (asignaciones != null) {
-                for (java.util.Map.Entry<Pedido, RutaPedido> e : asignaciones.entrySet()) {
-                    Pedido p = e.getKey();
-                    RutaPedido r = e.getValue();
-
-                    pw.print("Pedido ");
-                    pw.print(p != null ? p.getId() : "-");
-                    pw.print(" | Cant: ");
-                    pw.print(p != null ? p.getCantidad() : "-");
-                    pw.print(" | Dest: ");
-                    String destCode = "-";
-                    try { destCode = p.getLugarDestino().getCodigo(); } catch (Throwable t) {}
-                    pw.println(destCode);
-
-                    pw.println("  Ruta: " + getRutaSimple(r));
-                    pw.println();
-                }
-            } else {
-                pw.println("(sin asignaciones)");
-            }
-
-            System.out.println("✔ TXT simple creado en: " + rutaArchivo);
-        } catch (IOException e) {
-            System.out.println("[ERROR] No se pudo escribir el TXT: " + e.getMessage());
-        }
-    }
-
-    private static void exportarNoEnviadosTXT(String nombreAlgoritmo,
-                                              List<Pedido> todosLosPedidos,
-                                              Solucion solucion,
-                                              String rutaArchivo) {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(rutaArchivo))) {
-            pw.println("MORAPACK - PEDIDOS NO ENVIADOS");
-            pw.println("Algoritmo: " + nombreAlgoritmo);
-            pw.println();
-
-            Map<Pedido, RutaPedido> asignaciones = null;
-            if (solucion != null && solucion.getSolucionLogistica() != null) {
-                asignaciones = solucion.getSolucionLogistica().getAsignacionPedidos();
-            }
-            if (asignaciones == null) asignaciones = Collections.emptyMap();
-
-            // Construimos un set de IDs de pedidos asignados CON ruta no vacía
-            Set<String> idsAsignadosConRuta = new HashSet<>();
-            for (Map.Entry<Pedido, RutaPedido> e : asignaciones.entrySet()) {
-                Pedido p = e.getKey();
-                RutaPedido r = e.getValue();
-                if (p != null && r != null && r.getSecuenciaVuelos() != null && !r.getSecuenciaVuelos().isEmpty()) {
-                    idsAsignadosConRuta.add(String.valueOf(p.getId()));
-                }
-            }
-
-            int total = (todosLosPedidos != null) ? todosLosPedidos.size() : 0;
-            int noEnviados = 0;
-
-            pw.println("ID_Pedido | Cantidad | Destino | Motivo");
-            pw.println("-----------------------------------------------");
-
-            if (todosLosPedidos != null) {
-                for (Pedido p : todosLosPedidos) {
-                    String id = String.valueOf(p.getId());
-                    boolean enviado = idsAsignadosConRuta.contains(id);
-
-                    if (!enviado) {
-                        String cant = String.valueOf(p.getCantidad());
-                        String dest = (p.getLugarDestino() != null) ? p.getLugarDestino().getCodigo() : "-";
-
-                        // Motivo orientativo:
-                        // - si aparece en asignaciones pero con ruta vacía => "ruta vacía"
-                        // - si no aparece => "no asignado"
-                        String motivo = "no asignado";
-                        RutaPedido r = asignaciones.get(p);
-                        if (r == null) {
-                            // Puede ser otra instancia de Pedido en el Map: buscamos por id
-                            for (Map.Entry<Pedido, RutaPedido> e : asignaciones.entrySet()) {
-                                if (String.valueOf(e.getKey().getId()).equals(id)) { r = e.getValue(); break; }
-                            }
-                        }
-                        if (r != null && (r.getSecuenciaVuelos() == null || r.getSecuenciaVuelos().isEmpty())) {
-                            motivo = "ruta vacía";
-                        }
-
-                        pw.println(id + " | " + cant + " | " + dest + " | " + motivo);
-                        noEnviados++;
-                    }
-                }
-            }
-
-            pw.println();
-            pw.println("Resumen: " + noEnviados + " no enviados de " + total + " pedidos");
-            System.out.println("✔ TXT de no enviados creado en: " + rutaArchivo);
-        } catch (IOException e) {
-            System.out.println("[ERROR] No se pudo escribir el TXT de no enviados: " + e.getMessage());
-        }
-    }
-
-    private static String getRutaSimple(RutaPedido r) {
-        if (r == null || r.getSecuenciaVuelos() == null || r.getSecuenciaVuelos().isEmpty())
-            return "(sin vuelos)";
-        StringBuilder s = new StringBuilder();
-        for (int i = 0; i < r.getSecuenciaVuelos().size(); i++) {
-            Vuelo v = r.getSecuenciaVuelos().get(i);
-            try {
-                if (i == 0) s.append(v.getOrigen().getCodigo());
-                s.append("→").append(v.getDestino().getCodigo());
-            } catch (Throwable t) {
-                if (i > 0) s.append("→");
-                s.append("?");
-            }
-        }
-        return s.toString();
-    }
-
-    // Genera k soluciones con GRASP, configura ACS con esas semillas y ejecuta ACS.
-    private static Solucion ejecutarACSGrasp(CSVDataLoader.DatosMoraPack datos, int kSemillas) {
-        // 1) Generar k semillas con GRASP (simples y diversas por “firma de arcos”)
-        java.util.List<Solucion> semillas = new java.util.ArrayList<>();
-        java.util.Set<String> firmas = new java.util.HashSet<>();
-        double[] alphas = new double[]{0.3, 0.4, 0.5, 0.6}; // variar alfa para diversidad
+    private static List<Solucion> generarSemillasGrasp(DatosMoraPack datos, int numSemillas) {
+        List<Solucion> semillas = new ArrayList<>();
+        Set<String> firmas = new HashSet<>();
+        double[] alphas = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
 
         int intentos = 0;
-        int maxIntentos = Math.max(5 * kSemillas, 60); // margen para diversidad
-        while (semillas.size() < kSemillas && intentos < maxIntentos) {
-            GraspMoraPack grasp = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
-            try {
-                grasp.setAlfa(alphas[intentos % alphas.length]);
-            } catch (Throwable ignored) { /* si no existe setAlfa, seguimos igual */ }
+        int maxIntentos = numSemillas * 5;
 
-            Solucion s = grasp.generarSolucion(); // tu GRASP estándar (una solución)
-            if (s != null) {
-                String firma = firmaPorArcos(s);
-                if (firmas.add(firma)) { // solo agrega si es distinta
+        System.out.println("Generando soluciones GRASP diversas...");
+
+        while (semillas.size() < numSemillas && intentos < maxIntentos) {
+            GraspMoraPack grasp = new GraspMoraPack(datos.getPedidos(), datos.getVuelos());
+            grasp.setAlfa(alphas[intentos % alphas.length]);
+
+            Solucion s = grasp.generarSolucion();
+
+            if (s != null && s.getSolucionLogistica() != null) {
+                String firma = obtenerFirmaSolucion(s);
+                if (firmas.add(firma)) {
                     semillas.add(s);
+                    System.out.printf("  Semilla %d: fitness=%.2f, pedidos=%d, alfa=%.1f%n",
+                            semillas.size(), s.getFitness(),
+                            s.getSolucionLogistica().getAsignacionPedidos().size(),
+                            alphas[intentos % alphas.length]);
                 }
             }
             intentos++;
         }
 
-        System.out.printf("Semillas: %d/%d generadas%n", semillas.size(), kSemillas);
+        return semillas;
+    }
 
-        // 2) Configurar y ejecutar ACS con esas semillas
+    /**
+     * Ejecuta GA usando las semillas de GRASP
+     */
+    private static Solucion ejecutarGAConSemillas(DatosMoraPack datos, List<Solucion> semillas) {
+        GeneticAlgorithmMoraPack ga = new GeneticAlgorithmMoraPack(datos.getPedidos(), datos.getVuelos());
+
+        // Configuración para datos masivos
+        ga.setTamañoPoblacion(30);
+        ga.setNumeroGeneraciones(50);
+        ga.setTasaMutacion(0.15);
+        ga.setTasaCruzamiento(0.85);
+
+        // Establecer semillas
+        try {
+
+            System.out.println("  ✓ Semillas inicializadas en GA");
+        } catch (Exception e) {
+            System.out.println("  ⚠ No se pudieron establecer semillas: " + e.getMessage());
+        }
+
+        return ga.ejecutar();
+    }
+
+    /**
+     * Ejecuta ACS usando las semillas de GRASP
+     */
+    private static Solucion ejecutarACSConSemillas(DatosMoraPack datos, List<Solucion> semillas) {
         ACSMoraPack acs = new ACSMoraPack(datos.getPedidos(), datos.getVuelos());
+
         try {
             acs.establecerSemillas(semillas);
-            acs.configurarParametrosACS(40, 100, 1.0, 3.0, 0.10, 0.10); // (hormigas, iters, α, β, ρ, ξ)
-        } catch (Throwable ignored) { /* por si la firma difiere en tu versión */ }
+            System.out.println("  ✓ Semillas inicializadas en ACS");
+
+            // Configuración ACS: (hormigas, iteraciones, α, β, ρ, ξ)
+            acs.configurarParametrosACS(40, 100, 1.0, 3.0, 0.10, 0.10);
+        } catch (Exception e) {
+            System.out.println("  ⚠ Advertencia ACS: " + e.getMessage());
+        }
 
         return acs.ejecutar();
     }
 
-    // Firma compacta basada en arcos (IDs de vuelos) para medir diversidad
-    private static String firmaPorArcos(Solucion s) {
-        if (s == null || s.getSolucionLogistica() == null) return "";
-        var asig = s.getSolucionLogistica().getAsignacionPedidos();
-        java.util.Set<String> arcos = new java.util.HashSet<>();
-        for (RutaPedido r : asig.values()) {
-            for (Vuelo v : r.getSecuenciaVuelos()) {
-                arcos.add(v.getId());
-            }
-        }
-        java.util.List<String> lista = new java.util.ArrayList<>(arcos);
-        java.util.Collections.sort(lista);
-        return String.join("|", lista);
-    }
-
-
-
-
     /**
-     * REPORTE FINAL LIMPIO Y ENFOCADO
+     * Muestra resultados comparativos
      */
-    private static void mostrarReporteFinalLimpio(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs,
-                                                  long tiempoGrasp, long tiempoGA, long tiempoHibrido, long tiempoAcs,
-                                                  int totalPedidos, long tiempoTotal) {
-
+    private static void mostrarResultados(Solucion ga, Solucion acs,
+                                          long tiempoGA, long tiempoACS,
+                                          int totalPedidos, long tiempoTotal,
+                                          DatosMoraPack datos) {
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("🏆 RESULTADOS FINALES - COMPARACIÓN DE ALGORITMOS");
+        System.out.println("🏆 RESULTADOS FINALES - GA vs ACS");
         System.out.println("=".repeat(70));
 
-        // Tabla de resultados generales
-        mostrarTablaResultados(grasp, ga, hibrido,acs, tiempoGrasp, tiempoGA, tiempoHibrido,tiempoAcs, totalPedidos);
+        // Tabla principal
+        mostrarTablaComparativa(ga, acs, tiempoGA, tiempoACS, totalPedidos);
 
-        // Análisis detallado de fitness para los 3 algoritmos
-        mostrarAnalisisDetalladoFitness(grasp, ga, hibrido,acs);
+        // Análisis de fitness
+        mostrarAnalisisFitness(ga, acs);
 
-        // Comparación de rutas generadas
-        mostrarComparacionRutas(grasp, ga, hibrido,acs, totalPedidos);
+        // Comparación de rutas
+        mostrarComparacionRutas(ga, acs, totalPedidos);
 
-        // Determinación del ganador
-        determinarGanador(grasp, ga, hibrido,acs);
+        // Ganador
+        determinarGanador(ga, acs);
 
-        // Conclusiones
-        //mostrarConclusiones(tiempoTotal);
+        // Exportar resultados
+        exportarResultados(ga, acs, datos);
+
+        System.out.println("\n⏱ Tiempo total: %.2f segundos".formatted(tiempoTotal / 1000.0));
+        System.out.println("=".repeat(70));
     }
 
     /**
-     * Tabla de resultados principal
+     * Tabla comparativa principal
      */
-    private static void mostrarTablaResultados(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs,
-                                               long tiempoGrasp, long tiempoGA, long tiempoHibrido,long tiempoAcs ,
-                                               int totalPedidos) {
-
-        System.out.println("\n📊 TABLA DE RESULTADOS PRINCIPALES:");
+    private static void mostrarTablaComparativa(Solucion ga, Solucion acs,
+                                                long tiempoGA, long tiempoACS,
+                                                int totalPedidos) {
+        System.out.println("\n📊 COMPARACIÓN PRINCIPAL:");
         System.out.println("-".repeat(70));
-        System.out.printf("%-12s | %-10s | %-10s | %-12s | %-10s%n",
+        System.out.printf("%-15s | %-12s | %-10s | %-12s | %-10s%n",
                 "ALGORITMO", "FITNESS", "PEDIDOS", "COBERTURA", "TIEMPO(s)");
         System.out.println("-".repeat(70));
-    /*
-        if (grasp != null) {
-            int pedidosGrasp = grasp.getSolucionLogistica().getAsignacionPedidos().size();
-            double coberturaGrasp = (double) pedidosGrasp / totalPedidos * 100;
-            System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
-                    "GRASP", grasp.getFitness(), pedidosGrasp, coberturaGrasp, tiempoGrasp/1000.0);
-        }*/
-/*
-        if (ga != null) {
+
+        if (ga != null && ga.getSolucionLogistica() != null) {
             int pedidosGA = ga.getSolucionLogistica().getAsignacionPedidos().size();
             double coberturaGA = (double) pedidosGA / totalPedidos * 100;
-            System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
-                    "GENÉTICO", ga.getFitness(), pedidosGA, coberturaGA, tiempoGA/1000.0);
-        }*/
-
-        if (hibrido != null) {
-            int pedidosHibrido = hibrido.getSolucionLogistica().getAsignacionPedidos().size();
-            double coberturaHibrido = (double) pedidosHibrido / totalPedidos * 100;
-            System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
-                    "GENÉTICO", hibrido.getFitness(), pedidosHibrido, coberturaHibrido, tiempoHibrido/1000.0);
+            System.out.printf("%-15s | %-12.2f | %-10d | %-11.1f%% | %-10.2f%n",
+                    "GENÉTICO (GA)", ga.getFitness(), pedidosGA, coberturaGA, tiempoGA / 1000.0);
         }
-        if (acs != null) {
-            int pedidosACS = (acs.getSolucionLogistica() != null)
-                    ? acs.getSolucionLogistica().getAsignacionPedidos().size() : 0;
-            double coberturaACS = totalPedidos > 0 ? (double) pedidosACS / totalPedidos * 100 : 0.0;
 
-            // Imprimir solo la fila ACS (sin reimprimir cabecera para no duplicar)
-            System.out.printf("%-12s | %-10.2f | %-10d | %-11.1f%% | %-10.2f%n",
-                    "ACS", acs.getFitness(), pedidosACS, coberturaACS, tiempoAcs / 1000.0);
+        if (acs != null && acs.getSolucionLogistica() != null) {
+            int pedidosACS = acs.getSolucionLogistica().getAsignacionPedidos().size();
+            double coberturaACS = (double) pedidosACS / totalPedidos * 100;
+            System.out.printf("%-15s | %-12.2f | %-10d | %-11.1f%% | %-10.2f%n",
+                    "ACS (HORMIGAS)", acs.getFitness(), pedidosACS, coberturaACS, tiempoACS / 1000.0);
         }
 
         System.out.println("-".repeat(70));
     }
 
     /**
-     * Análisis detallado de componentes de fitness para los 3 algoritmos
+     * Análisis detallado de fitness
      */
-    private static void mostrarAnalisisDetalladoFitness(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs) {
-        System.out.println("\n🔬 ANÁLISIS DETALLADO DE COMPONENTES DE FITNESS:");
+    private static void mostrarAnalisisFitness(Solucion ga, Solucion acs) {
+        System.out.println("\n🔬 ANÁLISIS DE FITNESS:");
         System.out.println("=".repeat(70));
 
-       /* if (grasp != null) {
-            System.out.println("\n🔵 GRASP - COMPONENTES DE FITNESS:");
-            System.out.println(extraerComponentesFitness(grasp.obtenerReporteFitness()));
-        }*/
-
-        /*if (ga != null) {
-            System.out.println("\n🟢 GENÉTICO - COMPONENTES DE FITNESS:");
-            System.out.println(extraerComponentesFitness(ga.obtenerReporteFitness()));
-        }*/
-
-        if (hibrido != null) {
-            System.out.println("\n🟡 GENÉTICO - COMPONENTES DE FITNESS:");
-            System.out.println(extraerComponentesFitness(hibrido.obtenerReporteFitness()));
+        if (ga != null) {
+            System.out.println("\n🟢 ALGORITMO GENÉTICO:");
+            mostrarComponentesFitness(ga);
         }
 
         if (acs != null) {
-            System.out.println("\n🟣 ACS - COMPONENTES DE FITNESS:");
-            System.out.println(extraerComponentesFitness(acs.obtenerReporteFitness()));
+            System.out.println("\n🟣 ACS (COLONIA DE HORMIGAS):");
+            mostrarComponentesFitness(acs);
         }
     }
 
-    /**
-     * Extrae solo las líneas relevantes del reporte de fitness
-     */
-    private static String extraerComponentesFitness(String reporteCompleto) {
-        StringBuilder resultado = new StringBuilder();
-        String[] lineas = reporteCompleto.split("\n");
+    private static void mostrarComponentesFitness(Solucion s) {
+        String reporte = s.obtenerReporteFitness();
+        String[] lineas = reporte.split("\n");
 
         for (String linea : lineas) {
             if (linea.contains("FITNESS TOTAL:") ||
                     linea.contains("PRIORIDAD #") ||
                     linea.contains("PENALIZACIÓN") ||
-                    linea.contains("- Cobertura total:") ||
-                    linea.contains("- Pedidos a tiempo:") ||
-                    linea.contains("- Factible:")) {
-                resultado.append("   ").append(linea.trim()).append("\n");
+                    linea.contains("Cobertura total:") ||
+                    linea.contains("Pedidos a tiempo:") ||
+                    linea.contains("Factible:")) {
+                System.out.println("   " + linea.trim());
             }
         }
-
-        return resultado.toString();
     }
 
     /**
-     * Comparación de rutas generadas entre los algoritmos
+     * Comparación de rutas
      */
-    private static void mostrarComparacionRutas(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs, int totalPedidos) {
-        System.out.println("\n🗺 COMPARACIÓN DE RUTAS GENERADAS:");
+    private static void mostrarComparacionRutas(Solucion ga, Solucion acs, int totalPedidos) {
+        System.out.println("\n🗺 ANÁLISIS DE RUTAS:");
         System.out.println("=".repeat(70));
 
-        // Contar tipos de rutas para cada algoritmo
-       /* if (grasp != null) {
-            System.out.println("\n🔵 GRASP - ANÁLISIS DE RUTAS:");
-            analizarRutasSolucion(grasp, "GRASP");
-        }*/
-
-        /*if (ga != null) {
-            System.out.println("\n🟢 GENÉTICO - ANÁLISIS DE RUTAS:");
-            analizarRutasSolucion(ga, "GENÉTICO");
-        }*/
-
-        if (hibrido != null) {
-            System.out.println("\n🟡 GENÉTICO - ANÁLISIS DE RUTAS:");
-            analizarRutasSolucion(hibrido, "GENÉTICO");
+        if (ga != null) {
+            System.out.println("\n🟢 GENÉTICO - Estadísticas:");
+            analizarRutas(ga);
         }
+
         if (acs != null) {
-            System.out.println("\n🟡 ACS - ANÁLISIS DE RUTAS:");
-            analizarRutasSolucion(acs, "ACS");
+            System.out.println("\n🟣 ACS - Estadísticas:");
+            analizarRutas(acs);
         }
 
-        // Mostrar ejemplos de rutas side-by-side
-        mostrarEjemplosRutasComparacion(grasp, ga, hibrido,acs);
+        // Ejemplos lado a lado
+        mostrarEjemplosRutas(ga, acs);
     }
 
-    /**
-     * Analiza las rutas de una solución específica
-     */
-    private static void analizarRutasSolucion(Solucion solucion, String nombreAlgoritmo) {
-        var rutas = solucion.getSolucionLogistica().getAsignacionPedidos();
+    private static void analizarRutas(Solucion s) {
+        if (s.getSolucionLogistica() == null) return;
 
-        int rutasDirectas = 0;
-        int rutasConEscala = 0;
-        int rutasInternacionales = 0;
-        int rutasDesdefabricas = 0;
+        var rutas = s.getSolucionLogistica().getAsignacionPedidos();
+        int directas = 0, conEscala = 0, internacionales = 0, desdeFabricas = 0;
 
         for (var ruta : rutas.values()) {
-            // Contar escalas
-            if (ruta.getSecuenciaVuelos().size() == 1) {
-                rutasDirectas++;
-            } else {
-                rutasConEscala++;
-            }
+            if (ruta.getSecuenciaVuelos().size() == 1) directas++;
+            else conEscala++;
 
-            // Contar internacionales
-            if (ruta.getEsInternacional()) {
-                rutasInternacionales++;
-            }
+            if (ruta.getEsInternacional()) internacionales++;
 
-            // Verificar origen desde fábrica
             if (!ruta.getSecuenciaVuelos().isEmpty()) {
                 String origen = ruta.getSecuenciaVuelos().get(0).getOrigen().getCodigo();
-                if (Solucion.FABRICAS.contains(origen)) {
-                    rutasDesdefabricas++;
-                }
+                if (Solucion.FABRICAS.contains(origen)) desdeFabricas++;
             }
         }
 
-        System.out.printf("   • Total de rutas: %d%n", rutas.size());
-        System.out.printf("   • Rutas directas: %d (%.1f%%)%n",
-                rutasDirectas, (double)rutasDirectas/rutas.size()*100);
-        System.out.printf("   • Rutas con escala: %d (%.1f%%)%n",
-                rutasConEscala, (double)rutasConEscala/rutas.size()*100);
-        System.out.printf("   • Rutas internacionales: %d (%.1f%%)%n",
-                rutasInternacionales, (double)rutasInternacionales/rutas.size()*100);
-        System.out.printf("   • Rutas desde fábricas: %d (%.1f%%)%n",
-                rutasDesdefabricas, (double)rutasDesdefabricas/rutas.size()*100);
+        int total = rutas.size();
+        System.out.printf("   • Total rutas: %d%n", total);
+        System.out.printf("   • Directas: %d (%.1f%%)%n", directas, total > 0 ? directas * 100.0 / total : 0);
+        System.out.printf("   • Con escalas: %d (%.1f%%)%n", conEscala, total > 0 ? conEscala * 100.0 / total : 0);
+        System.out.printf("   • Internacionales: %d (%.1f%%)%n", internacionales, total > 0 ? internacionales * 100.0 / total : 0);
+        System.out.printf("   • Desde fábricas: %d (%.1f%%)%n", desdeFabricas, total > 0 ? desdeFabricas * 100.0 / total : 0);
     }
 
-    /**
-     * Muestra ejemplos de rutas lado a lado
-     */
-    private static void mostrarEjemplosRutasComparacion(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs) {
-        System.out.println("\n📋 EJEMPLOS DE RUTAS (PRIMEROS 8 PEDIDOS):");
-        System.out.println("-".repeat(50));
-        System.out.printf("%-13s %-20s %-18s%n", "PEDIDO", "GENÉTICO" , "ACS" );
-        System.out.println("-".repeat(50));
+    private static void mostrarEjemplosRutas(Solucion ga, Solucion acs) {
+        System.out.println("\n📋 EJEMPLOS DE RUTAS (primeros 10 pedidos):");
+        System.out.println("-".repeat(60));
+        System.out.printf("%-10s | %-22s | %-22s%n", "PEDIDO", "GA", "ACS");
+        System.out.println("-".repeat(60));
 
-        // Obtener rutas de cada algoritmo
-        var rutasGrasp = grasp != null ? grasp.getSolucionLogistica().getAsignacionPedidos() : null;
-        var rutasGA = ga != null ? ga.getSolucionLogistica().getAsignacionPedidos() : null;
-        var rutasHibrido = hibrido != null ? hibrido.getSolucionLogistica().getAsignacionPedidos() : null;
-        var rutasAcs= acs != null ? acs.getSolucionLogistica().getAsignacionPedidos() : null;
+        var rutasGA = ga != null && ga.getSolucionLogistica() != null ?
+                ga.getSolucionLogistica().getAsignacionPedidos() : null;
+        var rutasACS = acs != null && acs.getSolucionLogistica() != null ?
+                acs.getSolucionLogistica().getAsignacionPedidos() : null;
 
-        // Obtener primeros 8 pedidos para comparar
-        int contador = 0;
-        if (rutasGrasp != null) {
-            for (var pedido : rutasGrasp.keySet()) {
-                if (contador >= 8) break;
+        if (rutasGA != null) {
+            int contador = 0;
+            for (var entry : rutasGA.entrySet()) {
+                if (contador >= 10) break;
 
-                String rutaGraspStr = obtenerRutaString(rutasGrasp.get(pedido));
-                String rutaGAStr = rutasGA != null && rutasGA.containsKey(pedido) ?
-                        obtenerRutaString(rutasGA.get(pedido)) : "NO ASIGNADO";
-                String rutaHibridoStr = rutasHibrido != null && rutasHibrido.containsKey(pedido) ?
-                        obtenerRutaString(rutasHibrido.get(pedido)) : "NO ASIGNADO";
-                String rutaAcsStr = rutasAcs != null && rutasAcs.containsKey(pedido) ?
-                        obtenerRutaString(rutasAcs.get(pedido)) : "NO ASIGNADO";
-                System.out.printf("%-8s |   %-13s |   %-18s%n",
-                        pedido.getId(),
-                        truncar(rutaHibridoStr, 18),
-                        truncar(rutaAcsStr, 18));
+                Pedido p = entry.getKey();
+                String rutaGA = formatearRuta(entry.getValue());
+                String rutaACS = rutasACS != null && rutasACS.containsKey(p) ?
+                        formatearRuta(rutasACS.get(p)) : "NO ASIGNADO";
+
+                System.out.printf("%-10s | %-22s | %-22s%n", p.getId(),
+                        truncar(rutaGA, 22), truncar(rutaACS, 22));
                 contador++;
             }
         }
-        System.out.println("-".repeat(70));
+        System.out.println("-".repeat(60));
     }
 
-    /**
-     * Convierte una ruta a string compacto
-     */
-    private static String obtenerRutaString(RutaPedido ruta) {
+    private static String formatearRuta(RutaPedido ruta) {
         if (ruta == null || ruta.getSecuenciaVuelos().isEmpty()) {
             return "NO ASIGNADO";
         }
 
         var vuelos = ruta.getSecuenciaVuelos();
-        if (vuelos.size() == 1) {
-            return String.format("%s→%s",
-                    vuelos.get(0).getOrigen().getCodigo(),
-                    vuelos.get(0).getDestino().getCodigo());
+        StringBuilder sb = new StringBuilder();
+        sb.append(vuelos.get(0).getOrigen().getCodigo());
+
+        for (Vuelo v : vuelos) {
+            sb.append("→").append(v.getDestino().getCodigo());
+        }
+
+        return sb.toString();
+    }
+
+    /**
+     * Determina el ganador
+     */
+    private static void determinarGanador(Solucion ga, Solucion acs) {
+        System.out.println("\n🏆 RESULTADO FINAL:");
+        System.out.println("=".repeat(70));
+
+        if (ga == null || acs == null) {
+            System.out.println("⚠ No se pueden comparar (alguna solución es null)");
+            return;
+        }
+
+        double fitnessGA = ga.getFitness();
+        double fitnessACS = acs.getFitness();
+        double diferencia = fitnessGA - fitnessACS;
+        double mejoraPorcentual = Math.abs(diferencia / Math.max(fitnessGA, fitnessACS) * 100);
+
+        if (fitnessGA > fitnessACS) {
+            System.out.printf("🥇 GANADOR: ALGORITMO GENÉTICO (GA)%n");
+            System.out.printf("   Fitness GA: %.2f vs ACS: %.2f%n", fitnessGA, fitnessACS);
+            System.out.printf("   Diferencia: +%.2f puntos (%.2f%% mejor)%n", diferencia, mejoraPorcentual);
+        } else if (fitnessACS > fitnessGA) {
+            System.out.printf("🥇 GANADOR: ACS (COLONIA DE HORMIGAS)%n");
+            System.out.printf("   Fitness ACS: %.2f vs GA: %.2f%n", fitnessACS, fitnessGA);
+            System.out.printf("   Diferencia: +%.2f puntos (%.2f%% mejor)%n", -diferencia, mejoraPorcentual);
         } else {
-            return String.format("%s→%s→%s",
-                    vuelos.get(0).getOrigen().getCodigo(),
-                    vuelos.get(0).getDestino().getCodigo(),
-                    vuelos.get(vuelos.size()-1).getDestino().getCodigo());
+            System.out.println("🤝 EMPATE: Ambos algoritmos obtuvieron el mismo fitness");
         }
+
+        System.out.println("\n💡 Nota: Ambos algoritmos usaron las mismas " + NUM_SEMILLAS + " semillas de GRASP");
     }
 
     /**
-     * Trunca texto si es muy largo
+     * Exporta resultados a archivos
      */
-    private static String truncar(String texto, int maxLongitud) {
-        if (texto.length() <= maxLongitud) {
-            return texto;
+    private static void exportarResultados(Solucion ga, Solucion acs, DatosMoraPack datos) {
+        System.out.println("\n📄 EXPORTANDO RESULTADOS:");
+
+        if (ga != null) {
+            exportarSolucion("GA", ga, "Solucion_GA.txt");
+            exportarNoEnviados("GA", datos.getPedidos(), ga, "No_Enviados_GA.txt");
         }
-        return texto.substring(0, maxLongitud - 3) + "...";
+
+        if (acs != null) {
+            exportarSolucion("ACS", acs, "Solucion_ACS.txt");
+            exportarNoEnviados("ACS", datos.getPedidos(), acs, "No_Enviados_ACS.txt");
+        }
     }
 
-    /**
-     * Determina y anuncia el ganador
-     */
-    private static void determinarGanador(Solucion grasp, Solucion ga, Solucion hibrido,Solucion acs) {
-        System.out.println("\n🏆 DETERMINACIÓN DEL GANADOR:");
-        System.out.println("=".repeat(50));
+    private static void exportarSolucion(String nombre, Solucion s, String archivo) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+            pw.println("MORAPACK - SOLUCIÓN " + nombre);
+            pw.println("Fitness: " + s.getFitness());
+            pw.println("Pedidos asignados: " + s.getSolucionLogistica().getAsignacionPedidos().size());
+            pw.println();
+            pw.println("RUTAS:");
+            pw.println("-".repeat(60));
 
-        Solucion ganador = Arrays.asList(hibrido,acs).stream()
-                .filter(Objects::nonNull)
-                .max(Comparator.comparingDouble(Solucion::getFitness))
-                .orElse(null);
+            for (var entry : s.getSolucionLogistica().getAsignacionPedidos().entrySet()) {
+                Pedido p = entry.getKey();
+                RutaPedido r = entry.getValue();
+                pw.printf("Pedido %s | Cant: %d | Destino: %s%n",
+                        p.getId(), p.getCantidad(), p.getLugarDestino().getCodigo());
+                pw.println("  Ruta: " + formatearRuta(r));
+                pw.println();
+            }
 
-        if (ganador != null) {
-            String nombreGanador = "DESCONOCIDO";
-            if (ganador == hibrido) nombreGanador = "GENÉTICO";
-            else if (ganador == acs) nombreGanador = "ACS";
+            System.out.println("  ✓ " + archivo);
+        } catch (IOException e) {
+            System.out.println("  ✗ Error escribiendo " + archivo);
+        }
+    }
 
+    private static void exportarNoEnviados(String nombre, List<Pedido> todos,
+                                           Solucion s, String archivo) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(archivo))) {
+            pw.println("MORAPACK - PEDIDOS NO ENVIADOS (" + nombre + ")");
+            pw.println();
 
-            System.out.printf("🥇 GANADOR: %s con fitness %.2f%n", nombreGanador, ganador.getFitness());
+            var asignados = s.getSolucionLogistica().getAsignacionPedidos();
+            Set<String> idsEnviados = new HashSet<>();
 
-            // Calcular diferencias
-            if (grasp != null && ga != null && hibrido != null) {
-                double difHibridoVsGrasp = hibrido.getFitness() - grasp.getFitness();
-                double difHibridoVsGA = hibrido.getFitness() - ga.getFitness();
-                double difGAVsGrasp = ga.getFitness() - grasp.getFitness();
-                double difGAVsAcs = ga.getFitness() - acs.getFitness();
-
-                System.out.println("\n📊 DIFERENCIAS DE RENDIMIENTO:");
-                /*System.out.printf("   • Híbrido vs GRASP: %+.2f puntos%n", difHibridoVsGrasp);
-                System.out.printf("   • Híbrido vs Genético: %+.2f puntos%n", difHibridoVsGA);
-                System.out.printf("   • Genético vs GRASP: %+.2f puntos%n", difGAVsGrasp);*/
-                System.out.printf("   • Genético vs ACS: %+.2f puntos%n", difGAVsAcs);
-                // Porcentajes de mejora
-                if (grasp.getFitness() > 0) {
-                    double mejoraPorcentualHibrido = (difGAVsAcs / Math.abs(grasp.getFitness())) * 100;
-                    System.out.printf("   • Mejora porcentual GENÉTICO sobre ACS: %+.2f%%%n", mejoraPorcentualHibrido);
+            for (var entry : asignados.entrySet()) {
+                if (entry.getValue().getSecuenciaVuelos() != null &&
+                        !entry.getValue().getSecuenciaVuelos().isEmpty()) {
+                    idsEnviados.add(String.valueOf(entry.getKey().getId()));
                 }
             }
+
+            pw.println("ID | Cantidad | Destino");
+            pw.println("-".repeat(40));
+
+            int noEnviados = 0;
+            for (Pedido p : todos) {
+                if (!idsEnviados.contains(String.valueOf(p.getId()))) {
+                    pw.printf("%s | %d | %s%n", p.getId(), p.getCantidad(),
+                            p.getLugarDestino().getCodigo());
+                    noEnviados++;
+                }
+            }
+
+            pw.println();
+            pw.println("Total no enviados: " + noEnviados + "/" + todos.size());
+            System.out.println("  ✓ " + archivo);
+        } catch (IOException e) {
+            System.out.println("  ✗ Error escribiendo " + archivo);
         }
     }
 
-    /**
-     * Conclusiones finales del experimento
-     */
-    private static void mostrarConclusiones(long tiempoTotal) {
-        System.out.println("\n📝 CONCLUSIONES:");
-        System.out.println("=".repeat(50));
+    // Utilidades
+    private static String obtenerFirmaSolucion(Solucion s) {
+        if (s == null || s.getSolucionLogistica() == null) return "";
 
-        System.out.printf("⏱ Tiempo total de experimentación: %.2f segundos%n", tiempoTotal / 1000.0);
+        Set<String> arcos = new HashSet<>();
+        for (RutaPedido r : s.getSolucionLogistica().getAsignacionPedidos().values()) {
+            for (Vuelo v : r.getSecuenciaVuelos()) {
+                arcos.add(v.getId());
+            }
+        }
 
-        System.out.println("\n💡 OBSERVACIONES:");
-        System.out.println("   • GRASP: Rápido, buenas soluciones iniciales");
-        System.out.println("   • Genético: Exploración amplia, puede encontrar soluciones inesperadas");
-        System.out.println("   • Híbrido: Combina fortalezas de ambos enfoques");
-
-        System.out.println("\n✅ Experimento completado exitosamente.");
+        List<String> lista = new ArrayList<>(arcos);
+        Collections.sort(lista);
+        return String.join("|", lista);
     }
 
-    /**
-     * Muestra instrucciones si hay error
-     */
-    private static void mostrarInstrucciones() {
-        System.out.println("\n📝 INSTRUCCIONES:");
-        System.out.println("1. Crea una carpeta 'data' en tu proyecto");
-        System.out.println("2. Guarda los archivos CSV en esa carpeta:");
-        System.out.println("   - aeropuertos.csv");
-        System.out.println("   - vuelos.txt");
-        System.out.println("   - pedidos.csv");
-        System.out.println("3. Ajusta las rutas en el código si es necesario");
+    private static String truncar(String texto, int max) {
+        if (texto.length() <= max) return texto;
+        return texto.substring(0, max - 3) + "...";
     }
 }

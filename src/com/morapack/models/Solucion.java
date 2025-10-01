@@ -531,10 +531,6 @@ public class Solucion {
         }
 
         // Log para debugging (opcional)
-        if (pedidosInvalidos > 0) {
-            System.out.printf("⚠️ Penalización fábricas: %d pedidos inválidos (%.0f puntos)%n",
-                    pedidosInvalidos, penalizacion);
-        }
 
         return penalizacion;
     }

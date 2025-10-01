@@ -50,10 +50,6 @@ public class GeneticAlgorithmMoraPack {
      * Ejecuta el algoritmo genético completo
      */
     public Solucion ejecutar() {
-        System.out.println("=== INICIANDO ALGORITMO GENÉTICO ===");
-        System.out.printf("Parámetros: Población=%d, Generaciones=%d, Mutación=%.2f, Cruzamiento=%.2f%n",
-                tamañoPoblacion, numeroGeneraciones, tasaMutacion, tasaCruzamiento);
-
         // Paso 1: Generar población inicial
         List<Individuo> poblacion = generarPoblacionInicial();
         evaluarPoblacion(poblacion);
@@ -61,8 +57,6 @@ public class GeneticAlgorithmMoraPack {
         // Inicializar mejor solución
         mejorSolucionGlobal = encontrarMejorIndividuo(poblacion).solucion;
         historialFitness.add(mejorSolucionGlobal.getFitness());
-
-        System.out.printf("Generación 0: Mejor fitness = %.2f%n", mejorSolucionGlobal.getFitness());
 
         // Paso 2: Evolución por generaciones
         for (int generacion = 1; generacion <= numeroGeneraciones; generacion++) {
@@ -110,24 +104,10 @@ public class GeneticAlgorithmMoraPack {
             Individuo mejorActual = encontrarMejorIndividuo(poblacion);
             if (mejorActual.fitness > mejorSolucionGlobal.getFitness()) {
                 mejorSolucionGlobal = mejorActual.solucion;
-                System.out.printf("¡Nueva mejor solución en generación %d! Fitness = %.2f%n",
-                        generacion, mejorSolucionGlobal.getFitness());
             }
 
             historialFitness.add(mejorSolucionGlobal.getFitness());
-
-            // Log cada 10 generaciones
-            if (generacion % 10 == 0) {
-                double fitnessPromedio = poblacion.stream()
-                        .mapToDouble(ind -> ind.fitness)
-                        .average().orElse(0.0);
-                System.out.printf("Generación %d: Mejor=%.2f, Promedio=%.2f%n",
-                        generacion, mejorActual.fitness, fitnessPromedio);
-            }
         }
-
-        System.out.println("=== ALGORITMO GENÉTICO COMPLETADO ===");
-        System.out.printf("Mejor fitness final: %.2f%n", mejorSolucionGlobal.getFitness());
 
         return mejorSolucionGlobal;
     }
