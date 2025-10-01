@@ -1,4806 +1,4806 @@
 MORAPACK - SOLUCIÓN ACS
-Fitness: 91.73981175184748
+Fitness: 91.73340189727246
 Pedidos asignados: 1600
 
 RUTAS:
 ------------------------------------------------------------
-Pedido P00417 | Cant: 22 | Destino: VIDP
-  Ruta: EBCI→VIDP
-
-Pedido P00403 | Cant: 60 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00667 | Cant: 2 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01260 | Cant: 20 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00644 | Cant: 18 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00914 | Cant: 29 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01141 | Cant: 1 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00021 | Cant: 29 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00263 | Cant: 56 | Destino: SBBR
-  Ruta: SPIM→SBBR
-
-Pedido P00697 | Cant: 56 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00653 | Cant: 33 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00266 | Cant: 80 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00993 | Cant: 85 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00126 | Cant: 73 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00803 | Cant: 72 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01041 | Cant: 11 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00282 | Cant: 95 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00837 | Cant: 89 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00608 | Cant: 5 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00474 | Cant: 64 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00575 | Cant: 31 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01234 | Cant: 2 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P01460 | Cant: 23 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01240 | Cant: 1 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01432 | Cant: 43 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P01411 | Cant: 16 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00440 | Cant: 81 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01274 | Cant: 40 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01539 | Cant: 74 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00693 | Cant: 75 | Destino: SABE
+Pedido P00242 | Cant: 49 | Destino: SABE
   Ruta: SPIM→SABE
-
-Pedido P00486 | Cant: 41 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01106 | Cant: 94 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00505 | Cant: 36 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00828 | Cant: 36 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01183 | Cant: 23 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00502 | Cant: 40 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P01150 | Cant: 77 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00769 | Cant: 91 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00546 | Cant: 22 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00553 | Cant: 95 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00234 | Cant: 5 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00764 | Cant: 15 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00370 | Cant: 95 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00645 | Cant: 63 | Destino: SGAS
-  Ruta: EBCI→SGAS
 
 Pedido P00544 | Cant: 60 | Destino: EKCH
   Ruta: SPIM→EKCH
 
-Pedido P00824 | Cant: 27 | Destino: OYSN
-  Ruta: UBBB→OYSN
+Pedido P01148 | Cant: 45 | Destino: OMDB
+  Ruta: EBCI→OMDB
 
-Pedido P00335 | Cant: 38 | Destino: VIDP
-  Ruta: UBBB→VIDP
+Pedido P01186 | Cant: 49 | Destino: EKCH
+  Ruta: UBBB→EKCH
 
-Pedido P01225 | Cant: 57 | Destino: SABE
-  Ruta: EBCI→SABE
+Pedido P00412 | Cant: 70 | Destino: EKCH
+  Ruta: SPIM→EKCH
 
-Pedido P00630 | Cant: 29 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01495 | Cant: 19 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00991 | Cant: 86 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00717 | Cant: 27 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00454 | Cant: 95 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01110 | Cant: 85 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01543 | Cant: 17 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00535 | Cant: 97 | Destino: OAKB
-  Ruta: EBCI→OAKB
-
-Pedido P01214 | Cant: 40 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00767 | Cant: 53 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01517 | Cant: 60 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00781 | Cant: 71 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00107 | Cant: 57 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P00045 | Cant: 25 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00096 | Cant: 64 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00230 | Cant: 42 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P01366 | Cant: 24 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P00188 | Cant: 37 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00120 | Cant: 59 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00551 | Cant: 11 | Destino: EBCI
+Pedido P00141 | Cant: 87 | Destino: EBCI
   Ruta: SPIM→EBCI
 
-Pedido P00745 | Cant: 52 | Destino: SPIM
+Pedido P00889 | Cant: 55 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P01367 | Cant: 38 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00696 | Cant: 89 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00263 | Cant: 56 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01282 | Cant: 94 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00668 | Cant: 2 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P01539 | Cant: 74 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P01458 | Cant: 14 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P01076 | Cant: 85 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00811 | Cant: 85 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00067 | Cant: 9 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00347 | Cant: 70 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01269 | Cant: 44 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00165 | Cant: 67 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00846 | Cant: 34 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00080 | Cant: 91 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01137 | Cant: 4 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01490 | Cant: 91 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00261 | Cant: 92 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00472 | Cant: 84 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01322 | Cant: 36 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00785 | Cant: 51 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00226 | Cant: 17 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01020 | Cant: 76 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00134 | Cant: 35 | Destino: SPIM
   Ruta: EBCI→SPIM
 
-Pedido P00929 | Cant: 16 | Destino: SGAS
-  Ruta: UBBB→SGAS
+Pedido P01363 | Cant: 90 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P01004 | Cant: 24 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01461 | Cant: 81 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P01120 | Cant: 79 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00431 | Cant: 21 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00862 | Cant: 72 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01245 | Cant: 11 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01565 | Cant: 94 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00342 | Cant: 62 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01123 | Cant: 65 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00545 | Cant: 29 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01563 | Cant: 50 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01434 | Cant: 8 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00698 | Cant: 91 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P01542 | Cant: 40 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P01435 | Cant: 71 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01146 | Cant: 70 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01267 | Cant: 65 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00514 | Cant: 45 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01032 | Cant: 86 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P01121 | Cant: 6 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01280 | Cant: 81 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P01056 | Cant: 51 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00810 | Cant: 65 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01296 | Cant: 36 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P01346 | Cant: 28 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00808 | Cant: 68 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00313 | Cant: 20 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00022 | Cant: 45 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00079 | Cant: 31 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00252 | Cant: 72 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00949 | Cant: 78 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00654 | Cant: 32 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00979 | Cant: 4 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00121 | Cant: 57 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00456 | Cant: 3 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01294 | Cant: 31 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00930 | Cant: 37 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01406 | Cant: 87 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00742 | Cant: 19 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01373 | Cant: 76 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P00244 | Cant: 55 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P00462 | Cant: 46 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01187 | Cant: 57 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00825 | Cant: 20 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01058 | Cant: 74 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P01100 | Cant: 68 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00076 | Cant: 88 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P01202 | Cant: 33 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01559 | Cant: 63 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00323 | Cant: 41 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00025 | Cant: 47 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01014 | Cant: 92 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00362 | Cant: 1 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P01081 | Cant: 55 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00329 | Cant: 8 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00631 | Cant: 77 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00399 | Cant: 90 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00993 | Cant: 85 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00110 | Cant: 61 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P01181 | Cant: 39 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P00527 | Cant: 96 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01500 | Cant: 13 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00449 | Cant: 12 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P01408 | Cant: 79 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01089 | Cant: 53 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00250 | Cant: 77 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01085 | Cant: 74 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00208 | Cant: 80 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01302 | Cant: 31 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00087 | Cant: 75 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00869 | Cant: 66 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00400 | Cant: 82 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01382 | Cant: 34 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00683 | Cant: 10 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P01358 | Cant: 23 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00559 | Cant: 91 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00126 | Cant: 73 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01420 | Cant: 58 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01507 | Cant: 57 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00437 | Cant: 94 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00516 | Cant: 31 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00845 | Cant: 26 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00916 | Cant: 89 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P00923 | Cant: 39 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00286 | Cant: 96 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00870 | Cant: 46 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P00738 | Cant: 30 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P01223 | Cant: 9 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P01411 | Cant: 16 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P01489 | Cant: 67 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01008 | Cant: 47 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00748 | Cant: 61 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01109 | Cant: 6 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P01315 | Cant: 39 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01394 | Cant: 2 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00348 | Cant: 42 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00835 | Cant: 73 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00066 | Cant: 15 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00197 | Cant: 42 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00833 | Cant: 73 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00029 | Cant: 9 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01205 | Cant: 50 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00943 | Cant: 63 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00998 | Cant: 87 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P01384 | Cant: 75 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00496 | Cant: 80 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P01077 | Cant: 10 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P01347 | Cant: 59 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00049 | Cant: 32 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00599 | Cant: 58 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00679 | Cant: 35 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00822 | Cant: 34 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00476 | Cant: 86 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00515 | Cant: 45 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P01538 | Cant: 63 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00125 | Cant: 25 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00902 | Cant: 3 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00965 | Cant: 8 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00233 | Cant: 29 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00361 | Cant: 6 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00297 | Cant: 54 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01497 | Cant: 54 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00129 | Cant: 87 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00460 | Cant: 17 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00723 | Cant: 69 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01356 | Cant: 41 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00179 | Cant: 75 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P01333 | Cant: 64 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01268 | Cant: 37 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00950 | Cant: 7 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P01063 | Cant: 86 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P00855 | Cant: 83 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00093 | Cant: 47 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00830 | Cant: 3 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00396 | Cant: 87 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P01421 | Cant: 75 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01192 | Cant: 59 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01359 | Cant: 51 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00749 | Cant: 59 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00288 | Cant: 96 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01581 | Cant: 88 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00764 | Cant: 15 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00162 | Cant: 59 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00715 | Cant: 22 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P01253 | Cant: 79 | Destino: OYSN
+  Ruta: EBCI→OYSN
 
 Pedido P00743 | Cant: 12 | Destino: OERK
   Ruta: UBBB→OERK
 
-Pedido P00995 | Cant: 77 | Destino: UMMS
-  Ruta: EBCI→UMMS
+Pedido P01357 | Cant: 88 | Destino: OOMS
+  Ruta: EBCI→OOMS
 
-Pedido P00525 | Cant: 97 | Destino: SLLP
-  Ruta: SPIM→SLLP
+Pedido P00885 | Cant: 22 | Destino: SUAA
+  Ruta: SPIM→SUAA
 
-Pedido P01570 | Cant: 76 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P01579 | Cant: 68 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00320 | Cant: 9 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01398 | Cant: 38 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01127 | Cant: 43 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00429 | Cant: 93 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P01246 | Cant: 19 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00367 | Cant: 21 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00912 | Cant: 5 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P00131 | Cant: 88 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01519 | Cant: 46 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00281 | Cant: 63 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00032 | Cant: 35 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00963 | Cant: 98 | Destino: EDDI
+Pedido P00646 | Cant: 1 | Destino: EDDI
   Ruta: EBCI→EDDI
 
-Pedido P01514 | Cant: 70 | Destino: OOMS
-  Ruta: UBBB→OOMS
+Pedido P01512 | Cant: 70 | Destino: UMMS
+  Ruta: SPIM→UMMS
 
-Pedido P00638 | Cant: 12 | Destino: EBCI
-  Ruta: SPIM→EBCI
+Pedido P00508 | Cant: 84 | Destino: SLLP
+  Ruta: EBCI→SLLP
 
-Pedido P01457 | Cant: 49 | Destino: SGAS
-  Ruta: EBCI→SGAS
+Pedido P01440 | Cant: 38 | Destino: EKCH
+  Ruta: EBCI→EKCH
 
-Pedido P00205 | Cant: 66 | Destino: LKPR
-  Ruta: UBBB→LKPR
+Pedido P01515 | Cant: 95 | Destino: SVMI
+  Ruta: UBBB→SVMI
 
-Pedido P00457 | Cant: 7 | Destino: SBBR
-  Ruta: UBBB→SBBR
+Pedido P01258 | Cant: 19 | Destino: SCEL
+  Ruta: UBBB→SCEL
 
-Pedido P00938 | Cant: 46 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00420 | Cant: 28 | Destino: SABE
-  Ruta: EBCI→SABE
+Pedido P00220 | Cant: 52 | Destino: LDZA
+  Ruta: SPIM→LDZA
 
 Pedido P00240 | Cant: 15 | Destino: EDDI
-  Ruta: EBCI→EDDI
+  Ruta: UBBB→EDDI
 
-Pedido P00009 | Cant: 50 | Destino: OERK
-  Ruta: SPIM→OERK
+Pedido P00489 | Cant: 76 | Destino: OSDI
+  Ruta: UBBB→OSDI
 
-Pedido P01377 | Cant: 21 | Destino: SUAA
-  Ruta: UBBB→SUAA
+Pedido P01579 | Cant: 68 | Destino: OAKB
+  Ruta: EBCI→OAKB
 
-Pedido P00296 | Cant: 73 | Destino: SKBO
+Pedido P00015 | Cant: 65 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00444 | Cant: 17 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00099 | Cant: 10 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00219 | Cant: 19 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00834 | Cant: 82 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01293 | Cant: 47 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P00798 | Cant: 30 | Destino: SKBO
   Ruta: EBCI→SKBO
 
 Pedido P00755 | Cant: 33 | Destino: SCEL
   Ruta: EBCI→SCEL
 
-Pedido P01000 | Cant: 21 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P00990 | Cant: 33 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00467 | Cant: 46 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00775 | Cant: 5 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P01565 | Cant: 94 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01022 | Cant: 64 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01261 | Cant: 12 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00676 | Cant: 72 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P01058 | Cant: 74 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00687 | Cant: 29 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00220 | Cant: 52 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00821 | Cant: 80 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00351 | Cant: 13 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P01540 | Cant: 93 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00409 | Cant: 91 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01537 | Cant: 60 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00899 | Cant: 28 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00782 | Cant: 20 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01222 | Cant: 27 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P01084 | Cant: 25 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01465 | Cant: 99 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01553 | Cant: 23 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P00112 | Cant: 36 | Destino: OJAI
-  Ruta: UBBB→OJAI
-
-Pedido P00962 | Cant: 19 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00070 | Cant: 17 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P00579 | Cant: 48 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00521 | Cant: 58 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01378 | Cant: 85 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00348 | Cant: 42 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00573 | Cant: 74 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P01413 | Cant: 29 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
 Pedido P00541 | Cant: 28 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00145 | Cant: 21 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00863 | Cant: 17 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01404 | Cant: 55 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00870 | Cant: 46 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P00124 | Cant: 95 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00604 | Cant: 26 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00620 | Cant: 100 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01464 | Cant: 71 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01284 | Cant: 51 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P01154 | Cant: 87 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01346 | Cant: 28 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00100 | Cant: 81 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00736 | Cant: 84 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00330 | Cant: 72 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01439 | Cant: 48 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00552 | Cant: 44 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01388 | Cant: 66 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P01062 | Cant: 51 | Destino: SPIM
   Ruta: UBBB→SPIM
 
-Pedido P00135 | Cant: 86 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01467 | Cant: 35 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00418 | Cant: 92 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00455 | Cant: 29 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00843 | Cant: 8 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01354 | Cant: 49 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00936 | Cant: 74 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01199 | Cant: 7 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00115 | Cant: 33 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01389 | Cant: 94 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00802 | Cant: 20 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00550 | Cant: 87 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00823 | Cant: 85 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00495 | Cant: 72 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00414 | Cant: 9 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00222 | Cant: 86 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00711 | Cant: 66 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00128 | Cant: 43 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00848 | Cant: 21 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P01342 | Cant: 96 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01506 | Cant: 63 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00825 | Cant: 20 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01253 | Cant: 79 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P01340 | Cant: 42 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00036 | Cant: 45 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00948 | Cant: 68 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00903 | Cant: 6 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P01193 | Cant: 21 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01534 | Cant: 71 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00209 | Cant: 8 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00315 | Cant: 56 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00632 | Cant: 49 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00311 | Cant: 35 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P01123 | Cant: 65 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01371 | Cant: 58 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P01113 | Cant: 39 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00482 | Cant: 90 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00362 | Cant: 1 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00229 | Cant: 79 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P00999 | Cant: 19 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00880 | Cant: 67 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00623 | Cant: 69 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P01369 | Cant: 45 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01281 | Cant: 51 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00022 | Cant: 45 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00838 | Cant: 41 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01489 | Cant: 67 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00431 | Cant: 21 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00426 | Cant: 28 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P01578 | Cant: 61 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00722 | Cant: 87 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01290 | Cant: 63 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00601 | Cant: 25 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01315 | Cant: 39 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01237 | Cant: 97 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01209 | Cant: 11 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00509 | Cant: 3 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00945 | Cant: 66 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00487 | Cant: 75 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00582 | Cant: 60 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P00737 | Cant: 54 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00389 | Cant: 91 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01364 | Cant: 25 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00243 | Cant: 58 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00024 | Cant: 77 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00783 | Cant: 6 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P01070 | Cant: 53 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00969 | Cant: 47 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01481 | Cant: 26 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01162 | Cant: 58 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00739 | Cant: 45 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P01072 | Cant: 52 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00033 | Cant: 78 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00087 | Cant: 75 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00108 | Cant: 14 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00276 | Cant: 83 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00453 | Cant: 32 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00839 | Cant: 55 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01359 | Cant: 51 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01146 | Cant: 70 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01450 | Cant: 86 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P01415 | Cant: 69 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01597 | Cant: 33 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01079 | Cant: 19 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00293 | Cant: 3 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00918 | Cant: 46 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00119 | Cant: 33 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00826 | Cant: 92 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P01591 | Cant: 26 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01381 | Cant: 98 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01164 | Cant: 55 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01196 | Cant: 10 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P01086 | Cant: 76 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00394 | Cant: 82 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00237 | Cant: 3 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01036 | Cant: 56 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01592 | Cant: 96 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00218 | Cant: 30 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00984 | Cant: 68 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00951 | Cant: 59 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01100 | Cant: 68 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01148 | Cant: 45 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01446 | Cant: 94 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00982 | Cant: 27 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01031 | Cant: 6 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00248 | Cant: 44 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01038 | Cant: 54 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00010 | Cant: 4 | Destino: OOMS
-  Ruta: SPIM→OOMS
-
-Pedido P00713 | Cant: 70 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00493 | Cant: 36 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00958 | Cant: 36 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P01324 | Cant: 80 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P01493 | Cant: 51 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01490 | Cant: 91 | Destino: EHAM
-  Ruta: SPIM→EHAM
-
-Pedido P01455 | Cant: 10 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00271 | Cant: 9 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00572 | Cant: 98 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00157 | Cant: 64 | Destino: OSDI
-  Ruta: SPIM→OSDI
-
-Pedido P00607 | Cant: 40 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P00408 | Cant: 2 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P00143 | Cant: 63 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00627 | Cant: 59 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01212 | Cant: 39 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00710 | Cant: 11 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00051 | Cant: 65 | Destino: LOWW
-  Ruta: UBBB→LOWW
-
-Pedido P01111 | Cant: 91 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00334 | Cant: 93 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01044 | Cant: 86 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00732 | Cant: 58 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P00635 | Cant: 88 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00428 | Cant: 70 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00685 | Cant: 96 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01307 | Cant: 72 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00740 | Cant: 68 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00001 | Cant: 3 | Destino: SLLP
+Pedido P00525 | Cant: 97 | Destino: SLLP
   Ruta: SPIM→SLLP
 
-Pedido P00321 | Cant: 70 | Destino: VIDP
-  Ruta: SPIM→VIDP
+Pedido P00674 | Cant: 64 | Destino: OJAI
+  Ruta: SPIM→OJAI
 
-Pedido P00318 | Cant: 5 | Destino: SABE
-  Ruta: UBBB→SABE
+Pedido P00735 | Cant: 10 | Destino: OAKB
+  Ruta: EBCI→OAKB
 
-Pedido P00258 | Cant: 18 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00796 | Cant: 48 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00909 | Cant: 4 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00055 | Cant: 23 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00556 | Cant: 57 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P00448 | Cant: 33 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01518 | Cant: 28 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00238 | Cant: 39 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01472 | Cant: 72 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00784 | Cant: 30 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00545 | Cant: 29 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01397 | Cant: 12 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01444 | Cant: 60 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01047 | Cant: 39 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00897 | Cant: 65 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00461 | Cant: 13 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P00712 | Cant: 94 | Destino: EBCI
+Pedido P01328 | Cant: 65 | Destino: EBCI
   Ruta: UBBB→EBCI
 
-Pedido P01348 | Cant: 30 | Destino: OOMS
-  Ruta: UBBB→OOMS
+Pedido P00868 | Cant: 17 | Destino: SUAA
+  Ruta: EBCI→SUAA
 
-Pedido P01562 | Cant: 98 | Destino: EDDI
-  Ruta: EBCI→EDDI
+Pedido P01499 | Cant: 9 | Destino: LKPR
+  Ruta: SPIM→LKPR
 
-Pedido P01035 | Cant: 73 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00492 | Cant: 47 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00904 | Cant: 23 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01018 | Cant: 5 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P00543 | Cant: 85 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01131 | Cant: 12 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P01226 | Cant: 2 | Destino: SBBR
-  Ruta: UBBB→SBBR
+Pedido P01534 | Cant: 71 | Destino: SUAA
+  Ruta: UBBB→SUAA
 
 Pedido P00907 | Cant: 69 | Destino: OJAI
   Ruta: EBCI→OJAI
 
-Pedido P01516 | Cant: 39 | Destino: SKBO
-  Ruta: EBCI→SKBO
+Pedido P01072 | Cant: 52 | Destino: LKPR
+  Ruta: SPIM→LKPR
 
-Pedido P00576 | Cant: 18 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01336 | Cant: 6 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00247 | Cant: 93 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P00253 | Cant: 94 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00980 | Cant: 20 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00792 | Cant: 89 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00374 | Cant: 32 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00923 | Cant: 39 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00127 | Cant: 84 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00674 | Cant: 64 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00751 | Cant: 29 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00574 | Cant: 92 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00758 | Cant: 31 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01251 | Cant: 16 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01297 | Cant: 94 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00369 | Cant: 11 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00413 | Cant: 90 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00536 | Cant: 32 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01239 | Cant: 4 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01326 | Cant: 69 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00808 | Cant: 68 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01129 | Cant: 55 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00152 | Cant: 38 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P01308 | Cant: 100 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01179 | Cant: 45 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P01211 | Cant: 57 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00503 | Cant: 7 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00975 | Cant: 24 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00498 | Cant: 59 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00950 | Cant: 7 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00718 | Cant: 27 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00303 | Cant: 6 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00720 | Cant: 50 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01355 | Cant: 75 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01585 | Cant: 81 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00869 | Cant: 66 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01440 | Cant: 38 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01367 | Cant: 38 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00211 | Cant: 95 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P00756 | Cant: 71 | Destino: SUAA
+Pedido P01009 | Cant: 6 | Destino: SUAA
   Ruta: UBBB→SUAA
 
-Pedido P00810 | Cant: 65 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00291 | Cant: 82 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01462 | Cant: 91 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01575 | Cant: 65 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00020 | Cant: 45 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01408 | Cant: 79 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00154 | Cant: 29 | Destino: OOMS
-  Ruta: SPIM→OOMS
-
-Pedido P00981 | Cant: 6 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00472 | Cant: 84 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00294 | Cant: 91 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00359 | Cant: 54 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P01250 | Cant: 83 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01428 | Cant: 85 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P00540 | Cant: 51 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00868 | Cant: 17 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00599 | Cant: 58 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01566 | Cant: 88 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P00182 | Cant: 7 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01545 | Cant: 57 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00043 | Cant: 40 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P01182 | Cant: 27 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P01471 | Cant: 7 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00226 | Cant: 17 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00773 | Cant: 83 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P01173 | Cant: 62 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00442 | Cant: 86 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01288 | Cant: 90 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00845 | Cant: 26 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00771 | Cant: 61 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01456 | Cant: 72 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01485 | Cant: 31 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01501 | Cant: 63 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00180 | Cant: 97 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01589 | Cant: 75 | Destino: OAKB
-  Ruta: EBCI→OAKB
-
-Pedido P00034 | Cant: 87 | Destino: OERK
-  Ruta: SPIM→OERK
-
-Pedido P01218 | Cant: 55 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01098 | Cant: 4 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00118 | Cant: 80 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P01190 | Cant: 64 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00133 | Cant: 6 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P00098 | Cant: 47 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00631 | Cant: 77 | Destino: LKPR
+Pedido P00664 | Cant: 90 | Destino: LKPR
   Ruta: UBBB→LKPR
-
-Pedido P00886 | Cant: 97 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00061 | Cant: 34 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01215 | Cant: 72 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P01194 | Cant: 41 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00464 | Cant: 29 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01200 | Cant: 53 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00421 | Cant: 3 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00500 | Cant: 54 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00702 | Cant: 5 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01535 | Cant: 64 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00105 | Cant: 20 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00671 | Cant: 64 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01494 | Cant: 36 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00014 | Cant: 1 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01392 | Cant: 3 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00191 | Cant: 32 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01531 | Cant: 59 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00396 | Cant: 87 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00605 | Cant: 74 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00116 | Cant: 66 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P01316 | Cant: 56 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00666 | Cant: 69 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00606 | Cant: 29 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01379 | Cant: 17 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P00340 | Cant: 29 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00079 | Cant: 31 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00168 | Cant: 19 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P01122 | Cant: 32 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P01112 | Cant: 2 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00488 | Cant: 79 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00831 | Cant: 37 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01005 | Cant: 88 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00485 | Cant: 24 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01576 | Cant: 18 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01230 | Cant: 91 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P00176 | Cant: 61 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00322 | Cant: 93 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00213 | Cant: 60 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00075 | Cant: 59 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00446 | Cant: 34 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P01068 | Cant: 3 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00593 | Cant: 50 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01088 | Cant: 58 | Destino: OERK
-  Ruta: EBCI→OERK
 
 Pedido P00973 | Cant: 91 | Destino: EHAM
   Ruta: EBCI→EHAM
 
-Pedido P00199 | Cant: 43 | Destino: OPKC
-  Ruta: UBBB→OPKC
+Pedido P00934 | Cant: 43 | Destino: EHAM
+  Ruta: SPIM→EHAM
 
-Pedido P00549 | Cant: 34 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01447 | Cant: 69 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00459 | Cant: 58 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00511 | Cant: 73 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00629 | Cant: 50 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00616 | Cant: 1 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01573 | Cant: 44 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00201 | Cant: 22 | Destino: SABE
-  Ruta: UBBB→SABE
+Pedido P00370 | Cant: 95 | Destino: LOWW
+  Ruta: UBBB→LOWW
 
 Pedido P00690 | Cant: 16 | Destino: OOMS
-  Ruta: UBBB→OOMS
+  Ruta: EBCI→OOMS
 
-Pedido P00327 | Cant: 61 | Destino: SCEL
-  Ruta: SPIM→SCEL
+Pedido P00595 | Cant: 33 | Destino: EHAM
+  Ruta: EBCI→EHAM
 
-Pedido P01048 | Cant: 95 | Destino: SPIM
-  Ruta: UBBB→SPIM
+Pedido P01391 | Cant: 65 | Destino: EHAM
+  Ruta: SPIM→EHAM
 
-Pedido P00594 | Cant: 99 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01294 | Cant: 31 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00121 | Cant: 57 | Destino: SKBO
+Pedido P00627 | Cant: 59 | Destino: SKBO
   Ruta: EBCI→SKBO
 
-Pedido P00092 | Cant: 63 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00900 | Cant: 58 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00481 | Cant: 71 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00648 | Cant: 48 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01473 | Cant: 14 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00056 | Cant: 8 | Destino: OOMS
-  Ruta: SPIM→OOMS
-
-Pedido P00449 | Cant: 12 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01508 | Cant: 37 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00200 | Cant: 69 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00520 | Cant: 36 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00946 | Cant: 81 | Destino: VIDP
-  Ruta: EBCI→VIDP
-
-Pedido P00614 | Cant: 98 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00637 | Cant: 48 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00301 | Cant: 6 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P01056 | Cant: 51 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P01039 | Cant: 20 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01328 | Cant: 65 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00125 | Cant: 25 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00531 | Cant: 89 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P01448 | Cant: 9 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00566 | Cant: 79 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00450 | Cant: 84 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00571 | Cant: 29 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00279 | Cant: 99 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01572 | Cant: 51 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00603 | Cant: 15 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01430 | Cant: 47 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00944 | Cant: 72 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00323 | Cant: 41 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00439 | Cant: 80 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01376 | Cant: 28 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P01476 | Cant: 32 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00298 | Cant: 47 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00889 | Cant: 55 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P00577 | Cant: 3 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01269 | Cant: 44 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00015 | Cant: 65 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00262 | Cant: 60 | Destino: VIDP
-  Ruta: EBCI→VIDP
-
-Pedido P00562 | Cant: 22 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00857 | Cant: 74 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01384 | Cant: 75 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00090 | Cant: 42 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01042 | Cant: 45 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00172 | Cant: 11 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00569 | Cant: 71 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00465 | Cant: 23 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01144 | Cant: 78 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P01417 | Cant: 9 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00937 | Cant: 40 | Destino: SABE
+Pedido P01225 | Cant: 57 | Destino: SABE
   Ruta: EBCI→SABE
 
-Pedido P00707 | Cant: 51 | Destino: SPIM
-  Ruta: EBCI→SPIM
+Pedido P00170 | Cant: 60 | Destino: EKCH
+  Ruta: SPIM→EKCH
 
-Pedido P00731 | Cant: 71 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00932 | Cant: 99 | Destino: SGAS
+Pedido P01529 | Cant: 28 | Destino: SGAS
   Ruta: SPIM→SGAS
 
-Pedido P00750 | Cant: 41 | Destino: EBCI
-  Ruta: UBBB→EBCI
+Pedido P00073 | Cant: 56 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P01241 | Cant: 92 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01444 | Cant: 60 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00671 | Cant: 64 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01452 | Cant: 60 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00104 | Cant: 18 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P00586 | Cant: 92 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00910 | Cant: 3 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P01236 | Cant: 73 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00935 | Cant: 26 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00905 | Cant: 69 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01156 | Cant: 70 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P00180 | Cant: 97 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00622 | Cant: 30 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P01041 | Cant: 11 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00574 | Cant: 92 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P00124 | Cant: 95 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00691 | Cant: 10 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00767 | Cant: 53 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00580 | Cant: 2 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00420 | Cant: 28 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00425 | Cant: 98 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00988 | Cant: 31 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00629 | Cant: 50 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01189 | Cant: 100 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00539 | Cant: 100 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00899 | Cant: 28 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00078 | Cant: 62 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P01335 | Cant: 79 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01463 | Cant: 82 | Destino: OMDB
+  Ruta: SPIM→OMDB
 
 Pedido P00150 | Cant: 61 | Destino: OPKC
   Ruta: UBBB→OPKC
 
-Pedido P00371 | Cant: 95 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01012 | Cant: 55 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00508 | Cant: 84 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00964 | Cant: 70 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00074 | Cant: 67 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00386 | Cant: 2 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00742 | Cant: 19 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P01318 | Cant: 19 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00596 | Cant: 6 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01197 | Cant: 96 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P01185 | Cant: 65 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00534 | Cant: 100 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00052 | Cant: 94 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P01125 | Cant: 93 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00908 | Cant: 23 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01304 | Cant: 29 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00639 | Cant: 15 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P01511 | Cant: 67 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00187 | Cant: 97 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00591 | Cant: 40 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P01437 | Cant: 74 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00283 | Cant: 82 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00657 | Cant: 71 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01273 | Cant: 42 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00054 | Cant: 14 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00898 | Cant: 11 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00388 | Cant: 22 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00780 | Cant: 51 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00275 | Cant: 63 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00727 | Cant: 68 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00383 | Cant: 53 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00762 | Cant: 36 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01192 | Cant: 59 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00242 | Cant: 49 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P00976 | Cant: 39 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00023 | Cant: 46 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00887 | Cant: 76 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00419 | Cant: 10 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01532 | Cant: 88 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00652 | Cant: 72 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00721 | Cant: 49 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00224 | Cant: 7 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01120 | Cant: 79 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01015 | Cant: 60 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P01452 | Cant: 60 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00949 | Cant: 78 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00102 | Cant: 3 | Destino: EBCI
+Pedido P00605 | Cant: 74 | Destino: EBCI
   Ruta: UBBB→EBCI
 
-Pedido P00360 | Cant: 67 | Destino: LBSF
-  Ruta: SPIM→LBSF
+Pedido P00921 | Cant: 73 | Destino: OOMS
+  Ruta: SPIM→OOMS
 
-Pedido P01365 | Cant: 10 | Destino: EDDI
-  Ruta: EBCI→EDDI
+Pedido P00549 | Cant: 34 | Destino: LATI
+  Ruta: UBBB→LATI
 
-Pedido P01130 | Cant: 1 | Destino: SCEL
-  Ruta: EBCI→SCEL
+Pedido P00407 | Cant: 54 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00700 | Cant: 64 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00345 | Cant: 65 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00815 | Cant: 36 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00584 | Cant: 47 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P01526 | Cant: 13 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00457 | Cant: 7 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01477 | Cant: 15 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01494 | Cant: 36 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01362 | Cant: 35 | Destino: SPIM
+  Ruta: EBCI→SPIM
 
 Pedido P00071 | Cant: 12 | Destino: SBBR
   Ruta: EBCI→SBBR
 
-Pedido P00060 | Cant: 88 | Destino: LATI
+Pedido P00478 | Cant: 66 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00534 | Cant: 100 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01587 | Cant: 77 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P01379 | Cant: 17 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00660 | Cant: 52 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P01159 | Cant: 72 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P01230 | Cant: 91 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01314 | Cant: 97 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00594 | Cant: 99 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00861 | Cant: 68 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01525 | Cant: 23 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00351 | Cant: 13 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P01212 | Cant: 39 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P01378 | Cant: 85 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P00919 | Cant: 26 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00238 | Cant: 39 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00311 | Cant: 35 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00450 | Cant: 84 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P01349 | Cant: 70 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00052 | Cant: 94 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P00128 | Cant: 43 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00650 | Cant: 83 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00048 | Cant: 60 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P00433 | Cant: 25 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P01163 | Cant: 14 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00054 | Cant: 14 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00182 | Cant: 7 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00469 | Cant: 31 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00701 | Cant: 76 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01556 | Cant: 41 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00207 | Cant: 47 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01353 | Cant: 3 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01473 | Cant: 14 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00813 | Cant: 15 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P01078 | Cant: 84 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00474 | Cant: 64 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01483 | Cant: 93 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00991 | Cant: 86 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00176 | Cant: 61 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P01061 | Cant: 87 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P00863 | Cant: 17 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00759 | Cant: 98 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00795 | Cant: 37 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00280 | Cant: 14 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00298 | Cant: 47 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00824 | Cant: 27 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00256 | Cant: 10 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00675 | Cant: 62 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P01580 | Cant: 99 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01254 | Cant: 81 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00752 | Cant: 3 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01207 | Cant: 55 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00232 | Cant: 31 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P00436 | Cant: 30 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00335 | Cant: 38 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00106 | Cant: 20 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P01522 | Cant: 17 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P01481 | Cant: 26 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00375 | Cant: 15 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00295 | Cant: 59 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00463 | Cant: 28 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P01488 | Cant: 64 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P00948 | Cant: 68 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01129 | Cant: 55 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01000 | Cant: 21 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00981 | Cant: 6 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00061 | Cant: 34 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01273 | Cant: 42 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P01600 | Cant: 36 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00602 | Cant: 56 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00389 | Cant: 91 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00350 | Cant: 34 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00653 | Cant: 33 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P00966 | Cant: 100 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00175 | Cant: 94 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00470 | Cant: 1 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00865 | Cant: 47 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00357 | Cant: 77 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00976 | Cant: 39 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P01169 | Cant: 12 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01117 | Cant: 70 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P00287 | Cant: 40 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00204 | Cant: 85 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01092 | Cant: 91 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00419 | Cant: 10 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01171 | Cant: 18 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01208 | Cant: 49 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00694 | Cant: 91 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00630 | Cant: 29 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01383 | Cant: 45 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00127 | Cant: 84 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00498 | Cant: 59 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01511 | Cant: 67 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00404 | Cant: 46 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00112 | Cant: 36 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00353 | Cant: 74 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00168 | Cant: 19 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00747 | Cant: 68 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00800 | Cant: 36 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00904 | Cant: 23 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00974 | Cant: 99 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01261 | Cant: 12 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00732 | Cant: 58 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01131 | Cant: 12 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00932 | Cant: 99 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00158 | Cant: 60 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00659 | Cant: 75 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01249 | Cant: 79 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P01475 | Cant: 100 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P01352 | Cant: 16 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00245 | Cant: 78 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01090 | Cant: 17 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01125 | Cant: 93 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01303 | Cant: 83 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P00593 | Cant: 50 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00237 | Cant: 3 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00881 | Cant: 11 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P00502 | Cant: 40 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00417 | Cant: 22 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P01469 | Cant: 93 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00418 | Cant: 92 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00381 | Cant: 87 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00918 | Cant: 46 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P01558 | Cant: 99 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00312 | Cant: 43 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00967 | Cant: 87 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00817 | Cant: 15 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00970 | Cant: 38 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01142 | Cant: 60 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01242 | Cant: 88 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00021 | Cant: 29 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01251 | Cant: 16 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01501 | Cant: 63 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P01402 | Cant: 14 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00529 | Cant: 15 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00324 | Cant: 16 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00645 | Cant: 63 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00828 | Cant: 36 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00874 | Cant: 68 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00074 | Cant: 67 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00858 | Cant: 53 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00184 | Cant: 34 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P01528 | Cant: 8 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00392 | Cant: 85 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00493 | Cant: 36 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01240 | Cant: 1 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00556 | Cant: 57 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P01327 | Cant: 36 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00388 | Cant: 22 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P01102 | Cant: 10 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00941 | Cant: 32 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P00969 | Cant: 47 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00467 | Cant: 46 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P01292 | Cant: 44 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00231 | Cant: 50 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01474 | Cant: 15 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00192 | Cant: 71 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00160 | Cant: 69 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00741 | Cant: 30 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P01141 | Cant: 1 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00803 | Cant: 72 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01132 | Cant: 95 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01426 | Cant: 19 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00666 | Cant: 69 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00105 | Cant: 20 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00451 | Cant: 76 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00482 | Cant: 90 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00840 | Cant: 87 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01585 | Cant: 81 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01138 | Cant: 66 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01093 | Cant: 7 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00753 | Cant: 67 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00225 | Cant: 80 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00037 | Cant: 94 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01366 | Cant: 24 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P01445 | Cant: 72 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00430 | Cant: 22 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01519 | Cant: 46 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00189 | Cant: 51 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00570 | Cant: 29 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00283 | Cant: 82 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00363 | Cant: 49 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00819 | Cant: 100 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P01101 | Cant: 79 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00147 | Cant: 66 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00603 | Cant: 15 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00596 | Cant: 6 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00942 | Cant: 90 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00359 | Cant: 54 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00027 | Cant: 50 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00277 | Cant: 47 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00364 | Cant: 54 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00597 | Cant: 21 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01479 | Cant: 91 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00411 | Cant: 65 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00620 | Cant: 100 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00890 | Cant: 81 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P01226 | Cant: 2 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00895 | Cant: 7 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P01443 | Cant: 99 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00136 | Cant: 70 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P00065 | Cant: 10 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00566 | Cant: 79 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00152 | Cant: 38 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00823 | Cant: 85 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P00936 | Cant: 74 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01432 | Cant: 43 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00241 | Cant: 29 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00398 | Cant: 16 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00577 | Cant: 3 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00607 | Cant: 40 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00536 | Cant: 32 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00893 | Cant: 32 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01172 | Cant: 44 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00632 | Cant: 49 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P01097 | Cant: 36 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00199 | Cant: 43 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01028 | Cant: 54 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01453 | Cant: 2 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01572 | Cant: 51 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00380 | Cant: 9 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00860 | Cant: 14 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01478 | Cant: 65 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P01047 | Cant: 39 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00368 | Cant: 2 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00471 | Cant: 10 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00569 | Cant: 71 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00279 | Cant: 99 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00714 | Cant: 62 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00249 | Cant: 98 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00386 | Cant: 2 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00886 | Cant: 97 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00809 | Cant: 95 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01561 | Cant: 36 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00787 | Cant: 30 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P01113 | Cant: 39 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01552 | Cant: 48 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01070 | Cant: 53 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00791 | Cant: 89 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00156 | Cant: 91 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00020 | Cant: 45 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01577 | Cant: 10 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00542 | Cant: 83 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00765 | Cant: 71 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P01002 | Cant: 19 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01368 | Cant: 42 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01043 | Cant: 26 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01247 | Cant: 62 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00500 | Cant: 54 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00551 | Cant: 11 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00784 | Cant: 30 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01286 | Cant: 91 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P01485 | Cant: 31 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00422 | Cant: 89 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01532 | Cant: 88 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P00909 | Cant: 4 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01149 | Cant: 36 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00672 | Cant: 43 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01178 | Cant: 79 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00982 | Cant: 27 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01520 | Cant: 27 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00857 | Cant: 74 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P01086 | Cant: 76 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00788 | Cant: 92 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01176 | Cant: 10 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00355 | Cant: 90 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P00414 | Cant: 9 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00191 | Cant: 32 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00466 | Cant: 15 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00406 | Cant: 26 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00572 | Cant: 98 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01084 | Cant: 25 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01297 | Cant: 94 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P01428 | Cant: 85 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P01218 | Cant: 55 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01304 | Cant: 29 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00365 | Cant: 74 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00001 | Cant: 3 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00092 | Cant: 63 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01417 | Cant: 9 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00614 | Cant: 98 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P01285 | Cant: 86 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01400 | Cant: 51 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00848 | Cant: 21 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00546 | Cant: 22 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00202 | Cant: 8 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00711 | Cant: 66 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P01555 | Cant: 90 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P00911 | Cant: 100 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00198 | Cant: 93 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P01317 | Cant: 92 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00925 | Cant: 19 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00171 | Cant: 72 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00282 | Cant: 95 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00667 | Cant: 2 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01154 | Cant: 87 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P01344 | Cant: 89 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01160 | Cant: 91 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00255 | Cant: 22 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00111 | Cant: 42 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01270 | Cant: 60 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00108 | Cant: 14 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P01311 | Cant: 64 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00438 | Cant: 45 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00140 | Cant: 31 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01540 | Cant: 93 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00356 | Cant: 3 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00554 | Cant: 48 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P01455 | Cant: 10 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P01136 | Cant: 11 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00757 | Cant: 39 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P01271 | Cant: 12 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01182 | Cant: 27 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00777 | Cant: 16 | Destino: LATI
   Ruta: SPIM→LATI
 
 Pedido P00138 | Cant: 29 | Destino: OOMS
   Ruta: UBBB→OOMS
 
-Pedido P01347 | Cant: 59 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00185 | Cant: 19 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00684 | Cant: 67 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01475 | Cant: 100 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00012 | Cant: 95 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01435 | Cant: 71 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01571 | Cant: 39 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00336 | Cant: 70 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01419 | Cant: 88 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00216 | Cant: 75 | Destino: OJAI
+Pedido P00986 | Cant: 86 | Destino: OJAI
   Ruta: SPIM→OJAI
 
-Pedido P00416 | Cant: 94 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P01310 | Cant: 89 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01151 | Cant: 13 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00390 | Cant: 39 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P01593 | Cant: 25 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P01529 | Cant: 28 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P00347 | Cant: 70 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00612 | Cant: 37 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00753 | Cant: 67 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01335 | Cant: 79 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01069 | Cant: 80 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P01177 | Cant: 54 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00489 | Cant: 76 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00103 | Cant: 47 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P01523 | Cant: 50 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00251 | Cant: 3 | Destino: LOWW
-  Ruta: UBBB→LOWW
-
-Pedido P00363 | Cant: 49 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P01386 | Cant: 56 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01231 | Cant: 53 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01525 | Cant: 23 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P00523 | Cant: 95 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00044 | Cant: 39 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00516 | Cant: 31 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00791 | Cant: 89 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00217 | Cant: 88 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00058 | Cant: 83 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P00165 | Cant: 67 | Destino: SPIM
+Pedido P00465 | Cant: 23 | Destino: SPIM
   Ruta: EBCI→SPIM
 
-Pedido P01089 | Cant: 53 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01352 | Cant: 16 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00919 | Cant: 26 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01221 | Cant: 21 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00911 | Cant: 100 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01145 | Cant: 96 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01330 | Cant: 41 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P00890 | Cant: 81 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01204 | Cant: 11 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01344 | Cant: 89 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01017 | Cant: 22 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P01161 | Cant: 53 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01520 | Cant: 27 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00332 | Cant: 36 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00451 | Cant: 76 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P01248 | Cant: 5 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00609 | Cant: 34 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01449 | Cant: 46 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00244 | Cant: 55 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01372 | Cant: 65 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00250 | Cant: 77 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01217 | Cant: 94 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00443 | Cant: 26 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01453 | Cant: 2 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01296 | Cant: 36 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01550 | Cant: 45 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00927 | Cant: 47 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00820 | Cant: 75 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00940 | Cant: 25 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01198 | Cant: 57 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00274 | Cant: 27 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01272 | Cant: 90 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00067 | Cant: 9 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00695 | Cant: 40 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01115 | Cant: 34 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00798 | Cant: 30 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01530 | Cant: 9 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01303 | Cant: 83 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00873 | Cant: 7 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P01071 | Cant: 23 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00533 | Cant: 11 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00163 | Cant: 3 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P00269 | Cant: 4 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01077 | Cant: 10 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00111 | Cant: 42 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00563 | Cant: 18 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01426 | Cant: 19 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01321 | Cant: 23 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00811 | Cant: 85 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01351 | Cant: 23 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00662 | Cant: 61 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00716 | Cant: 97 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00506 | Cant: 83 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P00592 | Cant: 27 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01522 | Cant: 17 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01564 | Cant: 18 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00073 | Cant: 56 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00140 | Cant: 31 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00284 | Cant: 66 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P01306 | Cant: 19 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01390 | Cant: 69 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01370 | Cant: 40 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00019 | Cant: 2 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00406 | Cant: 26 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P01149 | Cant: 36 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00158 | Cant: 60 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P01554 | Cant: 3 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01561 | Cant: 36 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01220 | Cant: 74 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01442 | Cant: 25 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00316 | Cant: 3 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P00797 | Cant: 24 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00788 | Cant: 92 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00952 | Cant: 78 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00343 | Cant: 78 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00997 | Cant: 81 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01599 | Cant: 80 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00989 | Cant: 12 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00198 | Cant: 93 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00066 | Cant: 15 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00254 | Cant: 63 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01507 | Cant: 57 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01175 | Cant: 71 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01205 | Cant: 50 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01357 | Cant: 88 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00170 | Cant: 60 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01147 | Cant: 59 | Destino: EHAM
-  Ruta: SPIM→EHAM
-
-Pedido P00650 | Cant: 83 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01083 | Cant: 12 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00874 | Cant: 68 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01458 | Cant: 14 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00167 | Cant: 53 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00705 | Cant: 8 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00734 | Cant: 87 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P01338 | Cant: 75 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01360 | Cant: 58 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00029 | Cant: 9 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00925 | Cant: 19 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01295 | Cant: 69 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00854 | Cant: 36 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01101 | Cant: 79 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01121 | Cant: 6 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00733 | Cant: 71 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00400 | Cant: 82 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00513 | Cant: 42 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00364 | Cant: 54 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00777 | Cant: 16 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00748 | Cant: 61 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01208 | Cant: 49 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00859 | Cant: 35 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01244 | Cant: 77 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01470 | Cant: 76 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00028 | Cant: 14 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01319 | Cant: 24 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01343 | Cant: 57 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P00280 | Cant: 14 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00934 | Cant: 43 | Destino: EHAM
-  Ruta: SPIM→EHAM
-
-Pedido P01189 | Cant: 100 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00774 | Cant: 85 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01206 | Cant: 32 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00433 | Cant: 25 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01165 | Cant: 91 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01331 | Cant: 63 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01361 | Cant: 50 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01186 | Cant: 49 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00846 | Cant: 34 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00307 | Cant: 26 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00411 | Cant: 65 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00249 | Cant: 98 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01181 | Cant: 39 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00836 | Cant: 97 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00679 | Cant: 35 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00723 | Cant: 69 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01067 | Cant: 28 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00692 | Cant: 50 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00581 | Cant: 56 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00757 | Cant: 39 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00438 | Cant: 45 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01424 | Cant: 67 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00375 | Cant: 15 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P01158 | Cant: 82 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00268 | Cant: 13 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01405 | Cant: 11 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P00286 | Cant: 96 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01563 | Cant: 50 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00197 | Cant: 42 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00356 | Cant: 3 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00985 | Cant: 35 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01362 | Cant: 35 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00643 | Cant: 84 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00302 | Cant: 34 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00405 | Cant: 65 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01276 | Cant: 90 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01092 | Cant: 91 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00049 | Cant: 32 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01383 | Cant: 45 | Destino: OAKB
-  Ruta: EBCI→OAKB
-
-Pedido P01469 | Cant: 93 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00715 | Cant: 22 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00231 | Cant: 50 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P00987 | Cant: 73 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P01393 | Cant: 47 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00184 | Cant: 34 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00675 | Cant: 62 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P01496 | Cant: 44 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00595 | Cant: 33 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00634 | Cant: 73 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00212 | Cant: 45 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01116 | Cant: 71 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P00800 | Cant: 36 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01399 | Cant: 23 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P01066 | Cant: 19 | Destino: OAKB
-  Ruta: EBCI→OAKB
-
-Pedido P00600 | Cant: 58 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00794 | Cant: 35 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01267 | Cant: 65 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01542 | Cant: 40 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00202 | Cant: 8 | Destino: EDDI
-  Ruta: UBBB→EDDI
-
-Pedido P01396 | Cant: 98 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01238 | Cant: 55 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00018 | Cant: 5 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00035 | Cant: 53 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00670 | Cant: 82 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00921 | Cant: 73 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00072 | Cant: 91 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P00801 | Cant: 93 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00499 | Cant: 38 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P00830 | Cant: 3 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P01547 | Cant: 83 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00376 | Cant: 83 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00134 | Cant: 35 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00586 | Cant: 92 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01085 | Cant: 74 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00719 | Cant: 62 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01526 | Cant: 13 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P00866 | Cant: 85 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00677 | Cant: 47 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00077 | Cant: 74 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01502 | Cant: 92 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00084 | Cant: 11 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00558 | Cant: 63 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00628 | Cant: 99 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01156 | Cant: 70 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01492 | Cant: 26 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01421 | Cant: 75 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P00085 | Cant: 19 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00047 | Cant: 6 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00256 | Cant: 10 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01500 | Cant: 13 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00300 | Cant: 47 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P01241 | Cant: 92 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P01280 | Cant: 81 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01025 | Cant: 80 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P01014 | Cant: 92 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00703 | Cant: 1 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00384 | Cant: 21 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P01510 | Cant: 37 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00470 | Cant: 1 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01268 | Cant: 37 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00458 | Cant: 50 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00392 | Cant: 85 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00236 | Cant: 39 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00305 | Cant: 86 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01596 | Cant: 35 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00063 | Cant: 35 | Destino: OJAI
-  Ruta: UBBB→OJAI
-
-Pedido P01003 | Cant: 12 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P00704 | Cant: 18 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00665 | Cant: 11 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01311 | Cant: 64 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00955 | Cant: 15 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01569 | Cant: 53 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00123 | Cant: 64 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00960 | Cant: 1 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01050 | Cant: 1 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P00726 | Cant: 2 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00749 | Cant: 59 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00189 | Cant: 51 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01180 | Cant: 3 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00714 | Cant: 62 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00404 | Cant: 46 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00570 | Cant: 29 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00082 | Cant: 29 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00174 | Cant: 63 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00992 | Cant: 47 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00978 | Cant: 9 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01339 | Cant: 13 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01032 | Cant: 86 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P00888 | Cant: 22 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01488 | Cant: 64 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P01024 | Cant: 91 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00917 | Cant: 13 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00856 | Cant: 43 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00473 | Cant: 92 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P00829 | Cant: 60 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P01555 | Cant: 90 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00583 | Cant: 97 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00382 | Cant: 39 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00813 | Cant: 15 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01210 | Cant: 15 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P01132 | Cant: 95 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00598 | Cant: 90 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00130 | Cant: 18 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00884 | Cant: 95 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01114 | Cant: 25 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01327 | Cant: 36 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01503 | Cant: 76 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00872 | Cant: 88 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01505 | Cant: 88 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00333 | Cant: 98 | Destino: OAKB
-  Ruta: EBCI→OAKB
-
-Pedido P01078 | Cant: 84 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00787 | Cant: 30 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00179 | Cant: 75 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01207 | Cant: 55 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01224 | Cant: 60 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00422 | Cant: 89 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01229 | Cant: 24 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00786 | Cant: 90 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00865 | Cant: 47 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01013 | Cant: 21 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00469 | Cant: 31 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00747 | Cant: 68 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01363 | Cant: 90 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01298 | Cant: 92 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01291 | Cant: 62 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00926 | Cant: 80 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P01584 | Cant: 37 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01521 | Cant: 52 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00994 | Cant: 99 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01305 | Cant: 59 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00155 | Cant: 30 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00578 | Cant: 77 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00760 | Cant: 11 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P00304 | Cant: 29 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00478 | Cant: 66 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00922 | Cant: 64 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P00588 | Cant: 87 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00532 | Cant: 55 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P00349 | Cant: 61 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01174 | Cant: 28 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00091 | Cant: 39 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01587 | Cant: 77 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P00844 | Cant: 8 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00225 | Cant: 80 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00040 | Cant: 6 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00175 | Cant: 94 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01581 | Cant: 88 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00350 | Cant: 34 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00694 | Cant: 91 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P01074 | Cant: 69 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01001 | Cant: 58 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00587 | Cant: 83 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P00221 | Cant: 4 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00328 | Cant: 91 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P00959 | Cant: 82 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01380 | Cant: 1 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01184 | Cant: 2 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01594 | Cant: 62 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01302 | Cant: 31 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00194 | Cant: 62 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00272 | Cant: 23 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P01293 | Cant: 47 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01451 | Cant: 97 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00129 | Cant: 87 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00501 | Cant: 84 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01023 | Cant: 64 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00219 | Cant: 19 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00210 | Cant: 33 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P00875 | Cant: 47 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00341 | Cant: 86 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00083 | Cant: 90 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01504 | Cant: 38 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01590 | Cant: 9 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P00765 | Cant: 71 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P01317 | Cant: 92 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00770 | Cant: 41 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01159 | Cant: 72 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00005 | Cant: 56 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00245 | Cant: 78 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00651 | Cant: 71 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00849 | Cant: 67 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01350 | Cant: 55 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P01061 | Cant: 87 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P01082 | Cant: 56 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00110 | Cant: 61 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00611 | Cant: 15 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00361 | Cant: 6 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00289 | Cant: 94 | Destino: OSDI
-  Ruta: SPIM→OSDI
-
-Pedido P01053 | Cant: 84 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01107 | Cant: 97 | Destino: VIDP
-  Ruta: EBCI→VIDP
-
-Pedido P01541 | Cant: 30 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01289 | Cant: 55 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00171 | Cant: 72 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00763 | Cant: 82 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01245 | Cant: 11 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P00708 | Cant: 93 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01270 | Cant: 60 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00682 | Cant: 75 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00624 | Cant: 83 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00970 | Cant: 38 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00270 | Cant: 39 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00789 | Cant: 36 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01358 | Cant: 23 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00410 | Cant: 62 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00490 | Cant: 70 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00537 | Cant: 16 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00141 | Cant: 87 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00496 | Cant: 80 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P01169 | Cant: 12 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00878 | Cant: 78 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00709 | Cant: 62 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01254 | Cant: 81 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01052 | Cant: 32 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00076 | Cant: 88 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P01104 | Cant: 56 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00088 | Cant: 4 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00177 | Cant: 1 | Destino: OSDI
-  Ruta: SPIM→OSDI
-
-Pedido P00615 | Cant: 33 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P01016 | Cant: 88 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P01157 | Cant: 46 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01216 | Cant: 23 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00412 | Cant: 70 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P00590 | Cant: 95 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01287 | Cant: 74 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00252 | Cant: 72 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00933 | Cant: 20 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00207 | Cant: 47 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01434 | Cant: 8 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01004 | Cant: 24 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00507 | Cant: 41 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01045 | Cant: 60 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P00094 | Cant: 7 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01235 | Cant: 25 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00744 | Cant: 85 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00181 | Cant: 31 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00385 | Cant: 31 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00565 | Cant: 5 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00852 | Cant: 91 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P01524 | Cant: 1 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00494 | Cant: 66 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00913 | Cant: 49 | Destino: SEQM
-  Ruta: SPIM→SEQM
-
-Pedido P01333 | Cant: 64 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00834 | Cant: 82 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00935 | Cant: 26 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00093 | Cant: 47 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00691 | Cant: 10 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00156 | Cant: 91 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00647 | Cant: 16 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01247 | Cant: 62 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01026 | Cant: 53 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00656 | Cant: 28 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00261 | Cant: 92 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01249 | Cant: 79 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00423 | Cant: 12 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00663 | Cant: 34 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01006 | Cant: 48 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01312 | Cant: 85 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00858 | Cant: 53 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01341 | Cant: 56 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01332 | Cant: 4 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01176 | Cant: 10 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00313 | Cant: 20 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01329 | Cant: 96 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00497 | Cant: 69 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00064 | Cant: 25 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00159 | Cant: 84 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00597 | Cant: 21 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P00214 | Cant: 2 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00447 | Cant: 52 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00971 | Cant: 73 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00835 | Cant: 73 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00961 | Cant: 6 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00654 | Cant: 32 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00059 | Cant: 73 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00206 | Cant: 34 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01232 | Cant: 1 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01256 | Cant: 6 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00610 | Cant: 99 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00924 | Cant: 69 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00239 | Cant: 79 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00529 | Cant: 15 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P01499 | Cant: 9 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00759 | Cant: 98 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00785 | Cant: 51 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01454 | Cant: 19 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00235 | Cant: 13 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00387 | Cant: 61 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01266 | Cant: 2 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00689 | Cant: 80 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01278 | Cant: 68 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00876 | Cant: 26 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01099 | Cant: 50 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00554 | Cant: 48 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00148 | Cant: 70 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00227 | Cant: 100 | Destino: UMMS
-  Ruta: UBBB→UMMS
-
-Pedido P00149 | Cant: 8 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P01356 | Cant: 41 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01171 | Cant: 18 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01117 | Cant: 70 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P00344 | Cant: 12 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00809 | Cant: 95 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00483 | Cant: 47 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00768 | Cant: 32 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00953 | Cant: 59 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01558 | Cant: 99 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00847 | Cant: 57 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00139 | Cant: 78 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00817 | Cant: 15 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01065 | Cant: 69 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P01178 | Cant: 79 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01382 | Cant: 34 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P01410 | Cant: 12 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00380 | Cant: 9 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00761 | Cant: 36 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00954 | Cant: 16 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01049 | Cant: 18 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01139 | Cant: 86 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00314 | Cant: 66 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00122 | Cant: 18 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01345 | Cant: 92 | Destino: LOWW
-  Ruta: EBCI→LOWW
+Pedido P00606 | Cant: 29 | Destino: OERK
+  Ruta: SPIM→OERK
 
 Pedido P01203 | Cant: 22 | Destino: EDDI
-  Ruta: EBCI→EDDI
+  Ruta: UBBB→EDDI
 
-Pedido P00807 | Cant: 3 | Destino: SABE
-  Ruta: UBBB→SABE
+Pedido P00275 | Cant: 63 | Destino: OOMS
+  Ruta: SPIM→OOMS
 
-Pedido P01286 | Cant: 91 | Destino: OAKB
-  Ruta: EBCI→OAKB
+Pedido P00257 | Cant: 83 | Destino: SLLP
+  Ruta: EBCI→SLLP
 
-Pedido P00401 | Cant: 1 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00514 | Cant: 45 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00267 | Cant: 63 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P01236 | Cant: 73 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P01160 | Cant: 91 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00104 | Cant: 18 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00365 | Cant: 74 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01155 | Cant: 33 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01019 | Cant: 47 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00378 | Cant: 78 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P01414 | Cant: 52 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01063 | Cant: 86 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00641 | Cant: 87 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P00683 | Cant: 10 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P01064 | Cant: 93 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00680 | Cant: 63 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00089 | Cant: 28 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00476 | Cant: 86 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00190 | Cant: 21 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01400 | Cant: 51 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00398 | Cant: 16 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00069 | Cant: 62 | Destino: OJAI
-  Ruta: UBBB→OJAI
-
-Pedido P00957 | Cant: 7 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00491 | Cant: 33 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01163 | Cant: 14 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P00752 | Cant: 3 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00319 | Cant: 7 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00827 | Cant: 36 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00706 | Cant: 69 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00097 | Cant: 100 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00996 | Cant: 83 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01262 | Cant: 92 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01034 | Cant: 11 | Destino: SABE
-  Ruta: EBCI→SABE
+Pedido P01437 | Cant: 74 | Destino: OMDB
+  Ruta: EBCI→OMDB
 
 Pedido P01095 | Cant: 84 | Destino: OOMS
   Ruta: EBCI→OOMS
 
-Pedido P01166 | Cant: 34 | Destino: SABE
-  Ruta: UBBB→SABE
+Pedido P01343 | Cant: 57 | Destino: LKPR
+  Ruta: UBBB→LKPR
 
-Pedido P00178 | Cant: 23 | Destino: OPKC
-  Ruta: SPIM→OPKC
+Pedido P01341 | Cant: 56 | Destino: LATI
+  Ruta: EBCI→LATI
 
-Pedido P00589 | Cant: 79 | Destino: OOMS
-  Ruta: UBBB→OOMS
+Pedido P00901 | Cant: 93 | Destino: OAKB
+  Ruta: EBCI→OAKB
 
-Pedido P00117 | Cant: 15 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01556 | Cant: 41 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00048 | Cant: 60 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01143 | Cant: 98 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01482 | Cant: 25 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00372 | Cant: 42 | Destino: EKCH
-  Ruta: SPIM→EKCH
-
-Pedido P01136 | Cant: 11 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P01096 | Cant: 49 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P01374 | Cant: 53 | Destino: EDDI
-  Ruta: UBBB→EDDI
-
-Pedido P00547 | Cant: 36 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00391 | Cant: 69 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00477 | Cant: 70 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01325 | Cant: 99 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P01091 | Cant: 29 | Destino: SABE
+Pedido P01021 | Cant: 87 | Destino: SABE
   Ruta: SPIM→SABE
 
-Pedido P00368 | Cant: 2 | Destino: SLLP
-  Ruta: SPIM→SLLP
+Pedido P01144 | Cant: 78 | Destino: SEQM
+  Ruta: EBCI→SEQM
 
-Pedido P00427 | Cant: 92 | Destino: OSDI
-  Ruta: UBBB→OSDI
+Pedido P01380 | Cant: 1 | Destino: OAKB
+  Ruta: EBCI→OAKB
 
-Pedido P00905 | Cant: 69 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01486 | Cant: 82 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01577 | Cant: 10 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P00568 | Cant: 6 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P01030 | Cant: 65 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00027 | Cant: 50 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P01108 | Cant: 78 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00504 | Cant: 55 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00539 | Cant: 100 | Destino: OSDI
-  Ruta: SPIM→OSDI
-
-Pedido P00819 | Cant: 100 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00160 | Cant: 69 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00814 | Cant: 62 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00804 | Cant: 30 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00381 | Cant: 87 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01498 | Cant: 19 | Destino: EBCI
+Pedido P00102 | Cant: 3 | Destino: EBCI
   Ruta: SPIM→EBCI
 
-Pedido P01438 | Cant: 36 | Destino: SVMI
-  Ruta: SPIM→SVMI
+Pedido P01447 | Cant: 69 | Destino: OOMS
+  Ruta: SPIM→OOMS
 
-Pedido P00432 | Cant: 3 | Destino: SCEL
-  Ruta: UBBB→SCEL
+Pedido P01472 | Cant: 72 | Destino: SKBO
+  Ruta: SPIM→SKBO
 
-Pedido P01588 | Cant: 33 | Destino: UMMS
+Pedido P01200 | Cant: 53 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00760 | Cant: 11 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01266 | Cant: 2 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P01310 | Cant: 89 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00517 | Cant: 25 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P01284 | Cant: 51 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01446 | Cant: 94 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00454 | Cant: 95 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P01503 | Cant: 76 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P01361 | Cant: 50 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00058 | Cant: 83 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00963 | Cant: 98 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00395 | Cant: 28 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00647 | Cant: 16 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01351 | Cant: 23 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00726 | Cant: 2 | Destino: UMMS
   Ruta: SPIM→UMMS
 
-Pedido P00151 | Cant: 39 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00232 | Cant: 31 | Destino: VIDP
+Pedido P00946 | Cant: 81 | Destino: VIDP
   Ruta: UBBB→VIDP
 
-Pedido P00664 | Cant: 90 | Destino: LKPR
+Pedido P00382 | Cant: 39 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P01276 | Cant: 90 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00159 | Cant: 84 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00264 | Cant: 66 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00416 | Cant: 94 | Destino: LKPR
   Ruta: UBBB→LKPR
 
-Pedido P00031 | Cant: 93 | Destino: OMDB
-  Ruta: EBCI→OMDB
+Pedido P00812 | Cant: 38 | Destino: OMDB
+  Ruta: SPIM→OMDB
 
-Pedido P01484 | Cant: 82 | Destino: OYSN
+Pedido P01130 | Cant: 1 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01162 | Cant: 58 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00055 | Cant: 23 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00426 | Cant: 28 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P01325 | Cant: 99 | Destino: OYSN
   Ruta: UBBB→OYSN
 
-Pedido P00916 | Cant: 89 | Destino: OYSN
-  Ruta: EBCI→OYSN
+Pedido P01546 | Cant: 41 | Destino: VIDP
+  Ruta: EBCI→VIDP
 
-Pedido P01549 | Cant: 52 | Destino: SPIM
-  Ruta: EBCI→SPIM
+Pedido P01576 | Cant: 18 | Destino: EDDI
+  Ruta: SPIM→EDDI
 
-Pedido P01402 | Cant: 14 | Destino: EHAM
-  Ruta: EBCI→EHAM
+Pedido P00308 | Cant: 7 | Destino: SVMI
+  Ruta: UBBB→SVMI
 
-Pedido P00967 | Cant: 87 | Destino: EHAM
-  Ruta: UBBB→EHAM
+Pedido P00677 | Cant: 47 | Destino: OMDB
+  Ruta: EBCI→OMDB
 
-Pedido P01395 | Cant: 16 | Destino: SABE
-  Ruta: EBCI→SABE
+Pedido P00583 | Cant: 97 | Destino: OOMS
+  Ruta: EBCI→OOMS
 
-Pedido P01568 | Cant: 34 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P00728 | Cant: 77 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01051 | Cant: 29 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00430 | Cant: 22 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01134 | Cant: 19 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00353 | Cant: 74 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00196 | Cant: 35 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00860 | Cant: 14 | Destino: VIDP
-  Ruta: SPIM→VIDP
+Pedido P00439 | Cant: 80 | Destino: LOWW
+  Ruta: EBCI→LOWW
 
 Pedido P00013 | Cant: 6 | Destino: SCEL
   Ruta: EBCI→SCEL
 
-Pedido P01033 | Cant: 65 | Destino: OOMS
-  Ruta: UBBB→OOMS
+Pedido P00366 | Cant: 71 | Destino: LATI
+  Ruta: EBCI→LATI
 
-Pedido P01201 | Cant: 9 | Destino: LDZA
-  Ruta: SPIM→LDZA
+Pedido P00358 | Cant: 37 | Destino: UMMS
+  Ruta: UBBB→UMMS
 
-Pedido P01202 | Cant: 33 | Destino: EBCI
-  Ruta: UBBB→EBCI
+Pedido P00254 | Cant: 63 | Destino: OJAI
+  Ruta: UBBB→OJAI
 
-Pedido P00295 | Cant: 59 | Destino: UBBB
-  Ruta: EBCI→UBBB
+Pedido P01037 | Cant: 44 | Destino: SGAS
+  Ruta: SPIM→SGAS
 
-Pedido P00879 | Cant: 66 | Destino: SKBO
-  Ruta: SPIM→SKBO
+Pedido P01122 | Cant: 32 | Destino: SGAS
+  Ruta: EBCI→SGAS
 
-Pedido P00030 | Cant: 100 | Destino: VIDP
-  Ruta: EBCI→VIDP
-
-Pedido P01427 | Cant: 56 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01387 | Cant: 59 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00273 | Cant: 35 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P01283 | Cant: 15 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00567 | Cant: 57 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01073 | Cant: 29 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01580 | Cant: 99 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P00698 | Cant: 91 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P01595 | Cant: 33 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00855 | Cant: 83 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00754 | Cant: 61 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P01259 | Cant: 8 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01213 | Cant: 67 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00633 | Cant: 25 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00285 | Cant: 25 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00871 | Cant: 10 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P00956 | Cant: 88 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00264 | Cant: 66 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00278 | Cant: 37 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00290 | Cant: 88 | Destino: OERK
+Pedido P00174 | Cant: 63 | Destino: OERK
   Ruta: UBBB→OERK
 
-Pedido P00640 | Cant: 21 | Destino: OSDI
-  Ruta: UBBB→OSDI
+Pedido P00649 | Cant: 37 | Destino: SKBO
+  Ruta: SPIM→SKBO
 
-Pedido P00415 | Cant: 17 | Destino: OOMS
+Pedido P00684 | Cant: 67 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00285 | Cant: 25 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01589 | Cant: 75 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00100 | Cant: 81 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00187 | Cant: 97 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00658 | Cant: 96 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00023 | Cant: 46 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P01448 | Cant: 9 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00894 | Cant: 63 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00718 | Cant: 27 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01030 | Cant: 65 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P00639 | Cant: 15 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00707 | Cant: 51 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00547 | Cant: 36 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00010 | Cant: 4 | Destino: OOMS
   Ruta: UBBB→OOMS
 
-Pedido P00942 | Cant: 90 | Destino: SEQM
+Pedido P00343 | Cant: 78 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01074 | Cant: 69 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00221 | Cant: 4 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01196 | Cant: 10 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00429 | Cant: 93 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00440 | Cant: 81 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00648 | Cant: 48 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P01550 | Cant: 45 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00578 | Cant: 77 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P01088 | Cant: 58 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00613 | Cant: 54 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P01116 | Cant: 71 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00008 | Cant: 7 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00954 | Cant: 16 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01371 | Cant: 58 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00047 | Cant: 6 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01386 | Cant: 56 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00781 | Cant: 71 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00292 | Cant: 96 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00608 | Cant: 5 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00611 | Cant: 15 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01167 | Cant: 21 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00758 | Cant: 31 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00480 | Cant: 35 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01491 | Cant: 38 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P00081 | Cant: 28 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01584 | Cant: 37 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P00057 | Cant: 10 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00939 | Cant: 58 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P01107 | Cant: 97 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01564 | Cant: 18 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00181 | Cant: 31 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P01048 | Cant: 95 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00731 | Cant: 71 | Destino: SEQM
   Ruta: UBBB→SEQM
 
-Pedido P01076 | Cant: 85 | Destino: SPIM
-  Ruta: UBBB→SPIM
+Pedido P00062 | Cant: 75 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00172 | Cant: 11 | Destino: EDDI
+  Ruta: SPIM→EDDI
 
 Pedido P00339 | Cant: 7 | Destino: OERK
   Ruta: UBBB→OERK
 
-Pedido P01243 | Cant: 6 | Destino: SGAS
-  Ruta: EBCI→SGAS
+Pedido P00669 | Cant: 88 | Destino: LDZA
+  Ruta: UBBB→LDZA
 
-Pedido P01528 | Cant: 8 | Destino: OJAI
+Pedido P00537 | Cant: 16 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00135 | Cant: 86 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00914 | Cant: 29 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00872 | Cant: 88 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00475 | Cant: 72 | Destino: OJAI
   Ruta: SPIM→OJAI
 
-Pedido P00561 | Cant: 27 | Destino: SUAA
+Pedido P00379 | Cant: 94 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00697 | Cant: 56 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00019 | Cant: 2 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00320 | Cant: 9 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00142 | Cant: 59 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00983 | Cant: 73 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00510 | Cant: 61 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P00284 | Cant: 66 | Destino: SUAA
   Ruta: EBCI→SUAA
 
-Pedido P01301 | Cant: 84 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P01483 | Cant: 93 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P01059 | Cant: 59 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P01431 | Cant: 13 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P01441 | Cant: 30 | Destino: EKCH
+Pedido P00839 | Cant: 55 | Destino: EKCH
   Ruta: SPIM→EKCH
 
-Pedido P00986 | Cant: 86 | Destino: OJAI
-  Ruta: SPIM→OJAI
+Pedido P00377 | Cant: 90 | Destino: SEQM
+  Ruta: EBCI→SEQM
 
-Pedido P00366 | Cant: 71 | Destino: LATI
-  Ruta: EBCI→LATI
+Pedido P01174 | Cant: 28 | Destino: LKPR
+  Ruta: SPIM→LKPR
 
-Pedido P01406 | Cant: 87 | Destino: EDDI
-  Ruta: EBCI→EDDI
+Pedido P00588 | Cant: 87 | Destino: UMMS
+  Ruta: UBBB→UMMS
 
-Pedido P00894 | Cant: 63 | Destino: SLLP
-  Ruta: EBCI→SLLP
+Pedido P00096 | Cant: 64 | Destino: EBCI
+  Ruta: SPIM→EBCI
 
-Pedido P00805 | Cant: 55 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01109 | Cant: 6 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00147 | Cant: 66 | Destino: UMMS
+Pedido P00442 | Cant: 86 | Destino: UMMS
   Ruta: SPIM→UMMS
 
-Pedido P01600 | Cant: 36 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01223 | Cant: 9 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00463 | Cant: 28 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01008 | Cant: 47 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01385 | Cant: 67 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01480 | Cant: 89 | Destino: OYSN
+Pedido P01410 | Cant: 12 | Destino: OYSN
   Ruta: EBCI→OYSN
 
-Pedido P00678 | Cant: 90 | Destino: OJAI
-  Ruta: SPIM→OJAI
+Pedido P01034 | Cant: 11 | Destino: SABE
+  Ruta: SPIM→SABE
 
-Pedido P00832 | Cant: 61 | Destino: LKPR
-  Ruta: UBBB→LKPR
+Pedido P01568 | Cant: 34 | Destino: VIDP
+  Ruta: UBBB→VIDP
 
-Pedido P00144 | Cant: 55 | Destino: EKCH
-  Ruta: UBBB→EKCH
+Pedido P01381 | Cant: 98 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00751 | Cant: 29 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00836 | Cant: 97 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00635 | Cant: 88 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00656 | Cant: 28 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00853 | Cant: 87 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01562 | Cant: 98 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P00326 | Cant: 51 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00333 | Cant: 98 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00139 | Cant: 78 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00992 | Cant: 47 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P00200 | Cant: 69 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01348 | Cant: 30 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00915 | Cant: 60 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P01593 | Cant: 25 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00773 | Cant: 83 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01277 | Cant: 85 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00955 | Cant: 15 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01239 | Cant: 4 | Destino: OPKC
+  Ruta: UBBB→OPKC
 
 Pedido P00661 | Cant: 64 | Destino: OMDB
   Ruta: SPIM→OMDB
 
-Pedido P00132 | Cant: 14 | Destino: OYSN
-  Ruta: UBBB→OYSN
+Pedido P00217 | Cant: 88 | Destino: EKCH
+  Ruta: EBCI→EKCH
 
-Pedido P00943 | Cant: 63 | Destino: LBSF
-  Ruta: SPIM→LBSF
+Pedido P01345 | Cant: 92 | Destino: LOWW
+  Ruta: EBCI→LOWW
 
-Pedido P01118 | Cant: 12 | Destino: SEQM
-  Ruta: SPIM→SEQM
+Pedido P00877 | Cant: 62 | Destino: SABE
+  Ruta: EBCI→SABE
 
-Pedido P01292 | Cant: 44 | Destino: SVMI
-  Ruta: EBCI→SVMI
+Pedido P01521 | Cant: 52 | Destino: VIDP
+  Ruta: UBBB→VIDP
 
-Pedido P00265 | Cant: 85 | Destino: OJAI
-  Ruta: EBCI→OJAI
+Pedido P00053 | Cant: 35 | Destino: OAKB
+  Ruta: EBCI→OAKB
 
-Pedido P00841 | Cant: 14 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01299 | Cant: 20 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01375 | Cant: 81 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00885 | Cant: 22 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01552 | Cant: 48 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00078 | Cant: 62 | Destino: SCEL
-  Ruta: UBBB→SCEL
-
-Pedido P00114 | Cant: 61 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01075 | Cant: 56 | Destino: SGAS
-  Ruta: UBBB→SGAS
-
-Pedido P01463 | Cant: 82 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00003 | Cant: 22 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01103 | Cant: 57 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P00046 | Cant: 50 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00208 | Cant: 80 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00559 | Cant: 91 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00354 | Cant: 15 | Destino: LOWW
-  Ruta: UBBB→LOWW
-
-Pedido P00099 | Cant: 10 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01285 | Cant: 86 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00204 | Cant: 85 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00162 | Cant: 59 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00527 | Cant: 96 | Destino: SPIM
+Pedido P00017 | Cant: 51 | Destino: SPIM
   Ruta: EBCI→SPIM
 
-Pedido P00622 | Cant: 30 | Destino: OJAI
-  Ruta: EBCI→OJAI
+Pedido P00618 | Cant: 94 | Destino: SVMI
+  Ruta: EBCI→SVMI
 
-Pedido P00317 | Cant: 6 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00288 | Cant: 96 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P01468 | Cant: 42 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00636 | Cant: 40 | Destino: SPIM
-  Ruta: UBBB→SPIM
-
-Pedido P00397 | Cant: 98 | Destino: EHAM
+Pedido P00149 | Cant: 8 | Destino: EHAM
   Ruta: UBBB→EHAM
 
-Pedido P00977 | Cant: 15 | Destino: SEQM
+Pedido P00883 | Cant: 38 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00565 | Cant: 5 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01536 | Cant: 66 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00875 | Cant: 47 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P01416 | Cant: 3 | Destino: SEQM
   Ruta: SPIM→SEQM
 
-Pedido P00613 | Cant: 54 | Destino: SVMI
-  Ruta: SPIM→SVMI
+Pedido P00068 | Cant: 53 | Destino: OSDI
+  Ruta: SPIM→OSDI
 
-Pedido P01252 | Cant: 44 | Destino: SABE
-  Ruta: SPIM→SABE
+Pedido P00390 | Cant: 39 | Destino: OYSN
+  Ruta: UBBB→OYSN
 
-Pedido P01474 | Cant: 15 | Destino: SPIM
-  Ruta: EBCI→SPIM
+Pedido P01514 | Cant: 70 | Destino: OOMS
+  Ruta: UBBB→OOMS
 
-Pedido P00308 | Cant: 7 | Destino: SVMI
+Pedido P00530 | Cant: 29 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01482 | Cant: 25 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P01433 | Cant: 78 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00043 | Cant: 40 | Destino: SVMI
   Ruta: EBCI→SVMI
+
+Pedido P00243 | Cant: 58 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00689 | Cant: 80 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P01010 | Cant: 9 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00302 | Cant: 34 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00957 | Cant: 7 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01547 | Cant: 83 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00154 | Cant: 29 | Destino: OOMS
+  Ruta: SPIM→OOMS
 
 Pedido P00746 | Cant: 87 | Destino: SUAA
   Ruta: UBBB→SUAA
 
-Pedido P00779 | Cant: 24 | Destino: EKCH
-  Ruta: EBCI→EKCH
+Pedido P00346 | Cant: 55 | Destino: LKPR
+  Ruta: UBBB→LKPR
 
-Pedido P01187 | Cant: 57 | Destino: SEQM
-  Ruta: UBBB→SEQM
+Pedido P01213 | Cant: 67 | Destino: OJAI
+  Ruta: UBBB→OJAI
 
-Pedido P01515 | Cant: 95 | Destino: SVMI
-  Ruta: EBCI→SVMI
+Pedido P01255 | Cant: 34 | Destino: LKPR
+  Ruta: EBCI→LKPR
 
-Pedido P00965 | Cant: 8 | Destino: SCEL
-  Ruta: EBCI→SCEL
+Pedido P00435 | Cant: 70 | Destino: LOWW
+  Ruta: SPIM→LOWW
 
-Pedido P00939 | Cant: 58 | Destino: SKBO
+Pedido P01570 | Cant: 76 | Destino: SKBO
   Ruta: UBBB→SKBO
 
-Pedido P01548 | Cant: 38 | Destino: EKCH
-  Ruta: SPIM→EKCH
+Pedido P00702 | Cant: 5 | Destino: SVMI
+  Ruta: EBCI→SVMI
 
-Pedido P00881 | Cant: 11 | Destino: SGAS
-  Ruta: SPIM→SGAS
+Pedido P01405 | Cant: 11 | Destino: LKPR
+  Ruta: EBCI→LKPR
 
-Pedido P00660 | Cant: 52 | Destino: SKBO
-  Ruta: SPIM→SKBO
+Pedido P01185 | Cant: 65 | Destino: SABE
+  Ruta: SPIM→SABE
 
-Pedido P01337 | Cant: 79 | Destino: OMDB
-  Ruta: UBBB→OMDB
+Pedido P01195 | Cant: 86 | Destino: OSDI
+  Ruta: UBBB→OSDI
 
-Pedido P00342 | Cant: 62 | Destino: EKCH
-  Ruta: UBBB→EKCH
+Pedido P00867 | Cant: 79 | Destino: OAKB
+  Ruta: EBCI→OAKB
 
-Pedido P00862 | Cant: 72 | Destino: SEQM
+Pedido P00114 | Cant: 61 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00316 | Cant: 3 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P01462 | Cant: 91 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00703 | Cant: 1 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P01533 | Cant: 10 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P01151 | Cant: 13 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P01190 | Cant: 64 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00727 | Cant: 68 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01050 | Cant: 1 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00769 | Cant: 91 | Destino: SEQM
   Ruta: UBBB→SEQM
 
-Pedido P00004 | Cant: 22 | Destino: EDDI
-  Ruta: EBCI→EDDI
+Pedido P00558 | Cant: 63 | Destino: SKBO
+  Ruta: SPIM→SKBO
 
-Pedido P00299 | Cant: 38 | Destino: SABE
+Pedido P00581 | Cant: 56 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01599 | Cant: 80 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01016 | Cant: 88 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01307 | Cant: 72 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00374 | Cant: 32 | Destino: SABE
   Ruta: UBBB→SABE
 
-Pedido P01466 | Cant: 91 | Destino: OMDB
-  Ruta: EBCI→OMDB
+Pedido P00473 | Cant: 92 | Destino: SLLP
+  Ruta: SPIM→SLLP
 
-Pedido P01559 | Cant: 63 | Destino: OJAI
+Pedido P01385 | Cant: 67 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00804 | Cant: 30 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P01046 | Cant: 14 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01530 | Cant: 9 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00094 | Cant: 7 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P00722 | Cant: 87 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00190 | Cant: 21 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00011 | Cant: 100 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00634 | Cant: 73 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00097 | Cant: 100 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00408 | Cant: 2 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00423 | Cant: 12 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01152 | Cant: 46 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00360 | Cant: 67 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01354 | Cant: 49 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01069 | Cant: 80 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00167 | Cant: 53 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01233 | Cant: 16 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00851 | Cant: 43 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01026 | Cant: 53 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00774 | Cant: 85 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P01290 | Cant: 63 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P01166 | Cant: 34 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P01429 | Cant: 26 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00314 | Cant: 66 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01439 | Cant: 48 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00318 | Cant: 5 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00999 | Cant: 19 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00937 | Cant: 40 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00796 | Cant: 48 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P00797 | Cant: 24 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00739 | Cant: 45 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P01232 | Cant: 1 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01312 | Cant: 85 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P01259 | Cant: 8 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01024 | Cant: 91 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P01438 | Cant: 36 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00452 | Cant: 40 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00898 | Cant: 11 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P01153 | Cant: 43 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00761 | Cant: 36 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00315 | Cant: 56 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00026 | Cant: 3 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00518 | Cant: 75 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P01298 | Cant: 92 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01306 | Cant: 19 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00203 | Cant: 68 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00276 | Cant: 83 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01099 | Cant: 50 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00984 | Cant: 68 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00070 | Cant: 17 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00434 | Cant: 37 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01134 | Cant: 19 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P01326 | Cant: 69 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00464 | Cant: 29 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01265 | Cant: 98 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00557 | Cant: 65 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P01370 | Cant: 40 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00600 | Cant: 58 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P01336 | Cant: 6 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00924 | Cant: 69 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00503 | Cant: 7 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P01427 | Cant: 56 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01031 | Cant: 6 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00194 | Cant: 62 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00236 | Cant: 39 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P00678 | Cant: 90 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00272 | Cant: 23 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01412 | Cant: 69 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00972 | Cant: 64 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P01566 | Cant: 88 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01083 | Cant: 12 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00151 | Cant: 39 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00762 | Cant: 36 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P01308 | Cant: 100 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00479 | Cant: 60 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01557 | Cant: 100 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00814 | Cant: 62 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P01487 | Cant: 81 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01103 | Cant: 57 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00303 | Cant: 6 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00050 | Cant: 85 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P01001 | Cant: 58 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01105 | Cant: 68 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01316 | Cant: 56 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00195 | Cant: 64 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P01495 | Cant: 19 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01019 | Cant: 47 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01040 | Cant: 14 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01064 | Cant: 93 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00913 | Cant: 49 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00763 | Cant: 82 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00301 | Cant: 6 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00617 | Cant: 26 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00069 | Cant: 62 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00095 | Cant: 23 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00196 | Cant: 35 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00278 | Cant: 37 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00568 | Cant: 6 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00624 | Cant: 83 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01502 | Cant: 92 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00926 | Cant: 80 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00130 | Cant: 18 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00896 | Cant: 43 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00964 | Cant: 70 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P01012 | Cant: 55 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00709 | Cant: 62 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00725 | Cant: 86 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01404 | Cant: 55 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00604 | Cant: 26 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00372 | Cant: 42 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00453 | Cant: 32 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00663 | Cant: 34 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00699 | Cant: 64 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00487 | Cant: 75 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P01015 | Cant: 60 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00533 | Cant: 11 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P00665 | Cant: 11 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00259 | Cant: 13 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P00327 | Cant: 61 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P00448 | Cant: 33 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00491 | Cant: 33 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00996 | Cant: 83 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P01372 | Cant: 65 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00548 | Cant: 24 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00780 | Cant: 51 | Destino: OJAI
   Ruta: EBCI→OJAI
 
 Pedido P00688 | Cant: 58 | Destino: EDDI
   Ruta: EBCI→EDDI
 
-Pedido P00068 | Cant: 53 | Destino: OSDI
-  Ruta: UBBB→OSDI
+Pedido P01224 | Cant: 60 | Destino: SEQM
+  Ruta: UBBB→SEQM
 
-Pedido P01275 | Cant: 57 | Destino: EHAM
-  Ruta: UBBB→EHAM
+Pedido P00033 | Cant: 78 | Destino: LOWW
+  Ruta: SPIM→LOWW
 
-Pedido P00725 | Cant: 86 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P01425 | Cant: 31 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00941 | Cant: 32 | Destino: OAKB
-  Ruta: EBCI→OAKB
+Pedido P00120 | Cant: 59 | Destino: EKCH
+  Ruta: EBCI→EKCH
 
 Pedido P00484 | Cant: 9 | Destino: LKPR
-  Ruta: SPIM→LKPR
+  Ruta: UBBB→LKPR
 
-Pedido P00109 | Cant: 73 | Destino: SBBR
-  Ruta: SPIM→SBBR
+Pedido P00492 | Cant: 47 | Destino: SLLP
+  Ruta: UBBB→SLLP
 
-Pedido P00471 | Cant: 10 | Destino: OJAI
-  Ruta: EBCI→OJAI
+Pedido P01387 | Cant: 59 | Destino: SKBO
+  Ruta: SPIM→SKBO
 
-Pedido P00312 | Cant: 43 | Destino: EHAM
-  Ruta: EBCI→EHAM
+Pedido P01165 | Cant: 91 | Destino: EKCH
+  Ruta: SPIM→EKCH
 
-Pedido P01188 | Cant: 93 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00006 | Cant: 82 | Destino: SEQM
-  Ruta: UBBB→SEQM
+Pedido P01573 | Cant: 44 | Destino: OYSN
+  Ruta: SPIM→OYSN
 
 Pedido P01124 | Cant: 19 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01368 | Cant: 42 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P00557 | Cant: 65 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01097 | Cant: 36 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00475 | Cant: 72 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00287 | Cant: 40 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00883 | Cant: 38 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P01263 | Cant: 20 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P01459 | Cant: 64 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01167 | Cant: 21 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01420 | Cant: 58 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01257 | Cant: 55 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P01574 | Cant: 22 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00776 | Cant: 74 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00325 | Cant: 8 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00437 | Cant: 94 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P01133 | Cant: 36 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01028 | Cant: 54 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01477 | Cant: 15 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00864 | Cant: 60 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00617 | Cant: 26 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00142 | Cant: 59 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00357 | Cant: 77 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00806 | Cant: 57 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01043 | Cant: 26 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00039 | Cant: 46 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00192 | Cant: 71 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00113 | Cant: 86 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P00026 | Cant: 3 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P00008 | Cant: 7 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00053 | Cant: 35 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01586 | Cant: 57 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00146 | Cant: 94 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00345 | Cant: 65 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01265 | Cant: 98 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00095 | Cant: 23 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00673 | Cant: 20 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P00724 | Cant: 89 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01081 | Cant: 55 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00215 | Cant: 41 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P01433 | Cant: 78 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P01583 | Cant: 58 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00892 | Cant: 26 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00016 | Cant: 97 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P01233 | Cant: 16 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01002 | Cant: 19 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00526 | Cant: 40 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00818 | Cant: 18 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01429 | Cant: 26 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01487 | Cant: 81 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00555 | Cant: 32 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00738 | Cant: 30 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01461 | Cant: 81 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00646 | Cant: 1 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00602 | Cant: 56 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01219 | Cant: 53 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00931 | Cant: 99 | Destino: SCEL
-  Ruta: EBCI→SCEL
-
-Pedido P00086 | Cant: 88 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01027 | Cant: 22 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00522 | Cant: 9 | Destino: EKCH
-  Ruta: UBBB→EKCH
-
-Pedido P00402 | Cant: 19 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00065 | Cant: 10 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P00246 | Cant: 94 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00324 | Cant: 16 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00407 | Cant: 54 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P01320 | Cant: 64 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00659 | Cant: 75 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P00928 | Cant: 49 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00136 | Cant: 70 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00223 | Cant: 34 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01128 | Cant: 52 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00193 | Cant: 46 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01509 | Cant: 90 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P01255 | Cant: 34 | Destino: LKPR
-  Ruta: EBCI→LKPR
-
-Pedido P01313 | Cant: 28 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00512 | Cant: 22 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00642 | Cant: 73 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00259 | Cant: 13 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00778 | Cant: 73 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P00672 | Cant: 43 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00795 | Cant: 37 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P00041 | Cant: 55 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00584 | Cant: 47 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00425 | Cant: 98 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00007 | Cant: 41 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01242 | Cant: 88 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00655 | Cant: 7 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01407 | Cant: 62 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00106 | Cant: 20 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P00468 | Cant: 44 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01409 | Cant: 28 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P00699 | Cant: 64 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P01087 | Cant: 58 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00833 | Cant: 73 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01102 | Cant: 10 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P00379 | Cant: 94 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01353 | Cant: 3 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00626 | Cant: 64 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00793 | Cant: 82 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00686 | Cant: 70 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01582 | Cant: 98 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P00233 | Cant: 29 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00331 | Cant: 10 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00399 | Cant: 90 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00735 | Cant: 10 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00260 | Cant: 64 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00625 | Cant: 29 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00861 | Cant: 68 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P00358 | Cant: 37 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00822 | Cant: 34 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00816 | Cant: 81 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P01046 | Cant: 14 | Destino: SLLP
-  Ruta: SPIM→SLLP
-
-Pedido P01314 | Cant: 97 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00297 | Cant: 54 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P01551 | Cant: 2 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00564 | Cant: 21 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00877 | Cant: 62 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01138 | Cant: 66 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00441 | Cant: 41 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00910 | Cant: 3 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00466 | Cant: 15 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00621 | Cant: 87 | Destino: OYSN
-  Ruta: EBCI→OYSN
-
-Pedido P01349 | Cant: 70 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00346 | Cant: 55 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00080 | Cant: 91 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00444 | Cant: 17 | Destino: SGAS
   Ruta: UBBB→SGAS
 
-Pedido P01538 | Cant: 63 | Destino: UBBB
-  Ruta: SPIM→UBBB
+Pedido P00793 | Cant: 82 | Destino: OSDI
+  Ruta: EBCI→OSDI
 
-Pedido P00518 | Cant: 75 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00893 | Cant: 32 | Destino: OAKB
-  Ruta: EBCI→OAKB
-
-Pedido P01135 | Cant: 19 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00195 | Cant: 64 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00669 | Cant: 88 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00790 | Cant: 37 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P01416 | Cant: 3 | Destino: SEQM
-  Ruta: EBCI→SEQM
-
-Pedido P01309 | Cant: 18 | Destino: EHAM
+Pedido P01275 | Cant: 57 | Destino: EHAM
   Ruta: EBCI→EHAM
 
-Pedido P01443 | Cant: 99 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00309 | Cant: 46 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P00619 | Cant: 15 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00352 | Cant: 33 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01423 | Cant: 58 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00479 | Cant: 60 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00920 | Cant: 93 | Destino: EHAM
+Pedido P00783 | Cant: 6 | Destino: EHAM
   Ruta: UBBB→EHAM
-
-Pedido P00538 | Cant: 36 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P01009 | Cant: 6 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P01142 | Cant: 60 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01093 | Cant: 7 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00329 | Cant: 8 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P00842 | Cant: 49 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P00972 | Cant: 64 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P01334 | Cant: 24 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P00137 | Cant: 28 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P01119 | Cant: 32 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P00853 | Cant: 87 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00729 | Cant: 73 | Destino: LDZA
-  Ruta: EBCI→LDZA
-
-Pedido P01512 | Cant: 70 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P01300 | Cant: 95 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01153 | Cant: 43 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P01168 | Cant: 24 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P01126 | Cant: 90 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00850 | Cant: 34 | Destino: SUAA
-  Ruta: EBCI→SUAA
-
-Pedido P00988 | Cant: 31 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01418 | Cant: 80 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P00548 | Cant: 24 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00542 | Cant: 83 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01264 | Cant: 9 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00895 | Cant: 7 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P01057 | Cant: 86 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P01007 | Cant: 92 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00057 | Cant: 10 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00966 | Cant: 100 | Destino: SVMI
-  Ruta: EBCI→SVMI
-
-Pedido P01560 | Cant: 57 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P01191 | Cant: 55 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01227 | Cant: 36 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P01228 | Cant: 88 | Destino: SABE
-  Ruta: EBCI→SABE
-
-Pedido P01513 | Cant: 44 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00424 | Cant: 56 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P00169 | Cant: 35 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01479 | Cant: 91 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01536 | Cant: 66 | Destino: LATI
-  Ruta: SPIM→LATI
-
-Pedido P00915 | Cant: 60 | Destino: OYSN
-  Ruta: UBBB→OYSN
-
-Pedido P00434 | Cant: 37 | Destino: LKPR
-  Ruta: UBBB→LKPR
-
-Pedido P00164 | Cant: 50 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P01323 | Cant: 96 | Destino: VIDP
-  Ruta: SPIM→VIDP
-
-Pedido P01436 | Cant: 75 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00700 | Cant: 64 | Destino: OOMS
-  Ruta: EBCI→OOMS
-
-Pedido P01394 | Cant: 2 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P00025 | Cant: 47 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00173 | Cant: 86 | Destino: SVMI
-  Ruta: UBBB→SVMI
-
-Pedido P01105 | Cant: 68 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01054 | Cant: 62 | Destino: OAKB
-  Ruta: SPIM→OAKB
-
-Pedido P00338 | Cant: 49 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00277 | Cant: 47 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00395 | Cant: 28 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00524 | Cant: 65 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01282 | Cant: 94 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P01412 | Cant: 69 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00480 | Cant: 35 | Destino: SGAS
-  Ruta: SPIM→SGAS
-
-Pedido P01546 | Cant: 41 | Destino: VIDP
-  Ruta: UBBB→VIDP
-
-Pedido P00947 | Cant: 2 | Destino: OERK
-  Ruta: UBBB→OERK
-
-Pedido P01403 | Cant: 28 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00517 | Cant: 25 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00891 | Cant: 99 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01152 | Cant: 46 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00101 | Cant: 17 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00452 | Cant: 40 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P01391 | Cant: 65 | Destino: EHAM
-  Ruta: UBBB→EHAM
-
-Pedido P00580 | Cant: 2 | Destino: EDDI
-  Ruta: SPIM→EDDI
-
-Pedido P00186 | Cant: 67 | Destino: SKBO
-  Ruta: UBBB→SKBO
-
-Pedido P00255 | Cant: 22 | Destino: OERK
-  Ruta: EBCI→OERK
-
-Pedido P00377 | Cant: 90 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00560 | Cant: 75 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00306 | Cant: 53 | Destino: SKBO
-  Ruta: EBCI→SKBO
-
-Pedido P00979 | Cant: 4 | Destino: OYSN
-  Ruta: SPIM→OYSN
-
-Pedido P01010 | Cant: 9 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P00896 | Cant: 43 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00373 | Cant: 89 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01140 | Cant: 64 | Destino: SLLP
-  Ruta: UBBB→SLLP
-
-Pedido P01137 | Cant: 4 | Destino: UBBB
-  Ruta: SPIM→UBBB
-
-Pedido P00292 | Cant: 96 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00815 | Cant: 36 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00011 | Cant: 100 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01080 | Cant: 32 | Destino: SUAA
-  Ruta: SPIM→SUAA
-
-Pedido P00435 | Cant: 70 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00038 | Cant: 78 | Destino: LBSF
-  Ruta: EBCI→LBSF
-
-Pedido P00355 | Cant: 90 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01322 | Cant: 36 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00867 | Cant: 79 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00696 | Cant: 89 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P00436 | Cant: 30 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01527 | Cant: 70 | Destino: OPKC
-  Ruta: SPIM→OPKC
-
-Pedido P00799 | Cant: 10 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00618 | Cant: 94 | Destino: SVMI
-  Ruta: SPIM→SVMI
-
-Pedido P00668 | Cant: 2 | Destino: LBSF
-  Ruta: SPIM→LBSF
-
-Pedido P00902 | Cant: 3 | Destino: EKCH
-  Ruta: EBCI→EKCH
-
-Pedido P00901 | Cant: 93 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P00462 | Cant: 46 | Destino: OJAI
-  Ruta: EBCI→OJAI
-
-Pedido P00337 | Cant: 43 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P01277 | Cant: 85 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P00257 | Cant: 83 | Destino: SLLP
-  Ruta: EBCI→SLLP
-
-Pedido P01029 | Cant: 13 | Destino: SCEL
-  Ruta: SPIM→SCEL
-
-Pedido P01491 | Cant: 38 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00766 | Cant: 95 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00393 | Cant: 15 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00930 | Cant: 37 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00983 | Cant: 73 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01557 | Cant: 100 | Destino: SBBR
-  Ruta: EBCI→SBBR
-
-Pedido P00326 | Cant: 51 | Destino: OJAI
-  Ruta: SPIM→OJAI
-
-Pedido P00050 | Cant: 85 | Destino: LKPR
-  Ruta: SPIM→LKPR
-
-Pedido P00460 | Cant: 17 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00002 | Cant: 67 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00528 | Cant: 92 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P00017 | Cant: 51 | Destino: SPIM
-  Ruta: EBCI→SPIM
-
-Pedido P01170 | Cant: 18 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00456 | Cant: 3 | Destino: EBCI
-  Ruta: UBBB→EBCI
-
-Pedido P00310 | Cant: 48 | Destino: EHAM
-  Ruta: EBCI→EHAM
-
-Pedido P01195 | Cant: 86 | Destino: OSDI
-  Ruta: UBBB→OSDI
-
-Pedido P00851 | Cant: 43 | Destino: UMMS
-  Ruta: SPIM→UMMS
 
 Pedido P00968 | Cant: 65 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P00591 | Cant: 40 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P01106 | Cant: 94 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00211 | Cant: 95 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00394 | Cant: 82 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00497 | Cant: 69 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00652 | Cant: 72 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00494 | Cant: 66 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01035 | Cant: 73 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00745 | Cant: 52 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01424 | Cant: 67 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P01180 | Cant: 3 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00576 | Cant: 18 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00959 | Cant: 82 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00273 | Cant: 35 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00884 | Cant: 95 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P01007 | Cant: 92 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00831 | Cant: 37 | Destino: LOWW
   Ruta: EBCI→LOWW
 
-Pedido P01544 | Cant: 27 | Destino: UBBB
-  Ruta: EBCI→UBBB
-
-Pedido P00840 | Cant: 87 | Destino: OPKC
+Pedido P00662 | Cant: 61 | Destino: OPKC
   Ruta: SPIM→OPKC
 
-Pedido P00519 | Cant: 26 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P00681 | Cant: 28 | Destino: LOWW
-  Ruta: EBCI→LOWW
-
-Pedido P00515 | Cant: 45 | Destino: LDZA
+Pedido P01299 | Cant: 20 | Destino: LDZA
   Ruta: EBCI→LDZA
+
+Pedido P01340 | Cant: 42 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01231 | Cant: 53 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00005 | Cant: 56 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00712 | Cant: 94 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00888 | Cant: 22 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P01127 | Cant: 43 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P00805 | Cant: 55 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P01243 | Cant: 6 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00248 | Cant: 44 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P00720 | Cant: 50 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00779 | Cant: 24 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00733 | Cant: 71 | Destino: EHAM
+  Ruta: SPIM→EHAM
 
 Pedido P00153 | Cant: 100 | Destino: SABE
   Ruta: SPIM→SABE
 
-Pedido P00530 | Cant: 29 | Destino: VIDP
-  Ruta: SPIM→VIDP
+Pedido P00045 | Cant: 25 | Destino: SKBO
+  Ruta: EBCI→SKBO
 
-Pedido P00161 | Cant: 73 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00906 | Cant: 46 | Destino: OOMS
-  Ruta: UBBB→OOMS
-
-Pedido P01533 | Cant: 10 | Destino: UMMS
-  Ruta: SPIM→UMMS
-
-Pedido P01172 | Cant: 44 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P00701 | Cant: 76 | Destino: EBCI
-  Ruta: SPIM→EBCI
-
-Pedido P00183 | Cant: 28 | Destino: UMMS
-  Ruta: EBCI→UMMS
-
-Pedido P00241 | Cant: 29 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01021 | Cant: 87 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P00649 | Cant: 37 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P00658 | Cant: 96 | Destino: SUAA
-  Ruta: UBBB→SUAA
-
-Pedido P01478 | Cant: 65 | Destino: SABE
-  Ruta: UBBB→SABE
-
-Pedido P01011 | Cant: 46 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P00585 | Cant: 67 | Destino: EDDI
-  Ruta: EBCI→EDDI
-
-Pedido P01279 | Cant: 10 | Destino: LOWW
+Pedido P00443 | Cant: 26 | Destino: LOWW
   Ruta: EBCI→LOWW
 
-Pedido P00062 | Cant: 75 | Destino: LBSF
-  Ruta: EBCI→LBSF
+Pedido P01283 | Cant: 15 | Destino: UMMS
+  Ruta: EBCI→UMMS
 
-Pedido P01373 | Cant: 76 | Destino: LDZA
-  Ruta: SPIM→LDZA
+Pedido P01569 | Cant: 53 | Destino: OYSN
+  Ruta: EBCI→OYSN
 
-Pedido P00037 | Cant: 94 | Destino: LATI
-  Ruta: EBCI→LATI
-
-Pedido P01090 | Cant: 17 | Destino: OPKC
-  Ruta: UBBB→OPKC
-
-Pedido P01497 | Cant: 54 | Destino: OMDB
-  Ruta: UBBB→OMDB
-
-Pedido P00998 | Cant: 87 | Destino: SKBO
-  Ruta: SPIM→SKBO
-
-Pedido P01020 | Cant: 76 | Destino: SABE
-  Ruta: SPIM→SABE
-
-Pedido P01055 | Cant: 46 | Destino: OMDB
-  Ruta: EBCI→OMDB
-
-Pedido P00730 | Cant: 12 | Destino: LBSF
+Pedido P00213 | Cant: 60 | Destino: LBSF
   Ruta: UBBB→LBSF
 
-Pedido P01258 | Cant: 19 | Destino: SCEL
-  Ruta: SPIM→SCEL
+Pedido P00820 | Cant: 75 | Destino: OSDI
+  Ruta: EBCI→OSDI
 
-Pedido P00042 | Cant: 11 | Destino: OJAI
-  Ruta: SPIM→OJAI
+Pedido P00657 | Cant: 71 | Destino: LOWW
+  Ruta: EBCI→LOWW
 
-Pedido P00081 | Cant: 28 | Destino: OSDI
-  Ruta: UBBB→OSDI
+Pedido P00995 | Cant: 77 | Destino: UMMS
+  Ruta: EBCI→UMMS
 
-Pedido P00203 | Cant: 68 | Destino: OOMS
-  Ruta: EBCI→OOMS
+Pedido P00006 | Cant: 82 | Destino: SEQM
+  Ruta: EBCI→SEQM
 
-Pedido P01422 | Cant: 40 | Destino: LBSF
-  Ruta: UBBB→LBSF
-
-Pedido P01445 | Cant: 72 | Destino: SBBR
-  Ruta: UBBB→SBBR
-
-Pedido P00510 | Cant: 61 | Destino: OAKB
-  Ruta: UBBB→OAKB
-
-Pedido P01037 | Cant: 44 | Destino: SGAS
-  Ruta: EBCI→SGAS
-
-Pedido P00228 | Cant: 81 | Destino: LDZA
-  Ruta: SPIM→LDZA
-
-Pedido P01040 | Cant: 14 | Destino: SEQM
-  Ruta: UBBB→SEQM
-
-Pedido P00812 | Cant: 38 | Destino: OMDB
-  Ruta: SPIM→OMDB
-
-Pedido P01271 | Cant: 12 | Destino: EBCI
+Pedido P00146 | Cant: 94 | Destino: EBCI
   Ruta: UBBB→EBCI
 
-Pedido P01094 | Cant: 42 | Destino: EKCH
-  Ruta: UBBB→EKCH
+Pedido P00003 | Cant: 22 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00790 | Cant: 37 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01091 | Cant: 29 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00754 | Cant: 61 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00856 | Cant: 43 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01173 | Cant: 62 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00455 | Cant: 29 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01398 | Cant: 38 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00958 | Cant: 36 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00209 | Cant: 8 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00509 | Cant: 3 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00387 | Cant: 61 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P01214 | Cant: 40 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P00775 | Cant: 5 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00131 | Cant: 88 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01147 | Cant: 59 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00552 | Cant: 44 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00499 | Cant: 38 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P00477 | Cant: 70 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00137 | Cant: 28 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01456 | Cant: 72 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00227 | Cant: 100 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00920 | Cant: 93 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00640 | Cant: 21 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00427 | Cant: 92 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00032 | Cant: 35 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P01595 | Cant: 33 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00084 | Cant: 11 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01291 | Cant: 62 | Destino: LBSF
+  Ruta: UBBB→LBSF
 
 Pedido P01401 | Cant: 13 | Destino: LOWW
   Ruta: EBCI→LOWW
 
-Pedido P01060 | Cant: 17 | Destino: EBCI
+Pedido P00447 | Cant: 52 | Destino: EBCI
   Ruta: UBBB→EBCI
+
+Pedido P00837 | Cant: 89 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00882 | Cant: 4 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00330 | Cant: 72 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00441 | Cant: 41 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P01067 | Cant: 28 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P00730 | Cant: 12 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01506 | Cant: 63 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00912 | Cant: 5 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00424 | Cant: 56 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00432 | Cant: 3 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P00535 | Cant: 97 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01319 | Cant: 24 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00705 | Cant: 8 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P01204 | Cant: 11 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01431 | Cant: 13 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00215 | Cant: 41 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01571 | Cant: 39 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P01237 | Cant: 97 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00621 | Cant: 87 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P00802 | Cant: 20 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00082 | Cant: 29 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P01450 | Cant: 86 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01139 | Cant: 86 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01161 | Cant: 53 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00269 | Cant: 4 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00143 | Cant: 63 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00573 | Cant: 74 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00060 | Cant: 88 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00405 | Cant: 65 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P01227 | Cant: 36 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01042 | Cant: 45 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P01108 | Cant: 78 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00843 | Cant: 8 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P00922 | Cant: 64 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00766 | Cant: 95 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01574 | Cant: 22 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00756 | Cant: 71 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00897 | Cant: 65 | Destino: SPIM
+  Ruta: UBBB→SPIM
 
 Pedido P00445 | Cant: 69 | Destino: EDDI
   Ruta: EBCI→EDDI
 
+Pedido P00637 | Cant: 48 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00028 | Cant: 14 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P01392 | Cant: 3 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00928 | Cant: 49 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00638 | Cant: 12 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00371 | Cant: 95 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01318 | Cant: 19 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01350 | Cant: 55 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00980 | Cant: 20 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01044 | Cant: 86 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P00945 | Cant: 66 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P01441 | Cant: 30 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00628 | Cant: 99 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01355 | Cant: 75 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00623 | Cant: 69 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00625 | Cant: 29 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00119 | Cant: 33 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01038 | Cant: 54 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00782 | Cant: 20 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00056 | Cant: 8 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00975 | Cant: 24 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01524 | Cant: 1 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01365 | Cant: 10 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01527 | Cant: 70 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P01504 | Cant: 38 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00847 | Cant: 57 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00340 | Cant: 29 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01143 | Cant: 98 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01206 | Cant: 32 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P01278 | Cant: 68 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01111 | Cant: 91 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00871 | Cant: 10 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01219 | Cant: 53 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01194 | Cant: 41 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P01029 | Cant: 13 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00792 | Cant: 89 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P01087 | Cant: 58 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01215 | Cant: 72 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01596 | Cant: 35 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01051 | Cant: 29 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00103 | Cant: 47 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P01260 | Cant: 20 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00334 | Cant: 93 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01575 | Cant: 65 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00031 | Cant: 93 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00402 | Cant: 19 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00682 | Cant: 75 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00563 | Cant: 18 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01114 | Cant: 25 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00030 | Cant: 100 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P01288 | Cant: 90 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P01128 | Cant: 52 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01257 | Cant: 55 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00344 | Cant: 12 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00328 | Cant: 91 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00832 | Cant: 61 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01209 | Cant: 11 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00337 | Cant: 43 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01369 | Cant: 45 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P01235 | Cant: 25 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01476 | Cant: 32 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P01329 | Cant: 96 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01414 | Cant: 52 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P00838 | Cant: 41 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01150 | Cant: 77 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00239 | Cant: 79 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P01309 | Cant: 18 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00523 | Cant: 95 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00300 | Cant: 47 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00077 | Cant: 74 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00310 | Cant: 48 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00291 | Cant: 82 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00940 | Cant: 25 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00246 | Cant: 94 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01199 | Cant: 7 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00550 | Cant: 87 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01415 | Cant: 69 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P01364 | Cant: 25 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01548 | Cant: 38 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00018 | Cant: 5 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00521 | Cant: 58 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P01459 | Cant: 64 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P01531 | Cant: 59 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00317 | Cant: 6 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00349 | Cant: 61 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00265 | Cant: 85 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01551 | Cant: 2 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00085 | Cant: 19 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00686 | Cant: 70 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00004 | Cant: 22 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P01017 | Cant: 22 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00692 | Cant: 50 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00446 | Cant: 34 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00641 | Cant: 87 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00655 | Cant: 7 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00507 | Cant: 41 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00906 | Cant: 46 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P01211 | Cant: 57 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01094 | Cant: 42 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01553 | Cant: 23 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00341 | Cant: 86 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00938 | Cant: 46 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01011 | Cant: 46 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00878 | Cant: 78 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01583 | Cant: 58 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P01201 | Cant: 9 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P00799 | Cant: 10 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P01360 | Cant: 58 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P01115 | Cant: 34 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00224 | Cant: 7 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01250 | Cant: 83 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P00251 | Cant: 3 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P00163 | Cant: 3 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00321 | Cant: 70 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00218 | Cant: 30 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P01220 | Cant: 74 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00188 | Cant: 37 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00038 | Cant: 78 | Destino: LBSF
+  Ruta: EBCI→LBSF
+
+Pedido P00253 | Cant: 94 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P01198 | Cant: 57 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00501 | Cant: 84 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01541 | Cant: 30 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01135 | Cant: 19 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00063 | Cant: 35 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P01197 | Cant: 96 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00007 | Cant: 41 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00294 | Cant: 91 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01509 | Cant: 90 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P01023 | Cant: 64 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00352 | Cant: 33 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00719 | Cant: 62 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00818 | Cant: 18 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00299 | Cant: 38 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P01057 | Cant: 86 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P01018 | Cant: 5 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00267 | Cant: 63 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01407 | Cant: 62 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00892 | Cant: 26 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00458 | Cant: 50 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P01465 | Cant: 99 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00506 | Cant: 83 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01397 | Cant: 12 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00990 | Cant: 33 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00513 | Cant: 42 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00829 | Cant: 60 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P00989 | Cant: 12 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P01118 | Cant: 12 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01510 | Cant: 37 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00589 | Cant: 79 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01066 | Cant: 19 | Destino: OAKB
+  Ruta: UBBB→OAKB
+
+Pedido P01229 | Cant: 24 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01508 | Cant: 37 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00024 | Cant: 77 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00107 | Cant: 57 | Destino: OPKC
+  Ruta: SPIM→OPKC
+
+Pedido P01468 | Cant: 42 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00704 | Cant: 18 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00064 | Cant: 25 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00512 | Cant: 22 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00636 | Cant: 40 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P01082 | Cant: 56 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01164 | Cant: 55 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P00532 | Cant: 55 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P01337 | Cant: 79 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P01256 | Cant: 6 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01470 | Cant: 76 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00903 | Cant: 6 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00864 | Cant: 60 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00610 | Cant: 99 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01332 | Cant: 4 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00290 | Cant: 88 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00582 | Cant: 60 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01216 | Cant: 23 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P01155 | Cant: 33 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00116 | Cant: 66 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00101 | Cant: 17 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00706 | Cant: 69 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P00413 | Cant: 90 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P01393 | Cant: 47 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00234 | Cant: 5 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P00481 | Cant: 71 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00849 | Cant: 67 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P01244 | Cant: 77 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P01321 | Cant: 23 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P01036 | Cant: 56 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00428 | Cant: 70 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P01096 | Cant: 49 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01098 | Cant: 4 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00485 | Cant: 24 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P01466 | Cant: 91 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00801 | Cant: 93 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01300 | Cant: 95 | Destino: SGAS
+  Ruta: EBCI→SGAS
+
+Pedido P01274 | Cant: 40 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01591 | Cant: 26 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00900 | Cant: 58 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00118 | Cant: 80 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P01060 | Cant: 17 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01052 | Cant: 32 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00268 | Cant: 13 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00713 | Cant: 70 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P01238 | Cant: 55 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01027 | Cant: 22 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00115 | Cant: 33 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00854 | Cant: 36 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00553 | Cant: 95 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00626 | Cant: 64 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00961 | Cant: 6 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00859 | Cant: 35 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01006 | Cant: 48 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01403 | Cant: 28 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00504 | Cant: 55 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P01594 | Cant: 62 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00293 | Cant: 3 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00144 | Cant: 55 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00309 | Cant: 46 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00270 | Cant: 39 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00729 | Cant: 73 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P01498 | Cant: 19 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00258 | Cant: 18 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00561 | Cant: 27 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01451 | Cant: 97 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01518 | Cant: 28 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P00212 | Cant: 45 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00145 | Cant: 21 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P01418 | Cant: 80 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P01295 | Cant: 69 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01484 | Cant: 82 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00274 | Cant: 27 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P01005 | Cant: 88 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01133 | Cant: 36 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00615 | Cant: 33 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01425 | Cant: 31 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00771 | Cant: 61 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01073 | Cant: 29 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00421 | Cant: 3 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P00332 | Cant: 36 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00927 | Cant: 47 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01075 | Cant: 56 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P01334 | Cant: 24 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00041 | Cant: 55 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00228 | Cant: 81 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P01545 | Cant: 57 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
 Pedido P00772 | Cant: 61 | Destino: LKPR
   Ruta: SPIM→LKPR
 
-Pedido P01598 | Cant: 3 | Destino: LATI
-  Ruta: EBCI→LATI
+Pedido P01554 | Cant: 3 | Destino: OOMS
+  Ruta: SPIM→OOMS
 
-Pedido P00882 | Cant: 4 | Destino: OSDI
+Pedido P01191 | Cant: 55 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P00681 | Cant: 28 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00850 | Cant: 34 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00230 | Cant: 42 | Destino: EHAM
+  Ruta: SPIM→EHAM
+
+Pedido P00807 | Cant: 3 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00524 | Cant: 65 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P01516 | Cant: 39 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00397 | Cant: 98 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00148 | Cant: 70 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00281 | Cant: 63 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01413 | Cant: 29 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01464 | Cant: 71 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00206 | Cant: 34 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00486 | Cant: 41 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00216 | Cant: 75 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00519 | Cant: 26 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00098 | Cant: 47 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00680 | Cant: 63 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00354 | Cant: 15 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00495 | Cant: 72 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00786 | Cant: 90 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P00338 | Cant: 49 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00891 | Cant: 99 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00490 | Cant: 70 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00816 | Cant: 81 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P01567 | Cant: 47 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00505 | Cant: 36 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00908 | Cant: 23 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P00304 | Cant: 29 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P00744 | Cant: 85 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P01535 | Cant: 64 | Destino: OSDI
   Ruta: UBBB→OSDI
 
-Pedido P00741 | Cant: 30 | Destino: EDDI
+Pedido P01170 | Cant: 18 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00461 | Cant: 13 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00951 | Cant: 59 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01374 | Cant: 53 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P00122 | Cant: 18 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P00271 | Cant: 9 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01460 | Cant: 23 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00598 | Cant: 90 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P01442 | Cant: 25 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01013 | Cant: 21 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P01049 | Cant: 18 | Destino: LDZA
+  Ruta: EBCI→LDZA
+
+Pedido P01395 | Cant: 16 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00051 | Cant: 65 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P01252 | Cant: 44 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00296 | Cant: 73 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01039 | Cant: 20 | Destino: LATI
+  Ruta: UBBB→LATI
+
+Pedido P00842 | Cant: 49 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01158 | Cant: 82 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01179 | Cant: 45 | Destino: EDDI
   Ruta: EBCI→EDDI
+
+Pedido P00235 | Cant: 13 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P01422 | Cant: 40 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00169 | Cant: 35 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P00960 | Cant: 1 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00619 | Cant: 15 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P00403 | Cant: 60 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00592 | Cant: 27 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00670 | Cant: 82 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01388 | Cant: 66 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00319 | Cant: 7 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00978 | Cant: 9 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P01065 | Cant: 69 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00123 | Cant: 64 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00520 | Cant: 36 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00117 | Cant: 15 | Destino: LDZA
+  Ruta: SPIM→LDZA
+
+Pedido P00325 | Cant: 8 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01376 | Cant: 28 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P01262 | Cant: 92 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00880 | Cant: 67 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01079 | Cant: 19 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P01505 | Cant: 88 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00917 | Cant: 13 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P01390 | Cant: 69 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00042 | Cant: 11 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00931 | Cant: 99 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P00178 | Cant: 23 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00385 | Cant: 31 | Destino: SBBR
+  Ruta: EBCI→SBBR
+
+Pedido P00642 | Cant: 73 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00014 | Cant: 1 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00132 | Cant: 14 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01320 | Cant: 64 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00717 | Cant: 27 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P01324 | Cant: 80 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P00821 | Cant: 80 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00528 | Cant: 92 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00538 | Cant: 36 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01377 | Cant: 21 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00016 | Cant: 97 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00289 | Cant: 94 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00229 | Cant: 79 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P01222 | Cant: 27 | Destino: EKCH
+  Ruta: SPIM→EKCH
+
+Pedido P00260 | Cant: 64 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00933 | Cant: 20 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01342 | Cant: 96 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00210 | Cant: 33 | Destino: UBBB
+  Ruta: EBCI→UBBB
+
+Pedido P01592 | Cant: 96 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01055 | Cant: 46 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P00844 | Cant: 8 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00734 | Cant: 87 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00987 | Cant: 73 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00929 | Cant: 16 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00391 | Cant: 69 | Destino: OSDI
+  Ruta: EBCI→OSDI
+
+Pedido P00555 | Cant: 32 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P00155 | Cant: 30 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P00214 | Cant: 2 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00575 | Cant: 31 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P01263 | Cant: 20 | Destino: SEQM
+  Ruta: UBBB→SEQM
+
+Pedido P00540 | Cant: 51 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00205 | Cant: 66 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00410 | Cant: 62 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P01062 | Cant: 51 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00088 | Cant: 4 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P00873 | Cant: 7 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00511 | Cant: 73 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01338 | Cant: 75 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01457 | Cant: 49 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00633 | Cant: 25 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P01537 | Cant: 60 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01396 | Cant: 98 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P01486 | Cant: 82 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00826 | Cant: 92 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P00778 | Cant: 73 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P01289 | Cant: 55 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00193 | Cant: 46 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P01248 | Cant: 5 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00522 | Cant: 9 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00866 | Cant: 85 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00483 | Cant: 47 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P00952 | Cant: 78 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00186 | Cant: 67 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00376 | Cant: 83 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P00083 | Cant: 90 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00985 | Cant: 35 | Destino: OPKC
+  Ruta: UBBB→OPKC
+
+Pedido P00185 | Cant: 19 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P01157 | Cant: 46 | Destino: VIDP
+  Ruta: SPIM→VIDP
+
+Pedido P01480 | Cant: 89 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P01493 | Cant: 51 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00687 | Cant: 29 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P00133 | Cant: 6 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00708 | Cant: 93 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01022 | Cant: 64 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P01323 | Cant: 96 | Destino: VIDP
+  Ruta: UBBB→VIDP
+
+Pedido P00177 | Cant: 1 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00046 | Cant: 50 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00695 | Cant: 40 | Destino: OMDB
+  Ruta: SPIM→OMDB
+
+Pedido P01331 | Cant: 63 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00673 | Cant: 20 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00716 | Cant: 97 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00035 | Cant: 53 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P01080 | Cant: 32 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P01586 | Cant: 57 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00876 | Cant: 26 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00971 | Cant: 73 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00736 | Cant: 84 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P00401 | Cant: 1 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P00601 | Cant: 25 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01301 | Cant: 84 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00740 | Cant: 68 | Destino: OJAI
+  Ruta: SPIM→OJAI
+
+Pedido P00944 | Cant: 72 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00307 | Cant: 26 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00161 | Cant: 73 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01279 | Cant: 10 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P01221 | Cant: 21 | Destino: EHAM
+  Ruta: EBCI→EHAM
+
+Pedido P00415 | Cant: 17 | Destino: OOMS
+  Ruta: SPIM→OOMS
+
+Pedido P00770 | Cant: 41 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P01217 | Cant: 94 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00643 | Cant: 84 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00409 | Cant: 91 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00560 | Cant: 75 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00378 | Cant: 78 | Destino: LBSF
+  Ruta: UBBB→LBSF
+
+Pedido P00768 | Cant: 32 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00040 | Cant: 6 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00075 | Cant: 59 | Destino: EDDI
+  Ruta: UBBB→EDDI
+
+Pedido P01112 | Cant: 2 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P00306 | Cant: 53 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P00109 | Cant: 73 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P01492 | Cant: 26 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P01313 | Cant: 28 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P00173 | Cant: 86 | Destino: SVMI
+  Ruta: UBBB→SVMI
+
+Pedido P01264 | Cant: 9 | Destino: EBCI
+  Ruta: UBBB→EBCI
+
+Pedido P01588 | Cant: 33 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P01375 | Cant: 81 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00002 | Cant: 67 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00222 | Cant: 86 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00383 | Cant: 53 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01145 | Cant: 96 | Destino: LOWW
+  Ruta: SPIM→LOWW
+
+Pedido P01054 | Cant: 62 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00585 | Cant: 67 | Destino: EDDI
+  Ruta: EBCI→EDDI
+
+Pedido P01449 | Cant: 46 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P01467 | Cant: 35 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01068 | Cant: 3 | Destino: UMMS
+  Ruta: SPIM→UMMS
+
+Pedido P01071 | Cant: 23 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00587 | Cant: 83 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00044 | Cant: 39 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P01287 | Cant: 74 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P01423 | Cant: 58 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00997 | Cant: 81 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P01454 | Cant: 19 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01430 | Cant: 47 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00113 | Cant: 86 | Destino: SCEL
+  Ruta: EBCI→SCEL
+
+Pedido P00609 | Cant: 34 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P01188 | Cant: 93 | Destino: SGAS
+  Ruta: UBBB→SGAS
+
+Pedido P00794 | Cant: 35 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00526 | Cant: 40 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P01184 | Cant: 2 | Destino: OJAI
+  Ruta: UBBB→OJAI
+
+Pedido P00090 | Cant: 42 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00590 | Cant: 95 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00459 | Cant: 58 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01045 | Cant: 60 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00247 | Cant: 93 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00644 | Cant: 18 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00616 | Cant: 1 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P01496 | Cant: 44 | Destino: SPIM
+  Ruta: EBCI→SPIM
+
+Pedido P00468 | Cant: 44 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P00953 | Cant: 59 | Destino: OMDB
+  Ruta: EBCI→OMDB
+
+Pedido P00393 | Cant: 15 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00562 | Cant: 22 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P00036 | Cant: 45 | Destino: SUAA
+  Ruta: UBBB→SUAA
+
+Pedido P00183 | Cant: 28 | Destino: UMMS
+  Ruta: EBCI→UMMS
+
+Pedido P00091 | Cant: 39 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00956 | Cant: 88 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00331 | Cant: 10 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P01033 | Cant: 65 | Destino: OOMS
+  Ruta: UBBB→OOMS
+
+Pedido P01003 | Cant: 12 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00009 | Cant: 50 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00827 | Cant: 36 | Destino: OPKC
+  Ruta: EBCI→OPKC
+
+Pedido P00543 | Cant: 85 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P01183 | Cant: 23 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01246 | Cant: 19 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P01517 | Cant: 60 | Destino: EKCH
+  Ruta: UBBB→EKCH
+
+Pedido P01193 | Cant: 21 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00750 | Cant: 41 | Destino: EBCI
+  Ruta: SPIM→EBCI
+
+Pedido P01597 | Cant: 33 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P00806 | Cant: 57 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00737 | Cant: 54 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P00962 | Cant: 19 | Destino: SBBR
+  Ruta: SPIM→SBBR
+
+Pedido P00164 | Cant: 50 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01119 | Cant: 32 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01140 | Cant: 64 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00994 | Cant: 99 | Destino: SVMI
+  Ruta: SPIM→SVMI
+
+Pedido P01471 | Cant: 7 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P00721 | Cant: 49 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00947 | Cant: 2 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P01104 | Cant: 56 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01228 | Cant: 88 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00373 | Cant: 89 | Destino: SKBO
+  Ruta: SPIM→SKBO
+
+Pedido P00693 | Cant: 75 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P01543 | Cant: 17 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P01177 | Cant: 54 | Destino: OAKB
+  Ruta: EBCI→OAKB
+
+Pedido P00531 | Cant: 89 | Destino: SKBO
+  Ruta: UBBB→SKBO
+
+Pedido P00157 | Cant: 64 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P01053 | Cant: 84 | Destino: EBCI
+  Ruta: UBBB→EBCI
 
 Pedido P00166 | Cant: 86 | Destino: OJAI
   Ruta: EBCI→OJAI
 
-Pedido P00974 | Cant: 99 | Destino: EBCI
-  Ruta: UBBB→EBCI
+Pedido P01168 | Cant: 24 | Destino: LOWW
+  Ruta: EBCI→LOWW
 
-Pedido P01567 | Cant: 47 | Destino: OERK
+Pedido P00012 | Cant: 95 | Destino: OSDI
+  Ruta: SPIM→OSDI
+
+Pedido P00034 | Cant: 87 | Destino: OERK
   Ruta: EBCI→OERK
+
+Pedido P01210 | Cant: 15 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P01339 | Cant: 13 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00710 | Cant: 11 | Destino: SBBR
+  Ruta: UBBB→SBBR
+
+Pedido P00384 | Cant: 21 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P00336 | Cant: 70 | Destino: SABE
+  Ruta: SPIM→SABE
+
+Pedido P01582 | Cant: 98 | Destino: SLLP
+  Ruta: SPIM→SLLP
+
+Pedido P00685 | Cant: 96 | Destino: LATI
+  Ruta: SPIM→LATI
+
+Pedido P01281 | Cant: 51 | Destino: OSDI
+  Ruta: UBBB→OSDI
+
+Pedido P01059 | Cant: 59 | Destino: OYSN
+  Ruta: EBCI→OYSN
+
+Pedido P00724 | Cant: 89 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P00305 | Cant: 86 | Destino: LDZA
+  Ruta: UBBB→LDZA
+
+Pedido P01389 | Cant: 94 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00322 | Cant: 93 | Destino: EDDI
+  Ruta: SPIM→EDDI
+
+Pedido P01399 | Cant: 23 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00369 | Cant: 11 | Destino: SCEL
+  Ruta: UBBB→SCEL
+
+Pedido P01272 | Cant: 90 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00789 | Cant: 36 | Destino: OAKB
+  Ruta: SPIM→OAKB
+
+Pedido P00086 | Cant: 88 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P01126 | Cant: 90 | Destino: OYSN
+  Ruta: SPIM→OYSN
+
+Pedido P01175 | Cant: 71 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P01590 | Cant: 9 | Destino: SABE
+  Ruta: EBCI→SABE
+
+Pedido P00579 | Cant: 48 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P00223 | Cant: 34 | Destino: SVMI
+  Ruta: EBCI→SVMI
+
+Pedido P00879 | Cant: 66 | Destino: SKBO
+  Ruta: EBCI→SKBO
+
+Pedido P01234 | Cant: 2 | Destino: LBSF
+  Ruta: SPIM→LBSF
+
+Pedido P00072 | Cant: 91 | Destino: LKPR
+  Ruta: UBBB→LKPR
+
+Pedido P00977 | Cant: 15 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00367 | Cant: 21 | Destino: LOWW
+  Ruta: UBBB→LOWW
+
+Pedido P01578 | Cant: 61 | Destino: OERK
+  Ruta: SPIM→OERK
+
+Pedido P00612 | Cant: 37 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00676 | Cant: 72 | Destino: LKPR
+  Ruta: SPIM→LKPR
+
+Pedido P01549 | Cant: 52 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01330 | Cant: 41 | Destino: SGAS
+  Ruta: SPIM→SGAS
+
+Pedido P01560 | Cant: 57 | Destino: LKPR
+  Ruta: EBCI→LKPR
+
+Pedido P00262 | Cant: 60 | Destino: VIDP
+  Ruta: EBCI→VIDP
+
+Pedido P01305 | Cant: 59 | Destino: OERK
+  Ruta: EBCI→OERK
+
+Pedido P00841 | Cant: 14 | Destino: SLLP
+  Ruta: UBBB→SLLP
+
+Pedido P00488 | Cant: 79 | Destino: OMDB
+  Ruta: UBBB→OMDB
+
+Pedido P00852 | Cant: 91 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P01523 | Cant: 50 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P00089 | Cant: 28 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P00201 | Cant: 22 | Destino: SABE
+  Ruta: UBBB→SABE
+
+Pedido P01419 | Cant: 88 | Destino: SEQM
+  Ruta: EBCI→SEQM
+
+Pedido P00776 | Cant: 74 | Destino: EKCH
+  Ruta: EBCI→EKCH
+
+Pedido P01544 | Cant: 27 | Destino: UBBB
+  Ruta: SPIM→UBBB
+
+Pedido P00039 | Cant: 46 | Destino: SPIM
+  Ruta: UBBB→SPIM
+
+Pedido P01436 | Cant: 75 | Destino: OJAI
+  Ruta: EBCI→OJAI
+
+Pedido P00651 | Cant: 71 | Destino: SEQM
+  Ruta: SPIM→SEQM
+
+Pedido P00728 | Cant: 77 | Destino: SLLP
+  Ruta: EBCI→SLLP
+
+Pedido P00564 | Cant: 21 | Destino: OERK
+  Ruta: UBBB→OERK
+
+Pedido P00887 | Cant: 76 | Destino: SUAA
+  Ruta: SPIM→SUAA
+
+Pedido P01025 | Cant: 80 | Destino: OYSN
+  Ruta: UBBB→OYSN
+
+Pedido P00266 | Cant: 80 | Destino: EHAM
+  Ruta: UBBB→EHAM
+
+Pedido P01513 | Cant: 44 | Destino: LOWW
+  Ruta: EBCI→LOWW
+
+Pedido P01110 | Cant: 85 | Destino: UMMS
+  Ruta: UBBB→UMMS
+
+Pedido P00059 | Cant: 73 | Destino: SCEL
+  Ruta: SPIM→SCEL
+
+Pedido P00571 | Cant: 29 | Destino: OOMS
+  Ruta: EBCI→OOMS
+
+Pedido P01598 | Cant: 3 | Destino: LATI
+  Ruta: EBCI→LATI
+
+Pedido P01409 | Cant: 28 | Destino: SUAA
+  Ruta: EBCI→SUAA
+
+Pedido P00567 | Cant: 57 | Destino: SCEL
+  Ruta: EBCI→SCEL
 

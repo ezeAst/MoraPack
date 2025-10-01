@@ -128,29 +128,44 @@ public class GraspMoraPack {
 
         return new Solucion(solucionLogistica, pedidos.size());
     }
+
     private List<Vuelo> buscarMejorRutaParaPedidoConCapacidadTemporal(Pedido pedido) {
         String destinoCodigo = pedido.getLugarDestino().getCodigo();
         List<CandidatoRuta> candidatos = new ArrayList<>();
 
-        for (String codigoFabrica : Solucion.FABRICAS) {
-            // Rutas directas
+        // ✅ LÍMITE: Solo evaluar 2 fábricas aleatorias en lugar de todas
+        List<String> fabricasAleatorias = new ArrayList<>(Solucion.FABRICAS);
+        Collections.shuffle(fabricasAleatorias);
+        int maxFabricas = Math.min(2, fabricasAleatorias.size());
+
+        for (int i = 0; i < maxFabricas; i++) {
+            String codigoFabrica = fabricasAleatorias.get(i);
+
+            // Rutas directas (priorizar estas)
             List<Vuelo> rutaDirecta = buscarRutaDirectaDesdeOrigenConCapacidad(
                     codigoFabrica, destinoCodigo, pedido);
             if (!rutaDirecta.isEmpty() &&
                     rutaTieneCapacidadTemporalCompleta(rutaDirecta, pedido)) {
-                double puntuacion = calcularPuntuacionRuta(rutaDirecta);
-                candidatos.add(new CandidatoRuta(rutaDirecta, puntuacion));
+                return rutaDirecta; // ✅ RETORNAR INMEDIATAMENTE si hay directa
             }
 
-            // Rutas con escala
+            // ✅ LÍMITE: Solo 3 rutas con escala por fábrica
             List<List<Vuelo>> rutasConEscala = buscarRutasConEscalaDesdeOrigenConCapacidad(
                     codigoFabrica, destinoCodigo, pedido);
+
+            int rutasEvaluadas = 0;
             for (List<Vuelo> ruta : rutasConEscala) {
+                if (++rutasEvaluadas > 3) break; // ✅ CORTAR después de 3
+
                 if (rutaTieneCapacidadTemporalCompleta(ruta, pedido)) {
                     double puntuacion = calcularPuntuacionRuta(ruta);
                     candidatos.add(new CandidatoRuta(ruta, puntuacion));
+
+                    if (candidatos.size() >= 5) break; // ✅ MÁXIMO 5 candidatos totales
                 }
             }
+
+            if (candidatos.size() >= 5) break;
         }
 
         if (candidatos.isEmpty()) {
