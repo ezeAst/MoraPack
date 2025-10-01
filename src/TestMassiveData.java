@@ -46,30 +46,30 @@ public class TestMassiveData {
      * Ejecuta la comparación entre GA y ACS
      */
     private static void ejecutarComparacion(DatosMoraPack datos) {
-        System.out.println("=".repeat(70));
-        System.out.println("PASO 1: GENERANDO SEMILLAS CON GRASP");
-        System.out.println("=".repeat(70));
 
         long inicioTotal = System.currentTimeMillis();
 
-        // 1. Generar semillas con GRASP
-        List<Solucion> semillas = generarSemillasGrasp(datos, NUM_SEMILLAS);
-        System.out.printf("✓ %d semillas factibles generadas%n%n", semillas.size());
-
-        // 2. Ejecutar GA con semillas
+        // 2. Ejecutar GA
         System.out.println("=".repeat(70));
-        System.out.println("PASO 2: EJECUTANDO ALGORITMO GENÉTICO");
+        System.out.println("PASO 1: EJECUTANDO ALGORITMO GENÉTICO");
         System.out.println("=".repeat(70));
         long inicioGA = System.currentTimeMillis();
-        Solucion solucionGA = ejecutarGAConSemillas(datos, semillas);
+        GraspGeneticHybrid  ga = new GraspGeneticHybrid(datos.getPedidos(), datos.getVuelos());
+        Solucion solucionGA = ga.ejecutarHibrido();
         long tiempoGA = System.currentTimeMillis() - inicioGA;
         System.out.printf("✓ GA completado en %.2f segundos%n%n", tiempoGA / 1000.0);
 
+        long inicioACS = System.currentTimeMillis();
+        System.out.println("=".repeat(70));
+        System.out.println("PASO 2.1: GENERANDO SEMILLAS CON GRASP PARA ACS");
+        System.out.println("=".repeat(70));
+        List<Solucion> semillas = generarSemillasGrasp(datos, NUM_SEMILLAS);
+        System.out.printf("✓ %d semillas factibles generadas%n%n", semillas.size());
+
         // 3. Ejecutar ACS con semillas
         System.out.println("=".repeat(70));
-        System.out.println("PASO 3: EJECUTANDO ACS (COLONIA DE HORMIGAS)");
+        System.out.println("PASO 2.2: EJECUTANDO ACS (COLONIA DE HORMIGAS)");
         System.out.println("=".repeat(70));
-        long inicioACS = System.currentTimeMillis();
         Solucion solucionACS = ejecutarACSConSemillas(datos, semillas);
         long tiempoACS = System.currentTimeMillis() - inicioACS;
         System.out.printf("✓ ACS completado en %.2f segundos%n%n", tiempoACS / 1000.0);
@@ -119,25 +119,6 @@ public class TestMassiveData {
     /**
      * Ejecuta GA usando las semillas de GRASP
      */
-    private static Solucion ejecutarGAConSemillas(DatosMoraPack datos, List<Solucion> semillas) {
-        GeneticAlgorithmMoraPack ga = new GeneticAlgorithmMoraPack(datos.getPedidos(), datos.getVuelos());
-
-        // Configuración para datos masivos
-        ga.setTamañoPoblacion(30);
-        ga.setNumeroGeneraciones(50);
-        ga.setTasaMutacion(0.15);
-        ga.setTasaCruzamiento(0.85);
-
-        // Establecer semillas
-        try {
-
-            System.out.println("  ✓ Semillas inicializadas en GA");
-        } catch (Exception e) {
-            System.out.println("  ⚠ No se pudieron establecer semillas: " + e.getMessage());
-        }
-
-        return ga.ejecutar();
-    }
 
     /**
      * Ejecuta ACS usando las semillas de GRASP
@@ -372,7 +353,7 @@ public class TestMassiveData {
             System.out.println("🤝 EMPATE: Ambos algoritmos obtuvieron el mismo fitness");
         }
 
-        System.out.println("\n💡 Nota: Ambos algoritmos usaron las mismas " + NUM_SEMILLAS + " semillas de GRASP");
+
     }
 
     /**
