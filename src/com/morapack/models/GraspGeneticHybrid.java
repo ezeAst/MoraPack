@@ -46,7 +46,7 @@ public class GraspGeneticHybrid {
 
         // Fase 1: Ejecutar múltiples iteraciones de GRASP
         // System.out.println("\n--- FASE 1: MÚLTIPLES EJECUCIONES DE GRASP ---");
-        ejecutarFaseGrasp();
+        //ejecutarFaseGrasp();
 
         // Fase 2: Preparar población inicial enriquecida
         // System.out.println("\n--- FASE 2: PREPARANDO POBLACIÓN INICIAL ENRIQUECIDA ---");

@@ -38,9 +38,9 @@ public class GeneticAlgorithmMoraPack {
         this.historialFitness = new ArrayList<>();
 
         // Parámetros por defecto
-        this.tamañoPoblacion = 50;
-        this.numeroGeneraciones = 100;
-        this.tasaMutacion = 0.15;
+        this.tamañoPoblacion = 20;
+        this.numeroGeneraciones = 30;
+        this.tasaMutacion = 0.20;
         this.tasaCruzamiento = 0.8;
         this.torneo = 5;
 
@@ -119,29 +119,79 @@ public class GeneticAlgorithmMoraPack {
     private List<Individuo> generarPoblacionInicial() {
         List<Individuo> poblacion = new ArrayList<>();
 
-        // 30% de la población usando GRASP con diferentes valores de alfa
-        double[] alphasGrasp = {0.0, 0.2, 0.5, 0.8, 1.0};
-        int individuosGrasp = (int)(tamañoPoblacion * 0.3);
+        // ✅ TODA la población viene de GRASP (ya están calculadas)
+        if (semillasIniciales != null && !semillasIniciales.isEmpty()) {
 
-        for (int i = 0; i < individuosGrasp; i++) {
-            double alfa = alphasGrasp[i % alphasGrasp.length];
-            grasp.setAlfa(alfa);
-            Solucion solucion = grasp.generarSolucion();
-            if (solucion != null) {
-                poblacion.add(new Individuo(solucion));
+
+            // Usar todas las semillas GRASP disponibles
+            for (Solucion semilla : semillasIniciales) {
+                if (poblacion.size() >= tamañoPoblacion) break;
+                poblacion.add(new Individuo(semilla));
             }
-        }
 
-        // 70% restante usando generación aleatoria mejorada
-        while (poblacion.size() < tamañoPoblacion) {
-            Solucion solucionAleatoria = generarSolucionAleatoria();
-            if (solucionAleatoria != null) {
-                poblacion.add(new Individuo(solucionAleatoria));
+            // Si faltan individuos, clonar y mutar ligeramente las mejores
+            while (poblacion.size() < tamañoPoblacion) {
+                Solucion original = semillasIniciales.get(
+                        random.nextInt(Math.min(5, semillasIniciales.size()))
+                );
+                Individuo clonMutado = new Individuo(clonarSolucion(original));
+                mutarLevemente(clonMutado); // ✅ Mutación MUY ligera
+                poblacion.add(clonMutado);
+            }
+        } else {
+            // Fallback: usar GRASP con diferentes alfas
+
+            double[] alphas = {0.0, 0.2, 0.5, 0.8, 1.0};
+
+            for (int i = 0; i < tamañoPoblacion; i++) {
+                grasp.setAlfa(alphas[i % alphas.length]);
+                Solucion s = grasp.generarSolucion();
+                if (s != null) {
+                    poblacion.add(new Individuo(s));
+                }
             }
         }
 
         return poblacion;
     }
+
+    private void mutarLevemente(Individuo individuo) {
+        Map<Pedido, RutaPedido> rutas = individuo.solucion.getSolucionLogistica().getAsignacionPedidos();
+
+        if (rutas.isEmpty()) return;
+
+        // Solo mutar 1 pedido aleatorio
+        List<Pedido> pedidos = new ArrayList<>(rutas.keySet());
+        Pedido pedido = pedidos.get(random.nextInt(pedidos.size()));
+
+        // Intentar cambiar solo la fábrica de origen
+        mutarCambiarFabrica(pedido, rutas);
+
+        // Recalcular fitness
+        individuo.solucion = new Solucion(
+                individuo.solucion.getSolucionLogistica(),
+                this.pedidos.size()
+        );
+        individuo.fitness = individuo.solucion.getFitness();
+    }
+
+    private Solucion clonarSolucion(Solucion original) {
+        Map<Pedido, RutaPedido> rutasOriginales =
+                original.getSolucionLogistica().getAsignacionPedidos();
+
+        SolucionLogistica nuevaSolucion = new SolucionLogistica();
+        nuevaSolucion.setAsignacionPedidos(new HashMap<>());
+
+        for (Map.Entry<Pedido, RutaPedido> entry : rutasOriginales.entrySet()) {
+            nuevaSolucion.agregarRutaPedido(
+                    entry.getKey(),
+                    new RutaPedido(entry.getKey(), new ArrayList<>(entry.getValue().getSecuenciaVuelos()))
+            );
+        }
+
+        return new Solucion(nuevaSolucion, pedidos.size());
+    }
+
 
     /**
      * Genera una solución completamente aleatoria pero válida
