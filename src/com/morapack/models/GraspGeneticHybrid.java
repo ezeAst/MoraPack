@@ -72,6 +72,7 @@ public class GraspGeneticHybrid {
         double mejorFitnessGrasp = Double.NEGATIVE_INFINITY;
 
         // System.out.printf("Ejecutando %d iteraciones de GRASP...%n", iteracionesGrasp);
+        long inicioGA = System.currentTimeMillis();
 
         for (int iteracion = 0; iteracion < iteracionesGrasp; iteracion++) {
             // Alternar entre diferentes valores de alfa
@@ -101,6 +102,9 @@ public class GraspGeneticHybrid {
                 // }
             }
         }
+
+        long tiempoGA = System.currentTimeMillis() - inicioGA;
+        System.out.printf("✓ grasp completado en %.2f segundos%n%n", tiempoGA / 1000.0);
 
         // System.out.printf("GRASP completado. Mejor fitness: %.2f%n", mejorFitnessGrasp);
         // System.out.printf("Soluciones válidas generadas: %d/%d%n", mejoresSolucionesGrasp.size(), iteracionesGrasp);

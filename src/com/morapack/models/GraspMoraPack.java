@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
  * Previene violaciones de capacidad durante la construcción de rutas
  */
 public class GraspMoraPack {
-
     private List<Pedido> pedidos;
     private List<Vuelo> vuelos;
     private Map<String, List<Vuelo>> vuelosPorOrigen;

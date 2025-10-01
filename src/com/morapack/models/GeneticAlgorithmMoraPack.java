@@ -29,6 +29,7 @@ public class GeneticAlgorithmMoraPack {
     private List<Double> historialFitness;
     private Solucion mejorSolucionGlobal;
 
+    
     public GeneticAlgorithmMoraPack(List<Pedido> pedidos, List<Vuelo> vuelos) {
         this.pedidos = new ArrayList<>(pedidos);
         this.vuelos = new ArrayList<>(vuelos);
