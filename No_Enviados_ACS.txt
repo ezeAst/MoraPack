@@ -2,5 +2,10 @@ MORAPACK - PEDIDOS NO ENVIADOS (ACS)
 
 ID | Cantidad | Destino
 ----------------------------------------
+P00187 | 97 | SGAS
+P00620 | 100 | LOWW
+P04071 | 93 | SKBO
+P04117 | 100 | SEQM
+P05605 | 100 | OERK
 
-Total no enviados: 0/1600
+Total no enviados: 5/7000

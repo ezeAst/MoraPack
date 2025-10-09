@@ -51,29 +51,29 @@ public class GeneticAlgorithmMoraPack {
      * Ejecuta el algoritmo genético completo
      */
     public Solucion ejecutar() {
-        // Paso 1: Generar población inicial
+        long t1 = System.currentTimeMillis();
+
+        // Población inicial
         List<Individuo> poblacion = generarPoblacionInicial();
         evaluarPoblacion(poblacion);
-
-        // Inicializar mejor solución
         mejorSolucionGlobal = encontrarMejorIndividuo(poblacion).solucion;
         historialFitness.add(mejorSolucionGlobal.getFitness());
 
-        // Paso 2: Evolución por generaciones
-        for (int generacion = 1; generacion <= numeroGeneraciones; generacion++) {
-            List<Individuo> nuevaPoblacion = new ArrayList<>();
+        long t2 = System.currentTimeMillis();
+        System.out.printf("[GA] Poblacion inicial: %.2fs%n", (t2-t1)/1000.0);
 
-            // Elitismo: preservar los mejores individuos
+        // Evolución
+        for (int generacion = 1; generacion <= numeroGeneraciones; generacion++) {
+            long tGen = System.currentTimeMillis();
+
+            List<Individuo> nuevaPoblacion = new ArrayList<>();
             List<Individuo> elite = seleccionarElite(poblacion, (int)(tamañoPoblacion * 0.1));
             nuevaPoblacion.addAll(elite);
 
-            // Generar resto de la población
             while (nuevaPoblacion.size() < tamañoPoblacion) {
-                // Selección por torneo
                 Individuo padre1 = seleccionPorTorneo(poblacion);
                 Individuo padre2 = seleccionPorTorneo(poblacion);
 
-                // Cruzamiento
                 if (random.nextDouble() < tasaCruzamiento) {
                     List<Individuo> hijos = cruzamiento(padre1, padre2);
                     nuevaPoblacion.addAll(hijos);
@@ -85,34 +85,40 @@ public class GeneticAlgorithmMoraPack {
                 }
             }
 
-            // Ajustar tamaño si es necesario
             while (nuevaPoblacion.size() > tamañoPoblacion) {
                 nuevaPoblacion.remove(nuevaPoblacion.size() - 1);
             }
 
-            // Mutación
             for (int i = elite.size(); i < nuevaPoblacion.size(); i++) {
                 if (random.nextDouble() < tasaMutacion) {
                     mutar(nuevaPoblacion.get(i));
                 }
             }
 
-            // Evaluar nueva población
             evaluarPoblacion(nuevaPoblacion);
             poblacion = nuevaPoblacion;
 
-            // Actualizar mejor solución global
             Individuo mejorActual = encontrarMejorIndividuo(poblacion);
             if (mejorActual.fitness > mejorSolucionGlobal.getFitness()) {
                 mejorSolucionGlobal = mejorActual.solucion;
             }
 
             historialFitness.add(mejorSolucionGlobal.getFitness());
+
+            // Print cada 30 generaciones
+            if (generacion % 30 == 0) {
+                long tGenEnd = System.currentTimeMillis();
+                System.out.printf("[GA] Gen %d/%d (%.2fs) - Fitness: %.2f%n",
+                        generacion, numeroGeneraciones, (tGenEnd-tGen)/1000.0,
+                        mejorSolucionGlobal.getFitness());
+            }
         }
+
+        long t3 = System.currentTimeMillis();
+        System.out.printf("[GA] Generaciones: %.2fs%n", (t3-t2)/1000.0);
 
         return mejorSolucionGlobal;
     }
-
     /**
      * Genera población inicial usando GRASP y variaciones aleatorias
      */

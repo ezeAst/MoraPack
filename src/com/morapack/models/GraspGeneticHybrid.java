@@ -1,5 +1,5 @@
 package com.morapack.models;
-
+import com.morapack.utils.Profiler;
 import java.util.*;
 
 /**
@@ -42,23 +42,31 @@ public class GraspGeneticHybrid {
      * Ejecuta el algoritmo híbrido completo
      */
     public Solucion ejecutarHibrido() {
-        // System.out.println("=== INICIANDO ALGORITMO HÍBRIDO GRASP + GA ===");
+        Profiler.reset();
+        Profiler.iniciar("TOTAL_HIBRIDO");
 
-        // Fase 1: Ejecutar múltiples iteraciones de GRASP
-        // System.out.println("\n--- FASE 1: MÚLTIPLES EJECUCIONES DE GRASP ---");
-        //ejecutarFaseGrasp();
+        // Fase 1: GRASP
+        Profiler.iniciar("FASE_GRASP");
+        ejecutarFaseGrasp();
+        Profiler.finalizar("FASE_GRASP");
 
-        // Fase 2: Preparar población inicial enriquecida
-        // System.out.println("\n--- FASE 2: PREPARANDO POBLACIÓN INICIAL ENRIQUECIDA ---");
+        // Fase 2: Configurar GA
+        Profiler.iniciar("CONFIGURAR_GA");
         configurarGeneticoConGrasp();
+        Profiler.finalizar("CONFIGURAR_GA");
 
-        // Fase 3: Ejecutar algoritmo genético
-        // System.out.println("\n--- FASE 3: ALGORITMO GENÉTICO ---");
+        // Fase 3: Ejecutar GA
+        Profiler.iniciar("FASE_GA");
         Solucion mejorGA = geneticAlgorithm.ejecutar();
+        Profiler.finalizar("FASE_GA");
 
-        // Fase 4: Análisis comparativo
-        // System.out.println("\n--- FASE 4: ANÁLISIS COMPARATIVO ---");
+        // Fase 4: Análisis
+        Profiler.iniciar("ANALISIS_RESULTADOS");
         analizarResultados(mejorGA);
+        Profiler.finalizar("ANALISIS_RESULTADOS");
+
+        Profiler.finalizar("TOTAL_HIBRIDO");
+        Profiler.mostrarReporte();
 
         return mejorSolucionHibrida;
     }
@@ -139,7 +147,7 @@ public class GraspGeneticHybrid {
         }
 
         // Ajustar parámetros del GA para el contexto híbrido
-        geneticAlgorithm.setNumeroGeneraciones(150); // Más generaciones para mejor convergencia
+        geneticAlgorithm.setNumeroGeneraciones(50); // Más generaciones para mejor convergencia
         geneticAlgorithm.setTasaMutacion(0.12); // Mutación ligeramente menor con buenas semillas
         geneticAlgorithm.setTasaCruzamiento(0.85); // Mayor cruzamiento para explorar combinaciones
     }

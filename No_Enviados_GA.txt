@@ -1,6 +1,18 @@
-MORAPACK - PEDIDOS NO ENVIADOS (GA)
+MORAPACK - PEDIDOS NO ENVIADOS (HÍBRIDO GA)
 
 ID | Cantidad | Destino
 ----------------------------------------
+P02296 | 60 | EKCH
+P02865 | 85 | EKCH
+P03030 | 98 | EKCH
+P03046 | 44 | UMMS
+P03089 | 40 | OERK
+P03192 | 29 | EKCH
+P03199 | 97 | EBCI
+P03455 | 60 | SEQM
+P03516 | 73 | EBCI
+P03615 | 44 | EKCH
+P03924 | 32 | SEQM
+P03939 | 99 | UMMS
 
-Total no enviados: 0/1600
+Total no enviados: 12/4000
